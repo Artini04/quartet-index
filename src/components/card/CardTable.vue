@@ -1,10 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-	<div
-		class="result__grid"
-		v-auto-animate>
-		<slot name="item"></slot>
+	<div class="result__grid" v-auto-animate>
+		<slot name="item"> </slot>
 	</div>
 </template>
 
@@ -13,6 +11,10 @@ $border-thickness: 1px;
 
 .result {
 	&__grid {
+		margin: 0 1rem;
+	}
+
+	&__error {
 		margin: 1rem;
 	}
 }
@@ -42,6 +44,7 @@ $border-thickness: 1px;
 			gap: 1rem;
 			max-width: 900px;
 			margin-inline: auto;
+			padding: 1rem;
 
 			& > * {
 				padding: 1rem;

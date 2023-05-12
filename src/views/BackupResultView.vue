@@ -27,21 +27,32 @@ async function getQuartet(keyword: string) {
 		result_list.value.push(...value)
 	}
 }
+
+function debounce(func: any, timeout: number = 500) {
+	let timer: any
+
+	return (...args: any[]) => {
+		clearTimeout(timer)
+		timer = setTimeout(() => {
+			// @ts-ignore
+			func.apply(this, args)
+		}, timeout)
+		console.log(timer)
+	}
+}
+
+const processChange = debounce(() => getQuartet(search_query.value))
 </script>
 
 <template>
 	<div class="input-wrapper">
 		<input
 			v-model="search_query"
-			@keypress.enter.prevent="getQuartet(search_query)"
+			@keypress.enter.prevent="processChange()"
 			type="text"
 			class="search-input"
 			placeholder="Search..." />
-		<input
-			@click.prevent="getQuartet(search_query)"
-			type="button"
-			class="search-button"
-			value="Go!" />
+		<input @click.prevent="processChange()" type="button" class="search-button" value="Go!" />
 	</div>
 
 	<CardTable>
@@ -81,6 +92,15 @@ async function getQuartet(keyword: string) {
 
 		&[type='button'] {
 			background: var(--app-font);
+			transition: transform ease 100ms;
+
+			&:is(:hover) {
+				transform: scale(1.05);
+			}
+
+			&:active {
+				transform: scale(0.95);
+			}
 		}
 	}
 }

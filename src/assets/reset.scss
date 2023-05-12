@@ -3,6 +3,7 @@
 	margin: 0;
 	border: 0;
 	box-sizing: border-box;
+	outline: 0;
 }
 
 body {
@@ -19,7 +20,10 @@ a:any-link {
 	color: inherit;
 }
 
+select,
+textarea,
 input {
 	background: transparent;
 	font-family: inherit;
+	color: inherit;
 }

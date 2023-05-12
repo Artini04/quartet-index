@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '@/views/ResultsView.vue'
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,7 +9,7 @@ const router = createRouter({
 			name: 'home',
 			component: HomeView,
 			meta: {
-				title: 'Home',
+				title: 'Index - 日本語カルテット単語索引',
 			},
 		},
 	],
