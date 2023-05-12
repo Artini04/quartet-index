@@ -44,7 +44,6 @@ $border-thickness: 1px;
 			gap: 1rem;
 			max-width: 900px;
 			margin-inline: auto;
-			padding: 1rem;
 
 			& > * {
 				padding: 1rem;
