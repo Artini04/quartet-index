@@ -1,36 +1,35 @@
+<script setup lang="ts"></script>
+
 <template>
-	<header class="header__root">
-		<h1 class="header__title">Quartet Vocabulary Index</h1>
-		<div class="notice-wrapper">
-			<div class="temp">
-				<h3>NOTICE!</h3>
-				<p>Quartet Vol.II index still work-in-progress!</p>
-			</div>
+	<main class="main-root">
+		<div class="main__div">
+			<h2>日本語カルテット単語索引</h2>
+			<p>Japanese Quartet Vocabulary Index written in Vue.</p>
 		</div>
-	</header>
+		<div class="main__notice">
+			<h4>Notice!</h4>
+			<p>Site still work in progress. Index from Quartet Volume 2 still not done!</p>
+		</div>
+	</main>
 </template>
 
 <style lang="scss">
-.header {
-	&__root {
+.main {
+	&-root {
+		--notice-background-color: #7e3e36;
+		padding: 1rem 1rem 0.3rem;
+		margin: auto;
+		max-width: 600px;
+
 		& > * + * {
-			margin-top: 1rem;
+			margin-top: 0.5rem;
 		}
 	}
 
-	&__title {
-		text-align: center;
-		margin: 1rem;
-	}
-}
-
-.notice-wrapper {
-	padding: 1rem;
-	background: rgb(37, 136, 98);
-
-	.temp {
-		max-width: 600px;
-		margin-inline: auto;
+	&__notice {
+		padding: 0.5rem 0.7rem;
+		background: var(--notice-background-color);
+		border-radius: 7px;
 	}
 }
 </style>

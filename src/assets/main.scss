@@ -3,11 +3,9 @@
 body {
 	background: var(--app-background);
 	color: var(--app-font);
-	font-family: Arial, sans-serif;
 
+	text-rendering: optimizeLegibility;
+	font-smooth: antialiased;
+	font-family: 'IBM Plex Sans JP', Arial, sans-serif;
 	transition: background ease 200ms;
-}
-
-:lang(ja) {
-	font-family: 'IBM Plex Sans JP';
 }

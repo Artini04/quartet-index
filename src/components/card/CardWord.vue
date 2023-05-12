@@ -11,53 +11,37 @@ defineProps<{
 	score: number
 }>()
 
-const is_debug = true
+const isDebug = true
 </script>
 
 <template>
 	<div class="card__root">
-		<div
-			class="card__ja-wrapper"
-			lang="ja">
+		<div class="card__ja-wrapper" lang="ja">
 			<span
 				class="ja-kk"
 				v-for="item in ja_kk ? ja_kk?.split(';') : ja_h?.split(';')"
 				:key="item">
 				{{ item }}
 			</span>
-			<span
-				class="ja-h"
-				v-for="item in ja_kk ? ja_h?.split(';') : []"
-				:key="item">
+			<span class="ja-h" v-for="item in ja_kk ? ja_h?.split(';') : []" :key="item">
 				{{ item }}
 			</span>
 		</div>
 		<div class="card__en-wrapper">
-			<span
-				class="en"
-				v-for="item in en?.split(';')"
-				:key="item">
+			<span class="en" v-for="item in en?.split(';')" :key="item">
 				{{ item }}
-				<span
-					class="verb-type"
-					v-if="verb_type">
-					[{{ verb_type }}]
-				</span>
+				<span class="verb-type" v-if="verb_type"> [{{ verb_type }}] </span>
 			</span>
 		</div>
-		<div
-			class="card__info-wrapper"
-			lang="ja">
+		<div class="card__info-wrapper" lang="ja">
 			<span class="goto"
 				>{{ !kanji ? null : kanji === 2 ? '&#9670; ' : '&#9671; ' }}L{{ lesson }} 読み{{
 					reading
 				}}
 			</span>
 		</div>
-		<div
-			class="card__debug-wrapper"
-			:active="is_debug">
-			<span>DEBUG WEIGHT SCORE: {{ score }}</span>
+		<div class="card__debug-wrapper" :active="isDebug">
+			<span class="debug-wrapper__debug-score">DEBUG WEIGHT SCORE: {{ score }}</span>
 		</div>
 	</div>
 </template>
@@ -122,6 +106,12 @@ const is_debug = true
 		&[active='true'] {
 			display: block;
 		}
+	}
+}
+
+.debug-wrapper {
+	&__debug-score {
+		font-size: 0.8rem;
 	}
 }
 </style>
