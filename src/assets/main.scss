@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400&family=Open+Sans&family=Sawarabi+Gothic&display=swap');
+
+body {
+	background: var(--app-background);
+	color: var(--app-font);
+	font-family: 'Open Sans', sans-serif;
+
+	transition: background ease 200ms;
+}
+
+:lang(ja) {
+	font-family: 'IBM Plex Sans JP';
+}
