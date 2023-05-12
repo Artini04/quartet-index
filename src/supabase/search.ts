@@ -6,8 +6,10 @@ import { scoreTargetSource } from '@/helper'
 
 const limit: number = 20
 const resultList = ref<Word_Scored[]>([])
+const isSearching = ref<boolean>(false)
 
 async function getQuartet(keyword: string) {
+	isSearching.value = true
 	const { data, error } = await supabase.rpc('search_quartet', { keyword: keyword }).limit(limit)
 
 	if (error) console.log(error)
@@ -17,9 +19,11 @@ async function getQuartet(keyword: string) {
 		const value = scoreTargetSource(data, targetKeys, keyword)
 		resultList.value.push(...value)
 	}
+
+	isSearching.value = false
 }
 
-function debounce(func: any, timeout: number = 500) {
+function debounce(func: any, timeout: number = 100) {
 	let timer: any
 
 	return (...args: any[]) => {
@@ -33,4 +37,4 @@ function debounce(func: any, timeout: number = 500) {
 
 const searchWord = debounce((keyword: string) => getQuartet(keyword))
 
-export { searchWord, resultList }
+export { searchWord, resultList, isSearching }

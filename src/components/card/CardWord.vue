@@ -11,7 +11,7 @@ defineProps<{
 	score: number
 }>()
 
-const isDebug = true
+const isDebug = false
 </script>
 
 <template>
@@ -21,6 +21,7 @@ const isDebug = true
 				class="ja-kk"
 				v-for="item in ja_kk ? ja_kk?.split(';') : ja_h?.split(';')"
 				:key="item">
+				<span class="ja-h-add">{{ ja_h_add ? `&#65339;${ja_h_add}&#65341;` : '' }}</span>
 				{{ item }}
 			</span>
 			<span class="ja-h" v-for="item in ja_kk ? ja_h?.split(';') : []" :key="item">

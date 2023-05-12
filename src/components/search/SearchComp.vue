@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { Icon } from '@iconify/vue'
-import { searchWord } from '@/supabase'
+import { searchWord, isSearching } from '@/supabase'
 
 const searchQuery = ref<string>('')
 
@@ -44,6 +44,7 @@ function clearSearchQuery() {
 					<li>
 						<RouterLink to="/">home</RouterLink>
 					</li>
+					<li class="loading-overlay" :loading="isSearching">status: loading...</li>
 				</ul>
 			</div>
 		</div>
@@ -110,6 +111,18 @@ $input-padding: 0.7rem;
 			li {
 				text-decoration: underline;
 				cursor: pointer;
+			}
+		}
+
+		.loading-overlay {
+			text-decoration: none;
+
+			&[loading='false'] {
+				display: none;
+			}
+
+			&[loading='true'] {
+				display: block;
 			}
 		}
 
