@@ -8,7 +8,10 @@ defineProps<{
 	kanji: number | null
 	lesson: number
 	reading: number
+	score: number
 }>()
+
+const is_debug = true
 </script>
 
 <template>
@@ -50,6 +53,11 @@ defineProps<{
 					reading
 				}}
 			</span>
+		</div>
+		<div
+			class="card__debug-wrapper"
+			:active="is_debug">
+			<span>DEBUG WEIGHT SCORE: {{ score }}</span>
 		</div>
 	</div>
 </template>
@@ -104,6 +112,15 @@ defineProps<{
 			&::before {
 				content: '\884C';
 			}
+		}
+	}
+
+	&__debug-wrapper {
+		display: none;
+		color: yellow;
+
+		&[active='true'] {
+			display: block;
 		}
 	}
 }

@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-	<div class="result__grid" v-auto-animate>
+	<div
+		class="result__grid"
+		v-auto-animate>
 		<slot name="item"></slot>
 	</div>
 </template>
@@ -36,11 +38,15 @@ $border-thickness: 1px;
 	.result {
 		&__grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 1rem;
+			max-width: 900px;
+			margin-inline: auto;
 
 			& > * {
 				padding: 1rem;
-				border-left: 1px solid var(--app-font-muted);
+				border: 1px solid var(--app-font-muted);
+				border-radius: 7px;
 			}
 		}
 	}

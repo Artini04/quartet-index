@@ -1,55 +1,112 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { supabase } from '@/supabase'
+import { scoreTargetSource } from '@/helper'
 
-import type { Word } from '@/assets/types'
+import type { Word_Scored } from '@/assets/types'
 
 import CardTable from '@/components/card/CardTable.vue'
 import CardWord from '@/components/card/CardWord.vue'
 
-const result_list = ref<Word[]>([]),
-	search_query = ref<string>('')
+const result_list = ref<Word_Scored[]>([]),
+	search_query = ref<string>(''),
+	limit: number = 20
 
 async function getQuartet(keyword: string) {
 	const { data, error } = await supabase
 		.rpc('search_quartet', {
 			keyword: keyword,
 		})
-		.limit(50)
+		.limit(limit)
 
 	if (error) console.error(error)
 	else {
 		result_list.value = []
-		result_list.value.push(...data)
+		const targetKeys: string[] = ['ja-kk', 'ja-h', 'en', 'special-case'],
+			value = scoreTargetSource(data, targetKeys, search_query.value)
+		result_list.value.push(...value)
 	}
 }
 </script>
 
 <template>
-	<div class="">
+	<div class="input-wrapper">
 		<input
 			v-model="search_query"
-			type="text" />
+			@keypress.enter.prevent="getQuartet(search_query)"
+			type="text"
+			class="search-input"
+			placeholder="Search..." />
 		<input
 			@click.prevent="getQuartet(search_query)"
 			type="button"
-			value="Sample Search" />
+			class="search-button"
+			value="Go!" />
 	</div>
 
 	<CardTable>
 		<template v-slot:item>
 			<CardWord
-				v-for="word in result_list"
-				:key="word['id'] + Math.floor(Math.random() * 10)"
-				:ja_kk="word['ja-kk']"
-				:ja_h="word['ja-h']"
-				:ja_h_add="word['ja-h-add']"
-				:en="word['en']"
-				:lesson="word['lesson']"
-				:reading="word['reading']"
-				:kanji="word['kanji']" />
+				v-for="{ score, object } in result_list"
+				:key="object['id'] + Math.floor(Math.random() * 10)"
+				:ja_kk="object['ja-kk']"
+				:ja_h="object['ja-h']"
+				:ja_h_add="object['ja-h-add']"
+				:en="object['en']"
+				:lesson="object['lesson']"
+				:reading="object['reading']"
+				:kanji="object['kanji']"
+				:score="score" />
 		</template>
 	</CardTable>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.input-wrapper {
+	display: flex;
+	padding: 1rem;
+
+	input {
+		padding: 0.5rem;
+		border-radius: 5px;
+
+		&[type='text'] {
+			border: 1px solid var(--app-font-muted);
+			color: var(--app-font);
+
+			&::placeholder {
+				color: var(--app-font-muted);
+			}
+		}
+
+		&[type='button'] {
+			background: var(--app-font);
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.input-wrapper {
+		flex-flow: column nowrap;
+		gap: 0.5rem;
+	}
+}
+
+@media screen and (min-width: 501px) {
+	.input-wrapper {
+		flex-flow: row nowrap;
+		gap: 0.5rem;
+
+		max-width: 600px;
+		margin-inline: auto;
+
+		& > .search-input {
+			flex: 1 1 90%;
+		}
+
+		& > .search-button {
+			flex: 1 1 10%;
+		}
+	}
+}
+</style>

@@ -12,4 +12,14 @@ type Word = {
 	'special-case': string | null
 }
 
-export type { Word }
+type Word_Scored = {
+	score: number
+	object: Word
+}
+
+type Gram_Result = {
+	gram: string
+	count: number
+}
+
+export type { Word, Word_Scored, Gram_Result }
