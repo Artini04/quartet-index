@@ -3,7 +3,7 @@
 		<p>
 			This
 			<a
-				href="https://github.com/Artini04/genki-index"
+				href="https://github.com/Artini04/quartet-index"
 				target="_blank"
 				>project</a
 			>
