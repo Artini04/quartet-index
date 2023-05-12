@@ -18,7 +18,7 @@
 	</footer>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 footer {
 	width: clamp(200px, 80%, 600px);
 	padding: 0.5rem 0;
