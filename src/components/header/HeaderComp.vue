@@ -1,20 +1,20 @@
 <script setup lang="ts"></script>
 
 <template>
-	<main class="main-root">
-		<div class="main__div">
+	<header class="header-root">
+		<div class="header__div">
 			<h2>日本語カルテット単語索引</h2>
 			<p>Japanese Quartet Vocabulary Index written in Vue.</p>
 		</div>
-		<div class="main__notice">
-			<h4>Notice!</h4>
+		<div class="header__notice">
+			<h2 class="notice__title">Notice!</h2>
 			<p>Site still work in progress. Index from Quartet Volume 2 still not done!</p>
 		</div>
-	</main>
+	</header>
 </template>
 
 <style lang="scss">
-.main {
+.header {
 	&-root {
 		--notice-background-color: #7e3e36;
 		padding: 1rem 1rem 0.3rem;
@@ -30,6 +30,12 @@
 		padding: 0.5rem 0.7rem;
 		background: var(--notice-background-color);
 		border-radius: 7px;
+	}
+}
+
+.notice {
+	&__title {
+		font-size: 1.2rem;
 	}
 }
 </style>
