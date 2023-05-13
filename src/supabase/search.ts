@@ -1,5 +1,5 @@
 import { supabase } from '.'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 import type { Word_Scored } from '@/assets/types'
 import { scoreTargetSource } from '@/helper'
@@ -7,6 +7,9 @@ import { scoreTargetSource } from '@/helper'
 const limit: number = 20
 const resultList = ref<Word_Scored[]>([])
 const isSearching = ref<boolean>(false)
+const status = computed(() => {
+	return isSearching.value ? 'fetch' : resultList.value.length > 0 ? 'ok' : 'none'
+})
 
 async function getQuartet(keyword: string) {
 	isSearching.value = true
@@ -37,4 +40,4 @@ function debounce(func: any, timeout: number = 100) {
 
 const searchWord = debounce((keyword: string) => getQuartet(keyword))
 
-export { searchWord, resultList, isSearching }
+export { searchWord, resultList, status }

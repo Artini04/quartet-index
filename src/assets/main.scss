@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Instrument+Sans&display=swap');
 
 body {
 	background: var(--app-background);
 	color: var(--app-font);
 
 	text-rendering: optimizeLegibility;
-	font-family: 'IBM Plex Sans JP', Arial, sans-serif;
+	font-family: 'Instrument Sans', 'IBM Plex Sans JP', sans-serif;
 	transition: background ease 200ms;
 }

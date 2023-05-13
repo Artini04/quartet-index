@@ -1,30 +1,59 @@
+<script setup lang="ts">
+import { Icon } from '@iconify/vue'
+
+const ratio: number = 28
+</script>
+
 <template>
-	<footer>
-		<p>
-			This <a href="https://github.com/Artini04/quartet-index" target="_blank">project</a> was
-			made by <a href="https://github.com/Artini04" target="_blank">artini04</a> as a learning
-			project both for Web Development and Japanese! This is not a Japanese Dictionary! Words
-			used here are from the book "Quartet: Intermediate Japanese Across the Four Language
-			Skills"
-		</p>
+	<footer class="footer__root">
+		<div class="footer__p-container">
+			<p class="footer__p">
+				この
+				<a href="https://github.com/Artini04/quartet-index" target="_blank">プロジェクト</a>
+				がVue3と日本語を習うために
+				<a href="https://github.com/Artini04" target="_blank">artini04</a>
+				に作られました。使った言葉が「４技能でひろがる中級日本語カルテット」という本に由来しているものです。
+			</p>
+		</div>
+		<div class="footer__icon-list">
+			<a href="https://github.com/Artini04/quartet-index" target="_blank">
+				<Icon icon="tabler:brand-github-filled" :width="ratio" :height="ratio" />
+			</a>
+		</div>
 	</footer>
 </template>
 
 <style lang="scss">
-footer {
-	max-width: 600px;
-	padding: 1rem 0;
-	margin: 1rem auto;
-	border-top: 1px solid var(--app-font-muted);
+.footer {
+	&__root {
+		max-width: 600px;
+		padding: 1rem;
+		margin: 0 auto;
 
-	p {
+		& > * + * {
+			margin-top: 0.5rem;
+		}
+	}
+
+	&__p-container {
+		border-top: 1px solid var(--app-font-muted);
+		padding: 1rem 0 0 0;
+	}
+
+	&__p {
 		text-align: justify;
 	}
-}
 
-@media screen and (max-width: 600px) {
-	footer {
-		margin: 1rem;
+	&__icon-list {
+		text-align: center;
+
+		& > * {
+			display: inline-block;
+		}
+
+		& > * + * {
+			margin-left: 0.3rem;
+		}
 	}
 }
 </style>
