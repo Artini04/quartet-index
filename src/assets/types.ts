@@ -4,7 +4,7 @@ type Word = {
 	'ja-kk': string | null
 	en: string | null
 	'ja-h-add': string | null
-	'verb-type': string | null
+	'en-add': string | null
 	lesson: number
 	reading: number
 	kanji: number | null

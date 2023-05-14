@@ -16,6 +16,7 @@ import { resultList } from '@/supabase/index'
 					:ja_h="object['ja-h']"
 					:ja_h_add="object['ja-h-add']"
 					:en="object['en']"
+					:en_add="object['en-add']"
 					:lesson="object['lesson']"
 					:reading="object['reading']"
 					:kanji="object['kanji']"
