@@ -4,11 +4,11 @@
 	<header class="header-root">
 		<div class="header__div">
 			<h2>日本語カルテット単語索引</h2>
-			<p>Japanese Quartet Vocabulary Index written in Vue.</p>
-		</div>
-		<div class="header__notice">
-			<h2 class="notice__title">Notice!</h2>
-			<p>Site still work in progress. Index from Quartet Volume 2 still not done!</p>
+			<p>
+				Japanese Quartet Vocabulary Index written in Vue3. Book volumes are colored based on
+				their respective color. I added links from English-Japanese
+				dictionaries to access them easily.
+			</p>
 		</div>
 	</header>
 </template>
@@ -17,7 +17,7 @@
 .header {
 	&-root {
 		--notice-background-color: #7e3e36;
-		padding: 1rem 1rem 0.3rem;
+		padding: 1rem 1rem 0;
 		margin: auto;
 		max-width: 600px;
 

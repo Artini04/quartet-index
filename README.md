@@ -1,3 +1,3 @@
 # quartet-index
 
-Quartet I Vocabulary Index written in Vue.
+Quartet Vocabulary Index written in Vue.

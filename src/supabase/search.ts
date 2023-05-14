@@ -4,7 +4,7 @@ import { ref, computed } from 'vue'
 import type { Word_Scored } from '@/assets/types'
 import { scoreTargetSource } from '@/helper'
 
-const limit: number = 20
+const limit: number = 30
 const resultList = ref<Word_Scored[]>([])
 const isSearching = ref<boolean>(false)
 const status = computed(() => {

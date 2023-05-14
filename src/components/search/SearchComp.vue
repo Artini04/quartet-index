@@ -68,7 +68,7 @@ $input-padding: 0.7rem;
 	display: flex;
 	flex-flow: column nowrap;
 	gap: 0.3rem;
-	padding: 0 1rem 1rem;
+	padding: 1rem;
 
 	max-width: 600px;
 	margin: 0 auto;
