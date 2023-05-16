@@ -13,207 +13,170 @@ defineProps<{
 	score: number
 }>()
 
-const isDebug = false
 const iconSize = 18
+
+function truncate(string: string): string {
+	return string.length > 4 ? string.slice(0, 4) + '...' : string
+}
 </script>
 
 <template>
-	<div class="card__root">
-		<div class="card__ja-wrapper" lang="ja">
-			<span
-				class="ja-kk"
-				v-for="item in ja_kk ? ja_kk?.split(';') : ja_h?.split(';')"
-				:key="item">
-				<span class="ja-h-add">{{ ja_h_add ? `[${ja_h_add}]` : '' }}</span>
-				{{ item.trim() }}
+	<div class="card | flex flex-col-nowrap flex-gap-10 flex-bal | padding-30 | border border-20">
+		<div
+			class="info-wrapper | flex flex-row-nowrap flex-gap-10 flex-bal flex-center-center flex-nogrow | padding-10 | border-20 | shade">
+			<span class="goto | text-center border-s" :vol="lesson >= 7 ? 2 : 1">
+				Lesson {{ lesson }}
 			</span>
-			<span class="ja-h" v-for="item in ja_kk ? ja_h?.split(';') : []" :key="item">
-				{{ item.trim() }}
+			<span class="reading | text-center">読み{{ reading }}</span>
+			<span class="kanji-rem | text-center">
+				{{ kanji ? '&#65343;' : kanji === 2 ? '&#9670;' : '&#9671;' }}
 			</span>
 		</div>
-		<div class="card__en-wrapper">
-			<span class="en" v-for="item in en?.split(';')" :key="item">
-				{{ item.trim() }}
-				<span class="verb-type" v-if="en_add"> [{{ en_add }}] </span>
-			</span>
-		</div>
-		<div class="card__info-wrapper">
-			<span class="goto" :vol="lesson >= 7 ? 2 : 1">
-				{{ !kanji ? null : kanji === 2 ? '&#9670; ' : '&#9671; ' }}
-				L{{ lesson }} 読み{{ reading }}
-			</span>
-		</div>
-		<div class="card__link-wrapper">
-			<div>
-				<Icon icon="tabler:book-2" :width="iconSize" :height="iconSize" />
-				<span class="link-wrapper__span"> jpdb.io </span>
-				<div class="link-wrapper__small-container">
-					<a
-						v-for="(item, index) in ja_kk ? ja_kk.split(';') : ja_h?.split(';')"
-						:key="item + 'key'"
-						:href="`https://jpdb.io/search?q=${item}#a`"
-						target="_blank"
-						rel="noopener noreferrer">
-						{{ item.length > 4 ? item.slice(0, 4) + '...' : item }} [{{ index }}]
-					</a>
-					<a
-						v-for="(item, index) in ja_kk ? ja_h?.split(';') : []"
-						:key="item + 'key'"
-						:href="`https://jpdb.io/search?q=${item}#a`"
-						target="_blank"
-						rel="noopener noreferrer">
-						{{ item.length > 4 ? item.slice(0, 4) + '...' : item }} [{{ index }}]
-					</a>
-				</div>
+
+		<div class="text-wrapper | flow-spaced | padding-20">
+			<div
+				class="ja-wrapper | flex flex-row-wrap flex-start-center | ja-wrapper-gap"
+				lang="ja">
+				<span
+					class="ja-kk | kana-kanji"
+					v-for="item in ja_kk ? ja_kk?.split(';') : ja_h?.split(';')"
+					:key="item">
+					<span v-if="ja_h_add" class="ja-h-add | text-l">{{ `[${ja_h_add}]` }}</span>
+					{{ item.trim() }}
+				</span>
+
+				<span
+					class="ja-h | hiragana"
+					v-for="item in ja_kk ? ja_h?.split(';') : []"
+					:key="item">
+					{{ item.trim() }}
+				</span>
 			</div>
-			<div>
-				<Icon icon="tabler:book-2" :width="iconSize" :height="iconSize" />
-				<span class="link-wrapper__span"> weblio英和辞書 </span>
-				<div class="link-wrapper__small-container">
-					<a
-						v-for="(item, index) in ja_kk ? ja_kk.split(';') : ja_h?.split(';')"
-						:key="item + 'key'"
-						:href="`https://ejje.weblio.jp/content/${item}`"
-						target="_blank"
-						rel="noopener noreferrer">
-						{{ item.length > 4 ? item.slice(0, 4) + '...' : item }} [{{ index }}]
-					</a>
-					<a
-						v-for="(item, index) in ja_kk ? ja_h?.split(';') : []"
-						:key="item + 'key'"
-						:href="`https://ejje.weblio.jp/content/${item}`"
-						target="_blank"
-						rel="noopener noreferrer">
-						{{ item.length > 4 ? item.slice(0, 4) + '...' : item }} [{{ index }}]
-					</a>
-				</div>
+
+			<div class="en-wrapper | flow-spaced">
+				<span
+					class="en | margin-left-40 | english"
+					v-for="item in en?.split(';')"
+					:key="item">
+					{{ item.trim() }}
+					<span v-if="en_add" class="verb-type"> [{{ en_add }}] </span>
+				</span>
 			</div>
 		</div>
-		<div class="card__debug-wrapper" v-if="isDebug">
-			<span class="debug-wrapper__debug-score">DEBUG WEIGHT SCORE: {{ score }}</span>
+
+		<div
+			class="link-wrapper | flex flex-row-nowrap flex-stretch-stretch flex-bal flex-nogrow | padding-20 | border-20 | shade">
+			<div class="link">
+				<Icon icon="tabler:book-2" :width="iconSize" :height="iconSize" />
+				<span class="link-span | text-n"> jpdb.io </span>
+				<div class="link-small-container | margin-top-20 | flow-spaced-s text-s">
+					<span
+						v-for="(item, index) in [
+							...(ja_kk?.split(';') ?? []),
+							...(ja_h?.split(';') ?? []),
+						]"
+						:key="index">
+						<a :href="`https://jpdb.io/search?q=${item}#a`" target="_blank">
+							{{ truncate(item) }}
+						</a>
+					</span>
+				</div>
+			</div>
+
+			<div class="link">
+				<Icon icon="tabler:book-2" :width="iconSize" :height="iconSize" />
+				<span class="link-span | text-n"> weblio英和辞書 </span>
+				<div class="link-small-container | margin-top-20 | flow-spaced-s text-s">
+					<span
+						v-for="(item, index) in [
+							...(ja_kk?.split(';') ?? []),
+							...(ja_h?.split(';') ?? []),
+						]"
+						:key="index">
+						<a :href="`https://ejje.weblio.jp/content/${item}`" target="_blank">
+							{{ truncate(item) }}
+						</a>
+					</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 
 <style lang="scss">
+$spacing: 0.3rem;
+$link-spacing: 0 0.4rem;
+
+// Global Symbols
+:root {
+	--en-symbol: '\82F1';
+}
+
+// Dark Theme Palette
 :root[data-theme='dark'] {
 	--book-vol-1: #ff677c;
 	--book-vol-2: #50b0ff;
 	--link-color: #ffffff;
 
-	--goto-symbol: '\884C';
-	--en-symbol: '\82F1';
+	--kana-kanji: rgb(241, 109, 69);
 }
 
-.card {
-	&__root {
-		& > * + * {
-			margin-top: 0.2rem;
-		}
-	}
-
-	&__ja-wrapper {
-		display: flex;
-		flex-flow: row wrap;
-		gap: 0 0.5rem;
-		align-items: flex-end;
-
-		.ja-kk {
-			font-size: 1.2rem;
-			color: var(--ja-kk);
-
-			.ja-h-add {
-				font-size: 1rem;
-			}
-		}
-	}
-
-	&__en-wrapper,
-	&__info-wrapper {
-		& > span {
-			display: block;
-			&::before {
-				margin-right: 0.5rem;
-				color: inherit;
-			}
-		}
-	}
-
-	&__en-wrapper {
-		.en {
-			display: block;
-			.verb-type {
-				display: inline-block;
-				font-style: italic;
-			}
-
-			&::before {
-				content: var(--en-symbol);
-			}
-		}
-	}
-
-	&__info-wrapper {
-		.goto {
-			&[vol='1'] {
-				color: var(--book-vol-1);
-			}
-
-			&[vol='2'] {
-				color: var(--book-vol-2);
-			}
-
-			&::before {
-				content: var(--goto-symbol);
-			}
-		}
-	}
-
-	&__debug-wrapper {
-		display: none;
-		color: yellow;
-	}
-
-	&__link-wrapper {
-		margin-top: 1rem;
-
-		a {
-			display: block;
-			width: fit-content;
-			color: var(--link-color);
-		}
-
-		& > div {
-			position: relative;
-
-			svg {
-				aspect-ratio: 1;
-				margin-bottom: -0.2rem;
-			}
-		}
-
-		& > * + * {
-			margin-top: 0.3rem;
-		}
-	}
+// ================ //
+// 		BLOCK		//
+// ================ //
+.shade {
+	background-color: rgba($color: #000000, $alpha: 0.1);
 }
 
-.link-wrapper {
-	&__small-container {
-		display: flex;
-		flex-flow: row wrap;
-		gap: 0 1rem;
-		font-size: 0.8rem;
-	}
+.ja-wrapper-gap {
+	gap: 0.2rem 0.5rem;
+}
 
-	&__span {
+.kana-kanji {
+	font-size: 1.6rem;
+	line-height: 2rem;
+	color: var(--kana-kanji);
+}
+
+.hiragana {
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+}
+
+.verb-type {
+	display: inline-block;
+	font-style: italic;
+}
+
+.english {
+	&::before {
+		content: var(--en-symbol);
 		margin-right: 0.5rem;
 	}
 }
 
-.debug-wrapper {
-	&__debug-score {
-		font-size: 0.8rem;
+.goto {
+	&[vol='1'] {
+		color: var(--book-vol-1);
+	}
+
+	&[vol='2'] {
+		color: var(--book-vol-2);
+	}
+}
+
+.link {
+	svg {
+		margin-bottom: -0.1rem;
+	}
+
+	&-small-container {
+		span {
+			&::before {
+				content: '-';
+				margin-right: 0.5rem;
+			}
+		}
 	}
 }
 </style>

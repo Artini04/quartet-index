@@ -1,41 +1,15 @@
 <script setup lang="ts"></script>
 
 <template>
-	<header class="header-root">
-		<div class="header__div">
-			<h2>日本語カルテット単語索引</h2>
-			<p>
+	<header class="header | padding-40 padding-bottom-0 margin-auto width-20">
+		<div class="header-div | flow-spaced">
+			<h2 class="text-center">日本語カルテット単語索引</h2>
+			<h2 class="text-center">Quartet Vocabulary Index</h2>
+			<p class="text-justify">
 				Japanese Quartet Vocabulary Index written in Vue3. Book volumes are colored based on
-				their respective color. I added links from English-Japanese
-				dictionaries to access them easily.
+				their respective color. I added links from English-Japanese dictionaries to access
+				them easily.
 			</p>
 		</div>
 	</header>
 </template>
-
-<style lang="scss">
-.header {
-	&-root {
-		--notice-background-color: #7e3e36;
-		padding: 1rem 1rem 0;
-		margin: auto;
-		max-width: 600px;
-
-		& > * + * {
-			margin-top: 0.5rem;
-		}
-	}
-
-	&__notice {
-		padding: 0.5rem 0.7rem;
-		background: var(--notice-background-color);
-		border-radius: 7px;
-	}
-}
-
-.notice {
-	&__title {
-		font-size: 1.2rem;
-	}
-}
-</style>
