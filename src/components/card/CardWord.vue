@@ -42,14 +42,14 @@ function truncate(string: string): string {
 					v-for="item in ja_kk ? ja_kk?.split(';') : ja_h?.split(';')"
 					:key="item">
 					<span v-if="ja_h_add" class="ja-h-add | text-l">{{ `[${ja_h_add}]` }}</span>
-					{{ item.trim() }}
+					{{ item }}
 				</span>
 
 				<span
 					class="ja-h | hiragana"
 					v-for="item in ja_kk ? ja_h?.split(';') : []"
 					:key="item">
-					{{ item.trim() }}
+					{{ item }}
 				</span>
 			</div>
 
@@ -58,7 +58,7 @@ function truncate(string: string): string {
 					class="en | margin-left-40 | english"
 					v-for="item in en?.split(';')"
 					:key="item">
-					{{ item.trim() }}
+					{{ item }}
 					<span v-if="en_add" class="verb-type"> [{{ en_add }}] </span>
 				</span>
 			</div>

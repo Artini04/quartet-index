@@ -28,7 +28,7 @@ import { resultList } from '@/supabase/index'
 
 <style lang="scss">
 main {
-	max-width: 900px;
+	max-width: 1200px;
 	margin-inline: auto;
 	padding: 0 1rem;
 }
