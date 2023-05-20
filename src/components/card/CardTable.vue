@@ -20,9 +20,6 @@ $border-thickness: 1px;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: 1rem;
-
-		max-width: 900px;
-		margin-inline: auto;
 	}
 }
 </style>

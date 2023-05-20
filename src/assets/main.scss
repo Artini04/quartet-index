@@ -14,6 +14,10 @@ $common-size: (
 	40: 1rem,
 	50: 1.2rem,
 	60: 1.5rem,
+	70: 1.7rem,
+	80: 2rem,
+	90: 2.2rem,
+	100: 2.5rem,
 );
 
 $font-size: (
@@ -78,23 +82,23 @@ body {
 	transition: background ease 200ms;
 }
 
-// ==================== //
-// 		COMPOSITE		//
-// ==================== //
-.flow-spaced {
-	$space: 0.5rem;
+// ================ //
+// 		UTILITY		//
+// ================ //
+.flow {
+	$space: 0.2rem;
 
-	& > * {
-		display: block;
+	&-x {
+		& > * {
+			display: inline-block;
+		}
+
+		& > * + * {
+			margin-left: calc($space * 3);
+		}
 	}
 
-	& > * + * {
-		margin-top: $space;
-	}
-
-	&-s {
-		$space: 0.2rem;
-
+	&-y {
 		& > * {
 			display: block;
 		}
@@ -105,9 +109,6 @@ body {
 	}
 }
 
-// ================ //
-// 		UTILITY		//
-// ================ //
 .flex {
 	display: flex;
 

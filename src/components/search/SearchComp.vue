@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
-import { searchWord, status } from '@/supabase'
+import { getQuartet, status } from '@/supabase'
 
 const searchQuery = ref<string>('')
 
@@ -18,18 +18,17 @@ function clearSearchQuery() {
 				<Icon icon="tabler:search" />
 				<input
 					v-model="searchQuery"
-					@keypress.enter.prevent="searchWord(searchQuery)"
+					@keypress.enter.prevent="getQuartet(searchQuery)"
 					class="search-box | margin-30 margin-left-10 | width-full height-full | text-n"
 					type="text"
 					placeholder="Search word..."
 					:disabled="status === 'fetch' ? true : false" />
 			</div>
 
-			<div
-				class="search-button-container | padding-20 padding-left-40 padding-right-40 | light-shade border-20 focus-within cursor-pointer">
+			<div class="search-button-container | light-shade border-20 focus-within">
 				<input
-					@click.prevent="searchWord(searchQuery)"
-					class="width-full height-full | text-n"
+					@click.prevent="getQuartet(searchQuery)"
+					class="width-full height-full | text-n | padding-20 padding-left-40 padding-right-40 cursor-pointer"
 					type="button"
 					value="Go!"
 					:disabled="status === 'fetch' ? true : false" />
@@ -58,10 +57,10 @@ function clearSearchQuery() {
 $input-padding: 0.7rem;
 
 :root[data-theme='dark'] {
-	--component-background-color: #505355;
-	--component-background-color-active: #6d7277;
-	--component-background-color-disabled: #3b3b3b;
-	--component-font-color-disabled: #616161;
+	--component-background-color: #40464d;
+	--component-background-color-active: #636f7a;
+	--component-background-color-disabled: #2d333a;
+	--component-font-color-disabled: #546572;
 	--component-placeholder-color: #b0b6bd;
 	--component-border-color: #5d7280;
 	--component-border-radius: 5px;
@@ -83,34 +82,54 @@ $input-padding: 0.7rem;
 				color: var(--component-placeholder-color);
 			}
 		}
+	}
 
-		.search-button-container {
-			transition: transform ease 100ms, background ease 200ms;
+	&-input-container,
+	&-button-container,
+	&-select-container {
+		transition: transform ease 100ms, background ease 200ms;
 
-			&:is(:active) {
-				transform: scale(0.9);
-			}
-			&:is(:hover, :focus) {
-				background: var(--component-background-color-active);
-			}
-
-			&:has(:disabled) {
-				background: var(--component-background-color-disabled);
-			}
-
-			input {
-				transition: transform ease 100ms, background ease 200ms;
-
-				&:disabled {
-					background: var(--component-background-color-disabled);
-					color: var(--component-font-color-disabled);
-				}
-			}
+		&:has(:disabled) {
+			background: var(--component-background-color-disabled);
+			color: var(--component-font-color-disabled);
 		}
 	}
 
 	&-input-container {
-		flex: 1 170%;
+		flex: 1 60%;
+	}
+
+	&-button-container {
+		flex: 0 1 80px;
+
+		&:is(:active) {
+			transform: scale(0.9);
+		}
+
+		&:is(:hover, :focus) {
+			background: var(--component-background-color-active);
+		}
+
+		input {
+			background: transparent;
+		}
+	}
+
+	&-select-container {
+		flex: 0 1 90px;
+		select {
+			text-align: center;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			text-indent: 1px;
+			text-overflow: '';
+
+			option {
+				background: var(--component-background-color);
+				text-align: center;
+			}
+		}
 	}
 
 	&-options-container {

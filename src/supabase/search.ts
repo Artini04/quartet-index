@@ -13,7 +13,8 @@ const status = computed(() => {
 
 async function getQuartet(keyword: string) {
 	isSearching.value = true
-	const { data, error } = await supabase.rpc('search_quartet', { keyword: keyword }).limit(limit)
+
+	const { data, error } = await supabase.rpc('fuzzy_search', { keyword: keyword }).limit(limit)
 
 	if (error) console.log(error)
 	else {
@@ -40,4 +41,4 @@ function debounce(func: any, timeout: number = 100) {
 
 const searchWord = debounce((keyword: string) => getQuartet(keyword))
 
-export { searchWord, resultList, status }
+export { getQuartet, searchWord, resultList, status }
