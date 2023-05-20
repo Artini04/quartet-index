@@ -5,7 +5,7 @@ const ratio: number = 28
 </script>
 
 <template>
-	<footer class="footer | padding-40 margin-auto width-20 | flow-spaced">
+	<footer class="footer | padding-40 margin-auto width-20 | flow-y">
 		<div>
 			<p class="text-justify">
 				この

@@ -2,14 +2,17 @@
 import { Icon } from '@iconify/vue'
 
 defineProps<{
+	id: number
+	ja_letter_loc: string
 	ja_kk: string | null
-	ja_h: string | null
+	ja_h: string
 	ja_h_add: string | null
+	ja_h_suru: string | null
 	en: string | null
 	en_add: string | null
-	kanji: number | null
 	lesson: number
 	reading: number
+	kanji: number | null
 	score: number
 }>()
 
@@ -33,7 +36,7 @@ function truncate(string: string): string {
 			</span>
 		</div>
 
-		<div class="text-wrapper | flow-spaced | padding-20">
+		<div class="text-wrapper | flow-y | padding-20">
 			<div
 				class="ja-wrapper | flex flex-row-wrap flex-start-center | ja-wrapper-gap"
 				lang="ja">
@@ -41,7 +44,6 @@ function truncate(string: string): string {
 					class="ja-kk | kana-kanji"
 					v-for="item in ja_kk ? ja_kk?.split(';') : ja_h?.split(';')"
 					:key="item">
-					<span v-if="ja_h_add" class="ja-h-add | text-l">{{ `[${ja_h_add}]` }}</span>
 					{{ item }}
 				</span>
 
@@ -53,7 +55,7 @@ function truncate(string: string): string {
 				</span>
 			</div>
 
-			<div class="en-wrapper | flow-spaced">
+			<div class="en-wrapper | flow-y">
 				<span
 					class="en | margin-left-40 | english"
 					v-for="item in en?.split(';')"
@@ -62,6 +64,11 @@ function truncate(string: string): string {
 					<span v-if="en_add" class="verb-type"> [{{ en_add }}] </span>
 				</span>
 			</div>
+
+			<div class="flow-x | margin-left-80">
+				<span v-if="ja_h_add" class="ja-h-add | text-s">{{ `[${ja_h_add}]` }}</span>
+				<span v-if="ja_h_suru" class="text-s">({{ ja_h_suru }})</span>
+			</div>
 		</div>
 
 		<div
@@ -69,7 +76,7 @@ function truncate(string: string): string {
 			<div class="link">
 				<Icon icon="tabler:book-2" :width="iconSize" :height="iconSize" />
 				<span class="link-span | text-n"> jpdb.io </span>
-				<div class="link-small-container | margin-top-20 | flow-spaced-s text-s">
+				<div class="link-small-container | margin-top-20 | flow-y text-s">
 					<span
 						v-for="(item, index) in [
 							...(ja_kk?.split(';') ?? []),
@@ -86,7 +93,7 @@ function truncate(string: string): string {
 			<div class="link">
 				<Icon icon="tabler:book-2" :width="iconSize" :height="iconSize" />
 				<span class="link-span | text-n"> weblio英和辞書 </span>
-				<div class="link-small-container | margin-top-20 | flow-spaced-s text-s">
+				<div class="link-small-container | margin-top-20 | flow-y text-s">
 					<span
 						v-for="(item, index) in [
 							...(ja_kk?.split(';') ?? []),
@@ -162,6 +169,16 @@ $link-spacing: 0 0.4rem;
 
 	&[vol='2'] {
 		color: var(--book-vol-2);
+	}
+}
+
+div {
+	&[vol='1'] {
+		border-color: var(--book-vol-1);
+	}
+
+	&[vol='2'] {
+		border-color: var(--book-vol-2);
 	}
 }
 
