@@ -89,6 +89,18 @@ body {
 	$space: 0.2rem;
 
 	&-x {
+		@each $name, $space in $common-size {
+			&-#{$name} {
+				& > * {
+					display: block;
+				}
+
+				& > * + * {
+					margin-left: #{$space};
+				}
+			}
+		}
+
 		& > * {
 			display: inline-block;
 		}
@@ -99,6 +111,18 @@ body {
 	}
 
 	&-y {
+		@each $name, $space in $common-size {
+			&-#{$name} {
+				& > * {
+					display: block;
+				}
+
+				& > * + * {
+					margin-top: #{$space};
+				}
+			}
+		}
+
 		& > * {
 			display: block;
 		}

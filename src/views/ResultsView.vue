@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import CardTable from '@/components/card/CardTable.vue'
 import CardWord from '@/components/card/CardWord.vue'
+import CardFav from '@/components/card/CardFav.vue'
 
 import { resultList } from '@/supabase/index'
 </script>
 
 <template>
-	<main>
+	<main class="flow-y-50">
 		<CardTable>
+			<template v-slot:header>
+				<h2 v-if="resultList.length > 0" class="text-center">Result</h2>
+			</template>
 			<template v-slot:item>
 				<CardWord
 					v-for="{ score, object } in resultList"
@@ -23,7 +27,13 @@ import { resultList } from '@/supabase/index'
 					:lesson="object['lesson']"
 					:reading="object['reading']"
 					:kanji="object['kanji']"
-					:score="score" />
+					:score="score"
+					:fav="false" />
+			</template>
+		</CardTable>
+		<CardTable>
+			<template v-slot:item>
+				<CardFav />
 			</template>
 		</CardTable>
 	</main>
