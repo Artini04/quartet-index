@@ -33,9 +33,6 @@ function truncate(string: string): string {
 			<span class="kanji-rem">
 				{{ kanji ? '&#65343;' : kanji === 2 ? '&#9670;' : '&#9671;' }}
 			</span>
-			<span class="bookmark">
-				<Icon icon="tabler:bookmark" :width="iconSize" :height="iconSize"/>
-			</span>
 		</div>
 
 		<div class="text-wrapper | flow-y | padding-20">
@@ -134,7 +131,7 @@ $link-spacing: 0 0.4rem;
 // 		BLOCK		//
 // ================ //
 .shade {
-	background-color: rgba($color: #000000, $alpha: 0.1);
+	background-color: rgba($color: #000000, $alpha: 0.2);
 }
 
 .ja-wrapper-gap {
