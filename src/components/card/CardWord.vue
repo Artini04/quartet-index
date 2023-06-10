@@ -12,7 +12,7 @@ defineProps<{
 	en_add: string | null
 	lesson: number
 	reading: number
-	kanji: number | null
+	kanji: number
 	score: number
 	fav: boolean
 }>()
@@ -31,7 +31,7 @@ function truncate(string: string): string {
 			<span class="goto | border-s" :vol="lesson >= 7 ? 2 : 1"> Lesson {{ lesson }} </span>
 			<span class="reading">読み{{ reading }}</span>
 			<span class="kanji-rem">
-				{{ kanji ? '&#65343;' : kanji === 2 ? '&#9670;' : '&#9671;' }}
+				{{ kanji === 0 ? '&#65343;' : kanji == 2 ? '&#9670;' : '&#9671;' }}
 			</span>
 		</div>
 
