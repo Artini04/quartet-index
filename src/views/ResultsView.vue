@@ -6,7 +6,7 @@ import { resultList } from '@/supabase/index'
 </script>
 
 <template>
-	<main>
+	<main class="flow-y-50">
 		<CardTable>
 			<template v-slot:item>
 				<CardWord
@@ -23,7 +23,8 @@ import { resultList } from '@/supabase/index'
 					:lesson="object['lesson']"
 					:reading="object['reading']"
 					:kanji="object['kanji']"
-					:score="score" />
+					:score="score"
+					:fav="false" />
 			</template>
 		</CardTable>
 	</main>

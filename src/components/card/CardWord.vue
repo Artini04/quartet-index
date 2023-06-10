@@ -14,6 +14,7 @@ defineProps<{
 	reading: number
 	kanji: number | null
 	score: number
+	fav: boolean
 }>()
 
 const iconSize = 18
@@ -26,12 +27,10 @@ function truncate(string: string): string {
 <template>
 	<div class="card | flex flex-col-nowrap flex-gap-10 flex-bal | padding-30 | border border-20">
 		<div
-			class="info-wrapper | flex flex-row-nowrap flex-gap-10 flex-bal flex-center-center flex-nogrow | padding-10 | border-20 | shade">
-			<span class="goto | text-center border-s" :vol="lesson >= 7 ? 2 : 1">
-				Lesson {{ lesson }}
-			</span>
-			<span class="reading | text-center">読み{{ reading }}</span>
-			<span class="kanji-rem | text-center">
+			class="info-wrapper | flex flex-row-nowrap flex-gap-10 flex-bal flex-center-center flex-nogrow | padding-10 | border-20 | shade text-center">
+			<span class="goto | border-s" :vol="lesson >= 7 ? 2 : 1"> Lesson {{ lesson }} </span>
+			<span class="reading">読み{{ reading }}</span>
+			<span class="kanji-rem">
 				{{ kanji ? '&#65343;' : kanji === 2 ? '&#9670;' : '&#9671;' }}
 			</span>
 		</div>
@@ -132,7 +131,7 @@ $link-spacing: 0 0.4rem;
 // 		BLOCK		//
 // ================ //
 .shade {
-	background-color: rgba($color: #000000, $alpha: 0.1);
+	background-color: rgba($color: #000000, $alpha: 0.2);
 }
 
 .ja-wrapper-gap {
@@ -194,6 +193,12 @@ div {
 				margin-right: 0.5rem;
 			}
 		}
+	}
+}
+
+.bookmark {
+	svg {
+		margin-bottom: -0.2rem;
 	}
 }
 </style>
