@@ -22,7 +22,7 @@ import { resultList } from '@/supabase/index'
 					:en_add="object['en-add']"
 					:lesson="object['lesson']"
 					:reading="object['reading']"
-					:kanji="object['kanji']"
+					:kanji="object['kanji'] ?? 0"
 					:score="score"
 					:fav="false" />
 			</template>
