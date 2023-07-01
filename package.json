@@ -11,7 +11,7 @@
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
 	},
 	"dependencies": {
-		"@formkit/auto-animate": "^1.0.0-beta.6",
+		"@formkit/auto-animate": "^0.7.0",
 		"@supabase/supabase-js": "^2.21.0",
 		"@vueuse/core": "^10.1.2",
 		"axios": "^1.4.0",
@@ -21,6 +21,7 @@
 		"vue-router": "^4.1.6"
 	},
 	"devDependencies": {
+		"@babel/types": "^7.22.5",
 		"@iconify/vue": "^4.1.1",
 		"@rushstack/eslint-patch": "^1.2.0",
 		"@tsconfig/node18": "^2.0.0",
