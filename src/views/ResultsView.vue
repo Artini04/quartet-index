@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SearchComp from '@/components/search/SearchComp.vue';
 import CardTable from '@/components/card/CardTable.vue'
 import CardWord from '@/components/card/CardWord.vue'
 
@@ -6,6 +7,7 @@ import { resultList } from '@/supabase/index'
 </script>
 
 <template>
+	<SearchComp />
 	<main class="flow-y-50">
 		<CardTable>
 			<template v-slot:item>
