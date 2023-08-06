@@ -1,5 +1,5 @@
 <template>
-	<div class="flow-y-50">
+	<div>
 			<slot name="header"> </slot>
 		<div class="result-grid" v-auto-animate>
 			<slot name="item"> </slot>

@@ -8,7 +8,7 @@ const limit: number = 30
 const resultList: Ref<Array<Word_Scored>> = ref([])
 const isSearching: Ref<boolean> = ref(false)
 const status: ComputedRef<string> = computed(() => {
-	return isSearching.value ? 'fetch' : resultList.value.length > 0 ? 'ok' : 'none'
+	return isSearching.value ? 'fetch' : 'ok'
 })
 
 async function getQuartet(keyword: string) {

@@ -10,7 +10,7 @@ import { resultList } from '@/supabase/index'
 	<SearchComp />
 	<main class="flow-y-50">
 		<CardTable>
-			<template v-slot:item>
+			<template v-slot:item v-if="resultList.length > 0">
 				<CardWord
 					v-for="{ score, object } in resultList"
 					:key="object['id'] + Math.floor(Math.random() * 50)"
@@ -28,6 +28,9 @@ import { resultList } from '@/supabase/index'
 					:score="score"
 					:fav="false" />
 			</template>
+			<template v-slot:item v-else>
+				<p class="no-results">No results!</p>
+			</template>
 		</CardTable>
 	</main>
 </template>
@@ -37,5 +40,11 @@ main {
 	max-width: 1200px;
 	margin-inline: auto;
 	padding: 0 1rem;
+}
+
+p.no-results {
+	text-align: center;
+	font-size: 1.5rem;
+	margin: 2rem 0;
 }
 </style>
