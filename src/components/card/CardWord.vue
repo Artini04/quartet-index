@@ -17,7 +17,7 @@ defineProps<{
 	fav: boolean
 }>()
 
-const iconSize = 18
+const iconSize = 20
 
 function truncate(string: string): string {
 	return string.length > 4 ? string.slice(0, 4) + '...' : string
@@ -25,57 +25,53 @@ function truncate(string: string): string {
 </script>
 
 <template>
-	<div class="card | flex flex-col-nowrap flex-gap-10 flex-bal | padding-30 | border border-20">
-		<div
-			class="info-wrapper | flex flex-row-nowrap flex-gap-10 flex-bal flex-center-center flex-nogrow | padding-10 | border-20 | shade text-center">
-			<span class="goto | border-s" :vol="lesson >= 7 ? 2 : 1"> Lesson {{ lesson }} </span>
-			<span class="reading">読み{{ reading }}</span>
-			<span class="kanji-rem">
-				{{ kanji === 0 ? '&#65343;' : kanji == 2 ? '&#9670;' : '&#9671;' }}
+	<div class="card-root">
+		<div class="card-info shade">
+			<span class="goto-lesson" :vol="lesson >= 7 ? 2 : 1">Lesson {{ lesson }} </span>
+			<span class="goto-reading">読み{{ reading }}</span>
+			<span class="kanji-learn-recommend">
+				{{ kanji === 0 ? '&#12288;' : kanji == 2 ? '&#9670;' : '&#9671;' }}
 			</span>
 		</div>
 
-		<div class="text-wrapper | flow-y | padding-20">
-			<div
-				class="ja-wrapper | flex flex-row-wrap flex-start-center | ja-wrapper-gap"
-				lang="ja">
+		<div class="card-text">
+			<div class="card-text__ja" lang="ja">
 				<span
-					class="ja-kk | kana-kanji"
+					class="ja-kk"
 					v-for="item in ja_kk ? ja_kk?.split(';') : ja_h?.split(';')"
 					:key="item">
 					{{ item }}
 				</span>
 
-				<span
-					class="ja-h | hiragana"
-					v-for="item in ja_kk ? ja_h?.split(';') : []"
-					:key="item">
-					{{ item }}
-				</span>
+				<div class="ja-phs">
+					<span v-if="ja_h_add" class="ja-particle">{{ `[${ja_h_add}]` }}</span>
+					<span
+						class="ja-h"
+						v-for="item in ja_kk ? ja_h?.split(';') : []"
+						:key="item">
+						{{ item }}
+					</span>
+					<span v-if="ja_h_suru" class="ja-suru">({{ ja_h_suru }})</span>
+
+				</div>
 			</div>
 
-			<div class="en-wrapper | flow-y">
+			<div class="card-text__en">
 				<span
-					class="en | margin-left-40 | english"
+					class="en-en"
 					v-for="item in en?.split(';')"
 					:key="item">
 					{{ item }}
-					<span v-if="en_add" class="verb-type"> [{{ en_add }}] </span>
+					<span v-if="en_add" class="en-verb-type"> [{{ en_add }}] </span>
 				</span>
-			</div>
-
-			<div class="flow-x | margin-left-80">
-				<span v-if="ja_h_add" class="ja-h-add | text-s">{{ `[${ja_h_add}]` }}</span>
-				<span v-if="ja_h_suru" class="text-s">({{ ja_h_suru }})</span>
 			</div>
 		</div>
 
-		<div
-			class="link-wrapper | flex flex-row-nowrap flex-stretch-stretch flex-bal flex-nogrow | padding-20 | border-20 | shade">
-			<div class="link">
+		<div class="card-link shade">
+			<div class="card-link__links">
 				<Icon icon="tabler:book-2" :width="iconSize" :height="iconSize" />
-				<span class="link-span | text-n"> jpdb.io </span>
-				<div class="link-small-container | margin-top-20 | flow-y text-s">
+				<span class="links-span"> jpdb.io </span>
+				<div class="links-open">
 					<span
 						v-for="(item, index) in [
 							...(ja_kk?.split(';') ?? []),
@@ -89,10 +85,10 @@ function truncate(string: string): string {
 				</div>
 			</div>
 
-			<div class="link">
+			<div class="card-link__links">
 				<Icon icon="tabler:book-2" :width="iconSize" :height="iconSize" />
-				<span class="link-span | text-n"> weblio英和辞書 </span>
-				<div class="link-small-container | margin-top-20 | flow-y text-s">
+				<span class="links-span"> weblio英和辞書 </span>
+				<div class="links-open">
 					<span
 						v-for="(item, index) in [
 							...(ja_kk?.split(';') ?? []),
@@ -110,95 +106,167 @@ function truncate(string: string): string {
 </template>
 
 <style lang="scss">
-$spacing: 0.3rem;
-$link-spacing: 0 0.4rem;
-
-// Global Symbols
 :root {
-	--en-symbol: '\82F1';
-}
+	--card-border-color: #7b7b80;
+	--card-font-color: #3f3f3f;
+	--card-shade-color: #000000;
 
-// Dark Theme Palette
-:root[data-theme='dark'] {
 	--book-vol-1: #ff677c;
 	--book-vol-2: #50b0ff;
+	--book-vol-other: #ffffff;
 	--link-color: #ffffff;
 
+	--en-symbol: '\82F1';
 	--kana-kanji: rgb(241, 109, 69);
 }
 
-// ================ //
-// 		BLOCK		//
-// ================ //
 .shade {
 	background-color: rgba($color: #000000, $alpha: 0.2);
 }
 
-.ja-wrapper-gap {
-	gap: 0.2rem 0.5rem;
-}
+.card {
+	$card-bordering-corner-radius: 7px;
+	$card-spacing-from-border-to-data: 1rem;
+	$card-meaning-spacing-left: 20px;
+	
+	&-root {
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 0;
 
-.kana-kanji {
-	font-size: 1.6rem;
-	line-height: 2rem;
-	color: var(--kana-kanji);
-}
-
-.hiragana {
-	font-size: 1.2rem;
-	line-height: 1.5rem;
-}
-
-.verb-type {
-	display: inline-block;
-	font-style: italic;
-}
-
-.english {
-	&::before {
-		content: var(--en-symbol);
-		margin-right: 0.5rem;
-	}
-}
-
-.goto {
-	&[vol='1'] {
-		color: var(--book-vol-1);
+		padding: $card-spacing-from-border-to-data;
+		border: 1px solid var(--card-border-color, #f3f3f3);
+		border-radius: $card-bordering-corner-radius;
 	}
 
-	&[vol='2'] {
-		color: var(--book-vol-2);
-	}
-}
+	&-info, &-link {
+		display: flex;
+		flex-flow: row nowrap;
+		flex-grow: 0;
+		gap: 0;
 
-div {
-	&[vol='1'] {
-		border-color: var(--book-vol-1);
-	}
+		align-items: center;
+		justify-content: center;
 
-	&[vol='2'] {
-		border-color: var(--book-vol-2);
-	}
-}
-
-.link {
-	svg {
-		margin-bottom: -0.1rem;
+		padding: 0.5rem 1rem;
+		border-radius: $card-bordering-corner-radius;
 	}
 
-	&-small-container {
-		span {
-			&::before {
-				content: '-';
-				margin-right: 0.5rem;
+	&-info {
+		.goto {
+			&-reading, &-lesson {
+				flex: 1 1 50%;
+			}
+
+			&-lesson {
+				color: var(--book-vol-other, #000000);
+
+				&[vol='1'] {
+					color: var(--book-vol-1);
+				}
+
+				&[vol='2'] {
+					color: var(--book-vol-2);
+				}
 			}
 		}
 	}
-}
 
-.bookmark {
-	svg {
-		margin-bottom: -0.2rem;
+	&-link {
+		&__links {
+			flex: 1 1 50%;
+
+			// Icon fine-tuning
+			svg {
+				vertical-align: middle;
+				margin-bottom: 3px;
+			}
+
+			.links {
+				&-open {
+					margin-top: 0.4rem;
+	
+					span {
+						display: block;
+						&::before {
+							content: '-';
+							margin-right: 0.5rem;
+						}
+					}
+	
+					&>span+span {
+						margin-top: 0.25rem;
+					}
+				}
+			}
+		}
+	}
+
+	&-text {
+		flex-grow: 1;
+		padding: $card-spacing-from-border-to-data;
+
+		&>*{
+			display: block;
+		}
+
+		&>*+*{
+			margin-top: 0.3rem;
+		}
+
+		&__ja {
+			text-align: center;
+
+			&>*{
+				display: block;
+			}
+
+			.ja {
+				&-kk {
+					font-size: 2rem;
+					line-height: 2.3rem;
+					color: var(--kana-kanji);
+				}
+	
+				&-h {
+					font-size: 1.3rem;
+					line-height: 1.6rem;
+				}
+	
+				&-phs {
+					&>*+*{
+						margin-left: 0.5rem;
+					}
+				}
+			}
+		}
+
+		&__en {
+			.en {
+				&-en {
+					display: block;
+	
+					&::before {
+						content: var(--en-symbol);
+						margin-right: 0.5rem;
+					}
+				}
+	
+				&-en + span {
+					margin-top: 0.3rem;
+				}
+
+				&-verb-type {
+					font-style: italic;
+				}
+			}
+		}
+
+		&__add {
+			&>*+*{
+				margin-left: 0.5rem;
+			}
+		}
 	}
 }
 </style>

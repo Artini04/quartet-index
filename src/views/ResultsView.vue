@@ -8,12 +8,12 @@ import { resultList } from '@/supabase/index'
 
 <template>
 	<SearchComp />
-	<main class="flow-y-50">
+	<main>
 		<CardTable>
 			<template v-slot:item v-if="resultList.length > 0">
 				<CardWord
 					v-for="{ score, object } in resultList"
-					:key="object['id'] + Math.floor(Math.random() * 50)"
+					:key="object['id'] + Math.floor(Math.random() * 9999)"
 					:id="object['id']"
 					:ja_letter_loc="object['ja-letter-loc']"
 					:ja_kk="object['ja-kk']"
@@ -27,9 +27,6 @@ import { resultList } from '@/supabase/index'
 					:kanji="object['kanji'] ?? 0"
 					:score="score"
 					:fav="false" />
-			</template>
-			<template v-slot:item v-else>
-				<p class="no-results">No results!</p>
 			</template>
 		</CardTable>
 	</main>
