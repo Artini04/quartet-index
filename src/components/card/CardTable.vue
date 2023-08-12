@@ -1,5 +1,5 @@
 <template>
-	<div class="flow-y-50">
+	<div>
 			<slot name="header"> </slot>
 		<div class="result-grid" v-auto-animate>
 			<slot name="item"> </slot>
@@ -8,8 +8,6 @@
 </template>
 
 <style lang="scss">
-$border-thickness: 1px;
-
 @media screen and (max-width: 452px) {
 	.result-grid {
 		display: flex;

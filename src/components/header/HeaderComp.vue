@@ -6,7 +6,7 @@
 			<h2 class="text-center">日本語カルテット単語索引</h2>
 			<h2 class="text-center">Quartet Vocabulary Index</h2>
 			<p class="text-justify">
-				Japanese Quartet Vocabulary Index written in Vue3. Book volumes are colored based on
+				Japanese Quartet Vocabulary Index written in Vue3. Cards are colored based on
 				their respective book color. I added links from English-Japanese dictionaries to
 				access them easily.
 			</p>

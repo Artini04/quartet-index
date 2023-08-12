@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, type Ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { getQuartet, status } from '@/supabase'
 
-const searchQuery = ref<string>('')
+const searchQuery: Ref<string> = ref('')
 
 function clearSearchQuery() {
 	searchQuery.value = ''
@@ -19,7 +19,7 @@ function clearSearchQuery() {
 				<input
 					v-model="searchQuery"
 					@keypress.enter.prevent="getQuartet(searchQuery)"
-					class="search-box | margin-30 margin-left-10 | width-full height-full | text-n"
+					class="search-box | margin-40 margin-left-20 | width-full height-full | text-n"
 					type="text"
 					placeholder="Search word..."
 					:disabled="status === 'fetch' ? true : false" />
@@ -180,14 +180,6 @@ $input-padding: 0.7rem;
 
 		&::after {
 			content: 'ok';
-		}
-	}
-
-	&[status='none'] {
-		color: var(--status-ok);
-
-		&::after {
-			content: 'ok - no result';
 		}
 	}
 }
