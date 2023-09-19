@@ -1,4 +1,5 @@
 import { supabase } from '.'
+import Fuse from 'fuse.js'
 import { ref, computed, type Ref, type ComputedRef } from 'vue'
 
 import type { Word_Scored } from '@/assets/types'
@@ -41,4 +42,4 @@ function debounce(func: any, timeout: number = 100) {
 
 const searchWord = debounce((keyword: string) => getQuartet(keyword))
 
-export { getQuartet, searchWord, resultList, status }
+export {getQuartet, searchWord, resultList, status }
