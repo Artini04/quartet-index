@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, type Ref } from 'vue'
 import { debugLinks } from '@/fuse'
 import { Icon } from '@iconify/vue'
 
@@ -91,20 +90,6 @@ const enMain: string[] = localProps['en'].split(';')
 </template>
 
 <style lang="scss">
-:root {
-  --card-border-color: #7b7b80;
-  --card-font-color: #3f3f3f;
-  --card-shade-color: #000000;
-
-  --book-vol-1: #ff677c;
-  --book-vol-2: #50b0ff;
-  --book-vol-other: #ffffff;
-  --link-color: #ffffff;
-
-  --en-symbol: '\82F1';
-  --kana-kanji: #f16d45;
-}
-
 .shade {
   background-color: rgba($color: #000000, $alpha: 0.2);
   border-radius: 5px;

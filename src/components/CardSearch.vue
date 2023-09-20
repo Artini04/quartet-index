@@ -3,15 +3,15 @@ import { ref, type Ref } from 'vue'
 import { fetchFromDict } from '@/fuse'
 import { Icon } from '@iconify/vue'
 
-const inputSearch: Ref<string> = ref('pre')
+const inputSearch: Ref<string> = ref('good')
 </script>
 
 <template>
-  <div class="search__root">
+  <div class="search-root">
     <div class="search-box search-div">
       <Icon icon="tabler:search" />
       <input
-        class="search__query"
+        class="search-query"
         type="text"
         placeholder="Search..."
         v-model="inputSearch"
@@ -21,7 +21,7 @@ const inputSearch: Ref<string> = ref('pre')
 
     <div class="search-button search-div" button="true">
       <input
-        class="search__search_btn"
+        class="search-button__btn"
         type="button"
         value="Search"
         @click.prevent="fetchFromDict(inputSearch)"
@@ -41,13 +41,12 @@ const inputSearch: Ref<string> = ref('pre')
 .search {
   $padding-component: 0.7rem;
 
-  &__root {
+  &-root {
     display: flex;
     flex-flow: row nowrap;
     gap: 0.5rem;
     font-size: 1rem;
-
-    max-width: var(--component-limit-width);
+    max-width: var(--component-limit-width-clamp);
     margin-inline: auto;
 
     & > * {

@@ -7,7 +7,21 @@
   --app-font-muted: #838485;
   --app-font-inverse: #3f3f3f;
 
-  --component-limit-width: 600px;
+  --component-limit-width: calc(100% - 2rem);
+  --component-limit-width-clamp: 600px;
+  --component-spacing: 0.5rem;
+
+  --card-border-color: #7b7b80;
+  --card-font-color: #3f3f3f;
+  --card-shade-color: #000000;
+
+  --book-vol-1: #ff677c;
+  --book-vol-2: #50b0ff;
+  --book-vol-other: #ffffff;
+  --link-color: #ffffff;
+
+  --en-symbol: '\82F1';
+  --kana-kanji: #f16d45;
 }
 
 * {
@@ -34,7 +48,7 @@ a:any-link {
   color: inherit;
   text-underline-offset: 3px;
 
-  &:is(:hover, :focus, :active) {
+  &:is(:focus, :active) {
     outline: 1px solid white;
   }
 }

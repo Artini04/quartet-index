@@ -5,7 +5,7 @@ import CardWord from './CardWord.vue'
 </script>
 
 <template>
-  <div class="card-list__root" v-auto-animate>
+  <div class="card-list-root" v-auto-animate>
     <CardWord
       v-for="{ item, refIndex } in results"
       :key="refIndex"
@@ -26,16 +26,16 @@ import CardWord from './CardWord.vue'
 
 <style lang="scss">
 .card-list {
-  &__root {
+  &-root {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 0.7rem;
+    gap: 1rem;
   }
 }
 
 @media only screen and (max-width: 451px) {
   .card-list {
-    &__root {
+    &-root {
       display: flex;
       flex-flow: column nowrap;
     }
@@ -44,7 +44,7 @@ import CardWord from './CardWord.vue'
 
 @media (hover: none) {
   .card-list {
-    &__root {
+    &-root {
       display: flex;
       flex-flow: column nowrap;
     }
