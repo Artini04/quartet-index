@@ -1,11 +1,19 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import HeaderComp from './components/header/HeaderComp.vue'
-import FooterComp from './components/footer/FooterComp.vue'
+import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <template>
-	<HeaderComp />
-	<RouterView />
-	<FooterComp />
+  <div class="navigation__root">
+    <RouterLink to="/search">Search</RouterLink>
+  </div>
+  <RouterView />
 </template>
+
+<style lang="scss">
+.navigation {
+  &__root {
+    width: calc(100% - 2rem);
+    margin-inline: auto;
+  }
+}
+</style>

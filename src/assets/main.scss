@@ -1,307 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Instrument+Sans&display=swap');
+:root {
+  scroll-behavior: smooth;
 
-// ==================== //
-// 		VARIABLES		//
-// ==================== //
-$direction: (left, right, top, bottom);
+  --app-background: #24292e;
+  --app-font: #e7ebf0;
+  --app-font-muted: #838485;
+  --app-font-inverse: #3f3f3f;
 
-$common-size: (
-	0: 0,
-	5: 0.1rem,
-	10: 0.3rem,
-	20: 0.5rem,
-	30: 0.7rem,
-	40: 1rem,
-	50: 1.2rem,
-	60: 1.5rem,
-	70: 1.7rem,
-	80: 2rem,
-	90: 2.2rem,
-	100: 2.5rem,
-);
-
-$font-size: (
-	'xs': 0.7rem,
-	's': 0.9rem,
-	'n': 1rem,
-	'l': 1.2rem,
-	'xl': 1.6rem,
-);
-
-$text-position: (
-	'start': 'flex-start',
-	'end': 'flex-end',
-	'center': 'center',
-	'stretch': 'stretch',
-);
-
-$border-size: (
-	0: 0,
-	10: 3px,
-	20: 5px,
-	30: 7px,
-	40: 10px,
-);
-
-$width-size: (
-	0: 100%,
-	10: 400px,
-	20: 600px,
-	30: 800px,
-	40: 1000px,
-);
-
-$flex-dir: (
-	'row': row,
-	'col': column,
-);
-
-// ================ //
-// 		MIXINS		//
-// ================ //
-// Defaults for all //
-// mixins!			//
-// ================ //
-
-@mixin flex($dir: 'row', $wrap: 'wrap') {
-	display: flex;
-	flex-direction: #{$dir};
-	flex-wrap: #{$wrap};
+  --component-limit-width: 600px;
 }
 
-@mixin text-vertical($position) {
-	justify-content: #{$position};
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  outline: 0;
 }
 
 body {
-	background: var(--app-background);
-	color: var(--app-font);
+  background: var(--app-background);
+  color: var(--app-font);
 
-	text-rendering: optimizeLegibility;
-	font-family: 'Instrument Sans', 'IBM Plex Sans JP', sans-serif;
-	transition: background ease 200ms;
+  font-family: 'Instrument Sans', sans-serif;
+  transition: background ease 200ms;
 }
 
-// ================ //
-// 		UTILITY		//
-// ================ //
-.flow {
-	$space: 0.2rem;
-
-	&-x {
-		@each $name, $space in $common-size {
-			&-#{$name} {
-				& > * {
-					display: block;
-				}
-
-				& > * + * {
-					margin-left: #{$space};
-				}
-			}
-		}
-
-		& > * {
-			display: inline-block;
-		}
-
-		& > * + * {
-			margin-left: calc($space * 3);
-		}
-	}
-
-	&-y {
-		@each $name, $space in $common-size {
-			&-#{$name} {
-				& > * {
-					display: block;
-				}
-
-				& > * + * {
-					margin-top: #{$space};
-				}
-			}
-		}
-
-		& > * {
-			display: block;
-		}
-
-		& > * + * {
-			margin-top: $space;
-		}
-	}
+*[lang='jp'] {
+  font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
-.flex {
-	display: flex;
+a:any-link {
+  color: inherit;
+  text-underline-offset: 3px;
 
-	&-bal {
-		& > * {
-			flex-grow: 1;
-			flex-shrink: 1;
-		}
-	}
-
-	&-nogrow {
-		flex-grow: 0;
-	}
-
-	&-noshrink {
-		flex-shrink: 0;
-	}
-
-	// flex-row-wrap flex-row-nowrap flex-col-wrap flex-col-nowrap
-	@each $dir-name, $dir-value in $flex-dir {
-		&-#{$dir-name} {
-			&-wrap {
-				flex-wrap: wrap;
-				flex-direction: #{$dir-value};
-			}
-
-			&-nowrap {
-				flex-wrap: nowrap;
-				flex-direction: #{$dir-value};
-			}
-		}
-	}
-
-	// flex-start-start 	flex-start-center 		flex-start-end
-	// flex-center-start 	flex-center-center 		lex-center-end
-	// flex-end-start 		flex-end-center 		flex-end-end
-	@each $name-h, $position-h in $text-position {
-		@each $name-v, $position-v in $text-position {
-			&-#{$name-h} {
-				&-#{$name-v} {
-					justify-content: #{$position-h};
-					align-items: #{$position-v};
-				}
-			}
-		}
-	}
-
-	// flex-gap-n
-	@each $name, $size in $common-size {
-		&-gap-#{$name} {
-			gap: #{$size};
-		}
-	}
-}
-
-.padding {
-	// padding-n
-	@each $name, $size in $common-size {
-		&-#{$name} {
-			padding: #{$size};
-		}
-	}
-
-	// padding-left-n padding-right-n padding-top-n padding-bottom-n
-	@each $value in $direction {
-		&-#{$value} {
-			@each $name, $size in $common-size {
-				&-#{$name} {
-					padding-#{$value}: #{$size};
-				}
-			}
-		}
-	}
-}
-
-.margin {
-	&-auto {
-		margin-inline: auto;
-	}
-
-	// margin-n
-	@each $name, $size in $common-size {
-		&-#{$name} {
-			margin: #{$size};
-		}
-	}
-
-	// margin-left-n margin-right-n margin-top-n margin-bottom-n
-	@each $value in $direction {
-		&-#{$value} {
-			@each $name, $size in $common-size {
-				&-#{$name} {
-					margin-#{$value}: #{$size};
-				}
-			}
-		}
-	}
-}
-
-.text {
-	&-center {
-		text-align: center;
-	}
-
-	&-justify {
-		text-align: justify;
-	}
-
-	@each $name, $size in $font-size {
-		&-#{$name} {
-			font-size: #{$size};
-		}
-	}
-}
-
-.border {
-	$border-color: var(--app-font-muted);
-	border: 1px solid $border-color;
-
-	@each $name, $rad in $border-size {
-		&-#{$name} {
-			border-radius: #{$rad};
-		}
-	}
-}
-
-.width {
-	@each $name, $size in $width-size {
-		&-#{$name} {
-			max-width: #{$size};
-		}
-	}
-
-	&-full {
-		width: 100%;
-	}
-}
-
-.height {
-	&-full {
-		height: 100%;
-	}
-}
-
-.focus-within {
-	&:focus-within {
-		outline: 1px solid white;
-	}
-}
-
-.cursor {
-	&-pointer {
-		cursor: pointer;
-	}
-}
-
-.relative {
-	position: relative;
-}
-
-.absolute {
-	position: absolute;
-}
-
-.debug {
-	&-red {
-		background: rgba($color: red, $alpha: 0.1);
-		* {
-			background: rgba($color: red, $alpha: 0.1);
-		}
-	}
+  &:is(:hover, :focus, :active) {
+    outline: 1px solid white;
+  }
 }
