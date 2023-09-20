@@ -11,8 +11,7 @@ const fusedCommonDict = new Fuse(vocabDictJSON, {
 const results: Ref<any[]> = ref([]),
   debugLinks: Ref<boolean> = ref(true)
 
-function fetchFromDict(keyword: string) {
-  // Clear the result list then get the result
+function fetchFromDict(keyword: string): void {
   results.value = []
   const value = fusedCommonDict.search(keyword)
 

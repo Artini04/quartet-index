@@ -26,9 +26,6 @@ import { Icon } from '@iconify/vue'
     max-width: var(--component-limit-width-clamp);
     margin-inline: auto;
 
-    border-top: 1px solid var(--app-font-muted);
-    padding-top: 1rem;
-
     & > * {
       display: block;
 

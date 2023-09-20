@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { Icon } from '@iconify/vue'
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import { RouterLink } from 'vue-router'
       <h1>日本語カルテット単語索引</h1>
       <h2>Quartet Vocabulary Index</h2>
     </div>
+    
     <div class="header-note">
       <p>
         Japanese Quartet Vocabulary Index written in Vue3. Cards are colored based on their
@@ -15,9 +17,14 @@ import { RouterLink } from 'vue-router'
         easily.
       </p>
     </div>
+
     <nav class="header-nav">
-      <RouterLink to="/">Search</RouterLink>
-      <RouterLink to="/options">Options</RouterLink>
+      <RouterLink to="/">
+        <Icon icon="tabler:search" />
+      </RouterLink>
+      <RouterLink to="/options">
+        <Icon icon="tabler:settings" />
+      </RouterLink>
     </nav>
   </header>
 </template>
@@ -50,6 +57,7 @@ import { RouterLink } from 'vue-router'
 
   &-nav {
     text-align: right;
+    font-size: 1.4rem;
 
     & > * + * {
       margin-left: 0.5rem;

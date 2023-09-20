@@ -3,7 +3,7 @@ import { ref, type Ref } from 'vue'
 import { fetchFromDict } from '@/fuse'
 import { Icon } from '@iconify/vue'
 
-const inputSearch: Ref<string> = ref('good')
+const inputSearch: Ref<string> = ref('')
 </script>
 
 <template>
