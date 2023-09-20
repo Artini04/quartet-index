@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import HeaderComp from './components/header/HeaderComp.vue'
-import FooterComp from './components/footer/FooterComp.vue'
+import FooterComp from './components/FooterComp.vue'
+import HeaderComp from './components/HeaderComp.vue'
 </script>
 
 <template>
-	<HeaderComp />
-	<RouterView />
-	<FooterComp />
+  <HeaderComp />
+  <RouterView />
+  <FooterComp />
 </template>
+
+<style lang="scss">
+#app {
+  & > * + * {
+    margin-top: var(--skeleton-spacing);
+  }
+}
+</style>
