@@ -3,10 +3,10 @@ import { debugLinks } from '@/fuse'
 </script>
 
 <template>
-  <div class="option-root">
+  <div class="option-root shade">
     <div class="option-category">
       <h2 class="option-title">Card Preferences</h2>
-      <p class="option-subtitle">Options about the card</p>
+      <p class="option-subtitle">Options about the card. [Work-In-Progress]</p>
 
       <div class="option-cell">
         <input id="show-dict-links" type="checkbox" v-model="debugLinks" />
@@ -24,7 +24,7 @@ import { debugLinks } from '@/fuse'
     margin-inline: auto;
 
     & > * + * {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
   }
 

@@ -13,7 +13,7 @@ import HeaderComp from './components/HeaderComp.vue'
 <style lang="scss">
 #app {
   & > * + * {
-    margin-top: 1rem;
+    margin-top: var(--skeleton-spacing);
   }
 }
 </style>

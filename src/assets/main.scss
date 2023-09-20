@@ -10,15 +10,13 @@
   --component-limit-width: calc(100% - 2rem);
   --component-limit-width-clamp: 600px;
   --component-spacing: 0.5rem;
+  --skeleton-spacing: 1rem;
 
   --card-border-color: #7b7b80;
-  --card-font-color: #3f3f3f;
-  --card-shade-color: #000000;
 
   --book-vol-1: #ff677c;
   --book-vol-2: #50b0ff;
   --book-vol-other: #ffffff;
-  --link-color: #ffffff;
 
   --en-symbol: '\82F1';
   --kana-kanji: #f16d45;
@@ -35,9 +33,24 @@
 body {
   background: var(--app-background);
   color: var(--app-font);
+  overflow-y: visible;
 
   font-family: 'Instrument Sans', sans-serif;
+  font-size: 1rem;
   transition: background ease 200ms;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3a424b;
+  border-radius: 7px;
+
+  &:hover {
+    background-color: #74818f;
+  }
 }
 
 *[lang='jp'] {
@@ -51,4 +64,10 @@ a:any-link {
   &:is(:focus, :active) {
     outline: 1px solid white;
   }
+}
+
+.shade {
+  background-color: rgba($color: #000000, $alpha: 0.2);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
 }

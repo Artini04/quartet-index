@@ -90,12 +90,6 @@ const enMain: string[] = localProps['en'].split(';')
 </template>
 
 <style lang="scss">
-.shade {
-  background-color: rgba($color: #000000, $alpha: 0.2);
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-}
-
 .card-word {
   $card-bordering-corner-radius: 7px;
   $card-spacing-from-border-to-data: 1rem;

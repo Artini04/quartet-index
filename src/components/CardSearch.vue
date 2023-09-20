@@ -39,7 +39,7 @@ const inputSearch: Ref<string> = ref('good')
 }
 
 .search {
-  $padding-component: 0.7rem;
+  $padding-component: 1rem;
 
   &-root {
     display: flex;
@@ -79,6 +79,10 @@ const inputSearch: Ref<string> = ref('good')
 
     align-items: center;
     justify-content: center;
+  }
+
+  &-button {
+    max-width: 100px;
   }
 
   &-div {

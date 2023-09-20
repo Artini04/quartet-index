@@ -13,7 +13,7 @@ import CardGrid from '@/components/CardGrid.vue'
 <style lang="scss">
 main {
   & > * + * {
-    margin-top: 0.7rem;
+    margin-top: var(--skeleton-spacing);
   }
 
   width: calc(100% - 2rem);
