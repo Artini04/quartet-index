@@ -30,6 +30,14 @@ const router = createRouter({
       meta: {
         title: 'Options - カルテット単語索引'
       }
+    },
+    {
+      path: '/table',
+      name: 'table',
+      component: () => import('@/views/TableView.vue'),
+      meta: {
+        title: 'Table - カルテット単語索引'
+      }
     }
   ]
 })

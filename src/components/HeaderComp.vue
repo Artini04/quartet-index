@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { Icon } from '@iconify/vue'
+
+import InputTabWrapper from './input/InputTabWrapper.vue'
 </script>
 
 <template>
@@ -9,7 +11,7 @@ import { Icon } from '@iconify/vue'
       <h1>日本語カルテット単語索引</h1>
       <h2>Quartet Vocabulary Index</h2>
     </div>
-    
+
     <div class="header-note">
       <p>
         Japanese Quartet Vocabulary Index written in Vue3. Cards are colored based on their
@@ -19,12 +21,36 @@ import { Icon } from '@iconify/vue'
     </div>
 
     <nav class="header-nav">
-      <RouterLink to="/">
-        <Icon icon="tabler:search" />
-      </RouterLink>
-      <RouterLink to="/options">
-        <Icon icon="tabler:settings" />
-      </RouterLink>
+      <div class="header-nav-left">
+        <InputTabWrapper>
+          <template v-slot:button>
+            <RouterLink to="/">
+              <Icon icon="tabler:search" />
+              <span>Search</span>
+            </RouterLink>
+          </template>
+        </InputTabWrapper>
+
+        <InputTabWrapper>
+          <template v-slot:button>
+            <RouterLink to="/table">
+              <Icon icon="tabler:table" />
+              <span>Table</span>
+            </RouterLink>
+          </template>
+        </InputTabWrapper>
+      </div>
+
+      <div class="header-nav-right">
+        <InputTabWrapper>
+          <template v-slot:button>
+            <RouterLink to="/options">
+              <Icon icon="tabler:settings" />
+              <span>Options</span>
+            </RouterLink>
+          </template>
+        </InputTabWrapper>
+      </div>
     </nav>
   </header>
 </template>
@@ -56,11 +82,18 @@ import { Icon } from '@iconify/vue'
   }
 
   &-nav {
-    text-align: right;
-    font-size: 1.4rem;
+    &-left,
+    &-right {
+      display: inline-block;
+      width: 50%;
 
-    & > * + * {
-      margin-left: 0.5rem;
+      & > * + * {
+        margin-left: 0.5rem;
+      }
+    }
+
+    &-right {
+      text-align: right;
     }
   }
 }

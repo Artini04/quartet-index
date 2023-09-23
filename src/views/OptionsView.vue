@@ -3,7 +3,7 @@ import { debugLinks } from '@/fuse'
 </script>
 
 <template>
-  <div class="option-root shade">
+  <main class="option-root shade option">
     <div class="option-category">
       <h2 class="option-title">Card Preferences</h2>
       <p class="option-subtitle">Options about the card. [Work-In-Progress]</p>
@@ -13,21 +13,11 @@ import { debugLinks } from '@/fuse'
         <label for="show-dict-links">Show dictionary links</label>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style lang="scss">
 .option {
-  &-root {
-    width: var(--component-limit-width);
-    max-width: var(--component-limit-width-clamp);
-    margin-inline: auto;
-
-    & > * + * {
-      margin-top: 1rem;
-    }
-  }
-
   &-category {
     & > * + * {
       margin-top: 0.5rem;

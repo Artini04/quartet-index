@@ -10,6 +10,16 @@
   --component-limit-width: calc(100% - 2rem);
   --component-limit-width-clamp: 600px;
   --component-spacing: 0.5rem;
+  --component-padding: 1rem;
+  --component-border-radius: 7px;
+
+  --component-input-bg: #40464d;
+  --component-input-tab-active: #e7ebf0;
+  --component-input-tab-active-font: #24292e;
+  --component-input-active: #797c85;
+  --component-input-disabled: #2d333a;
+  --component-input-font-disabled: #546572;
+
   --skeleton-spacing: 1rem;
 
   --card-border-color: #7b7b80;
@@ -20,24 +30,6 @@
 
   --en-symbol: '\82F1';
   --kana-kanji: #f16d45;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
-  outline: 0;
-}
-
-body {
-  background: var(--app-background);
-  color: var(--app-font);
-  overflow-y: visible;
-
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 1rem;
-  transition: background ease 200ms;
 }
 
 ::-webkit-scrollbar {
@@ -51,6 +43,16 @@ body {
   &:hover {
     background-color: #74818f;
   }
+}
+
+body {
+  background: var(--app-background);
+  color: var(--app-font);
+  overflow-y: visible;
+
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 1rem;
+  transition: background ease 200ms;
 }
 
 *[lang='jp'] {
@@ -68,6 +70,59 @@ a:any-link {
 
 .shade {
   background-color: rgba($color: #000000, $alpha: 0.2);
-  border-radius: 5px;
+  border-radius: var(--component-border-radius);
   padding: 0.5rem 1rem;
+}
+
+.clamped {
+  max-width: var(--component-limit-width-clamp);
+  margin-inline: auto;
+}
+
+.remove-highlight {
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+main {
+  &.option {
+    width: var(--component-limit-width);
+    max-width: var(--component-limit-width-clamp);
+    margin-inline: auto;
+
+    & > * + * {
+      margin-top: 1rem;
+    }
+  }
+
+  width: calc(100% - 2rem);
+  max-width: 1000px;
+  margin-inline: auto;
+
+  & > * + * {
+    margin-top: var(--skeleton-spacing);
+  }
+}
+
+input,
+select {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  background: var(--component-input-bg);
+  padding: var(--component-padding) 0;
+  width: 100%;
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  &[type='checkbox'] {
+    width: auto;
+  }
 }
