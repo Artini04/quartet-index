@@ -15,7 +15,7 @@ import { appOptions } from '@/fuse'
 </template>
 
 <style lang="scss">
-@import '../assets/mixins';
+@import '@/assets/mixins';
 
 .option {
   &-root {

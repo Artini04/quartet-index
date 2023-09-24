@@ -9,5 +9,3 @@ import TableGrid from '@/components/table/TableGrid.vue'
     <TableGrid />
   </main>
 </template>
-
-<style lang="scss"></style>

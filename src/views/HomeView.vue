@@ -4,6 +4,3 @@
   <div class="home-root">
   </div>
 </template>
-
-<style lang="scss">
-</style>
