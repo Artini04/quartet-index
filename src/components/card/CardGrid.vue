@@ -29,15 +29,15 @@ import CardWord from './CardWord.vue'
 .card-list {
   &-root {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--component-spacing);
 
     @media only screen and (max-width: 451px) {
-      @include flex(column, nowrap, 1rem);
+      @include flex(column, nowrap, var(--component-spacing));
     }
 
     @media (hover: none) {
-      @include flex(column, nowrap, 1rem);
+      @include flex(column, nowrap, var(--component-spacing));
     }
   }
 }

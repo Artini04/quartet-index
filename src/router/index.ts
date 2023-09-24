@@ -6,29 +6,18 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'search',
+      name: 'lookup',
       component: SearchView,
       meta: {
-        title: 'Search - カルテット単語索引'
+        title: 'Look Up - ポケットカルテット'
       }
     },
-    // {
-    //   path: '/search',
-    //   name: 'name',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('@/views/SearchView.vue'),
-    //   meta: {
-    //     title: 'Search - カルテット単語索引'
-    //   }
-    // },
     {
       path: '/options',
       name: 'options',
       component: () => import('@/views/OptionsView.vue'),
       meta: {
-        title: 'Options - カルテット単語索引'
+        title: 'Options - ポケットカルテット'
       }
     },
     {
@@ -36,7 +25,7 @@ const router = createRouter({
       name: 'table',
       component: () => import('@/views/TableView.vue'),
       meta: {
-        title: 'Table - カルテット単語索引'
+        title: 'Table - ポケットカルテット'
       }
     },
     {
@@ -44,7 +33,7 @@ const router = createRouter({
       name: 'about',
       component: () => import('@/views/AboutView.vue'),
       meta: {
-        title: 'About - カルテット単語索引'
+        title: 'About - ポケットカルテット'
       }
     }
   ]

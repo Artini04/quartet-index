@@ -30,7 +30,7 @@ defineProps<{
     &-kk {
       font-size: 2rem;
       line-height: 2.3rem;
-      color: var(--kana-kanji, #f16d45);
+      color: var(--kana-kanji);
     }
 
     &-h {

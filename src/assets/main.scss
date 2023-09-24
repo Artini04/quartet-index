@@ -1,29 +1,5 @@
+@import './mixins.scss';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Instrument+Sans&display=swap');
-:root {
-  scroll-behavior: smooth;
-
-  --component-limit-width: calc(100% - 2rem);
-  --component-limit-width-clamp: 600px;
-  --component-spacing: 0.5rem;
-
-  --component-input-bg: #40464d;
-  --component-input-tab-active: #e7ebf0;
-  --component-input-tab-active-font: #24292e;
-  --component-input-active: #797c85;
-  --component-input-disabled: #2d333a;
-  --component-input-font-disabled: #546572;
-
-  --skeleton-spacing: 1rem;
-
-  --card-border-color: #7b7b80;
-
-  --book-vol-1: #ff677c;
-  --book-vol-2: #50b0ff;
-  --book-vol-other: #ffffff;
-
-  --en-symbol: '\82F1';
-  --kana-kanji: #f16d45;
-}
 
 .clamped {
   max-width: var(--component-limit-width-clamp);
@@ -45,19 +21,13 @@ main {
     width: var(--component-limit-width);
     max-width: var(--component-limit-width-clamp);
     margin-inline: auto;
-
-    & > * + * {
-      margin-top: 1rem;
-    }
   }
 
   width: calc(100% - 2rem);
   max-width: 1000px;
   margin-inline: auto;
 
-  & > * + * {
-    margin-top: var(--skeleton-spacing);
-  }
+  @include margin-top(var(--component-spacing));
 }
 
 input,
@@ -65,7 +35,7 @@ select {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-  background: var(--component-input-bg);
+  background: var(--component-background-color);
   padding: var(--component-padding) 0;
   width: 100%;
 
@@ -76,4 +46,13 @@ select {
   &[type='checkbox'] {
     width: auto;
   }
+}
+
+table,
+thead,
+tbody,
+th,
+tr,
+td {
+  border-collapse: collapse;
 }

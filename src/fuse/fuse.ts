@@ -1,5 +1,4 @@
 import { ref, type Ref } from 'vue'
-import { useStorage } from '@vueuse/core'
 import Fuse from 'fuse.js'
 import vocabDictJSON from './words_list.json'
 
@@ -14,9 +13,7 @@ const fusedLessonDict = new Fuse(vocabDictJSON, {
 })
 
 const results: Ref<any[]> = ref([]),
-  resultsTable: Ref<any[]> = ref([]),
-  debugLinks: Ref<boolean> = useStorage('show-link', false),
-  theme: Ref<string> = useStorage('app-theme', 'dark')
+  resultsTable: Ref<any[]> = ref([])
 
 // Get the word in the vocabulary index
 function fetchFromDict(keyword: string): void {
@@ -46,4 +43,4 @@ function fetchFromDictAsTable(keyword: string): void {
   })
 }
 
-export { fetchFromDict, fetchFromDictAsTable, results, resultsTable, debugLinks, theme }
+export { fetchFromDict, fetchFromDictAsTable, results, resultsTable }

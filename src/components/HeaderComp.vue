@@ -8,8 +8,8 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
 <template>
   <header class="header-root clamped">
     <div class="header-title">
-      <h1>日本語カルテット単語索引</h1>
-      <h2>Quartet Vocabulary Index</h2>
+      <h1>ポケットカルテット</h1>
+      <h2>日本語カルテット単語索引</h2>
     </div>
 
     <div class="header-note"></div>
@@ -19,7 +19,7 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
         <InputTabWrapper>
           <template v-slot:button>
             <RouterLink to="/">
-              <Icon icon="tabler:book-2" />
+              <Icon icon="tabler:books" />
               <span>Look-up</span>
             </RouterLink>
           </template>
@@ -28,8 +28,8 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
         <InputTabWrapper>
           <template v-slot:button>
             <RouterLink to="/table">
-              <Icon icon="tabler:table" />
-              <span>Table</span>
+              <Icon icon="tabler:grid-pattern" />
+              <span>Table [WIP]</span>
             </RouterLink>
           </template>
         </InputTabWrapper>
@@ -73,7 +73,8 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
     text-align: center;
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 2rem;
+      line-height: 2rem;
     }
   }
 

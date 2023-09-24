@@ -12,13 +12,22 @@
   --app-font-family: 'Instrument Sans', 'IBM Plex Sans JP', sans-serif;
 
   // Component specific
-  --component-background-color: #40464d;
-  --component-active-background-color: #797c85;
+  --component-limit-width: calc(100% - 2rem);
+  --component-limit-width-clamp: 500px;
+  --component-background-color: #424750;
+  --component-active-background-color: #838792;
   --component-active-tab-background-color: #e7ebf0;
   --component-active-tab-font-color: #24292e;
   --component-border-color: #838485;
   --component-border-radius: 5px;
   --component-padding: 1rem;
+  --component-spacing: 1rem;
+
+  --book-vol-1: #ff677c;
+  --book-vol-2: #50b0ff;
+  --book-vol-other: #ffffff;
+  --en-symbol: '\82F1';
+  --kana-kanji: #f16d45;
 }
 
 ::-webkit-scrollbar {

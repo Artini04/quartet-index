@@ -3,7 +3,7 @@ import { ref, type Ref } from 'vue'
 import { fetchFromDict } from '@/fuse'
 import { Icon } from '@iconify/vue'
 
-import InputWrapper from './input/InputWrapper.vue'
+import InputWrapper from '../input/InputWrapper.vue'
 
 const inputSearch: Ref<string> = ref('')
 </script>

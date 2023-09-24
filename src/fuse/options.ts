@@ -2,13 +2,13 @@ import { ref, type Ref } from 'vue'
 import { useStorage } from '@vueuse/core'
 
 type AppOptions = {
-  cardPadding: string
   showLinks: boolean
+  theme: string
 }
 
 const appOptions: Ref<AppOptions> = ref({
-  cardPadding: '1rem',
-  showLinks: useStorage('show-link', false)
+  showLinks: useStorage('show-link', true),
+  theme: useStorage('app-theme', 'dark')
 })
 
 export { appOptions }

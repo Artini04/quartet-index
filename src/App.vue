@@ -14,6 +14,6 @@ import HeaderComp from './components/HeaderComp.vue'
 @import '@/assets/mixins';
 
 #app {
-  @include margin_top(0.5rem);
+  @include margin_top(var(--component-spacing));
 }
 </style>

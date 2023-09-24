@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
+import InputTabWrapper from './input/InputTabWrapper.vue'
 </script>
 
 <template>
@@ -11,34 +12,45 @@ import { Icon } from '@iconify/vue'
         >プロジェクト</a
       >を作りました。使った言葉が「４技能でひろがる中級日本語カルテット」という本に由来しているものです。
     </p>
-    <span class="footer-icon-list">
-      <a href="https://github.com/Artini04/quartet-index" target="_blank">
-        <Icon icon="tabler:brand-github-filled" />
-      </a>
-    </span>
+
+    <div class="footer-icon-list">
+      <InputTabWrapper>
+        <template v-slot:button>
+          <a href="https://github.com/Artini04/quartet-index" target="_blank">
+            <Icon icon="tabler:brand-github-filled" />
+            <span>Project Page</span>
+          </a>
+        </template>
+      </InputTabWrapper>
+
+      <InputTabWrapper>
+        <template v-slot:button>
+          <a href="https://github.com/Artini04/quartet-index/issues" target="_blank">
+            <Icon icon="tabler:circle-dot" />
+            <span>Report Issue</span>
+          </a>
+        </template>
+      </InputTabWrapper>
+    </div>
   </footer>
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
 .footer {
   &-root {
+    @include display(block);
+    @include margin-top(var(--component-spacing) / 2);
+
     width: var(--component-limit-width);
     max-width: var(--component-limit-width-clamp);
     margin-inline: auto;
-
-    & > * {
-      display: block;
-
-      & + * {
-        margin-top: var(--component-spacing);
-      }
-    }
   }
 
   &-icon-list {
-    font-size: 2rem;
-    text-align: center;
-    width: 100%;
+    @include flex(row, nowrap, 0.5rem);
+    @include item_alignment(center, center);
   }
 }
 </style>
