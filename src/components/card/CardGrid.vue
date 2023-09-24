@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { results } from '@/fuse'
-
 import CardWord from './CardWord.vue'
 </script>
 
@@ -25,28 +24,20 @@ import CardWord from './CardWord.vue'
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
 .card-list {
   &-root {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-}
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--component-spacing);
 
-@media only screen and (max-width: 451px) {
-  .card-list {
-    &-root {
-      display: flex;
-      flex-flow: column nowrap;
+    @media only screen and (max-width: 451px) {
+      @include flex(column, nowrap, var(--component-spacing));
     }
-  }
-}
 
-@media (hover: none) {
-  .card-list {
-    &-root {
-      display: flex;
-      flex-flow: column nowrap;
+    @media (hover: none) {
+      @include flex(column, nowrap, var(--component-spacing));
     }
   }
 }

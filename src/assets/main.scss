@@ -1,73 +1,57 @@
+@import './mixins.scss';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Instrument+Sans&display=swap');
-:root {
-  scroll-behavior: smooth;
-
-  --app-background: #24292e;
-  --app-font: #e7ebf0;
-  --app-font-muted: #838485;
-  --app-font-inverse: #3f3f3f;
-
-  --component-limit-width: calc(100% - 2rem);
-  --component-limit-width-clamp: 600px;
-  --component-spacing: 0.5rem;
-  --skeleton-spacing: 1rem;
-
-  --card-border-color: #7b7b80;
-
-  --book-vol-1: #ff677c;
-  --book-vol-2: #50b0ff;
-  --book-vol-other: #ffffff;
-
-  --en-symbol: '\82F1';
-  --kana-kanji: #f16d45;
+.clamped {
+  max-width: var(--component-limit-width-clamp);
+  margin-inline: auto;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
-  outline: 0;
-}
-
-body {
-  background: var(--app-background);
-  color: var(--app-font);
-  overflow-y: visible;
-
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 1rem;
-  transition: background ease 200ms;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #3a424b;
-  border-radius: 7px;
-
-  &:hover {
-    background-color: #74818f;
+.remove-highlight {
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
-*[lang='jp'] {
-  font-family: 'IBM Plex Sans JP', sans-serif;
+main {
+  &.option {
+    width: var(--component-limit-width);
+    max-width: var(--component-limit-width-clamp);
+    margin-inline: auto;
+  }
+
+  width: calc(100% - 2rem);
+  max-width: 1000px;
+  margin-inline: auto;
+
+  @include margin-top(var(--component-spacing));
 }
 
-a:any-link {
+input,
+select {
   color: inherit;
-  text-underline-offset: 3px;
+  font-family: inherit;
+  font-size: inherit;
+  background: var(--component-background-color);
+  padding: var(--component-padding) 0;
+  width: 100%;
 
-  &:is(:focus, :active) {
-    outline: 1px solid white;
+  &::placeholder {
+    color: inherit;
+  }
+
+  &[type='checkbox'] {
+    width: auto;
   }
 }
 
-.shade {
-  background-color: rgba($color: #000000, $alpha: 0.2);
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
+table,
+thead,
+tbody,
+th,
+tr,
+td {
+  border-collapse: collapse;
 }

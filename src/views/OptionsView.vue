@@ -1,43 +1,34 @@
 <script setup lang="ts">
-import { debugLinks } from '@/fuse'
+import { appOptions } from '@/fuse'
 </script>
 
 <template>
-  <div class="option-root shade">
+  <main class="option-root clamped">
     <div class="option-category">
-      <h2 class="option-title">Card Preferences</h2>
-      <p class="option-subtitle">Options about the card. [Work-In-Progress]</p>
-
+      <h2 class="option-title">Card Preference</h2>
       <div class="option-cell">
-        <input id="show-dict-links" type="checkbox" v-model="debugLinks" />
+        <input id="show-dict-links" type="checkbox" v-model="appOptions['showLinks']" />
         <label for="show-dict-links">Show dictionary links</label>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
 .option {
   &-root {
-    width: var(--component-limit-width);
-    max-width: var(--component-limit-width-clamp);
-    margin-inline: auto;
-
-    & > * + * {
-      margin-top: 1rem;
-    }
+    @include default_box;
+    background-color: var(--component-background-color);
   }
 
   &-category {
-    & > * + * {
-      margin-top: 0.5rem;
-    }
+    @include margin_top(0.5rem);
   }
 
   &-cell {
-    & > * + * {
-      margin-left: 0.5rem;
-    }
+    @include margin_left(0.5rem);
   }
 }
 </style>

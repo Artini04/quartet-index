@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+a:any-link {
+  color: inherit;
+  text-underline-offset: 3px;
+
+  &:is(:focus, :active) {
+    outline: 1px solid white;
+  }
+}
+
+input {
+  &[type='button'],
+  &[type='checkbox'] {
+    cursor: pointer;
+  }
+}
+
+label {
+  cursor: pointer;
+}
+
+table {
+  thead,
+  tbody {
+    width: 100%;
+  }
+}

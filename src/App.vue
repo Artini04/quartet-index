@@ -11,9 +11,9 @@ import HeaderComp from './components/HeaderComp.vue'
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
 #app {
-  & > * + * {
-    margin-top: var(--skeleton-spacing);
-  }
+  @include margin_top(var(--component-spacing));
 }
 </style>
