@@ -6,27 +6,21 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
 </script>
 
 <template>
-  <header class="header-root">
+  <header class="header-root clamped">
     <div class="header-title">
       <h1>日本語カルテット単語索引</h1>
       <h2>Quartet Vocabulary Index</h2>
     </div>
 
-    <div class="header-note">
-      <p>
-        Japanese Quartet Vocabulary Index written in Vue3. Cards are colored based on their
-        respective book color. I added links from English-Japanese dictionaries to access them
-        easily.
-      </p>
-    </div>
+    <div class="header-note"></div>
 
     <nav class="header-nav">
       <div class="header-nav-left">
         <InputTabWrapper>
           <template v-slot:button>
             <RouterLink to="/">
-              <Icon icon="tabler:search" />
-              <span>Search</span>
+              <Icon icon="tabler:book-2" />
+              <span>Look-up</span>
             </RouterLink>
           </template>
         </InputTabWrapper>
@@ -50,23 +44,29 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
             </RouterLink>
           </template>
         </InputTabWrapper>
+        <InputTabWrapper>
+          <template v-slot:button>
+            <RouterLink to="/about">
+              <Icon icon="tabler:info-circle" />
+              <span>About</span>
+            </RouterLink>
+          </template>
+        </InputTabWrapper>
       </div>
     </nav>
   </header>
 </template>
 
 <style lang="scss">
+@import '../assets/mixins';
+
 .header {
   &-root {
     width: var(--component-limit-width);
     max-width: var(--component-limit-width-clamp);
     margin: 1rem auto 0;
 
-    & > * {
-      & + * {
-        margin-top: var(--component-spacing);
-      }
-    }
+    @include margin_top(1rem);
   }
 
   &-title {
@@ -84,16 +84,16 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
   &-nav {
     &-left,
     &-right {
-      display: inline-block;
+      @include inline_flex(row, wrap, 0.3rem);
       width: 50%;
+    }
 
-      & > * + * {
-        margin-left: 0.5rem;
-      }
+    &-left {
+      @include item_alignment(center, flex-start);
     }
 
     &-right {
-      text-align: right;
+      @include item_alignment(center, flex-end);
     }
   }
 }

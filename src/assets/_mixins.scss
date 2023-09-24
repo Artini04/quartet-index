@@ -1,0 +1,73 @@
+@mixin flex($dir, $wrap, $gap) {
+  display: flex;
+  flex-flow: #{$dir} #{$wrap};
+  gap: #{$gap};
+}
+
+@mixin inline_flex($dir, $wrap, $gap) {
+  display: inline-flex;
+  flex-flow: #{$dir} #{$wrap};
+  gap: #{$gap};
+}
+
+@mixin item_alignment($align, $justify) {
+  align-items: #{$align};
+  justify-content: #{$justify};
+}
+
+@mixin flex_grow($grow) {
+  flex-grow: #{$grow};
+}
+
+@mixin svg($size) {
+  display: inline-block;
+  margin-bottom: calc(calc(#{$size} / 6) * -1);
+  margin-right: calc(#{$size} / 6);
+  width: #{$size};
+  height: #{$size};
+}
+
+@mixin tab($spacing) {
+  display: block;
+  padding: #{$spacing};
+  text-decoration: none;
+}
+
+@mixin box($padding) {
+  padding: #{$padding};
+  border-radius: var(--component-border-radius);
+}
+
+// ============== //
+//    DEFAULTS    //
+// ============== //
+
+@mixin no_outline {
+  outline: none !important;
+}
+
+@mixin default_box {
+  padding: var(--component-padding);
+  border-radius: var(--component-border-radius);
+}
+
+@mixin default_transition {
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+// ============= //
+//    MARGINS    //
+// ============= //
+
+@mixin margin_top($spacing) {
+  & > * + * {
+    margin-top: #{$spacing};
+  }
+}
+
+@mixin margin_left($spacing) {
+  & > * + * {
+    margin-left: #{$spacing};
+  }
+}

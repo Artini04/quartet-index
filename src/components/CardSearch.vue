@@ -37,56 +37,21 @@ const inputSearch: Ref<string> = ref('')
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
 .search {
   &-root {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 0.4rem;
-
-    input {
-      &[type='button'] {
-        cursor: pointer;
-      }
-    }
+    @include flex(row, nowrap, 0.5rem);
   }
 
   &-box {
+    @include flex(row, nowrap, 0.5rem);
+    @include item_alignment(center, center);
     flex-grow: 1;
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 0.5rem;
-
-    align-items: center;
-    justify-content: center;
   }
 
   &-button {
     flex-basis: 100px;
-  }
-
-  &-div {
-
-
-
-    &[button='true'] {
-      padding: 0;
-
-      input[type='button'] {
-        padding: var(--component-padding);
-      }
-
-      &:active {
-        scale: 0.95;
-      }
-
-      &:hover {
-        background-color: var(--component-input-active);
-      }
-    }
-
-    &:focus-within {
-      outline: 1px solid white;
-    }
   }
 }
 </style>

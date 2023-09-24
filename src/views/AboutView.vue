@@ -1,15 +1,8 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main class="clamped">
+    <p>
+      Japanese Quartet Vocabulary Index written in Vue3. Cards are colored based on their respective
+      book color. I added links from English-Japanese dictionaries to access them easily.
+    </p>
+  </main>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

@@ -5,8 +5,10 @@
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
 .input-wrapper {
-  background-color: var(--component-input-bg);
+  background-color: var(--component-background-color);
   border-radius: var(--component-border-radius);
   padding: 0 var(--component-padding);
 
@@ -15,9 +17,8 @@
   }
 
   &:has(input[type='button']) {
-    transition:
-      background ease 200ms,
-      scale ease 100ms;
+    @include default_transition;
+    transition-property: background, scale;
   }
 
   &:has(input[type='button']:is(:active)) {

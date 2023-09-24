@@ -2,16 +2,9 @@
 :root {
   scroll-behavior: smooth;
 
-  --app-background: #24292e;
-  --app-font: #e7ebf0;
-  --app-font-muted: #838485;
-  --app-font-inverse: #3f3f3f;
-
   --component-limit-width: calc(100% - 2rem);
   --component-limit-width-clamp: 600px;
   --component-spacing: 0.5rem;
-  --component-padding: 1rem;
-  --component-border-radius: 7px;
 
   --component-input-bg: #40464d;
   --component-input-tab-active: #e7ebf0;
@@ -30,48 +23,6 @@
 
   --en-symbol: '\82F1';
   --kana-kanji: #f16d45;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #3a424b;
-  border-radius: 7px;
-
-  &:hover {
-    background-color: #74818f;
-  }
-}
-
-body {
-  background: var(--app-background);
-  color: var(--app-font);
-  overflow-y: visible;
-
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 1rem;
-  transition: background ease 200ms;
-}
-
-*[lang='jp'] {
-  font-family: 'IBM Plex Sans JP', sans-serif;
-}
-
-a:any-link {
-  color: inherit;
-  text-underline-offset: 3px;
-
-  &:is(:focus, :active) {
-    outline: 1px solid white;
-  }
-}
-
-.shade {
-  background-color: rgba($color: #000000, $alpha: 0.2);
-  border-radius: var(--component-border-radius);
-  padding: 0.5rem 1rem;
 }
 
 .clamped {

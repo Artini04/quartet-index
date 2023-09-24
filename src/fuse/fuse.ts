@@ -15,10 +15,16 @@ const fusedLessonDict = new Fuse(vocabDictJSON, {
 
 const results: Ref<any[]> = ref([]),
   resultsTable: Ref<any[]> = ref([]),
-  debugLinks: Ref<boolean> = useStorage('show-link', false)
+  debugLinks: Ref<boolean> = useStorage('show-link', false),
+  theme: Ref<string> = useStorage('app-theme', 'dark')
 
 // Get the word in the vocabulary index
 function fetchFromDict(keyword: string): void {
+  if (keyword.length === 0) {
+    alert('Search input empty!')
+    return
+  }
+
   results.value = []
   const value = fusedCommonDict.search(keyword)
 
@@ -40,4 +46,4 @@ function fetchFromDictAsTable(keyword: string): void {
   })
 }
 
-export { fetchFromDict, fetchFromDictAsTable, results, resultsTable, debugLinks }
+export { fetchFromDict, fetchFromDictAsTable, results, resultsTable, debugLinks, theme }

@@ -1,39 +1,30 @@
 <template>
-  <div class="input-tab-wrapper">
+  <div class="tab-wrapper transition-bg-color">
     <slot name="button"> </slot>
   </div>
 </template>
 
 <style lang="scss">
-.input-tab-wrapper {
-  display: inline-block;
+@import '@/assets/mixins';
+
+.tab-wrapper {
+  @include default_transition;
+  transition-property: background, color;
   border-radius: var(--component-border-radius);
   width: fit-content;
 
-  transition:
-    background ease 200ms,
-    color ease 200ms;
-
   &:has(.router-link-active, .router-link-exact-active) {
-    background-color: var(--component-input-tab-active);
-    color: var(--component-input-tab-active-font);
+    background-color: var(--component-active-tab-background-color);
+    color: var(--component-active-tab-font-color);
   }
 
   a {
-    outline: none !important;
-    display: block;
-    padding: 0.4rem 0.6rem;
-    text-decoration: none;
+    @include no_outline;
+    @include tab(0.3rem 0.5rem);
   }
 
   svg {
-    $size: 18px;
-
-    display: inline-block;
-    margin-bottom: -(calc($size / 6));
-    margin-right: calc($size / 6);
-    width: $size;
-    height: $size;
+    @include svg(18px);
   }
 }
 </style>

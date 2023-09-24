@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { debugLinks } from '@/fuse'
-import { Icon } from '@iconify/vue'
+import { appOptions } from '@/fuse'
+import ServiceWrapper from './card/ServiceWrapper.vue'
+import CardMeaning from './card/CardMeaning.vue'
+import CardJapanese from './card/CardJapanese.vue'
 
 const localProps = defineProps<{
   id: number
@@ -30,8 +32,9 @@ const enMain: string[] = localProps['en'].split(';')
 </script>
 
 <template>
-  <div class="card-word__root">
-    <div class="card-word__info shade">
+  <div class="card-word-root">
+    <div class="card-word-info">
+      <span class="word-id">{{ id }}</span>
       <span class="goto-lesson" :vol="lesson >= 7 ? 2 : 1">Lesson {{ lesson }}</span>
       <span class="goto-reading">読み{{ reading }}</span>
       <span class="kanji-learn-recommend">
@@ -39,50 +42,32 @@ const enMain: string[] = localProps['en'].split(';')
       </span>
     </div>
 
-    <div class="card-word__text">
-      <div class="card-word__text-japanese" lang="jp">
-        <span class="ja-kk" v-for="item in jpnFirst" :key="item">
-          {{ item }}
-        </span>
-        <div class="ja-phs">
-          <span class="ja-particle" v-if="ja_h_add">{{ `[${ja_h_add}]` }}</span>
-          <span class="ja-h" v-for="item in jpnSecond" :key="item">
-            {{ item }}
-          </span>
-          <span v-if="ja_h_suru" class="ja-suru">({{ ja_h_suru }})</span>
-        </div>
-      </div>
-
-      <div class="card-word__text-meaning">
-        <span class="en-en" v-for="item in enMain" :key="item">
-          {{ item }}
-          <span class="en-verb-type" v-if="en_add"> [{{ en_add }}] </span>
-        </span>
-      </div>
+    <div class="card-word-text">
+      <CardJapanese
+        :japanese_main="jpnFirst"
+        :japanese_secondary="jpnSecond"
+        :particle="ja_h_add"
+        :suru="ja_h_suru"
+      />
+      <CardMeaning :meaning="enMain" :additional="en_add" />
     </div>
 
-    <div class="card-word__link shade" v-if="debugLinks">
-      <div class="card-word__link-link">
-        <span class="service">
-          <Icon icon="tabler:book-2" />
-          jpdb.io
-        </span>
+    <div class="card-word-link" v-if="appOptions['showLinks']">
+      <div class="card-word-link-link">
+        <ServiceWrapper icon_name="tabler:book-2" text="jpdb.io" />
         <span class="link" v-for="item in [...jpnFirst, ...jpnSecond]" :key="item">
-          <a :href="`https://jpdb.io/search?q=${item}#a`" target="_blank">{{
-            item.length > 4 ? item.slice(0, 4) + '...' : item
-          }}</a>
+          <a :href="`https://jpdb.io/search?q=${item}#a`" target="_blank">
+            {{ item.length > 4 ? item.slice(0, 4) + '...' : item }}
+          </a>
         </span>
       </div>
 
-      <div class="card-word__link-link">
-        <span class="service">
-          <Icon icon="tabler:book-2" />
-          weblio辞書
-        </span>
+      <div class="card-word-link-link">
+        <ServiceWrapper icon_name="tabler:book-2" text="weblio辞書" />
         <span class="link" v-for="item in [...jpnFirst, ...jpnSecond]" :key="item">
-          <a :href="`https://ejje.weblio.jp/content/${item}`" target="_blank">{{
-            item.length > 4 ? item.slice(0, 4) + '...' : item
-          }}</a>
+          <a :href="`https://ejje.weblio.jp/content/${item}`" target="_blank">
+            {{ item.length > 4 ? item.slice(0, 4) + '...' : item }}
+          </a>
         </span>
       </div>
     </div>
@@ -90,33 +75,26 @@ const enMain: string[] = localProps['en'].split(';')
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
 .card-word {
-  $card-bordering-corner-radius: 7px;
-  $card-spacing-from-border-to-data: 1rem;
-  $card-meaning-spacing-left: 20px;
-
-  &__root {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
-
-    padding: $card-spacing-from-border-to-data;
-    border: 1px solid var(--card-border-color, #f3f3f3);
-    border-radius: $card-bordering-corner-radius;
+  &-root {
+    @include default_box;
+    @include flex(column, nowrap, 1rem);
+    border: 1px solid var(--component-border-color);
+    position: relative;
   }
 
-  &__info {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 1rem;
-
-    align-items: center;
-    justify-content: center;
+  &-info {
+    @include flex(row, nowrap, 1rem);
+    @include item_alignment(center, center);
+    @include box(0.5rem);
+    background-color: rgba($color: #000000, $alpha: 0.2);
 
     .goto {
       &-lesson,
       &-reading {
-        flex: 1 1 50%;
+        flex-grow: 1;
       }
 
       &-lesson {
@@ -134,84 +112,37 @@ const enMain: string[] = localProps['en'].split(';')
       }
     }
 
+    .kanji-learn-recommend {
+      flex-shrink: 1;
+    }
+
     .word-id {
-      flex: 0 0 40px;
+      flex: 0 1 40px;
       font-family: monospace;
-    }
-  }
-
-  &__text {
-    flex-grow: 1;
-    padding: 0 $card-spacing-from-border-to-data;
-
-    & > * {
-      display: block;
-
-      & + * {
-        margin-top: 0.3rem;
-      }
-    }
-
-    &-japanese {
       text-align: center;
-
-      .ja {
-        &-kk {
-          font-size: 2rem;
-          line-height: 2.3rem;
-          color: var(--kana-kanji, #f16d45);
-        }
-
-        &-h {
-          font-size: 1.3rem;
-          line-height: 1.6rem;
-        }
-
-        &-phs {
-          & > * + * {
-            margin-left: 0.5rem;
-          }
-        }
-      }
-    }
-
-    &-meaning {
-      .en {
-        &-en {
-          display: block;
-
-          &::before {
-            content: var(--en-symbol);
-            margin-right: 0.5rem;
-          }
-        }
-
-        &-verb-type {
-          font-style: italic;
-        }
-      }
+      background-color: #3f3f3f;
+      border-radius: var(--component-border-radius);
     }
   }
 
-  &__link {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 0;
-    font-size: 0.9rem;
+  &-text {
+    @include margin-top(0.5rem);
+    flex-grow: 1;
+    padding: 0 0.5rem;
+  }
+
+  &-link {
+    @include flex(row, nowrap, 0);
+    @include box(0.5rem);
+    background-color: rgba($color: #000000, $alpha: 0.2);
 
     .service {
-      line-height: 1.4rem;
+      @include svg(18px);
     }
 
     &-link {
+      @include margin_top(0.3rem);
       flex: 1 1 50%;
-
-      & > * {
-        display: block;
-        & + * {
-          margin-top: 0.3rem;
-        }
-      }
     }
   }
 }
