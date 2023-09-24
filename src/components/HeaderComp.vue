@@ -58,7 +58,7 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
 </template>
 
 <style lang="scss">
-@import '../assets/mixins';
+@import '@/assets/mixins';
 
 .header {
   &-root {
