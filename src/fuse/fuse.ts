@@ -1,15 +1,19 @@
 import { ref, type Ref } from 'vue'
 import Fuse from 'fuse.js'
-import vocabDictJSON from './words_list.json'
+import vocabDict from './dictionary.json'
 
-const fusedCommonDict = new Fuse(vocabDictJSON, {
-  keys: ['ja-kk', 'ja-h', 'en'],
+const fusedDict = new Fuse(vocabDict, {
+  keys: [
+    ['data', 'ja_kana_kanji'],
+    ['data', 'ja_furigana'],
+    ['data', 'en_meaning']
+  ],
   shouldSort: true,
   threshold: 0.2
 })
 
-const fusedLessonDict = new Fuse(vocabDictJSON, {
-  keys: ['lesson']
+const fusedLessonDict = new Fuse(vocabDict, {
+  keys: [['info', 'lesson']]
 })
 
 const results: Ref<any[]> = ref([]),
@@ -23,7 +27,7 @@ function fetchFromDict(keyword: string): void {
   }
 
   results.value = []
-  const value = fusedCommonDict.search(keyword)
+  const value = fusedDict.search(keyword)
 
   value.forEach((item) => {
     results.value.push(item)
@@ -31,14 +35,15 @@ function fetchFromDict(keyword: string): void {
 }
 
 // Get the lesson and reading words in the vocabulary index
-function fetchFromDictAsTable(keyword: string): void {
-  if (keyword === '0') return
-
+function fetchFromDictAsTable(lesson: number): void {
   resultsTable.value = []
-  const value = fusedLessonDict.search(keyword)
+  if (lesson === 0) return
+
+  const value = fusedLessonDict.search(lesson.toString())
 
   value.forEach((item) => {
-    if (item['item']['lesson'] !== keyword) return
+    const item_lesson: number = item['item']['info']['lesson']
+    if (item_lesson != lesson) return
     resultsTable.value.push(item)
   })
 }

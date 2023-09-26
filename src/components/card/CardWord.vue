@@ -12,23 +12,16 @@ const localProps = defineProps<{
   ja_h: string
   ja_h_add: string | null
   ja_h_suru: string | null
-  en: string
+  en: string[]
   en_add: string | null
-  kanji: number
+  kanji: string
   lesson: number
   reading: number
 }>()
 
-const jpnFirst: string[] = [],
-  jpnSecond: string[] = [],
-  meaning: string[] = localProps['en'].split(';')
-
-if (localProps['ja_kk']) {
-  jpnFirst.push(...localProps['ja_kk'].split(';'))
-  jpnSecond.push(...localProps['ja_h'].split(';'))
-} else {
-  jpnFirst.push(...localProps['ja_h'].split(';'))
-}
+const jpnFirst: string = localProps['ja_kk'] ?? localProps['ja_h'],
+  jpnSecond: string = localProps['ja_kk'] ? localProps['ja_h'] : '',
+  meaning: string[] = localProps['en']
 </script>
 
 <template>
@@ -48,20 +41,18 @@ if (localProps['ja_kk']) {
     <div class="card-link" v-if="appOptions['showLinks']">
       <div class="card-link-link">
         <ServiceWrapper icon_name="tabler:book-2" text="jpdb.io" />
-        <span class="link" v-for="item in [...jpnFirst, ...jpnSecond]" :key="item">
+        <span class="link" v-for="item in [jpnFirst, jpnSecond]" :key="item">
           <a :href="`https://jpdb.io/search?q=${item}#a`" target="_blank">
-            <!-- {{ item.length > 4 ? item.slice(0, 4) + '...' : item }} -->
-            {{ item }}
+            {{ item.length > 4 ? item.slice(0, 4) + '...' : item }}
           </a>
         </span>
       </div>
 
       <div class="card-link-link">
         <ServiceWrapper icon_name="tabler:book-2" text="weblio辞書" />
-        <span class="link" v-for="item in [...jpnFirst, ...jpnSecond]" :key="item">
+        <span class="link" v-for="item in [jpnFirst, jpnSecond]" :key="item">
           <a :href="`https://ejje.weblio.jp/content/${item}`" target="_blank">
-            <!-- {{ item.length > 4 ? item.slice(0, 4) + '...' : item }} -->
-            {{ item }}
+            {{ item.length > 4 ? item.slice(0, 4) + '...' : item }}
           </a>
         </span>
       </div>

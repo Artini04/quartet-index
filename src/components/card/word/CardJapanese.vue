@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  japanese_main: string[]
-  japanese_secondary: string[]
+  japanese_main: string
+  japanese_secondary: string
   particle: string | null
   suru: string | null
 }>()
@@ -13,11 +13,9 @@ defineProps<{
       {{ item }}
     </span>
     <div class="ja-phs">
-      <span class="ja-particle" v-if="particle"> [{{ particle }}] </span>
-      <span class="ja-h" v-for="item in japanese_secondary" :key="item">
-        {{ item }}
-      </span>
-      <span class="ja-suru" v-if="suru">({{ suru }})</span>
+      <span class="ja-particle" v-if="particle"> {{ particle }} </span>
+      <span class="ja-h">{{ japanese_secondary }}</span>
+      <span class="ja-suru" v-if="suru">{{ suru }}</span>
     </div>
   </div>
 </template>
@@ -33,14 +31,9 @@ defineProps<{
       color: var(--kana-kanji);
     }
 
-    &-h {
-      font-size: 1.3rem;
-      line-height: 1.6rem;
-    }
-
     &-phs {
-      & > * + * {
-        margin-left: 0.5rem;
+      .ja-h {
+        color: var(--hiragana);
       }
     }
   }
