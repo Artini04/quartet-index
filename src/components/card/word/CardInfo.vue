@@ -3,7 +3,7 @@ defineProps<{
   id: number
   lesson: number
   reading: number
-  recommended: number
+  recommended: string
 }>()
 </script>
 
@@ -12,9 +12,7 @@ defineProps<{
     <span class="id">{{ id }}</span>
     <span class="lesson" :vol="lesson >= 7 ? 2 : 1">Lesson {{ lesson }}</span>
     <span class="reading">読み{{ reading }}</span>
-    <span class="recommend">
-      {{ recommended === 0 ? '&#65343;' : recommended === 2 ? '&#9670;' : '&#9671;' }}
-    </span>
+    <span class="recommend">{{ recommended }}</span>
   </div>
 </template>
 

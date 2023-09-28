@@ -9,7 +9,6 @@ import TableRow from './TableRow.vue'
       <thead>
         <tr>
           <th>漢</th>
-          <th>L</th>
           <th>読</th>
           <th>単語</th>
           <th>読み</th>
@@ -22,16 +21,15 @@ import TableRow from './TableRow.vue'
           v-for="{ item, refIndex } in resultsTable"
           :key="refIndex"
           :id="item['id']"
-          :ja_letter_loc="item['ja-letter-loc']"
-          :ja_kk="item['ja-kk'] ?? null"
-          :ja_h="item['ja-h']"
-          :ja_h_add="item['ja-h-add'] ?? null"
-          :ja_h_suru="item['ja-h-suru'] ?? null"
-          :en="item['en']"
-          :en_add="item['en-add'] ?? null"
-          :kanji="item['kanji']"
-          :lesson="parseInt(item['lesson'])"
-          :reading="parseInt(item['reading'])"
+          :ja_letter_loc="item['info']['ja_letter_loc']"
+          :ja_kk="item['data']['ja_kana_kanji']"
+          :ja_h="item['data']['ja_furigana']"
+          :ja_h_add="item['data']['ja_particle']"
+          :ja_h_suru="item['data']['ja_suru'] ?? null"
+          :en="item['data']['en_meaning']"
+          :en_add="item['data']['en_verb_type']"
+          :kanji="item['info']['kanji']"
+          :reading="item['info']['reading']"
         />
       </tbody>
     </table>

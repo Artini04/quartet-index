@@ -2,7 +2,7 @@
 import { ref, watch, type Ref } from 'vue'
 import { fetchFromDictAsTable } from '@/fuse'
 
-const selectedLesson: Ref<string> = ref('0')
+const selectedLesson: Ref<number> = ref(0)
 
 watch(selectedLesson, (lesson) => {
   fetchFromDictAsTable(lesson)

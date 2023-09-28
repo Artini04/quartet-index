@@ -9,7 +9,7 @@ defineProps<{
   <div class="card-meaning">
     <div class="meaning" v-for="item in meaning" :key="item">
       <span class="en">{{ item }}</span>
-      <span class="en-add" v-if="additional">[{{ additional }}]</span>
+      <span class="en-add" v-if="additional">{{ additional }}</span>
     </div>
   </div>
 </template>
