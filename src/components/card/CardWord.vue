@@ -38,7 +38,7 @@ const jpnFirst: string = localProps['ja_kk'] ?? localProps['ja_h'],
       <CardMeaning :meaning="meaning" :additional="en_add" />
     </div>
 
-    <div class="card-link" v-if="appOptions['showLinks']">
+    <div class="card-link" v-if="appOptions['cardOptions']['showLinks']">
       <div class="card-link-link">
         <ServiceWrapper icon_name="tabler:book-2" text="jpdb.io" />
         <span class="link" v-for="item in [jpnFirst, jpnSecond]" :key="item">

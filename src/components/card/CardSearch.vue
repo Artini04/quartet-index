@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue'
-import { fetchFromDict } from '@/fuse'
+import { searchIndex } from '@/fuse'
 import { Icon } from '@iconify/vue'
 
 import InputWrapper from '../input/InputWrapper.vue'
@@ -18,7 +18,7 @@ const inputSearch: Ref<string> = ref('')
           type="text"
           placeholder="Search..."
           v-model="inputSearch"
-          @keypress.enter.prevent="fetchFromDict(inputSearch)"
+          @keypress.enter.prevent="searchIndex(inputSearch)"
         />
       </template>
     </InputWrapper>
@@ -29,7 +29,7 @@ const inputSearch: Ref<string> = ref('')
           class="search-button__btn"
           type="button"
           value="Search"
-          @click.prevent="fetchFromDict(inputSearch)"
+          @click.prevent="searchIndex(inputSearch)"
         />
       </template>
     </InputWrapper>
