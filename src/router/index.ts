@@ -13,19 +13,19 @@ const router = createRouter({
       }
     },
     {
-      path: '/options',
-      name: 'options',
-      component: () => import('@/views/OptionsView.vue'),
-      meta: {
-        title: 'Options - ポケットカルテット'
-      }
-    },
-    {
       path: '/table',
       name: 'table',
       component: () => import('@/views/TableView.vue'),
       meta: {
         title: 'Table - ポケットカルテット'
+      }
+    },
+    {
+      path: '/options',
+      name: 'options',
+      component: () => import('@/views/OptionsView.vue'),
+      meta: {
+        title: 'Options - ポケットカルテット'
       }
     },
     {

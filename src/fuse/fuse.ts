@@ -1,38 +1,57 @@
-import { ref, type Ref } from 'vue'
 import Fuse from 'fuse.js'
+import { ref, computed, type Ref, type ComputedRef } from 'vue'
+import { useFuse, type UseFuseOptions } from '@vueuse/integrations/useFuse'
 import vocabDict from './dictionary.json'
 
-const fusedDict = new Fuse(vocabDict, {
-  keys: [
-    ['data', 'ja_kana_kanji'],
-    ['data', 'ja_furigana'],
-    ['data', 'en_meaning']
-  ],
-  shouldSort: true,
-  threshold: 0.2
+interface Word {
+  id: number
+  data: {
+    ja_kana_kanji: string | null
+    ja_furigana: string
+    en_meaning: string[]
+  }
+  info: {
+    ja_letter_loc: string
+    lesson: number
+    reading: number
+    kanji: string
+  }
+}
+
+const searchQuery: Ref<string> = ref('')
+const resultLimit: Ref<number> = ref(10)
+const resultsThreshold: Ref<number> = ref(0.2)
+
+const keys: ComputedRef<string[][]> = computed(() => {
+  const keyList: string[][] = []
+
+  keyList.push(['data', 'ja_kana_kanji'])
+  keyList.push(['data', 'ja_furigana'])
+  keyList.push(['data', 'en_meaning'])
+
+  return keyList
 })
+
+const fuseOptions = computed<UseFuseOptions<Word>>(() => ({
+  fuseOptions: {
+    keys: keys.value,
+    shouldSort: true,
+    threshold: resultsThreshold.value
+  },
+  resultLimit: resultLimit.value
+}))
+
+const { results } = useFuse(searchQuery, vocabDict, fuseOptions)
+
+const searchIndex = (searchKeyword: string) => {
+  searchQuery.value = searchKeyword
+}
 
 const fusedLessonDict = new Fuse(vocabDict, {
   keys: [['info', 'lesson']]
 })
 
-const results: Ref<any[]> = ref([]),
-  resultsTable: Ref<any[]> = ref([])
-
-// Get the word in the vocabulary index
-function fetchFromDict(keyword: string): void {
-  if (keyword.length === 0) {
-    alert('Search input empty!')
-    return
-  }
-
-  results.value = []
-  const value = fusedDict.search(keyword)
-
-  value.forEach((item) => {
-    results.value.push(item)
-  })
-}
+const resultsTable: Ref<any[]> = ref([])
 
 // Get the lesson and reading words in the vocabulary index
 function fetchFromDictAsTable(lesson: number): void {
@@ -48,4 +67,4 @@ function fetchFromDictAsTable(lesson: number): void {
   })
 }
 
-export { fetchFromDict, fetchFromDictAsTable, results, resultsTable }
+export { fetchFromDictAsTable, searchIndex, searchQuery, resultLimit, results, resultsTable }

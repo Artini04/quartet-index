@@ -35,10 +35,6 @@ import CardWord from './CardWord.vue'
     @media only screen and (max-width: 451px) {
       @include flex(column, nowrap, var(--component-spacing));
     }
-
-    @media (hover: none) {
-      @include flex(column, nowrap, var(--component-spacing));
-    }
   }
 }
 </style>

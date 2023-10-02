@@ -48,6 +48,7 @@ import TableRow from './TableRow.vue'
     display: block;
     width: fit-content;
     white-space: nowrap;
+    margin-inline: auto;
 
     thead {
       background-color: rgba($color: #000000, $alpha: 0.2);
@@ -58,10 +59,10 @@ import TableRow from './TableRow.vue'
       th {
         padding: 0.4rem 0.6rem;
       }
-    }
 
-    tr:nth-child(even) {
-      background-color: rgba($color: #000000, $alpha: 0.2);
+      &:nth-child(even) {
+        background-color: rgba($color: #000000, $alpha: 0.2);
+      }
     }
   }
 }
