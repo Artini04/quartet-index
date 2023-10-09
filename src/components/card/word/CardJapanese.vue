@@ -31,11 +31,7 @@ defineProps<{
       color: var(--kana-kanji);
     }
 
-    &-phs {
-      .ja-h {
-        color: var(--hiragana);
-      }
-    }
+    
   }
 }
 </style>

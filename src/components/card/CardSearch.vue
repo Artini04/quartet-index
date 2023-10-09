@@ -1,37 +1,28 @@
 <script setup lang="ts">
-import { ref, type Ref } from 'vue'
+import { shallowRef, type Ref } from 'vue'
 import { searchIndex } from '@/fuse'
 import { Icon } from '@iconify/vue'
-
 import InputWrapper from '../input/InputWrapper.vue'
 
-const inputSearch: Ref<string> = ref('')
+const inputSearch: Ref<string> = shallowRef('')
 </script>
 
 <template>
-  <div class="search-root clamped">
-    <InputWrapper class="search-box">
-      <template v-slot:input>
-        <Icon icon="tabler:search" />
-        <input
-          class="search-query"
-          type="text"
-          placeholder="Search..."
-          v-model="inputSearch"
-          @keypress.enter.prevent="searchIndex(inputSearch)"
-        />
-      </template>
+  <div class="search__root clamped">
+    <InputWrapper class="search__box">
+      <Icon icon="tabler:arrow-big-down-filled" />
+      <input
+        type="text"
+        name="search-query"
+        placeholder="Search for..."
+        autocomplete="off"
+        v-model="inputSearch"
+        @keypress.enter="searchIndex(inputSearch)"
+      />
     </InputWrapper>
 
-    <InputWrapper class="search-button">
-      <template v-slot:input>
-        <input
-          class="search-button__btn"
-          type="button"
-          value="Search"
-          @click.prevent="searchIndex(inputSearch)"
-        />
-      </template>
+    <InputWrapper class="search__button">
+      <input type="button" value="Search" @click="searchIndex(inputSearch)" />
     </InputWrapper>
   </div>
 </template>
@@ -40,18 +31,22 @@ const inputSearch: Ref<string> = ref('')
 @import '@/assets/mixins';
 
 .search {
-  &-root {
+  &__root {
     @include flex(row, nowrap, 0.5rem);
   }
 
-  &-box {
+  &__box {
     @include flex(row, nowrap, 0.5rem);
-    @include item_alignment(center, center);
-    flex-grow: 1;
+    @include item_alignment(center, flex-start);
+    flex: 1 1 70%;
   }
 
-  &-button {
-    flex-basis: 100px;
+  &__button {
+    flex: 1 0 50px;
+
+    &:is(:active) {
+      scale: 0.95;
+    }
   }
 }
 </style>

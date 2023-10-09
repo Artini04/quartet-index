@@ -1,28 +1,31 @@
 <template>
-  <div class="input-wrapper remove-highlight">
-    <slot name="input"></slot>
+  <div class="input__wrapper | radius">
+    <slot> </slot>
   </div>
 </template>
 
 <style lang="scss">
 @import '@/assets/mixins';
 
-.input-wrapper {
+.input__wrapper {
+  @include flex(row, nowrap, 0.4rem);
+  @include item_alignment(center, center);
+  @include transition('scale');
   background-color: var(--component-background-color);
-  border-radius: var(--component-border-radius);
-  padding: 0 var(--component-padding);
+  padding-inline: 0.8rem;
 
-  &:is(:focus-within, :focus) {
+  input {
+    padding-block: 0.6rem;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+
+    &::placeholder {
+      color: var(--app-font-color-muted);
+    }
+  }
+
+  &:is(:focus-within) {
     outline: 1px solid white;
-  }
-
-  &:has(input[type='button']) {
-    @include default_transition;
-    transition-property: background, scale;
-  }
-
-  &:has(input[type='button']:is(:active)) {
-    scale: 0.95;
   }
 }
 </style>

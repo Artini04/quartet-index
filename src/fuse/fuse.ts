@@ -6,9 +6,12 @@ import vocabDict from './dictionary.json'
 interface Word {
   id: number
   data: {
-    ja_kana_kanji: string | null
+    ja_kana_kanji?: string | null
     ja_furigana: string
+    ja_particle?: string | null
+    ja_suru?: string | null
     en_meaning: string[]
+    en_verb_type?: string | null
   }
   info: {
     ja_letter_loc: string
@@ -67,4 +70,12 @@ function fetchFromDictAsTable(lesson: number): void {
   })
 }
 
-export { fetchFromDictAsTable, searchIndex, searchQuery, resultLimit, results, resultsTable }
+export {
+  fetchFromDictAsTable,
+  searchIndex,
+  searchQuery,
+  resultLimit,
+  results,
+  resultsTable,
+  type Word
+}

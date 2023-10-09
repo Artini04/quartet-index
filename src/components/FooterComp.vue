@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-import InputTabWrapper from './input/InputTabWrapper.vue'
 import InputButton from './input/InputButton.vue'
 </script>
 
@@ -18,16 +16,20 @@ import InputButton from './input/InputButton.vue'
         <h2>リンク</h2>
         <InputButton
           variant="filled"
-          text="Project Page"
-          icon="tabler:brand-github-filled"
-          src="https://github.com/Artini04/quartet-index"
+          :properties="{
+            value: 'Project Page',
+            icon: 'tabler:brand-github-filled',
+            src: 'https://github.com/Artini04/quartet-index'
+          }"
         />
 
         <InputButton
           variant="filled"
-          text="Report an Issue"
-          icon="tabler:circle-dot"
-          src="https://github.com/Artini04/quartet-index/issues"
+          :properties="{
+            value: 'Report an Issue',
+            icon: 'tabler:circle-dot',
+            src: 'https://github.com/Artini04/quartet-index/issues'
+          }"
         />
       </div>
     </div>
@@ -39,16 +41,15 @@ import InputButton from './input/InputButton.vue'
 
 .footer {
   &__root {
+    container-type: inline-size;
+    container-name: footerRoot;
+
     background: var(--footer-background-color);
-    padding: 3rem 1rem 1rem;
+    padding: 2rem 1rem 1rem;
   }
 
   &__wrapper {
     @include flex(column, nowrap, 1.5rem);
-
-    @media (width > 425px) {
-      @include flex(row, nowrap, 1rem);
-    }
   }
 
   &__link {
@@ -61,6 +62,14 @@ import InputButton from './input/InputButton.vue'
 
   &__p {
     flex: 1 1 70%;
+  }
+}
+
+@container footerRoot (width > 425px) {
+  .footer {
+    &__wrapper {
+      flex-direction: row;
+    }
   }
 }
 </style>

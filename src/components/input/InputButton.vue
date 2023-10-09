@@ -3,9 +3,11 @@ import { Icon } from '@iconify/vue'
 
 interface Props {
   variant: 'outline' | 'filled'
-  text: string
-  icon?: string
-  src?: string
+  properties: {
+    value: string
+    icon?: string
+    src?: string
+  }
 }
 
 defineProps<Props>()
@@ -14,22 +16,22 @@ defineProps<Props>()
 <template>
   <a
     class="button radius a__button"
-    :href="src"
+    :href="properties.src"
     :button-type="variant"
-    :target="src ? '_blank' : '_parent'"
+    :target="properties.src ? '_blank' : '_parent'"
   >
-    <Icon v-if="icon" :icon="icon" />
-    <span>{{ text }}</span>
+    <Icon v-if="properties.icon" :icon="properties.icon" />
+    <span>{{ properties.value }}</span>
   </a>
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins.scss';
+
 .a__button {
-  cursor: pointer;
+  @include transition('background, border, scale');
   padding: 0.4rem 0.8rem;
-  transition:
-    border ease 200ms,
-    background ease 200ms;
+  text-decoration: none;
 
   &[button-type='outline'] {
     border: 1px solid var(--app-font-color-muted);
@@ -40,16 +42,12 @@ defineProps<Props>()
   }
 
   &[button-type='filled'] {
-    background: var(--app-accent-color-muted);
+    background: var(--app-font-color);
+    color: var(--app-background-color);
 
-    &:is(:hover, :focus-within) {
-      background: var(--app-accent-color);
-      color: var(--app-font-inverse);
+    &:is(:active) {
+      @include button_pressed();
     }
-  }
-
-  @media (width <= 425px) {
-    padding: 0.6rem 1.5rem;
   }
 }
 </style>

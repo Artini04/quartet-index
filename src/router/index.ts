@@ -10,7 +10,7 @@ const router = createRouter({
       name: 'lookup',
       component: SearchView,
       meta: {
-        title: 'Look Up - ポケットカルテット'
+        title: 'Look Up - トカ'
       }
     },
     {
@@ -18,7 +18,7 @@ const router = createRouter({
       name: 'table',
       component: TableView,
       meta: {
-        title: 'Table - ポケットカルテット'
+        title: 'Table - トカ'
       }
     },
     {
@@ -26,7 +26,7 @@ const router = createRouter({
       name: 'options',
       component: () => import('@/views/OptionsView.vue'),
       meta: {
-        title: 'Options - ポケットカルテット'
+        title: 'Options - トカ'
       }
     },
     {
@@ -34,8 +34,13 @@ const router = createRouter({
       name: 'doc',
       component: () => import('@/views/DocumentationView.vue'),
       meta: {
-        title: 'About - ポケットカルテット'
+        title: 'About - トカ'
       }
+    },
+    {
+      path: '/:pathMatch(.*)',
+      name: '404 - トカ',
+      redirect: '/'
     }
   ]
 })

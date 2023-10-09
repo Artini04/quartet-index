@@ -31,13 +31,7 @@ defineProps<{
   }
 
   .lesson {
-    &[vol='1'] {
-      color: var(--book-vol-1, #ff677c);
-    }
-
-    &[vol='2'] {
-      color: var(--book-vol-2, #50b0ff);
-    }
+    
   }
 
   .reading {

@@ -2,17 +2,34 @@
   scroll-behavior: smooth;
 
   --component-max-width: 600px;
+  --component-transition-duration: 200ms;
+  --component-border-radius: 7px;
 }
 
 :root[data-theme='dark'] {
   --app-background-color: #242424;
-  --app-font-color: #fcfcfc;
-  --app-font-color-muted: #9b9b9b;
-  --app-font-inverse: #242424;
-  --app-accent-color: #d4e4e2;
-  --app-accent-color-muted: #52656d;
-  --app-border-radius: 7px;
-  --app-shaded: rgba(black, 0.2);
 
-  --footer-background-color: #2e363d;
+  // Font Color
+  --app-font-color: #e0e0e0;
+  --app-font-color-muted: #cfcfcf;
+  --app-font-inverse: #242424;
+
+  // Accent Color
+  --app-accent-color: #52656d;
+  --app-accent-color-muted: #52656d;
+
+  // Component Color
+  --component-background-color: #293844;
+  --component-border-color: #3f3f3f;
+  --component-border-color-muted: #353535;
+
+  // Footer
+  --footer-background-color: #293844;
+
+  // Japanese
+  --book-vol-1: #ff677c;
+  --book-vol-2: #50b0ff;
+  --en-symbol: '\82F1';
+  --kana-kanji: #f16d45;
+  --hiragana: #ffdb3b;
 }
