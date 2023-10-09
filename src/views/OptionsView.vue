@@ -3,10 +3,10 @@ import { appOptions } from '@/fuse'
 </script>
 
 <template>
-  <main class="option-root clamped">
-    <div class="option-category">
-      <h2 class="option-title">Card Preference</h2>
-      <div class="option-cell">
+  <main class="option__root | main clamped">
+    <div class="option__category | block block-y">
+      <h2>Card Preference</h2>
+      <div class="block-x">
         <input
           id="show-dict-links"
           type="checkbox"
@@ -17,22 +17,3 @@ import { appOptions } from '@/fuse'
     </div>
   </main>
 </template>
-
-<style lang="scss">
-@import '@/assets/mixins';
-
-.option {
-  &-root {
-    @include default_box;
-    background-color: var(--component-background-color);
-  }
-
-  &-category {
-    @include margin_top(0.5rem);
-  }
-
-  &-cell {
-    @include margin_left(0.5rem);
-  }
-}
-</style>

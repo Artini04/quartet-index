@@ -1,0 +1,62 @@
+@import url(https://fonts.bunny.net/css?family=m-plus-1:400,600,900|outfit:400,600,900);
+@import './mixins.scss';
+
+body {
+  font-family: 'Outfit', 'M PLUS 1', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-synthesis: weight;
+  line-height: 1.5rem;
+
+  background: var(--app-background-color);
+  color: var(--app-font-color);
+}
+
+svg {
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-bottom: -0.25rem;
+}
+
+#app {
+  @include spacing(1rem, y);
+}
+
+.main {
+  @include spacing(1rem, y);
+  padding-inline: 1rem;
+}
+
+.block {
+  & > * {
+    display: block;
+  }
+
+  &-x {
+    @include spacing(0.7rem, x);
+  }
+  &-y {
+    @include spacing(0.7rem, y);
+  }
+}
+
+// =============== //
+//    UTILITIES    //
+// =============== //
+
+.clamped {
+  max-width: var(--component-max-width);
+  margin-inline: auto;
+}
+
+.button {
+  @include spacing(0.3rem, x);
+}
+
+.radius {
+  border-radius: var(--app-border-radius);
+}
+
+.shade {
+  background: var(--app-shaded);
+}

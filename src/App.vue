@@ -9,11 +9,3 @@ import HeaderComp from './components/HeaderComp.vue'
   <RouterView />
   <FooterComp />
 </template>
-
-<style lang="scss">
-@import '@/assets/mixins';
-
-#app {
-  @include margin_top(var(--component-spacing));
-}
-</style>

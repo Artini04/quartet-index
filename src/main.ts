@@ -1,6 +1,8 @@
 import './assets/reset.scss'
 import './assets/root.scss'
-import './assets/main.scss'
+import './assets/base.scss'
+// import './assets/root.scss'
+// import './assets/main.scss'
 
 import { createApp } from 'vue'
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'

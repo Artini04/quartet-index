@@ -1,55 +1,18 @@
-@import './mixins';
-
 :root {
   scroll-behavior: smooth;
 
-  // Application theme
-  --app-background-color: #24292e;
-  --app-font-color: #e7ebf0;
-  --app-font-muted-color: #838485;
-  --app-font-inverse-color: #3f3f3f;
-  --app-border-color: #838485;
-  --app-font-family: 'Instrument Sans', 'IBM Plex Sans JP', sans-serif;
-
-  // Component specific
-  --component-limit-width: calc(100% - 2rem);
-  --component-limit-width-clamp: 500px;
-  --component-background-color: #424750;
-  --component-active-background-color: #838792;
-  --component-active-tab-background-color: #e7ebf0;
-  --component-active-tab-font-color: #24292e;
-  --component-border-color: #838485;
-  --component-border-radius: 5px;
-  --component-padding: 1rem;
-  --component-spacing: 1rem;
-
-  --book-vol-1: #ff677c;
-  --book-vol-2: #50b0ff;
-  --book-vol-other: #ffffff;
-  --en-symbol: '\82F1';
-  --kana-kanji: #f16d45;
-  --hiragana: #ffdb3b;
+  --component-max-width: 600px;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
+:root[data-theme='dark'] {
+  --app-background-color: #242424;
+  --app-font-color: #fcfcfc;
+  --app-font-color-muted: #9b9b9b;
+  --app-font-inverse: #242424;
+  --app-accent-color: #d4e4e2;
+  --app-accent-color-muted: #52656d;
+  --app-border-radius: 7px;
+  --app-shaded: rgba(black, 0.2);
 
-::-webkit-scrollbar-thumb {
-  background-color: #3a424b;
-  border-radius: 7px;
-
-  &:hover {
-    background-color: #74818f;
-  }
-}
-
-body {
-  background-color: var(--app-background-color);
-  color: var(--app-font-color);
-  font-family: var(--app-font-family);
-  font-size: 1rem;
-
-  @include default_transition();
-  transition-property: background;
+  --footer-background-color: #2e363d;
 }

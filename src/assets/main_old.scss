@@ -1,5 +1,6 @@
 @import './mixins.scss';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Instrument+Sans&display=swap');
+
 .clamped {
   max-width: var(--component-limit-width-clamp);
   margin-inline: auto;
@@ -54,4 +55,13 @@ th,
 tr,
 td {
   border-collapse: collapse;
+}
+
+.box {
+  @include margin_top(var(--component-spacing));
+}
+
+.shade {
+  padding: 1rem;
+  background: rgba($color: #000000, $alpha: 0.2);
 }

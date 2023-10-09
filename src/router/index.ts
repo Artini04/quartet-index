@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import SearchView from '@/views/SearchView.vue'
+import TableView from '@/views/TableView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +16,7 @@ const router = createRouter({
     {
       path: '/table',
       name: 'table',
-      component: () => import('@/views/TableView.vue'),
+      component: TableView,
       meta: {
         title: 'Table - ポケットカルテット'
       }
@@ -29,9 +30,9 @@ const router = createRouter({
       }
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('@/views/AboutView.vue'),
+      path: '/doc',
+      name: 'doc',
+      component: () => import('@/views/DocumentationView.vue'),
       meta: {
         title: 'About - ポケットカルテット'
       }
