@@ -8,10 +8,9 @@
 @import '@/assets/mixins';
 
 .input__wrapper {
-  @include flex(row, nowrap, 0.4rem);
-  @include item_alignment(center, center);
   @include transition('scale');
   background-color: var(--component-background-color);
+  color: var(--component-font-color);
   padding-inline: 0.8rem;
 
   input {
@@ -26,6 +25,11 @@
 
   &:is(:focus-within) {
     outline: 1px solid white;
+  }
+
+  svg {
+    font-size: 1.4rem;
+    margin-bottom: -0.1rem;
   }
 }
 </style>

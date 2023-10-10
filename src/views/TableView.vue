@@ -4,10 +4,8 @@ import TableGrid from '@/components/table/TableGrid.vue'
 </script>
 
 <template>
-  <main>
+  <main class="table__root | main">
     <TableLookup />
     <TableGrid />
   </main>
 </template>
-
-<style lang="scss"></style>

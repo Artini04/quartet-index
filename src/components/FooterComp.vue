@@ -44,7 +44,7 @@ import InputButton from './input/InputButton.vue'
     container-type: inline-size;
     container-name: footerRoot;
 
-    background: var(--footer-background-color);
+    background: var(--app-accent-color-muted);
     padding: 2rem 1rem 1rem;
   }
 

@@ -32,6 +32,7 @@ defineProps<Props>()
   @include transition('background, border, scale');
   padding: 0.4rem 0.8rem;
   text-decoration: none;
+  cursor: pointer;
 
   &[button-type='outline'] {
     border: 1px solid var(--app-font-color-muted);
@@ -42,8 +43,8 @@ defineProps<Props>()
   }
 
   &[button-type='filled'] {
-    background: var(--app-font-color);
-    color: var(--app-background-color);
+    background: var(--app-accent-color);
+    color: var(--app-accent-font-color);
 
     &:is(:active) {
       @include button_pressed();

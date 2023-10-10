@@ -12,13 +12,15 @@ import InputTabButton from './input/InputTabButton.vue'
 
       <nav class="header__nav">
         <div class="header__nav-left">
-          <InputTabButton :to="{ value: 'Look-up', icon: 'tabler:books', to: '/' }" />
-          <InputTabButton :to="{ value: 'Table', icon: 'tabler:grid-pattern', to: '/table' }" />
+          <InputTabButton :to="{ value: 'Lookup', icon: 'tabler:books', to: '/' }" />
+          <InputTabButton
+            :to="{ value: 'Data Table [WIP]', icon: 'tabler:grid-pattern', to: '/table' }"
+          />
         </div>
 
         <div class="header__nav-right">
           <InputTabButton :to="{ value: 'Options', icon: 'tabler:adjustments', to: '/options' }" />
-          <InputTabButton :to="{ value: 'Docs', icon: 'tabler:paperclip', to: '/doc' }" />
+          <InputTabButton :to="{ value: 'About', icon: 'tabler:paperclip', to: '/about' }" />
         </div>
       </nav>
     </div>
@@ -31,8 +33,8 @@ import InputTabButton from './input/InputTabButton.vue'
 .header {
   &__root {
     padding: 2rem 1rem 1rem;
-    border-bottom: 1px solid var(--component-border-color-muted);
-    box-shadow: 0 0 10px rgba($color: #181818, $alpha: 0.5);
+    border-bottom: 1px solid var(--app-accent-color-muted);
+    // box-shadow: 0 0 10px rgba($color: #181818, $alpha: 0.5);
   }
 
   &__title {

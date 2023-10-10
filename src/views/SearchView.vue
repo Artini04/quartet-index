@@ -16,6 +16,9 @@ import CardGrid from '@/components/card/CardGrid.vue'
 .main__root {
   container-type: inline-size;
   container-name: mainRoot;
+
+  max-width: 1000px;
+  margin-inline: auto;
 }
 
 @container mainRoot (width > 425px) {
@@ -23,7 +26,7 @@ import CardGrid from '@/components/card/CardGrid.vue'
     &__root {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 0.5rem;
+      gap: 1rem;
     }
   }
 }
@@ -31,7 +34,7 @@ import CardGrid from '@/components/card/CardGrid.vue'
 @container mainRoot (width <= 425px) {
   .card-list {
     &__root {
-      @include flex(column, wrap, 0.5rem);
+      @include flex(column, nowrap, 1rem);
     }
   }
 }

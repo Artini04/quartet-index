@@ -1,25 +1,27 @@
 <script setup lang="ts">
 import { appOptions, type Word } from '@/fuse'
-import ServiceWrapper from './word/ServiceWrapper.vue'
 
 const localProps = defineProps<Word>()
 
 const jpnFirst: string = localProps.data.ja_kana_kanji ?? localProps.data.ja_furigana
 const jpnSecond: string = localProps.data.ja_kana_kanji ? localProps.data.ja_furigana : ''
 const meaning: string[] = localProps.data.en_meaning
+const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n) => n.length > 0)
 </script>
 
 <template>
   <div class="card__root | radius" v-once>
+    <!-- INFO -->
     <div class="card__info | shade">
       <span class="card__info__id | radius">{{ id }}</span>
       <span class="card__info__lesson" :vol="info.lesson < 7 ? 1 : 2">
         Lesson {{ info.lesson }}
       </span>
-      <span class="card__info__reading">{{ info.reading }}</span>
+      <span class="card__info__reading"> 読み{{ info.reading }} </span>
       <span class="card__info__new-kanji">{{ info.kanji }}</span>
     </div>
 
+    <!-- JAPANESE AND ENGLISH -->
     <div class="card__text | block-y">
       <div class="card__text__ja" lang="ja">
         <span class="ja-kk">{{ jpnFirst }}</span>
@@ -38,25 +40,28 @@ const meaning: string[] = localProps.data.en_meaning
       </div>
     </div>
 
-    <div class="card__link | shade">
-      <div class="card__link__box" v-if="appOptions['cardOptions']['showLinks']">
-        <div class="card__link__box__link">
-          <ServiceWrapper icon_name="tabler:book-2" text="jpdb.io" />
-          <span class="link" v-for="item in [jpnFirst, jpnSecond]" :key="item">
+    <!-- LINKS -->
+    <div class="card__link | shade" v-if="appOptions.cardOptions.showLinks">
+      <div class="card__link__box">
+        <span>jpdb.io</span>
+        <ul class="links">
+          <li class="link" v-for="item in links" :key="item">
             <a :href="`https://jpdb.io/search?q=${item}#a`" target="_blank">
-              {{ item.length > 4 ? item.slice(0, 4) + '...' : item }}
+              {{ item }}
             </a>
-          </span>
-        </div>
+          </li>
+        </ul>
+      </div>
 
-        <div class="card-link-link">
-          <ServiceWrapper icon_name="tabler:book-2" text="weblio辞書" />
-          <span class="link" v-for="item in [jpnFirst, jpnSecond]" :key="item">
+      <div class="card-link-link">
+        <span>Weblio英和辞書</span>
+        <ul class="links">
+          <li class="link" v-for="item in links" :key="item">
             <a :href="`https://ejje.weblio.jp/content/${item}`" target="_blank">
-              {{ item.length > 4 ? item.slice(0, 4) + '...' : item }}
+              {{ item }}
             </a>
-          </span>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -72,6 +77,9 @@ const meaning: string[] = localProps.data.en_meaning
     padding: 0.5rem;
   }
 
+  // ==== //
+  // INFO //
+  // ==== //
   &__info {
     @include flex(row, nowrap, 0.5rem);
 
@@ -100,6 +108,9 @@ const meaning: string[] = localProps.data.en_meaning
     }
   }
 
+  // ==================== //
+  // JAPANESE AND ENGLISH //
+  // ==================== //
   &__text {
     flex-grow: 1;
     padding: 0 0.5rem;
@@ -121,25 +132,26 @@ const meaning: string[] = localProps.data.en_meaning
         }
       }
     }
+
+    &__en {
+      .en-meaning {
+        &::before {
+          content: var(--en-symbol);
+          margin-right: 0.5rem;
+        }
+      }
+    }
   }
 
-  // &-link {
-  //   @include flex(row, nowrap, 0);
-  //   @include box(0.5rem);
-  //   background-color: rgba($color: #000000, $alpha: 0.2);
+  // ===== //
+  // LINKS //
+  // ===== //
+  &__link {
+    @include flex(row, nowrap, 0.5rem);
 
-  //   .service {
-  //     @include svg(18px);
-  //   }
-
-  //   &-link {
-  //     @include margin_top(0.3rem);
-  //     flex: 1 1 50%;
-
-  //     .link {
-  //       display: block;
-  //     }
-  //   }
-  // }
+    & > * {
+      flex: 1 1 50%;
+    }
+  }
 }
 </style>

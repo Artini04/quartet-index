@@ -1,7 +1,8 @@
-@import url(https://fonts.bunny.net/css?family=m-plus-1:400,600,900|noto-sans-jp:400|outfit:400,600,900);
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;600;900&family=Noto+Sans+JP&family=Outfit:wght@400;600;900&display=swap');
 @import './mixins.scss';
 
 body {
+  @include transition('background, color');
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
   font-weight: 400;

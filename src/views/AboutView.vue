@@ -5,7 +5,7 @@ import LegendComp from '@/components/LegendComp.vue'
 <template>
   <main class="main clamped about__root">
     <div class="about__banner">
-      <h1>TOKA「トカ」Pocket Quartet</h1>
+      <h2>TOKA「トカ」Pocket Quartet</h2>
     </div>
 
     <div class="block-y about__block">

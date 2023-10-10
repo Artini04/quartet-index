@@ -10,7 +10,7 @@ const inputSearch: Ref<string> = shallowRef('')
 <template>
   <div class="search__root clamped">
     <InputWrapper class="search__box">
-      <Icon icon="tabler:arrow-big-down-filled" />
+      <Icon icon="tabler:list-search" />
       <input
         type="text"
         name="search-query"

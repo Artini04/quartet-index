@@ -30,9 +30,9 @@ const router = createRouter({
       }
     },
     {
-      path: '/doc',
-      name: 'doc',
-      component: () => import('@/views/DocumentationView.vue'),
+      path: '/about',
+      name: 'about',
+      component: () => import('@/views/AboutView.vue'),
       meta: {
         title: 'About - トカ'
       }
