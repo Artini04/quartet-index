@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: REFACTOR
 import { ref, watch, type Ref } from 'vue'
 import { fetchFromDictAsTable } from '@/fuse'
 
@@ -10,7 +11,7 @@ watch(selectedLesson, (lesson) => {
 </script>
 
 <template>
-  <div class="table-search-root clamped">
+  <div class="table-search__root | clamped radius">
     <div class="input-wrapper">
       <select v-model.lazy="selectedLesson">
         <option value="0" selected>Select lesson</option>
@@ -32,12 +33,21 @@ watch(selectedLesson, (lesson) => {
 </template>
 
 <style lang="scss">
-select {
-  appearance: none;
-  width: 100%;
-  height: 100%;
-  color: inherit;
+$block: 0.4rem;
+$inline: 0.6rem;
 
-  border-radius: var(--component-border-radius);
+.table-search {
+  &__root {
+    overflow: hidden;
+    padding-inline: $inline;
+
+    background: var(--component-background-color);
+    color: var(--component-font-color);
+
+    select {
+      width: 100%;
+      padding-block: $block;
+    }
+  }
 }
 </style>

@@ -1,14 +1,19 @@
+// TODO: WORK IN PROGRESS
+
 import Fuse from 'fuse.js'
-import { ref, computed, type Ref, type ComputedRef } from 'vue'
+import { shallowRef, ref, computed, type Ref, type ComputedRef } from 'vue'
 import { useFuse, type UseFuseOptions } from '@vueuse/integrations/useFuse'
 import vocabDict from './dictionary.json'
 
 interface Word {
   id: number
   data: {
-    ja_kana_kanji: string | null
+    ja_kana_kanji?: string | null
     ja_furigana: string
+    ja_particle?: string | null
+    ja_suru?: string | null
     en_meaning: string[]
+    en_verb_type?: string | null
   }
   info: {
     ja_letter_loc: string
@@ -18,9 +23,9 @@ interface Word {
   }
 }
 
-const searchQuery: Ref<string> = ref('')
-const resultLimit: Ref<number> = ref(10)
-const resultsThreshold: Ref<number> = ref(0.2)
+const searchQuery: Ref<string> = shallowRef('')
+const resultLimit: Ref<number> = shallowRef(25)
+const resultsThreshold: Ref<number> = shallowRef(0.2)
 
 const keys: ComputedRef<string[][]> = computed(() => {
   const keyList: string[][] = []
@@ -67,4 +72,12 @@ function fetchFromDictAsTable(lesson: number): void {
   })
 }
 
-export { fetchFromDictAsTable, searchIndex, searchQuery, resultLimit, results, resultsTable }
+export {
+  fetchFromDictAsTable,
+  searchIndex,
+  searchQuery,
+  resultLimit,
+  results,
+  resultsTable,
+  type Word
+}

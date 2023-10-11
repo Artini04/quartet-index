@@ -4,8 +4,8 @@ import TableRow from './TableRow.vue'
 </script>
 
 <template>
-  <div class="table-wrapper">
-    <table class="table-root">
+  <div class="table__root">
+    <table class="table__wrapper">
       <thead>
         <tr>
           <th>漢</th>
@@ -38,26 +38,26 @@ import TableRow from './TableRow.vue'
 
 <style lang="scss">
 .table {
-  &-wrapper {
+  &__root {
     width: 100%;
     overflow-x: auto;
     margin-inline: auto;
   }
 
-  &-root {
+  &__wrapper {
     display: block;
     width: fit-content;
     white-space: nowrap;
     margin-inline: auto;
 
     thead {
-      background-color: rgba($color: #000000, $alpha: 0.2);
+      background: rgba($color: #000000, $alpha: 0.4);
     }
 
     tr {
-      td,
-      th {
-        padding: 0.4rem 0.6rem;
+      th,
+      td {
+        padding: 0.4rem;
       }
 
       &:nth-child(even) {

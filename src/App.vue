@@ -2,18 +2,12 @@
 import { RouterView } from 'vue-router'
 import FooterComp from './components/FooterComp.vue'
 import HeaderComp from './components/HeaderComp.vue'
+import ToTop from './components/ToTop.vue'
 </script>
 
 <template>
   <HeaderComp />
   <RouterView />
   <FooterComp />
+  <ToTop />
 </template>
-
-<style lang="scss">
-@import '@/assets/mixins';
-
-#app {
-  @include margin_top(var(--component-spacing));
-}
-</style>

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;600;900&family=Noto+Sans+JP&family=Outfit:wght@400;600;900&display=swap');
+@import './mixins.scss';
+
+body {
+  @include transition('background, color');
+
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-synthesis: weight;
+  line-height: 1.5rem;
+
+  background: var(--app-background-color);
+  color: var(--app-font-color);
+}
+
+svg {
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-bottom: -0.25rem;
+}
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  border-collapse: collapse;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', 'M PLUS 1', sans-serif;
+}
+
+#app {
+  @include spacing(1rem, y);
+}
+
+.main {
+  @include spacing(1rem, y);
+  padding-inline: 1rem;
+}
+
+.block {
+  & > * {
+    display: block;
+  }
+
+  &-x {
+    @include spacing(0.7rem, x);
+  }
+  &-y {
+    @include spacing(0.7rem, y);
+  }
+}
+
+// =============== //
+//    UTILITIES    //
+// =============== //
+
+.clamped {
+  max-width: var(--component-max-width);
+  margin-inline: auto;
+}
+
+.button {
+  @include spacing(0.3rem, x);
+}
+
+.radius {
+  border-radius: var(--component-border-radius);
+}
+
+.shade {
+  background: rgba($color: #000000, $alpha: 0.2);
+  padding: 0.5rem;
+  border-radius: var(--component-border-radius);
+}
+
+.text {
+  &-center {
+    text-align: center;
+  }
+}

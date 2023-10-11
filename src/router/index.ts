@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import SearchView from '@/views/SearchView.vue'
+import TableView from '@/views/TableView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,15 +10,15 @@ const router = createRouter({
       name: 'lookup',
       component: SearchView,
       meta: {
-        title: 'Look Up - ポケットカルテット'
+        title: 'Look Up - トカ'
       }
     },
     {
       path: '/table',
       name: 'table',
-      component: () => import('@/views/TableView.vue'),
+      component: TableView,
       meta: {
-        title: 'Table - ポケットカルテット'
+        title: 'Table - トカ'
       }
     },
     {
@@ -25,7 +26,7 @@ const router = createRouter({
       name: 'options',
       component: () => import('@/views/OptionsView.vue'),
       meta: {
-        title: 'Options - ポケットカルテット'
+        title: 'Options - トカ'
       }
     },
     {
@@ -33,8 +34,13 @@ const router = createRouter({
       name: 'about',
       component: () => import('@/views/AboutView.vue'),
       meta: {
-        title: 'About - ポケットカルテット'
+        title: 'About - トカ'
       }
+    },
+    {
+      path: '/:pathMatch(.*)',
+      name: '404 - トカ',
+      redirect: '/'
     }
   ]
 })

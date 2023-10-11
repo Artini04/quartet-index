@@ -8,14 +8,24 @@
 
 a:any-link {
   color: inherit;
-  text-underline-offset: 3px;
 
-  &:is(:focus, :active) {
+  &:is(:focus, :focus-within) {
     outline: 1px solid white;
   }
 }
 
-input {
+input,
+select {
+  font: inherit;
+  color: inherit;
+  background: inherit;
+
+  &[type='input'] {
+    &::placeholder {
+      color: var(--app-font-color);
+    }
+  }
+
   &[type='button'],
   &[type='checkbox'] {
     cursor: pointer;
@@ -31,4 +41,18 @@ table {
   tbody {
     width: 100%;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 2.2rem;
+}
+
+ul,
+ol {
+  list-style: none;
 }
