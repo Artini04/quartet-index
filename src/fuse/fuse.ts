@@ -1,3 +1,5 @@
+// TODO: WORK IN PROGRESS
+
 import Fuse from 'fuse.js'
 import { shallowRef, ref, computed, type Ref, type ComputedRef } from 'vue'
 import { useFuse, type UseFuseOptions } from '@vueuse/integrations/useFuse'
@@ -22,7 +24,7 @@ interface Word {
 }
 
 const searchQuery: Ref<string> = shallowRef('')
-const resultLimit: Ref<number> = shallowRef(10)
+const resultLimit: Ref<number> = shallowRef(25)
 const resultsThreshold: Ref<number> = shallowRef(0.2)
 
 const keys: ComputedRef<string[][]> = computed(() => {

@@ -1,14 +1,8 @@
 # Quartet Index
 
-Quartet Vocabulary Index written in Vue.
+A small Quartet Vocabulary Index Dictionary written in Vue.
 
 ## Environment
-
-### Installation
-
-```
-npm install
-```
 
 ### Development
 

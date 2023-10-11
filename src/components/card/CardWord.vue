@@ -13,7 +13,6 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
   <div class="card__root | radius" v-once>
     <!-- INFO -->
     <div class="card__info | shade">
-      <span class="card__info__id | radius">{{ id }}</span>
       <span class="card__info__lesson" :vol="info.lesson < 7 ? 1 : 2">
         Lesson {{ info.lesson }}
       </span>
@@ -151,6 +150,11 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
 
     & > * {
       flex: 1 1 50%;
+    }
+
+    li::before {
+      content: '-';
+      margin-right: 0.5rem;
     }
   }
 }

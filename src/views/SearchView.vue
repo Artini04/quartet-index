@@ -5,7 +5,7 @@ import CardGrid from '@/components/card/CardGrid.vue'
 
 <template>
   <main class="main__root | main">
-    <CardSearch />
+      <CardSearch />
     <CardGrid />
   </main>
 </template>

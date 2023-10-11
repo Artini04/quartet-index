@@ -14,7 +14,7 @@ import InputTabButton from './input/InputTabButton.vue'
         <div class="header__nav-left">
           <InputTabButton :to="{ value: 'Lookup', icon: 'tabler:books', to: '/' }" />
           <InputTabButton
-            :to="{ value: 'Data Table [WIP]', icon: 'tabler:grid-pattern', to: '/table' }"
+            :to="{ value: 'Table [WIP]', icon: 'tabler:table-filled', to: '/table' }"
           />
         </div>
 

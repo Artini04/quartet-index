@@ -25,14 +25,19 @@ defineProps<Props>()
 
 .tab {
   &__wrapper {
-    @include transition('background, outline, color');
-    padding: 0.3rem 0.7rem 0.3rem 0.4rem;
+    @include transition('background, outline, color, scale');
+    // padding: 0.3rem 0.7rem 0.3rem 0.4rem;
+    padding: 0.4rem 0.5rem;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 
     &:is(.router-link-active, .router-link-exact-active, :active) {
       background-color: var(--app-accent-color);
       color: var(--app-accent-font-color);
+    }
+
+    &:is(:active) {
+      scale: 0.95;
     }
   }
 }

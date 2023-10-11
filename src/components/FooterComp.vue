@@ -7,9 +7,7 @@ import InputButton from './input/InputButton.vue'
     <div class="footer__wrapper | clamped">
       <div class="footer__p | block-y">
         <h2>「トカ」</h2>
-        <p>
-          Vue3と日本語を習うためにこのプロジェクトを作りました。使った言葉が「４技能でひろがる中級日本語カルテット」という本に由来しているものです。
-        </p>
+        <p>日本語カルテットの学ぶために小さな単語索引のアプリ</p>
       </div>
 
       <div class="block block-y footer__link">
@@ -45,7 +43,7 @@ import InputButton from './input/InputButton.vue'
     container-name: footerRoot;
 
     background: var(--app-accent-color-muted);
-    padding: 2rem 1rem 1rem;
+    padding: 2rem 1rem 4rem;
   }
 
   &__wrapper {
