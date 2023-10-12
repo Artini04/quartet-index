@@ -1,28 +1,20 @@
 <script setup lang="ts">
-import { shallowRef, type Ref } from 'vue'
-import { searchIndex } from '@/fuse'
+import { search_query } from '@/fuse'
 import { Icon } from '@iconify/vue'
 import InputWrapper from '../input/InputWrapper.vue'
-
-const inputSearch: Ref<string> = shallowRef('')
 </script>
 
 <template>
   <div class="search__root clamped">
-    <InputWrapper class="search__box">
+    <InputWrapper class="search__box" role="searchbox">
       <Icon icon="tabler:list-search" />
       <input
         type="text"
         name="search-query"
         placeholder="Search for..."
         autocomplete="off"
-        v-model="inputSearch"
-        @keypress.enter="searchIndex(inputSearch)"
+        v-model.lazy="search_query"
       />
-    </InputWrapper>
-
-    <InputWrapper class="search__button">
-      <input type="button" value="Search" @click="searchIndex(inputSearch)" />
     </InputWrapper>
   </div>
 </template>
@@ -43,10 +35,6 @@ const inputSearch: Ref<string> = shallowRef('')
 
   &__button {
     flex: 1 0 50px;
-
-    &:is(:active) {
-      scale: 0.95;
-    }
   }
 }
 </style>

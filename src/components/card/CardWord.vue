@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { appOptions, type Word } from '@/fuse'
+import { card_show_links, type Word } from '@/fuse'
 
 const localProps = defineProps<Word>()
 
@@ -40,7 +40,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
     </div>
 
     <!-- LINKS -->
-    <div class="card__link | shade" v-if="appOptions.cardOptions.showLinks">
+    <div class="card__link | shade" v-if="card_show_links">
       <div class="card__link__box">
         <span>jpdb.io</span>
         <ul class="links">
@@ -53,7 +53,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
       </div>
 
       <div class="card-link-link">
-        <span>Weblio英和辞書</span>
+        <span>Weblio辞書</span>
         <ul class="links">
           <li class="link" v-for="item in links" :key="item">
             <a :href="`https://ejje.weblio.jp/content/${item}`" target="_blank">
@@ -134,6 +134,10 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
 
     &__en {
       .en-meaning {
+        & > * + * {
+          margin-left: 0.3rem;
+        }
+
         &::before {
           content: var(--en-symbol);
           margin-right: 0.5rem;

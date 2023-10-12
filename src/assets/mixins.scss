@@ -1,30 +1,3 @@
-// ============= //
-//    MARGINS    //
-// ============= //
-@mixin border_top($color) {
-  & > * + * {
-    border-top: 1px solid #{$color};
-  }
-}
-
-@mixin margin_top($spacing) {
-  & > * + * {
-    margin-top: #{$spacing};
-  }
-}
-
-@mixin margin_left($spacing) {
-  & > * + * {
-    margin-left: #{$spacing};
-  }
-}
-
-@mixin display($display) {
-  & > * {
-    display: #{$display};
-  }
-}
-
 // ================= //
 //    NEW MIXINS     //
 // ================= //
@@ -73,10 +46,18 @@
   background-color: rgba(red, 0.5);
 }
 
-@mixin no_outline {
+@mixin outline-none {
   outline: none !important;
 }
 
+@mixin outline_active {
+  &:is(:focus-visible) {
+    outline: 4px solid var(--component-outline-color) !important;
+  }
+}
+
 @mixin button_pressed() {
-  scale: 0.95;
+  &:is(:active) {
+    scale: 0.97;
+  }
 }

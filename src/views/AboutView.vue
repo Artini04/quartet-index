@@ -20,24 +20,22 @@ import LegendComp from '@/components/LegendComp.vue'
     </div>
 
     <div class="about__block | block-y">
-      <h2>Legend</h2>
+      <h2>漢字リスト</h2>
       <LegendComp />
-    </div>
-
-    <div class="about__block | block-y">
-      <h2>Planned work(s)</h2>
-      <ul>
-        <li>Add grammar and kanji index</li>
-        <li>Clean code</li>
-      </ul>
     </div>
   </main>
 </template>
 
-<style lang="scss" scoped>
-ul {
-  li {
-    &::before {
+<style lang="scss">
+.about {
+  &__root {
+    & > * + * {
+      margin-top: 4rem;
+    }
+  }
+
+  &__plans {
+    li::before {
       content: '\FF03';
       margin-right: 0.5rem;
     }

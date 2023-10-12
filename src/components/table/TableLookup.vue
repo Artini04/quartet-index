@@ -1,20 +1,12 @@
 <script setup lang="ts">
-// TODO: REFACTOR
-import { ref, watch, type Ref } from 'vue'
-import { fetchFromDictAsTable } from '@/fuse'
-
-const selectedLesson: Ref<number> = ref(0)
-
-watch(selectedLesson, (lesson) => {
-  fetchFromDictAsTable(lesson)
-})
+import { table_search_query } from '@/fuse'
+import InputWrapper from '../input/InputWrapper.vue'
 </script>
 
 <template>
-  <div class="table-search__root | clamped radius">
-    <div class="input-wrapper">
-      <select v-model.lazy="selectedLesson">
-        <option value="0" selected>Select lesson</option>
+  <div class="table-search__root | clamped">
+    <InputWrapper>
+      <select id="table-lesson-select" v-model.lazy="table_search_query" placeholder="OK">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -28,26 +20,6 @@ watch(selectedLesson, (lesson) => {
         <option value="11">11</option>
         <option value="12">12</option>
       </select>
-    </div>
+    </InputWrapper>
   </div>
 </template>
-
-<style lang="scss">
-$block: 0.4rem;
-$inline: 0.6rem;
-
-.table-search {
-  &__root {
-    overflow: hidden;
-    padding-inline: $inline;
-
-    background: var(--component-background-color);
-    color: var(--component-font-color);
-
-    select {
-      width: 100%;
-      padding-block: $block;
-    }
-  }
-}
-</style>
