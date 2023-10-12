@@ -1,7 +1,7 @@
 import { shallowRef, computed, type Ref } from 'vue'
 import { useFuse, type UseFuseOptions } from '@vueuse/integrations/useFuse'
 import { type Word } from '.'
-import Dictionary from './dictionary.json'
+import VocabularyDictionary from './dictionary.json'
 
 // =========== //
 // Look-up Tab //
@@ -9,7 +9,7 @@ import Dictionary from './dictionary.json'
 const search_query: Ref<string> = shallowRef('')
 const keys_query: Ref<string[]> = shallowRef([
   'data.ja_kana_kanji',
-  'data.ja_furigana',
+  'data.ja_hiragana',
   'data.en_meaning'
 ])
 const result_limit: Ref<number> = shallowRef(25)
@@ -27,6 +27,6 @@ const fuseOptions = computed<UseFuseOptions<Word>>(() => ({
 }))
 
 // Search Results
-const { results } = useFuse(search_query, Dictionary, fuseOptions)
+const { results } = useFuse(search_query, VocabularyDictionary, fuseOptions)
 
 export { search_query, keys_query, result_limit, result_threshold, results }

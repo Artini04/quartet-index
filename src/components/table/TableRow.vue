@@ -12,7 +12,7 @@ defineProps<Word>()
 
     <td class="row__reading-ja">
       <span v-if="data.ja_particle">{{ data.ja_particle }}</span>
-      <span>{{ data.ja_furigana }}</span>
+      <span>{{ data.ja_hiragana }}</span>
       <span v-if="data.ja_suru">{{ data.ja_suru }}</span>
     </td>
 
@@ -23,6 +23,6 @@ defineProps<Word>()
       </div>
     </td>
 
-    <td class="row__location">{{ info.ja_letter_loc }}</td>
+    <td class="row__location">{{ info.letter_location }}</td>
   </tr>
 </template>

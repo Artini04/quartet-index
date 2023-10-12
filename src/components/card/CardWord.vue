@@ -3,8 +3,8 @@ import { card_show_links, type Word } from '@/fuse'
 
 const localProps = defineProps<Word>()
 
-const jpnFirst: string = localProps.data.ja_kana_kanji ?? localProps.data.ja_furigana
-const jpnSecond: string = localProps.data.ja_kana_kanji ? localProps.data.ja_furigana : ''
+const jpnFirst: string = localProps.data.ja_kana_kanji ?? localProps.data.ja_hiragana
+const jpnSecond: string = localProps.data.ja_kana_kanji ? localProps.data.ja_hiragana : ''
 const meaning: string[] = localProps.data.en_meaning
 const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n) => n.length > 0)
 </script>
@@ -41,6 +41,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
 
     <!-- LINKS -->
     <div class="card__link | shade" v-if="card_show_links">
+      <!-- FIRST LINK -->
       <div class="card__link__box">
         <span>jpdb.io</span>
         <ul class="links">
@@ -52,6 +53,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
         </ul>
       </div>
 
+      <!-- SECOND LINK -->
       <div class="card-link-link">
         <span>Weblio辞書</span>
         <ul class="links">

@@ -1,6 +1,6 @@
 import { shallowRef, computed, type Ref, type ComputedRef } from 'vue'
 import { useFuse, type UseFuseOptions } from '@vueuse/integrations/useFuse'
-import Dictionary from './dictionary.json'
+import VocabularyDictionary from './dictionary.json'
 import { type Word } from '.'
 
 // ========= //
@@ -19,7 +19,7 @@ const fuseOptions = computed<UseFuseOptions<Word>>(() => ({
 }))
 
 // Table Initial Results
-const { results } = useFuse(search_query, Dictionary, fuseOptions)
+const { results } = useFuse(search_query, VocabularyDictionary, fuseOptions)
 
 // Table Filtered Results
 const table_results: ComputedRef<any> = computed(() => {

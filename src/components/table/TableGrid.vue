@@ -4,7 +4,7 @@ import TableRow from './TableRow.vue'
 </script>
 
 <template>
-  <div class="table__root">
+  <div class="table__root | radius">
     <table class="table__wrapper">
       <thead>
         <tr>

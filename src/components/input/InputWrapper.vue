@@ -11,11 +11,15 @@ $inline: 0.8rem;
 $block: 0.6rem;
 
 .input__wrapper {
-  @include transition('scale');
-  @include outline-active();
+  @include transition('scale, outline');
   background-color: var(--component-background-color);
   color: var(--component-font-color);
   padding-inline: $inline;
+
+  svg {
+    font-size: 1.4rem;
+    margin-bottom: -0.1rem;
+  }
 
   input,
   select {
@@ -37,13 +41,8 @@ $block: 0.6rem;
     }
   }
 
-  // &:is(:focus-within) {
-  //   outline: 1px solid var(--component-outline-color);
-  // }
-
-  svg {
-    font-size: 1.4rem;
-    margin-bottom: -0.1rem;
+  &:is(:focus-visible, :focus-within) {
+    outline: 4px solid var(--component-outline-color);
   }
 }
 </style>

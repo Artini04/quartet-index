@@ -20,7 +20,7 @@ import LegendComp from '@/components/LegendComp.vue'
     </div>
 
     <div class="about__block | block-y">
-      <h2>漢字リスト</h2>
+      <h2>漢字／単語</h2>
       <LegendComp />
     </div>
   </main>
