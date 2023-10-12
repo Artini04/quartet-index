@@ -2,13 +2,13 @@
 @import './mixins.scss';
 
 body {
-  @include transition('background, color');
+  // @include transition('background, color');
 
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   font-synthesis: weight;
-  line-height: 1.5rem;
+  line-height: 1.7rem;
 
   background: var(--app-background-color);
   color: var(--app-font-color);
@@ -38,13 +38,9 @@ h6 {
   font-family: 'Outfit', 'M PLUS 1', sans-serif;
 }
 
-#app {
-  @include spacing(1rem, y);
-}
-
 .main {
   @include spacing(1rem, y);
-  padding-inline: 1rem;
+  padding: 1rem;
 }
 
 .block {
@@ -78,8 +74,8 @@ h6 {
 }
 
 .shade {
-  background: rgba($color: #000000, $alpha: 0.2);
   padding: 0.5rem;
+  background: var(--component-shade-color);
   border-radius: var(--component-border-radius);
 }
 

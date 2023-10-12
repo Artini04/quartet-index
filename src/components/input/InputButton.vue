@@ -29,10 +29,14 @@ defineProps<Props>()
 @import '@/assets/mixins.scss';
 
 .a__button {
-  @include transition('background, border, scale');
-  padding: 0.4rem 0.8rem;
+  @include transition('border, scale, outline');
+  @include outline_active();
+  @include button_pressed();
+
+  padding: 0.3rem 0.6rem 0.4rem;
   text-decoration: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   &[button-type='outline'] {
     border: 1px solid var(--app-font-color-muted);
@@ -45,10 +49,6 @@ defineProps<Props>()
   &[button-type='filled'] {
     background: var(--app-accent-color);
     color: var(--app-accent-font-color);
-
-    &:is(:active) {
-      @include button_pressed();
-    }
   }
 }
 </style>

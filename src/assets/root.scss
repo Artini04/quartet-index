@@ -15,15 +15,18 @@
 
   // Accent Color
   --app-accent-color: #e0e0e0;
-  --app-accent-color-muted: #293844;
+  --app-accent-color-muted: #2b323b;
   --app-accent-font-color: #24292e;
   --app-accent-font-color-muted: #777777;
 
   // Component Color
   --component-background-color: #e0e0e0;
+  --component-background-color-muted: #e0e0e0;
   --component-font-color: #24292e;
   --component-border-color: #434f58;
   --component-border-color-muted: #373f47;
+  --component-outline-color: white;
+  --component-shade-color: #00000033;
 
   // Japanese
   --book-vol-1: #ff677c;
@@ -31,4 +34,34 @@
   --en-symbol: '\82F1';
   --kana-kanji: #f16d45;
   --hiragana: #ffdb3b;
+}
+
+:root[data-theme='light'] {
+  --app-background-color: #e3e3e3;
+
+  // Font Color
+  --app-font-color: #34383b;
+  --app-font-color-muted: #d3d3d3;
+
+  // Accent Color
+  --app-accent-color: #33303b;
+  --app-accent-color-muted: #bbc0c7;
+  --app-accent-font-color: #e3e3e3;
+  --app-accent-font-color-muted: #777777;
+
+  // Component Color
+  --component-background-color: #34383b;
+  --component-background-color-muted: #34383b;
+  --component-font-color: #e3e3e3;
+  --component-border-color: #a7b7c4;
+  --component-border-color-muted: #373f47;
+  --component-outline-color: black;
+  --component-shade-color: #d1d1d5;
+
+  // Japanese
+  --book-vol-1: #ff008c;
+  --book-vol-2: #0099ff;
+  --en-symbol: '\82F1';
+  --kana-kanji: #f16d45;
+  --hiragana: #34383b;
 }

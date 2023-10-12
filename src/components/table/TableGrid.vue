@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { resultsTable } from '@/fuse'
+import { table_results } from '@/fuse'
 import TableRow from './TableRow.vue'
 </script>
 
 <template>
-  <div class="table__root">
+  <div class="table__root | radius">
     <table class="table__wrapper">
       <thead>
         <tr>
@@ -18,18 +18,11 @@ import TableRow from './TableRow.vue'
       </thead>
       <tbody>
         <TableRow
-          v-for="{ item, refIndex } in resultsTable"
+          v-for="{ item, refIndex } in table_results"
           :key="refIndex"
-          :id="item['id']"
-          :ja_letter_loc="item['info']['ja_letter_loc']"
-          :ja_kk="item['data']['ja_kana_kanji']"
-          :ja_h="item['data']['ja_furigana']"
-          :ja_h_add="item['data']['ja_particle']"
-          :ja_h_suru="item['data']['ja_suru'] ?? null"
-          :en="item['data']['en_meaning']"
-          :en_add="item['data']['en_verb_type']"
-          :kanji="item['info']['kanji']"
-          :reading="item['info']['reading']"
+          :id="item.id"
+          :data="item.data"
+          :info="item.info"
         />
       </tbody>
     </table>
@@ -51,7 +44,8 @@ import TableRow from './TableRow.vue'
     margin-inline: auto;
 
     thead {
-      background: rgba($color: #000000, $alpha: 0.4);
+      background: var(--component-background-color);
+      color: var(--component-font-color);
     }
 
     tr {

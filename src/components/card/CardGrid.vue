@@ -4,7 +4,7 @@ import CardWord from './CardWord.vue'
 </script>
 
 <template>
-  <div class="card-list__root" v-auto-animate>
+  <div class="card-list__root" :fix="results.length <= 0" v-auto-animate>
     <CardWord
       v-for="{ item, refIndex } in results"
       :key="refIndex"
@@ -14,3 +14,17 @@ import CardWord from './CardWord.vue'
     />
   </div>
 </template>
+
+<style lang="scss">
+@import '@/assets/mixins.scss';
+
+.card-list {
+  &__root {
+    @include transition('margin');
+
+    &[fix='true'] {
+      margin-top: 0;
+    }
+  }
+}
+</style>

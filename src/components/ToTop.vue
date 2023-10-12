@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
+import { results } from '@/fuse'
 
 function scrollTop() {
   scroll(0, 0)
@@ -7,7 +8,7 @@ function scrollTop() {
 </script>
 
 <template>
-  <div class="scroll__root" @click="scrollTop()">
+  <div class="scroll__root | radius" @click="scrollTop()" :visible="results.length > 0">
     <Icon icon="tabler:arrow-big-up-filled" />
   </div>
 </template>
@@ -17,25 +18,29 @@ function scrollTop() {
 
 .scroll {
   &__root {
-    @include transition('translate');
+    @include transition('translate, visibility');
 
-    position: fixed;
-    padding: 0.5rem;
-    bottom: 0.5rem;
-    right: 0;
+    float: right;
+    position: sticky;
+    padding: 1rem;
+    bottom: 4rem;
+    width: fit-content;
 
-    z-index: 999;
+    text-align: center;
     color: var(--component-font-color);
     background: var(--component-background-color);
-    box-shadow: -5px 0 10px -1px rgba($color: #000000, $alpha: 0.2);
-    border-radius: var(--component-border-radius) 0 0 var(--component-border-radius);
+    // box-shadow: 0 0 40px 50px rgba($color: #000000, $alpha: 0.5);
 
     svg {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
 
     &:is(:active) {
       translate: 0 5px;
+    }
+
+    &[visible='false'] {
+      visibility: hidden;
     }
 
     @media screen and (width > 425px) {
