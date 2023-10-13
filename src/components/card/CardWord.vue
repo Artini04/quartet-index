@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { card_show_links, type Word } from '@/fuse'
+import { type Word } from '@/fuse'
+import { useOptionsStore } from '@/stores/options'
 
 const localProps = defineProps<Word>()
+const options = useOptionsStore()
 
 const jpnFirst: string = localProps.data.ja_kana_kanji ?? localProps.data.ja_hiragana
 const jpnSecond: string = localProps.data.ja_kana_kanji ? localProps.data.ja_hiragana : ''
@@ -40,7 +42,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
     </div>
 
     <!-- LINKS -->
-    <div class="card__link | shade" v-if="card_show_links">
+    <div class="card__link | shade" v-if="options.card_show_links">
       <!-- FIRST LINK -->
       <div class="card__link__box">
         <span>jpdb.io</span>

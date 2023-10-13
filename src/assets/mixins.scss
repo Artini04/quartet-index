@@ -58,6 +58,10 @@
 
 @mixin button_pressed() {
   &:is(:active) {
-    scale: 0.97;
+    scale: 0.95;
   }
+}
+
+@mixin no_user_select() {
+  user-select: none;
 }

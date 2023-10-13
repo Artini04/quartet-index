@@ -29,16 +29,16 @@ $block: 0.6rem;
     -webkit-tap-highlight-color: transparent;
 
     &::placeholder {
-      color: var(--app-font-color-muted);
+      color: var(--component-font-placeholder-color);
     }
 
     &[type='button'] {
       @include transition('scale');
-
-      &:is(:active) {
-        @include button_pressed();
-      }
     }
+  }
+
+  &:has(input[type='button']) {
+    @include button_pressed();
   }
 
   &:is(:focus-visible, :focus-within) {
