@@ -30,6 +30,7 @@ defineProps<Props>()
 
 .a__button {
   @include transition('border, scale, outline');
+  @include no_user_select();
   @include outline_active();
   @include button_pressed();
 

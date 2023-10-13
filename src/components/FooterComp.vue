@@ -43,7 +43,7 @@ import InputButton from './input/InputButton.vue'
     container-name: footerRoot;
 
     background: var(--app-accent-color-muted);
-    padding: 4rem 1rem 1rem;
+    padding: 4rem 1rem;
   }
 
   &__wrapper {

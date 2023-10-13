@@ -1387,6 +1387,27 @@
     }
   },
   {
+    "id": 72,
+    "data": {
+      "ja_kana_kanji": "維持",
+      "ja_hiragana": "いじ",
+      "ja_particle": null,
+      "ja_suru": "（する）",
+      "en_meaning": [
+        "to retain",
+        "to maintain",
+        "to sustain"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "い",
+      "lesson": 12,
+      "reading": 1,
+      "kanji": "◇"
+    }
+  },
+  {
     "id": 73,
     "data": {
       "ja_kana_kanji": "石川県",
@@ -1427,6 +1448,25 @@
   },
   {
     "id": 75,
+    "data": {
+      "ja_kana_kanji": null,
+      "ja_hiragana": "いずれ",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "sooner or"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "い",
+      "lesson": 10,
+      "reading": 1,
+      "kanji": "　"
+    }
+  },
+  {
+    "id": 76,
     "data": {
       "ja_kana_kanji": null,
       "ja_hiragana": "いずれ",
@@ -2852,6 +2892,27 @@
     }
   },
   {
+    "id": 150,
+    "data": {
+      "ja_kana_kanji": "描く",
+      "ja_hiragana": "えがく",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "to picture",
+        "to draw",
+        "to describe"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "え",
+      "lesson": 12,
+      "reading": 2,
+      "kanji": "◇"
+    }
+  },
+  {
     "id": 151,
     "data": {
       "ja_kana_kanji": "餌",
@@ -3599,6 +3660,26 @@
       "lesson": 11,
       "reading": 2,
       "kanji": "　"
+    }
+  },
+  {
+    "id": 190,
+    "data": {
+      "ja_kana_kanji": "襲う",
+      "ja_hiragana": "おそう",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "to attack",
+        "to strike"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "お",
+      "lesson": 12,
+      "reading": 2,
+      "kanji": "◇"
     }
   },
   {
@@ -5158,6 +5239,25 @@
       "lesson": 10,
       "reading": 1,
       "kanji": "　"
+    }
+  },
+  {
+    "id": 272,
+    "data": {
+      "ja_kana_kanji": "稼ぐ",
+      "ja_hiragana": "かせぐ",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "to earn (money)"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "か",
+      "lesson": 12,
+      "reading": 1,
+      "kanji": "◇"
     }
   },
   {
@@ -15800,6 +15900,25 @@
     }
   },
   {
+    "id": 827,
+    "data": {
+      "ja_kana_kanji": "想像",
+      "ja_hiragana": "そうぞう",
+      "ja_particle": null,
+      "ja_suru": "（する）",
+      "en_meaning": [
+        "to imagine"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "そ",
+      "lesson": 9,
+      "reading": 1,
+      "kanji": "◆"
+    }
+  },
+  {
     "id": 828,
     "data": {
       "ja_kana_kanji": "創造部",
@@ -17361,6 +17480,26 @@
     }
   },
   {
+    "id": 909,
+    "data": {
+      "ja_kana_kanji": "地域",
+      "ja_hiragana": "ちいき",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "area",
+        "region"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "ち",
+      "lesson": 12,
+      "reading": 2,
+      "kanji": "◇"
+    }
+  },
+  {
     "id": 910,
     "data": {
       "ja_kana_kanji": null,
@@ -18010,6 +18149,25 @@
       "lesson": 8,
       "reading": 2,
       "kanji": "　"
+    }
+  },
+  {
+    "id": 944,
+    "data": {
+      "ja_kana_kanji": "妻",
+      "ja_hiragana": "つま",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "wife"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "つ",
+      "lesson": 10,
+      "reading": 1,
+      "kanji": "◇"
     }
   },
   {
@@ -21398,12 +21556,12 @@
   {
     "id": 1121,
     "data": {
-      "ja_kana_kanji": "to be",
+      "ja_kana_kanji": null,
       "ja_hiragana": "のる",
       "ja_particle": "［～に］",
       "ja_suru": null,
       "en_meaning": [
-        "put on "
+        "to be put on "
       ],
       "en_verb_type": "[vi.]"
     },
@@ -21643,6 +21801,26 @@
       "lesson": 1,
       "reading": 1,
       "kanji": "　"
+    }
+  },
+  {
+    "id": 1134,
+    "data": {
+      "ja_kana_kanji": "恥ずかしい",
+      "ja_hiragana": "はずかしい",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "to be shy",
+        "to feel embarrassed"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "は",
+      "lesson": 6,
+      "reading": 2,
+      "kanji": "◆"
     }
   },
   {
@@ -24012,6 +24190,25 @@
     }
   },
   {
+    "id": 1258,
+    "data": {
+      "ja_kana_kanji": "雰囲気",
+      "ja_hiragana": "ふんいき",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "atmosphere"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "ふ",
+      "lesson": 8,
+      "reading": 2,
+      "kanji": "◇"
+    }
+  },
+  {
     "id": 1259,
     "data": {
       "ja_kana_kanji": "紛失",
@@ -25432,6 +25629,25 @@
       "lesson": 8,
       "reading": 1,
       "kanji": "　"
+    }
+  },
+  {
+    "id": 1333,
+    "data": {
+      "ja_kana_kanji": "枕",
+      "ja_hiragana": "まくら",
+      "ja_particle": null,
+      "ja_suru": null,
+      "en_meaning": [
+        "pillow"
+      ],
+      "en_verb_type": null
+    },
+    "info": {
+      "letter_location": "ま",
+      "lesson": 9,
+      "reading": 2,
+      "kanji": "◇"
     }
   },
   {

@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { app_theme, card_show_links } from '@/fuse'
+import { useOptionsStore } from '@/stores/options'
 import InputButton from '@/components/input/InputButton.vue'
 
-function setTheme(theme: string) {
-  app_theme.value = theme
-  document.documentElement.setAttribute('data-theme', theme)
-}
+const options = useOptionsStore()
 </script>
 
 <template>
@@ -17,13 +14,13 @@ function setTheme(theme: string) {
       <div class="block block-y">
         <InputButton
           variant="filled"
-          :properties="{ value: 'Light [WIP]', icon: 'tabler:sun-filled' }"
-          @click="setTheme('light')"
+          :properties="{ value: 'Light', icon: 'tabler:sun-filled' }"
+          @click.prevent="options.app_theme = 'light'"
         />
         <InputButton
           variant="filled"
           :properties="{ value: 'Dark', icon: 'tabler:moon-filled' }"
-          @click="setTheme('dark')"
+          @click.prevent="options.app_theme = 'dark'"
         />
       </div>
     </div>
@@ -31,7 +28,7 @@ function setTheme(theme: string) {
     <div class="option__category | block block-y radius">
       <h3>Card Preference</h3>
       <div class="block-x">
-        <input id="show-dict-links" type="checkbox" v-model.lazy="card_show_links" />
+        <input id="show-dict-links" type="checkbox" v-model.lazy="options.card_show_links" />
         <label for="show-dict-links">Show dictionary links</label>
       </div>
     </div>

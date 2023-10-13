@@ -23,6 +23,7 @@
   --component-background-color: #e0e0e0;
   --component-background-color-muted: #e0e0e0;
   --component-font-color: #24292e;
+  --component-font-placeholder-color: #686868;
   --component-border-color: #434f58;
   --component-border-color-muted: #373f47;
   --component-outline-color: white;
@@ -44,15 +45,16 @@
   --app-font-color-muted: #d3d3d3;
 
   // Accent Color
-  --app-accent-color: #33303b;
+  --app-accent-color: #d5d5d5;
   --app-accent-color-muted: #bbc0c7;
-  --app-accent-font-color: #e3e3e3;
-  --app-accent-font-color-muted: #777777;
+  --app-accent-font-color: #34383b;
+  --app-accent-font-color-muted: #34383b;
 
   // Component Color
-  --component-background-color: #34383b;
+  --component-background-color: #d5d5d5;
   --component-background-color-muted: #34383b;
-  --component-font-color: #e3e3e3;
+  --component-font-color: #34383b;
+  --component-font-placeholder-color: #686868;
   --component-border-color: #a7b7c4;
   --component-border-color-muted: #373f47;
   --component-outline-color: black;
