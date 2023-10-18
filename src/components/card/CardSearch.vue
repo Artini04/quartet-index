@@ -18,9 +18,10 @@ function search() {
 </script>
 
 <template>
-  <div class="search__root clamped">
+  <div class="search">
     <InputWrapper class="search__box" role="searchbox">
       <Icon icon="tabler:list-search" />
+
       <input
         type="search"
         name="search-query"
@@ -28,8 +29,7 @@ function search() {
         autocomplete="off"
         @keypress.enter="search()"
         v-model="search_query_init"
-        ref="search_element"
-      />
+        ref="search_element" />
     </InputWrapper>
 
     <InputWrapper class="search__button" role="button">
@@ -42,9 +42,7 @@ function search() {
 @import '@/assets/mixins';
 
 .search {
-  &__root {
-    @include flex(row, nowrap, 0.5rem);
-  }
+  @include flex(row, nowrap, 0.5rem);
 
   &__box {
     @include flex(row, nowrap, 0.5rem);

@@ -8,24 +8,19 @@
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
 $category-spacing: 0.5rem;
-$options-spacing: 0.5rem;
+$options-spacing: 0.7rem;
 
 .options-category {
   h3 {
     margin-bottom: $category-spacing;
-
-    line-height: 1.2rem;
+    line-height: 1.6rem;
   }
 
   &__options {
-    & > * {
-      display: block;
-    }
-
-    & > * + * {
-      margin-top: $options-spacing;
-    }
+    @include spacing($options-spacing, y, block);
   }
 }
 </style>

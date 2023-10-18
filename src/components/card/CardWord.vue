@@ -12,7 +12,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
 </script>
 
 <template>
-  <div class="card__root | radius" v-once>
+  <div class="card-word" v-once>
     <!-- INFO -->
     <div class="card__info | shade">
       <span class="card__info__lesson" :vol="info.lesson < 7 ? 1 : 2">
@@ -73,7 +73,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
 <style lang="scss">
 @import '@/assets/mixins';
 
-.card {
+.card-word {
   &__root {
     @include flex(column, nowrap, 1rem);
     border: 1px solid var(--component-border-color);

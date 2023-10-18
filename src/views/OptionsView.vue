@@ -11,7 +11,7 @@ const { clearLocalStorage, testConsole } = options
 </script>
 
 <template>
-  <main class="options | main clamped">
+  <main class="options | clamped">
     <h2>Options</h2>
 
     <div class="options__box | border-rounded-square">
@@ -35,43 +35,39 @@ const { clearLocalStorage, testConsole } = options
         <InputCheckboxWrapper
           id="show_dictionary_links"
           :properties="{ text: 'Show dictionary links', icon: 'tabler:link' }">
-          <input
-            type="checkbox"
-            id="show_dictionary_links"
-            v-model="options.card_show_links" />
+          <input type="checkbox" id="show_dictionary_links" v-model="options.card_show_links" />
         </InputCheckboxWrapper>
       </OptionsCategory>
     </div>
 
-    <div class="options__box | border-rounded-square">
+    <div class="options__box | border-rounded-square" v-auto-animate>
       <OptionsCategory>
-        <h3>Development / Debugging</h3>
-
         <template v-slot:options>
-          <InputCheckboxWrapper
-            id="debug_mode"
-            :properties="{ text: 'Show logged mesages in console', icon: 'tabler:terminal-2' }">
-            <input
-              type="checkbox"
-              id="debug_mode"
-              v-model="options.debug_mode" />
-          </InputCheckboxWrapper>
-
-          <InputCheckboxWrapper
-            id="show-console"
-            :properties="{ text: 'Show HTML console', icon: 'tabler:terminal' }">
-            <input
-              type="checkbox"
-              id="show-console"
-              v-model="options.show_console" />
-          </InputCheckboxWrapper>
-
+          <h3>Local Storage</h3>
           <p>In-case something is not working. Clear local storage!</p>
           <InputButtonWrapper
             variant="filled"
             color="red"
             :properties="{ text: 'Clear <code>localStorage</code>', icon: 'tabler:trash' }"
             @click="clearLocalStorage()" />
+        </template>
+      </OptionsCategory>
+
+      <OptionsCategory>
+        <h3>Development</h3>
+
+        <template v-slot:options>
+          <InputCheckboxWrapper
+            id="debug_mode"
+            :properties="{ text: 'Show logged mesages in console', icon: 'tabler:terminal-2' }">
+            <input type="checkbox" id="debug_mode" v-model="options.debug_mode" />
+          </InputCheckboxWrapper>
+
+          <InputCheckboxWrapper
+            id="show-console"
+            :properties="{ text: 'Show HTML console', icon: 'tabler:terminal' }">
+            <input type="checkbox" id="show-console" v-model="options.show_console" />
+          </InputCheckboxWrapper>
 
           <InputButtonWrapper
             variant="filled"
@@ -93,16 +89,18 @@ const { clearLocalStorage, testConsole } = options
 @import '@/assets/mixins';
 
 $background-color: var(--component-box-background-color);
+$options-spacing: 1rem;
+$options-sub-spacing: 2rem;
 
 .options {
-  @include spacing(1rem, y);
+  @include spacing($options-spacing, y, block);
 
   h2 {
     text-align: center;
   }
 
   &__box {
-    @include spacing(2rem, y);
+    @include spacing($options-sub-spacing, y, block);
 
     padding: 1rem;
     background: $background-color;

@@ -14,9 +14,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <RouterLink
-    :to="to"
-    class="tab | border-square">
+  <RouterLink :to="to" class="tab | border-square">
     <Icon :icon="properties.icon" />
     <span>{{ properties.text }}</span>
   </RouterLink>
@@ -39,14 +37,11 @@ $icon-text-spacing: 0.5rem;
   @include spacing($icon-text-spacing, x);
 
   padding: $padding-block $padding-inline;
-  transition-property: scale, outline;
+  transition-property: scale, background, outline;
 
   cursor: pointer;
   user-select: none;
   text-decoration: none;
-
-  // Remove touch feedback highlight
-  -webkit-tap-highlight-color: transparent;
 
   &:is(.router-link-active, .router-link-exact-active) {
     background-color: $tab-background-color-active;

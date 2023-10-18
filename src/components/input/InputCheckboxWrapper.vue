@@ -38,9 +38,6 @@ $input-spacing: 0.5rem;
   position: relative;
   user-select: none;
 
-  // Remove touch feedback highlight
-  -webkit-tap-highlight-color: transparent;
-
   input {
     position: absolute;
     height: 0;

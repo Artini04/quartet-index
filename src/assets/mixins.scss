@@ -14,20 +14,22 @@
 }
 
 @mixin item_alignment($align, $justify) {
-  align-items: #{$align};
-  justify-content: #{$justify};
+  align-items: $align;
+  justify-content: $justify;
 }
 
-@mixin spacing($space, $direction) {
-  @if #{$direction} == 'y' {
-    & > * + * {
-      margin-top: #{$space};
-    }
-  }
+@mixin spacing($space, $direction, $block: inline-block) {
+  & > * {
+    display: $block;
 
-  @if #{$direction} == 'x' {
-    & > * + * {
-      margin-left: #{$space};
+    & + * {
+      @if #{$direction} == 'y' {
+        margin-top: $space;
+      }
+
+      @if #{$direction} == 'x' {
+        margin-left: $space;
+      }
     }
   }
 }
@@ -50,8 +52,10 @@
 }
 
 @mixin outline_active {
-  &:is(:focus-visible) {
-    outline: 4px solid var(--component-outline-color) !important;
+  $outline-color: var(--component-outline-color, white);
+
+  &:is(:focus-visible, :focus-within) {
+    outline: 4px solid $outline-color !important;
   }
 }
 
@@ -65,8 +69,4 @@
   &:is(:hover) {
     scale: $scale;
   }
-}
-
-@mixin no_user_select() {
-  user-select: none;
 }

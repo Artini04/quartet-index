@@ -1,37 +1,47 @@
 :root {
   scroll-behavior: smooth;
 
-  --component-max-width: 525px;
+  --component-max-width: 600px;
   --component-transition-duration: 200ms;
   --component-border-radius: 7px;
 }
 
 :root[data-theme='dark'] {
+  // App
   --app-background-color: #24292e;
-
-  // Font Color
   --app-font-color: #e0e0e0;
   --app-font-color-muted: #777777;
 
-  // Accent Color
+  // App . Accent
   --app-accent-color: #e0e0e0;
   --app-accent-color-muted: #2b323b;
   --app-accent-font-color: #24292e;
   --app-accent-font-color-muted: #777777;
 
   // Component Color
-  --component-background-color: #e0e0e0;
-  --component-background-color-muted: #e0e0e0;
-  --component-font-color: #24292e;
-  --component-font-placeholder-color: #686868;
+  // --component-background-color: #e0e0e0;
+  // --component-background-color-muted: #e0e0e0;
+  // --component-font-color: #24292e;
+  // --component-font-placeholder-color: #686868;
+  // --component-outline-color: white;
+  // --component-shade-color: #00000033;
+
+  // Component . Border . Box
   --component-border-color: #434f58;
   --component-border-color-muted: #373f47;
-  --component-outline-color: white;
-  --component-shade-color: #00000033;
+  --component-box-background-color: #2f353b;
 
+  // Component . Input
   --component-input-background-color: #eee;
   --component-input-font-color: #3f3f3f;
-  --component-box-background-color: #2b323b;
+
+  // Component . Wrapper
+  --component-wrapper-background-color: #e0e0e0;
+  --component-wrapper-font-color: #34383b;
+  --component-wrapper-font-color-placeholder: #595d61;
+
+  // Component . Header
+  --component-header-border-color: #3a3f4d;
 
   // Japanese
   --book-vol-1: #ff677c;
@@ -63,6 +73,14 @@
   --component-border-color-muted: #373f47;
   --component-outline-color: black;
   --component-shade-color: #d1d1d5;
+
+  --component-input-background-color: #34383b;
+  --component-input-font-color: #e3e3e3;
+  --component-box-background-color: #bbc0c7;
+
+  --component-wrapper-background-color: #bbc0c7;
+  --component-wrapper-font-color: #34383b;
+  --component-wrapper-font-color-placeholder: #595d61;
 
   // Japanese
   --book-vol-1: #ff008c;

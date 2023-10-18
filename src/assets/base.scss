@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;600;900&family=Noto+Sans+JP&family=Outfit:wght@400;600;900&display=swap');
 @import './mixins.scss';
 
-body {
-  // @include transition('background, color');
+#app {
+  & > * + * {
+    padding-block: 0;
+    margin-block: 1rem;
+  }
+}
 
+body {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -43,22 +48,11 @@ h6 {
   font-family: 'Outfit', 'M PLUS 1', sans-serif;
 }
 
-.main {
+main,
+header,
+footer {
   @include spacing(1rem, y);
   padding: 1rem;
-}
-
-.block {
-  & > * {
-    display: block;
-  }
-
-  &-x {
-    @include spacing(0.7rem, x);
-  }
-  &-y {
-    @include spacing(0.7rem, y);
-  }
 }
 
 // =============== //
@@ -68,14 +62,6 @@ h6 {
 .clamped {
   max-width: var(--component-max-width);
   margin-inline: auto;
-}
-
-.button {
-  @include spacing(0.3rem, x);
-}
-
-.radius {
-  border-radius: var(--component-border-radius);
 }
 
 .shade {
@@ -91,6 +77,8 @@ h6 {
 }
 
 .border {
+  border: 1px solid var(--component-border-color);
+
   &-rounded {
     border-radius: 12px;
   }
