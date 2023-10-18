@@ -12,16 +12,16 @@ defineProps<Props>()
 </script>
 
 <template>
-  <label :for="id" class="input-checkbox">
+  <label
+    :for="id"
+    class="input-checkbox">
     <div class="input-checkbox__text">
-      <Icon :icon="properties.icon" v-if="properties.icon" />
+      <Icon
+        :icon="properties.icon"
+        v-if="properties.icon" />
       <span>{{ properties.text }}</span>
     </div>
-
-    <!-- Checkbox -->
     <slot> </slot>
-    <!-- End of Checkbox -->
-
     <span class="input-checkbox__custom | border-square"></span>
   </label>
 </template>
@@ -48,7 +48,7 @@ $input-spacing: 0.5rem;
   }
 
   input ~ &__custom {
-    @include transition('background');
+    @include transition(125ms);
     background: $checkbox-background-color;
 
     // Invisible if input isn't checked
@@ -68,10 +68,17 @@ $input-spacing: 0.5rem;
     }
   }
 
-  &__custom {
-    $size: 1.3rem;
-    overflow: hidden;
+  &:is(:active) &__custom {
+    scale: 0.8;
+  }
 
+  &__custom {
+    @include transition();
+
+    $size: 1.3rem;
+
+    transition-property: scale;
+    overflow: hidden;
     position: absolute;
     top: 0.2rem;
     left: 0;
