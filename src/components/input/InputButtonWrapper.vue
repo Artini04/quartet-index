@@ -19,9 +19,10 @@ defineProps<Props>()
     class="input-button | border-square"
     :href="properties.src"
     :variant="variant"
-    :button-color="color"
-  >
-    <Icon :icon="properties.icon" v-if="properties.icon" />
+    :button-color="color">
+    <Icon
+      :icon="properties.icon"
+      v-if="properties.icon" />
     <span v-html="properties.text"></span>
   </a>
 </template>
@@ -40,8 +41,9 @@ $padding-inline: 0.6rem;
 $icon-text-spacing: 0.5rem;
 
 .input-button {
-  @include transition('scale', 125ms);
+  @include transition(125ms);
   @include button_pressed();
+  @include spacing($icon-text-spacing, x);
 
   padding: $padding-block $padding-inline;
 
@@ -52,15 +54,6 @@ $icon-text-spacing: 0.5rem;
 
   // Remove touch feedback highlight
   -webkit-tap-highlight-color: transparent;
-
-  // Spacing
-  & > * {
-    display: inline-block;
-
-    & + * {
-      margin-left: $icon-text-spacing;
-    }
-  }
 
   // Button coloring
   &[button-color='green'] {

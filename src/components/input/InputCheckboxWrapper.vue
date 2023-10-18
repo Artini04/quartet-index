@@ -48,7 +48,7 @@ $input-spacing: 0.5rem;
   }
 
   input ~ &__custom {
-    @include transition('background');
+    @include transition(125ms);
     background: $checkbox-background-color;
 
     // Invisible if input isn't checked

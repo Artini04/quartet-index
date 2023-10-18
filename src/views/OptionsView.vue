@@ -66,7 +66,7 @@ const { clearLocalStorage } = options
   </main>
 </template>
 <style lang="scss">
-@import '@/assets/mixins.scss';
+@import '@/assets/mixins';
 
 $background-color: var(--component-box-background-color);
 

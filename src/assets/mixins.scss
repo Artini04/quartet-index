@@ -32,8 +32,7 @@
   }
 }
 
-@mixin transition($property, $duration: 200ms) {
-  transition-property: $property;
+@mixin transition($duration: 200ms) {
   transition-duration: $duration;
   transition-timing-function: ease;
 }
