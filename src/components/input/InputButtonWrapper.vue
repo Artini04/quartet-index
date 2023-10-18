@@ -18,6 +18,7 @@ defineProps<Props>()
   <a
     class="input-button | border-square"
     :href="properties.src"
+    target="_blank"
     :variant="variant"
     :button-color="color">
     <Icon
@@ -33,24 +34,27 @@ defineProps<Props>()
 $button-background-color: var(--component-input-background-color, #eee);
 $button-background-color-green: var(--component-input-background-color-green, #90ee90);
 $button-background-color-yellow: var(--component-input-background-color-yellow, #ffff6f);
-$button-background-color-red: var(--component-input-background-color-red, #f08080);
+$button-background-color-red: var(--component-input-background-color-red, #ec4f4f);
 $button-font-color: var(--component-input-font-color, #3f3f3f);
+$button-font-color-inverse: var(--component-input-font-color-inverse, #eee);
 
 $padding-block: 0.3rem;
 $padding-inline: 0.6rem;
 $icon-text-spacing: 0.5rem;
 
 .input-button {
-  @include transition(125ms);
-  @include button_pressed();
+  @include transition();
   @include spacing($icon-text-spacing, x);
+  @include button_pressed();
 
   padding: $padding-block $padding-inline;
+  transition-property: outline, scale;
 
   cursor: pointer;
   user-select: none;
+  text-decoration: none;
   background: $button-background-color;
-  color: $button-font-color;
+  color: $button-font-color !important;
 
   // Remove touch feedback highlight
   -webkit-tap-highlight-color: transparent;
@@ -66,6 +70,7 @@ $icon-text-spacing: 0.5rem;
 
   &[button-color='red'] {
     background: $button-background-color-red;
+    color: $button-font-color-inverse !important;
   }
 }
 </style>

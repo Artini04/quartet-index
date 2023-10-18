@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import InputButton from './input/InputButton.vue'
+import InputButtonWrapper from './input/InputButtonWrapper.vue'
 </script>
 
 <template>
-  <footer class="footer__root | main">
+  <footer class="footer | main">
     <div class="footer__wrapper | clamped">
       <div class="footer__p | block-y">
         <h2>「トカ」</h2>
@@ -12,23 +12,20 @@ import InputButton from './input/InputButton.vue'
 
       <div class="block block-y footer__link">
         <h2>リンク</h2>
-        <InputButton
+        <InputButtonWrapper
           variant="filled"
           :properties="{
-            value: 'Project Page',
+            text: 'Project Page',
             icon: 'tabler:brand-github-filled',
             src: 'https://github.com/Artini04/quartet-index'
-          }"
-        />
-
-        <InputButton
+          }" />
+        <InputButtonWrapper
           variant="filled"
           :properties="{
-            value: 'Report an Issue',
+            text: 'Report an Issue',
             icon: 'tabler:circle-dot',
             src: 'https://github.com/Artini04/quartet-index/issues'
-          }"
-        />
+          }" />
       </div>
     </div>
   </footer>
@@ -38,13 +35,11 @@ import InputButton from './input/InputButton.vue'
 @import '@/assets/mixins.scss';
 
 .footer {
-  &__root {
-    container-type: inline-size;
-    container-name: footerRoot;
+  container-type: inline-size;
+  container-name: footerRoot;
 
-    background: var(--app-accent-color-muted);
-    padding: 4rem 1rem;
-  }
+  background: var(--app-accent-color-muted);
+  padding: 4rem 1rem;
 
   &__wrapper {
     @include flex(column, nowrap, 1.5rem);

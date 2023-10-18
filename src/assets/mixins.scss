@@ -61,6 +61,12 @@
   }
 }
 
+@mixin button_hover($scale: 1.05) {
+  &:is(:hover) {
+    scale: $scale;
+  }
+}
+
 @mixin no_user_select() {
   user-select: none;
 }

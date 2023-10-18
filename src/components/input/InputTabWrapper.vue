@@ -35,7 +35,7 @@ $icon-text-spacing: 0.5rem;
 .tab {
   @include transition();
   @include outline_active();
-  @include button_pressed();
+  @include button_pressed(0.95);
   @include spacing($icon-text-spacing, x);
 
   padding: $padding-block $padding-inline;
