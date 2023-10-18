@@ -32,9 +32,9 @@
   }
 }
 
-@mixin transition($property) {
-  transition-property: #{$property};
-  transition-duration: var(--component-transition-duration);
+@mixin transition($property, $duration: 200ms) {
+  transition-property: $property;
+  transition-duration: $duration;
   transition-timing-function: ease;
 }
 
@@ -56,9 +56,9 @@
   }
 }
 
-@mixin button_pressed() {
+@mixin button_pressed($hardness: 0.97) {
   &:is(:active) {
-    scale: 0.95;
+    scale: $hardness;
   }
 }
 

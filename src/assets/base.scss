@@ -17,7 +17,12 @@ body {
 svg {
   font-size: 1.2rem;
   display: inline-block;
-  margin-bottom: -0.25rem;
+  margin-bottom: -0.2rem;
+}
+
+code {
+  font-family: monospace;
+  font-style: italic;
 }
 
 table,
@@ -82,5 +87,19 @@ h6 {
 .text {
   &-center {
     text-align: center;
+  }
+}
+
+.border {
+  &-rounded {
+    border-radius: 12px;
+  }
+
+  &-rounded-square {
+    border-radius: 7px;
+  }
+
+  &-square {
+    border-radius: 5px;
   }
 }
