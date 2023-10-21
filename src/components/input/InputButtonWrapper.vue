@@ -21,9 +21,7 @@ defineProps<Props>()
     target="_blank"
     :variant="variant"
     :button-color="color">
-    <Icon
-      :icon="properties.icon"
-      v-if="properties.icon" />
+    <Icon :icon="properties.icon" v-if="properties.icon" />
     <span v-html="properties.text"></span>
   </a>
 </template>
@@ -56,8 +54,10 @@ $icon-text-spacing: 0.5rem;
   background: $button-background-color;
   color: $button-font-color !important;
 
-  // Remove touch feedback highlight
-  -webkit-tap-highlight-color: transparent;
+  span {
+    word-wrap: break-word;
+    word-break: break-all;
+  }
 
   // Button coloring
   &[button-color='green'] {

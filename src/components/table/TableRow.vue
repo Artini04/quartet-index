@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Word } from '@/fuse'
+import { type Word } from '@/stores'
 
 defineProps<Word>()
 </script>
@@ -24,5 +24,6 @@ defineProps<Word>()
     </td>
 
     <td class="row__location">{{ info.letter_location }}</td>
+    <td>{{ info.lesson }}</td>
   </tr>
 </template>

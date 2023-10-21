@@ -10,19 +10,20 @@ export const useOptionsStore = defineStore('options', () => {
   const html_console: Ref<string> = shallowRef('')
   const show_console: Ref<boolean> = useLocalStorage('show-console', false)
 
-  function clearLocalStorage() {
-    localStorage.clear()
-
-    if (debug_mode.value) {
-      console.log('[DEBUG] Local storage cleared!')
-      html_console.value += '[DEBUG] Local storage cleared! Options and caches reset.<br>'
+  function showDebugMessage(show: boolean, message: string) {
+    if (show) {
+      console.log(message)
+      html_console.value += message + '<br>'
     }
   }
 
+  function clearLocalStorage() {
+    localStorage.clear()
+    showDebugMessage(debug_mode.value, '[DEBUG] Local storage cleared!')
+  }
+
   function testConsole() {
-    if (debug_mode.value) {
-      html_console.value += '[DEBUG] OK!<br>'
-    }
+    showDebugMessage(debug_mode.value, '[DEBUG] OK!')
   }
 
   return {

@@ -8,10 +8,6 @@
 
 a:any-link {
   color: inherit;
-
-  &:is(:focus, :focus-within) {
-    outline: 1px solid white;
-  }
 }
 
 input,
@@ -30,6 +26,14 @@ select {
   &[type='checkbox'] {
     cursor: pointer;
   }
+}
+
+a,
+input,
+select,
+button,
+label {
+  -webkit-tap-highlight-color: transparent;
 }
 
 label {

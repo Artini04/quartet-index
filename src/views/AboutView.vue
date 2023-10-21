@@ -3,8 +3,8 @@ import LegendComp from '@/components/LegendComp.vue'
 </script>
 
 <template>
-  <main class="about__root | main clamped">
-    <div class="about__banner | block-y">
+  <main class="about | clamped">
+    <div class="about__banner">
       <h2>TOKA「トカ」Pocket Quartet</h2>
       <p>A small Quartet Vocabulary Index Dictionary written in Vue.</p>
       <p>
@@ -19,19 +19,23 @@ import LegendComp from '@/components/LegendComp.vue'
       </p>
     </div>
 
-    <div class="about__block | block-y">
-      <h2>漢字／単語</h2>
+    <div class="about__box">
       <LegendComp />
     </div>
   </main>
 </template>
 
 <style lang="scss">
+@import '@/assets/mixins';
+
+$about-spacing: 4rem;
+$banner-spacing: 0.5rem;
+
 .about {
-  &__root {
-    & > * + * {
-      margin-top: 4rem;
-    }
+  @include spacing($about-spacing, y, block);
+
+  &__banner {
+    @include spacing($banner-spacing, y, block);
   }
 
   &__plans {

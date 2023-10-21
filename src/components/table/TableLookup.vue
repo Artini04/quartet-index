@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { table_search_query } from '@/fuse'
+import { storeToRefs } from 'pinia'
+import { useTableSearchStore } from '@/stores'
 import InputWrapper from '../input/InputWrapper.vue'
+
+const table_store = useTableSearchStore()
+const { search_query } = storeToRefs(table_store)
 </script>
 
 <template>
-  <div class="table-search__root | clamped">
+  <div class="table-search">
     <InputWrapper>
-      <select id="table-lesson-select" v-model.lazy="table_search_query" placeholder="OK">
+      <select id="table-lesson-select" v-model.lazy="search_query" placeholder="OK">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -23,3 +27,9 @@ import InputWrapper from '../input/InputWrapper.vue'
     </InputWrapper>
   </div>
 </template>
+
+<style>
+.table-search {
+  width: 100%;
+}
+</style>

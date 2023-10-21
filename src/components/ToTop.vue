@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { results } from '@/fuse'
 
 function scrollTop() {
   scroll(0, 0)
@@ -8,7 +7,7 @@ function scrollTop() {
 </script>
 
 <template>
-  <div class="scroll__root | radius" @click="scrollTop()" :visible="results.length > 0">
+  <div class="scroll__root | radius" @click="scrollTop()">
     <Icon icon="tabler:arrow-big-up-filled" />
   </div>
 </template>

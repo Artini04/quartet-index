@@ -3,8 +3,8 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
 </script>
 
 <template>
-  <header class="header | main clamped">
-    <div class="header__title | block text-center">
+  <header class="header | clamped text-center">
+    <div class="header__title">
       <h1>「トカ」Pocket Quartet</h1>
       <h2>日本語カルテット単語索引</h2>
     </div>
@@ -16,16 +16,14 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
           :properties="{ text: 'Lookup', icon: 'tabler:square-rotated-filled' }" />
         <InputTabWrapper
           to="/table"
-          :properties="{ text: 'Lesson Table', icon: 'tabler:table-filled' }" />
+          :properties="{ text: 'Lesson', icon: 'tabler:table-filled' }" />
       </div>
 
       <div class="nav__right">
         <InputTabWrapper
           to="/options"
-          :properties="{ text: 'Options', icon: 'tabler:settings-filled' }" />
-        <InputTabWrapper
-          to="/about"
-          :properties="{ text: 'About', icon: 'tabler:paperclip' }" />
+          :properties="{ text: 'Options', icon: 'tabler:adjustments' }" />
+        <InputTabWrapper to="/about" :properties="{ text: 'About', icon: 'tabler:paperclip' }" />
       </div>
     </nav>
   </header>
@@ -56,6 +54,8 @@ $padding-inline: 1rem;
 }
 
 .nav {
+  width: 100%;
+
   &__left,
   &__right {
     @include inline_flex(row, wrap, 0.1rem 0.3rem);

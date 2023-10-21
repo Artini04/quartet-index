@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Word } from '@/fuse'
+import type { Word } from '@/stores'
 import { useOptionsStore } from '@/stores/options'
 
 const localProps = defineProps<Word>()
@@ -12,10 +12,10 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
 </script>
 
 <template>
-  <div class="card__root | radius" v-once>
+  <div class="card-word | border-rounded-square" v-once>
     <!-- INFO -->
-    <div class="card__info | shade">
-      <span class="card__info__lesson" :vol="info.lesson < 7 ? 1 : 2">
+    <div class="card-word__info | shade">
+      <span class="card-word__info__lesson" :vol="info.lesson < 7 ? 1 : 2">
         Lesson {{ info.lesson }}
       </span>
       <span class="card__info__reading"> 読み{{ info.reading }} </span>
@@ -23,8 +23,8 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
     </div>
 
     <!-- JAPANESE AND ENGLISH -->
-    <div class="card__text | block-y">
-      <div class="card__text__ja" lang="ja">
+    <div class="card-word__text | block-y">
+      <div class="card-word__text__ja" lang="ja">
         <span class="ja-kk">{{ jpnFirst }}</span>
         <div class="ja-phs">
           <span class="ja-particle" v-if="data.ja_particle">{{ data.ja_particle }}</span>
@@ -33,18 +33,16 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
         </div>
       </div>
 
-      <div class="card__text__en">
-        <div class="en-meaning" v-for="item in meaning" :key="item">
-          <span class="en-meaning__en">{{ item }}</span>
-          <span class="en-meaning__add" v-if="data.en_verb_type">{{ data.en_verb_type }}</span>
-        </div>
+      <div class="card-word__text__en">
+        <span>{{ meaning.join('; ') }}</span>
+        <span v-if="data.en_verb_type">{{ data.en_verb_type }}</span>
       </div>
     </div>
 
     <!-- LINKS -->
-    <div class="card__link | shade" v-if="options.card_show_links">
+    <div class="card-word__link | shade" v-if="options.card_show_links">
       <!-- FIRST LINK -->
-      <div class="card__link__box">
+      <div class="card-word__link__box">
         <span>jpdb.io</span>
         <ul class="links">
           <li class="link" v-for="item in links" :key="item">
@@ -56,7 +54,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
       </div>
 
       <!-- SECOND LINK -->
-      <div class="card-link-link">
+      <div class="card-wor__link__box">
         <span>Weblio辞書</span>
         <ul class="links">
           <li class="link" v-for="item in links" :key="item">
@@ -73,18 +71,26 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
 <style lang="scss">
 @import '@/assets/mixins';
 
-.card {
-  &__root {
-    @include flex(column, nowrap, 1rem);
-    border: 1px solid var(--component-border-color);
-    padding: 0.5rem;
-  }
+$card-component-border-color: var(--component-border-color);
+
+$meaning-symbol: var(--en-symbol);
+$meaning-margin-right: 0.5rem;
+$kana-kanji-color: var(--kana-kanji);
+$hiragana-color: var(--hiragana);
+
+$padding: 0.4rem 1rem;
+
+.card-word {
+  // @include flex(column, nowrap, 1rem);
+  border: 1px solid $card-component-border-color;
+  overflow: hidden;
 
   // ==== //
   // INFO //
   // ==== //
   &__info {
     @include flex(row, nowrap, 0.5rem);
+    padding: $padding;
 
     &__id {
       background: var(--component-border-color);
@@ -116,36 +122,29 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
   // ==================== //
   &__text {
     flex-grow: 1;
-    padding: 0 0.5rem;
+    padding: $padding;
 
     &__ja {
-      text-align: center;
+      @include spacing(0.5rem, x, inline-block);
 
       .ja {
         &-kk {
-          font-size: 2rem;
-          line-height: 2.3rem;
-          color: var(--kana-kanji);
+          font-size: 1.4rem;
+          color: $kana-kanji-color;
         }
 
         &-phs {
           .ja-h {
-            color: var(--hiragana);
+            color: $hiragana-color;
           }
         }
       }
     }
 
     &__en {
-      .en-meaning {
-        & > * + * {
-          margin-left: 0.3rem;
-        }
-
-        &::before {
-          content: var(--en-symbol);
-          margin-right: 0.5rem;
-        }
+      &::before {
+        content: $meaning-symbol;
+        margin-right: $meaning-margin-right;
       }
     }
   }
@@ -155,6 +154,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
   // ===== //
   &__link {
     @include flex(row, nowrap, 0.5rem);
+    padding: $padding;
 
     & > * {
       flex: 1 1 50%;

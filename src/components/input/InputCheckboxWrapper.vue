@@ -12,13 +12,9 @@ defineProps<Props>()
 </script>
 
 <template>
-  <label
-    :for="id"
-    class="input-checkbox">
+  <label :for="id" class="input-checkbox">
     <div class="input-checkbox__text">
-      <Icon
-        :icon="properties.icon"
-        v-if="properties.icon" />
+      <Icon :icon="properties.icon" v-if="properties.icon" />
       <span>{{ properties.text }}</span>
     </div>
     <slot> </slot>
@@ -38,13 +34,12 @@ $input-spacing: 0.5rem;
   position: relative;
   user-select: none;
 
-  // Remove touch feedback highlight
-  -webkit-tap-highlight-color: transparent;
-
   input {
     position: absolute;
     height: 0;
     width: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   input ~ &__custom {
