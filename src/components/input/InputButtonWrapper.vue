@@ -54,6 +54,11 @@ $icon-text-spacing: 0.5rem;
   background: $button-background-color;
   color: $button-font-color !important;
 
+  span {
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
   // Button coloring
   &[button-color='green'] {
     background: $button-background-color-green;

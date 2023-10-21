@@ -4,7 +4,7 @@ import CardGrid from '@/components/card/CardGrid.vue'
 </script>
 
 <template>
-  <main class="main__root | clamped">
+  <main class="search | clamped">
     <CardSearch />
     <CardGrid />
   </main>

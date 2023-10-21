@@ -23,6 +23,7 @@ svg {
   font-size: 1.2rem;
   display: inline-block;
   margin-bottom: -0.2rem;
+  min-width: 1.2rem;
 }
 
 code {
@@ -65,9 +66,7 @@ footer {
 }
 
 .shade {
-  padding: 0.5rem;
   background: var(--component-shade-color);
-  border-radius: var(--component-border-radius);
 }
 
 .text {

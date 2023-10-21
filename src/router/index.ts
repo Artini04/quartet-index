@@ -40,7 +40,8 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)',
       name: '404 - トカ',
-      redirect: '/'
+      component: () => import('@/views/PageNotFound.vue')
+      // redirect: '/'
     }
   ]
 })

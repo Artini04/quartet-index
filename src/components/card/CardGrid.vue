@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { results } from '@/fuse'
+import { storeToRefs } from 'pinia'
+import { useSearchStore } from '@/stores'
 import CardWord from './CardWord.vue'
+
+const search_store = useSearchStore()
+const { fuse } = storeToRefs(search_store)
 </script>
 
 <template>
-  <div class="card-list" :fix="results.length <= 0" v-auto-animate>
+  <div class="card-list" v-auto-animate>
     <CardWord
-      v-for="{ item, refIndex } in results"
+      v-for="{ item, refIndex } in fuse.results"
       :key="refIndex"
       :id="item.id"
       :data="item.data"
@@ -22,9 +26,5 @@ import CardWord from './CardWord.vue'
   @include flex(column, nowrap, 1rem);
 
   transition-property: margin;
-
-  &[fix='true'] {
-    margin-top: 0;
-  }
 }
 </style>

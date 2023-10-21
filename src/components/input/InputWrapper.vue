@@ -15,6 +15,8 @@ $inline: 0.8rem;
 $block: 0.5rem;
 
 .input-wrapper {
+  @include flex(row, nowrap, 0.3rem);
+  @include item_alignment(center, flex-start);
   @include transition();
   @include outline_active();
 
@@ -27,7 +29,6 @@ $block: 0.5rem;
   select {
     padding-block: $block;
     width: 100%;
-    height: 100%;
 
     &::placeholder {
       color: $input-font-color-placeholder;

@@ -44,7 +44,7 @@ const { clearLocalStorage, testConsole } = options
       <OptionsCategory>
         <template v-slot:options>
           <h3>Local Storage</h3>
-          <p>In-case something is not working. Clear local storage!</p>
+          <p>In-case something's not working. Clear local storage!</p>
           <InputButtonWrapper
             variant="filled"
             color="red"
