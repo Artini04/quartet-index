@@ -1,5 +1,5 @@
 <template>
-  <div class="input__wrapper | radius">
+  <div class="input-wrapper | border-rounded-square">
     <slot> </slot>
   </div>
 </template>
@@ -7,29 +7,31 @@
 <style lang="scss">
 @import '@/assets/mixins';
 
+$input-background-color: var(--component-wrapper-background-color, white);
+$input-font-color: var(--component-wrapper-font-color, black);
+$input-font-color-placeholder: var(--component-wrapper-font-color-placeholder, gray);
+
 $inline: 0.8rem;
-$block: 0.6rem;
+$block: 0.5rem;
 
-.input__wrapper {
-  @include transition('scale, outline');
-  background-color: var(--component-background-color);
-  color: var(--component-font-color);
+.input-wrapper {
+  @include flex(row, nowrap, 0.3rem);
+  @include item_alignment(center, flex-start);
+  @include transition();
+  @include outline_active();
+
   padding-inline: $inline;
-
-  svg {
-    font-size: 1.4rem;
-    margin-bottom: -0.1rem;
-  }
+  transition-property: scale, outline;
+  background-color: $input-background-color;
+  color: $input-font-color;
 
   input,
   select {
     padding-block: $block;
     width: 100%;
-    height: 100%;
-    -webkit-tap-highlight-color: transparent;
 
     &::placeholder {
-      color: var(--component-font-placeholder-color);
+      color: $input-font-color-placeholder;
     }
 
     &[type='button'] {
@@ -39,10 +41,6 @@ $block: 0.6rem;
 
   &:has(input[type='button']) {
     @include button_pressed();
-  }
-
-  &:is(:focus-visible, :focus-within) {
-    outline: 4px solid var(--component-outline-color);
   }
 }
 </style>

@@ -1,34 +1,33 @@
 <script setup lang="ts">
-import InputButton from './input/InputButton.vue'
+import InputButtonWrapper from './input/InputButtonWrapper.vue'
 </script>
 
 <template>
-  <footer class="footer__root | main">
-    <div class="footer__wrapper | clamped">
-      <div class="footer__p | block-y">
+  <footer class="footer | clamped">
+    <div class="footer__wrapper | border-rounded-square">
+      <div class="footer__p">
         <h2>「トカ」</h2>
-        <p>日本語カルテットの学ぶために小さな単語索引のアプリ</p>
+        <p>日本語カルテットの学ぶために小さな単語索引のアプリ。</p>
       </div>
 
-      <div class="block block-y footer__link">
+      <div class="footer__link">
         <h2>リンク</h2>
-        <InputButton
+
+        <InputButtonWrapper
           variant="filled"
           :properties="{
-            value: 'Project Page',
+            text: 'Project Page',
             icon: 'tabler:brand-github-filled',
             src: 'https://github.com/Artini04/quartet-index'
-          }"
-        />
+          }" />
 
-        <InputButton
+        <InputButtonWrapper
           variant="filled"
           :properties="{
-            value: 'Report an Issue',
+            text: 'Report an Issue',
             icon: 'tabler:circle-dot',
             src: 'https://github.com/Artini04/quartet-index/issues'
-          }"
-        />
+          }" />
       </div>
     </div>
   </footer>
@@ -37,29 +36,29 @@ import InputButton from './input/InputButton.vue'
 <style lang="scss">
 @import '@/assets/mixins.scss';
 
-.footer {
-  &__root {
-    container-type: inline-size;
-    container-name: footerRoot;
+$footer-background-color: var(--component-box-background-color);
+$links-spacing: 0.7rem;
 
-    background: var(--app-accent-color-muted);
-    padding: 4rem 1rem;
-  }
+.footer {
+  container-type: inline-size;
+  container-name: footerRoot;
 
   &__wrapper {
-    @include flex(column, nowrap, 1.5rem);
+    @include flex(column, nowrap, 0.5rem);
+
+    background: $footer-background-color;
+    padding: 1rem;
   }
 
   &__link {
-    flex: 1 1 200px;
+    @include spacing($links-spacing, y, block);
 
-    @media (width <= 425px) {
-      flex-basis: 100px;
-    }
+    height: fit-content;
+    overflow: hidden;
   }
 
   &__p {
-    flex: 1 1 70%;
+    flex: 1 1 60%;
   }
 }
 
@@ -67,6 +66,7 @@ import InputButton from './input/InputButton.vue'
   .footer {
     &__wrapper {
       flex-direction: row;
+      gap: 1rem;
     }
   }
 }

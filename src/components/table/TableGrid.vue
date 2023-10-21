@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { table_results } from '@/fuse'
+import { storeToRefs } from 'pinia'
+import { useTableSearchStore } from '@/stores'
 import TableRow from './TableRow.vue'
+
+const table_store = useTableSearchStore()
+const { table_results } = storeToRefs(table_store)
 </script>
 
 <template>
@@ -22,8 +26,7 @@ import TableRow from './TableRow.vue'
           :key="refIndex"
           :id="item.id"
           :data="item.data"
-          :info="item.info"
-        />
+          :info="item.info" />
       </tbody>
     </table>
   </div>
