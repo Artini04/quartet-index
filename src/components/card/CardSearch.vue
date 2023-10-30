@@ -9,7 +9,7 @@ const { search_query, fuse } = storeToRefs(search_store)
 </script>
 
 <template>
-  <div class="search-search">
+  <div class="search-search | clamped">
     <InputWrapper role="searchbox">
       <Icon icon="tabler:list-search" />
 
@@ -28,6 +28,7 @@ const { search_query, fuse } = storeToRefs(search_store)
 
 <style>
 .search-search {
+  display: block;
   width: 100%;
 }
 </style>

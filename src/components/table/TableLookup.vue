@@ -8,7 +8,7 @@ const { search_query } = storeToRefs(table_store)
 </script>
 
 <template>
-  <div class="table-search">
+  <div class="table-search | clamped">
     <InputWrapper>
       <select id="table-lesson-select" v-model.lazy="search_query" placeholder="OK">
         <option value="1">1</option>
@@ -30,6 +30,7 @@ const { search_query } = storeToRefs(table_store)
 
 <style>
 .table-search {
-  width: 100%;
+  display: block;
+  margin-inline: auto;
 }
 </style>

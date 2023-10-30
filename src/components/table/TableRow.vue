@@ -5,7 +5,7 @@ defineProps<Word>()
 </script>
 
 <template>
-  <tr class="row__root">
+  <tr class="row">
     <td class="row__new-kanji">{{ info.kanji }}</td>
     <td class="row__reading">{{ info.reading }}</td>
     <td class="row__kana-kanji">{{ data.ja_kana_kanji }}</td>
@@ -17,13 +17,18 @@ defineProps<Word>()
     </td>
 
     <td class="row__meaning">
-      <div>
-        <span class="row__meaning-en">{{ data.en_meaning.join('; ') }}</span>
-        <span class="row__verb-type" v-if="data.en_verb_type">{{ data.en_verb_type }}</span>
-      </div>
+      <span class="row__meaning-en">{{ data.en_meaning.join('; ') }}</span>
+      <span class="row__verb-type" v-if="data.en_verb_type">{{ data.en_verb_type }}</span>
     </td>
 
     <td class="row__location">{{ info.letter_location }}</td>
-    <td>{{ info.lesson }}</td>
   </tr>
 </template>
+
+<style lang="scss">
+.row {
+  &__verb-type {
+    font-style: italic;
+  }
+}
+</style>
