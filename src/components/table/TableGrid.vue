@@ -8,7 +8,7 @@ const { table_results } = storeToRefs(table_store)
 </script>
 
 <template>
-  <div class="table__root | radius">
+  <div class="table | radius border-rounded">
     <table class="table__wrapper">
       <thead>
         <tr>
@@ -33,12 +33,13 @@ const { table_results } = storeToRefs(table_store)
 </template>
 
 <style lang="scss">
+$table-component-border-color: var(--component-border-color);
+
 .table {
-  &__root {
-    width: 100%;
-    overflow-x: auto;
-    margin-inline: auto;
-  }
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin-inline: auto;
 
   &__wrapper {
     display: block;
@@ -49,6 +50,10 @@ const { table_results } = storeToRefs(table_store)
     thead {
       background: var(--component-background-color);
       color: var(--component-font-color);
+
+      tr {
+        background-color: rgba($color: #000000, $alpha: 0.2);
+      }
     }
 
     tr {
@@ -61,6 +66,10 @@ const { table_results } = storeToRefs(table_store)
         background-color: rgba($color: #000000, $alpha: 0.2);
       }
     }
+  }
+
+  @media only screen and (width <= 425px) {
+    border: 1px solid $table-component-border-color;
   }
 }
 </style>

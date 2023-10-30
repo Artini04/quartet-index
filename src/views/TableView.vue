@@ -4,7 +4,7 @@ import TableGrid from '@/components/table/TableGrid.vue'
 </script>
 
 <template>
-  <main class="table | clamped">
+  <main>
     <TableLookup />
     <TableGrid />
   </main>

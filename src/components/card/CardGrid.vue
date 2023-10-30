@@ -25,6 +25,8 @@ const { fuse } = storeToRefs(search_store)
   @include transition();
   @include flex(column, nowrap, 1rem);
 
+  max-width: 600px;
+  margin-inline: auto;
   transition-property: margin;
 }
 </style>
