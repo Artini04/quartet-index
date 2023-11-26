@@ -3,7 +3,7 @@ import LegendComp from '@/components/LegendComp.vue'
 </script>
 
 <template>
-  <main class="about | clamped">
+  <main class="about">
     <div class="about__banner">
       <h2>TOKA「トカ」Pocket Quartet</h2>
       <p>A small Quartet Vocabulary Index Dictionary written in Vue.</p>
@@ -14,7 +14,11 @@ import LegendComp from '@/components/LegendComp.vue'
       <p>
         Words used are from the book QUARTET: INTERMEDIATE JAPANESE ACROSS THE FOUR LANGUAGE SKILLS.
         You can download the spreadsheet in their
-        <a href="https://quartet.japantimes.co.jp/en/resource/" target="_blank">resources</a>
+        <a
+          href="https://quartet.japantimes.co.jp/en/resource/"
+          target="_blank"
+          >resources</a
+        >
         website under Index section.
       </p>
     </div>

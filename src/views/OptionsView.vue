@@ -11,7 +11,7 @@ const { clearLocalStorage, testConsole } = options
 </script>
 
 <template>
-  <main class="options | clamped">
+  <main class="options">
     <h2>Options</h2>
 
     <div class="options__box | border-rounded-square">
@@ -35,12 +35,17 @@ const { clearLocalStorage, testConsole } = options
         <InputCheckboxWrapper
           id="show_dictionary_links"
           :properties="{ text: 'Show dictionary links', icon: 'tabler:link' }">
-          <input type="checkbox" id="show_dictionary_links" v-model="options.card_show_links" />
+          <input
+            type="checkbox"
+            id="show_dictionary_links"
+            v-model="options.card_show_links" />
         </InputCheckboxWrapper>
       </OptionsCategory>
     </div>
 
-    <div class="options__box | border-rounded-square" v-auto-animate>
+    <div
+      class="options__box | border-rounded-square"
+      v-auto-animate>
       <OptionsCategory>
         <template v-slot:options>
           <h3>Local Storage</h3>
@@ -60,13 +65,19 @@ const { clearLocalStorage, testConsole } = options
           <InputCheckboxWrapper
             id="debug_mode"
             :properties="{ text: 'Show logged mesages in console', icon: 'tabler:terminal-2' }">
-            <input type="checkbox" id="debug_mode" v-model="options.debug_mode" />
+            <input
+              type="checkbox"
+              id="debug_mode"
+              v-model="options.debug_mode" />
           </InputCheckboxWrapper>
 
           <InputCheckboxWrapper
             id="show-console"
             :properties="{ text: 'Show HTML console', icon: 'tabler:terminal' }">
-            <input type="checkbox" id="show-console" v-model="options.show_console" />
+            <input
+              type="checkbox"
+              id="show-console"
+              v-model="options.show_console" />
           </InputCheckboxWrapper>
 
           <InputButtonWrapper

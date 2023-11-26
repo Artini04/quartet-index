@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
+// Views
 import SearchView from '@/views/SearchView.vue'
 import TableView from '@/views/TableView.vue'
 import OptionsView from '@/views/OptionsView.vue'
