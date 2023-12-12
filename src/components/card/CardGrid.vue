@@ -8,7 +8,9 @@ const { fuse } = storeToRefs(search_store)
 </script>
 
 <template>
-  <div class="card-list" v-auto-animate>
+  <div
+    class="card-list"
+    v-auto-animate>
     <CardWord
       v-for="{ item, refIndex } in fuse.results"
       :key="refIndex"
@@ -24,9 +26,5 @@ const { fuse } = storeToRefs(search_store)
 .card-list {
   @include transition();
   @include flex(column, nowrap, 1rem);
-
-  max-width: 600px;
-  margin-inline: auto;
-  transition-property: margin;
 }
 </style>

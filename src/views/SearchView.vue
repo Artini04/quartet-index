@@ -9,3 +9,11 @@ import CardGrid from '@/components/card/CardGrid.vue'
     <CardGrid />
   </main>
 </template>
+
+<style lang="scss">
+@import '@/assets/mixins';
+
+.search {
+  @include flex(column, nowrap, 1rem);
+}
+</style>
