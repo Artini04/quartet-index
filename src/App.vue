@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterView } from 'vue-router'
 import { watchEffect } from 'vue'
 import { useOptionsStore } from '@/stores/options'
 
@@ -44,13 +44,18 @@ watchEffect(() => {
 @import '@/assets/mixins.scss';
 
 #app {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0;
+
+  // display: grid;
+  // grid-template-columns: 1fr 2fr;
   max-width: 900px;
   margin-inline: auto;
 
   & > aside {
     @include spacing(1rem, y);
+    flex: 1 0 30%;
 
     position: sticky;
     height: fit-content;
@@ -63,6 +68,7 @@ watchEffect(() => {
   }
 
   & > main {
+    flex: 1 0 70%;
     padding: 1rem;
   }
 }
