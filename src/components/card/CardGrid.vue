@@ -9,21 +9,17 @@ const { fuse } = storeToRefs(search_store)
 
 <template>
   <div class="card-list" v-auto-animate>
-    <CardWord
-      v-for="{ item, refIndex } in fuse.results"
-      :key="refIndex"
-      :id="item.id"
-      :data="item.data"
+    <CardWord v-for="{ item, refIndex } in fuse.results" :key="refIndex" :id="item.id" :data="item.data"
       :info="item.info" />
   </div>
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins.scss';
+@use '@/assets/mixins.scss' as _mixins;
 
 .card-list {
-  @include transition();
-  @include flex(column, nowrap, 1rem);
+  @include _mixins.transition();
+  @include _mixins.flex(column, nowrap, 1rem);
 
   max-width: 600px;
   margin-inline: auto;

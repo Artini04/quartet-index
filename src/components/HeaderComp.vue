@@ -11,18 +11,12 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
 
     <nav class="nav">
       <div class="nav__left">
-        <InputTabWrapper
-          to="/"
-          :properties="{ text: 'Lookup', icon: 'tabler:square-rotated-filled' }" />
-        <InputTabWrapper
-          to="/table"
-          :properties="{ text: 'Lesson', icon: 'tabler:table-filled' }" />
+        <InputTabWrapper to="/" :properties="{ text: 'Lookup', icon: 'tabler:square-rotated-filled' }" />
+        <InputTabWrapper to="/table" :properties="{ text: 'Lesson', icon: 'tabler:table-filled' }" />
       </div>
 
       <div class="nav__right">
-        <InputTabWrapper
-          to="/options"
-          :properties="{ text: 'Options', icon: 'tabler:adjustments' }" />
+        <InputTabWrapper to="/options" :properties="{ text: 'Options', icon: 'tabler:adjustments' }" />
         <InputTabWrapper to="/about" :properties="{ text: 'About', icon: 'tabler:paperclip' }" />
       </div>
     </nav>
@@ -30,16 +24,19 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
 
-$header-border: var(--component-header-border-color, #3a3f4d);
+// Header Color Properties
+$header-border-color: var(--component-header-border-color, #3a3f4d);
 
-$padding-block: 2rem;
+// Header Properties
+$padding-block: 2rem 1rem;
 $padding-inline: 1rem;
 
 .header {
-  padding: $padding-block $padding-inline calc($padding-block / 2);
-  border-bottom: 1px solid $header-border;
+  padding-block: $padding-block;
+  padding-inline: $padding-inline;
+  border-bottom: 1px solid $header-border-color;
 
   &__title {
     h1 {
@@ -58,16 +55,16 @@ $padding-inline: 1rem;
 
   &__left,
   &__right {
-    @include inline_flex(row, wrap, 0.1rem 0.3rem);
+    @include _mixins.inline_flex(row, wrap, 0.1rem 0.3rem);
     width: 50%;
   }
 
   &__left {
-    @include item_alignment(center, flex-start);
+    @include _mixins.item_alignment(center, flex-start);
   }
 
   &__right {
-    @include item_alignment(center, flex-end);
+    @include _mixins.item_alignment(center, flex-end);
   }
 }
 </style>

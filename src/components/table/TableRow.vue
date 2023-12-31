@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: CLEANUP
 import { type Word } from '@/stores'
 
 defineProps<Word>()

@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP', system-ui;
   font-size: 18px;
   font-weight: 400;
   font-synthesis: weight;
@@ -36,6 +36,12 @@ header,
 footer {
   @include spacing(1rem, y);
   padding: 1rem;
+}
+
+code {
+  padding: 0.2rem 0.4rem;
+  border-radius: 5px;
+  background: rgba($color: #000, $alpha: 0.15);
 }
 
 // =============== //

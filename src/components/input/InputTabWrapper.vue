@@ -21,22 +21,25 @@ defineProps<Props>()
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
 
+// Tab Button Color Properties
 $tab-background-color-active: var(--component-input-background-color, #eee);
 $tab-font-color-active: var(--component-input-font-color, #3f3f3f);
 
-$padding-block: 0.3rem;
+// Tab Button Properties
+$padding-block: 0.2rem 0.3rem;
 $padding-inline: 0.6rem;
 $icon-text-spacing: 0.5rem;
 
 .tab {
-  @include transition();
-  @include outline_active();
-  @include button_pressed(0.95);
-  @include spacing($icon-text-spacing, x);
+  @include _mixins.transition();
+  @include _mixins.outline_active();
+  @include _mixins.button_pressed(0.95);
+  @include _mixins.spacing($icon-text-spacing, x);
 
-  padding: $padding-block $padding-inline;
+  padding-block: $padding-block;
+  padding-inline: $padding-inline;
   transition-property: scale, background, outline;
 
   cursor: pointer;

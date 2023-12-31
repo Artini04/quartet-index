@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
 
 $input-background-color: var(--component-wrapper-background-color, white);
 $input-font-color: var(--component-wrapper-font-color, black);
@@ -15,10 +15,10 @@ $inline: 0.8rem;
 $block: 0.5rem;
 
 .input-wrapper {
-  @include flex(row, nowrap, 0.3rem);
-  @include item_alignment(center, flex-start);
-  @include transition();
-  @include outline_active();
+  @include _mixins.transition();
+  @include _mixins.outline_active();
+  @include _mixins.flex(row, nowrap, 0.3rem);
+  @include _mixins.item_alignment(center, flex-start);
 
   padding-inline: $inline;
   transition-property: scale, outline;
@@ -35,12 +35,12 @@ $block: 0.5rem;
     }
 
     &[type='button'] {
-      @include transition('scale');
+      @include _mixins.transition('scale');
     }
   }
 
   &:has(input[type='button']) {
-    @include button_pressed();
+    @include _mixins.button_pressed();
   }
 }
 </style>

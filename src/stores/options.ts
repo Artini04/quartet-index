@@ -33,6 +33,6 @@ export const useOptionsStore = defineStore('options', () => {
     html_console,
     show_console,
     clearLocalStorage,
-    testConsole
+    testConsole,
   }
 })

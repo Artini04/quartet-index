@@ -13,52 +13,52 @@ import InputButtonWrapper from './input/InputButtonWrapper.vue'
       <div class="footer__link">
         <h2>リンク</h2>
 
-        <InputButtonWrapper
-          variant="filled"
-          :properties="{
-            text: 'Project Page',
-            icon: 'tabler:brand-github-filled',
-            src: 'https://github.com/Artini04/quartet-index'
-          }" />
+        <InputButtonWrapper variant="filled" :properties="{
+          text: 'Project Page',
+          icon: 'tabler:brand-github-filled',
+          src: 'https://github.com/Artini04/quartet-index'
+        }" />
 
-        <InputButtonWrapper
-          variant="filled"
-          :properties="{
-            text: 'Report an Issue',
-            icon: 'tabler:circle-dot',
-            src: 'https://github.com/Artini04/quartet-index/issues'
-          }" />
+        <InputButtonWrapper variant="filled" :properties="{
+          text: 'Issues / Suggestions',
+          icon: 'tabler:circle-dot',
+          src: 'https://github.com/Artini04/quartet-index/issues'
+        }" />
       </div>
     </div>
   </footer>
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins.scss';
+@use '@/assets/mixins.scss' as _mixins;
 
+// Footer Color Properties
 $footer-background-color: var(--component-box-background-color);
-$links-spacing: 0.7rem;
+
+// Footer Properties
+$footer-spacing: 0.5rem;
 
 .footer {
+  // Container properties
   container-type: inline-size;
   container-name: footerRoot;
 
+  // Styles
+
   &__wrapper {
-    @include flex(column, nowrap, 0.5rem);
+    @include _mixins.flex(column, nowrap, $footer-spacing);
 
     background: $footer-background-color;
     padding: 1rem;
   }
 
   &__link {
-    @include spacing($links-spacing, y, block);
-
-    height: fit-content;
-    overflow: hidden;
+    @include _mixins.spacing($footer-spacing, y, block);
   }
 
-  &__p {
-    flex: 1 1 60%;
+  &__p,
+  &__link {
+    flex: 1 1 50%;
   }
 }
 

@@ -13,11 +13,7 @@ const { search_query, fuse } = storeToRefs(search_store)
     <InputWrapper role="searchbox">
       <Icon icon="tabler:list-search" />
 
-      <input
-        type="search"
-        name="search-query"
-        placeholder="Search for..."
-        autocomplete="off"
+      <input type="search" name="search-query" placeholder="Search for..." autocomplete="off"
         v-model.lazy="search_query" />
 
       <Icon icon="tabler:arrow-back" />
