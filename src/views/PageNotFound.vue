@@ -6,9 +6,9 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
 
 .page-not-found {
-  @include spacing(0.5rem, y, block);
+  @include _mixins.spacing(0.5rem, y, block);
 }
 </style>

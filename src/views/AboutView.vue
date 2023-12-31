@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Component Import/s
 import LegendComp from '@/components/LegendComp.vue'
 </script>
 
@@ -26,16 +27,16 @@ import LegendComp from '@/components/LegendComp.vue'
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
 
 $about-spacing: 4rem;
 $banner-spacing: 0.5rem;
 
 .about {
-  @include spacing($about-spacing, y, block);
+  @include _mixins.spacing($about-spacing, y, block);
 
   &__banner {
-    @include spacing($banner-spacing, y, block);
+    @include _mixins.spacing($banner-spacing, y, block);
   }
 
   &__plans {

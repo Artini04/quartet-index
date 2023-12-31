@@ -19,15 +19,18 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
+
+// Legend Color Properties
+$legend-border-color: var(--component-border-color);
 
 .legend {
-  @include spacing(1rem, y, block);
+  @include _mixins.spacing(1rem, y, block);
 
   &__item {
-    @include spacing(0.4rem, y, block);
+    @include _mixins.spacing(0, y, block);
     padding: 1rem;
-    border: 1px solid var(--component-border-color);
+    border: 1px solid $legend-border-color;
 
     .symbol {
       text-align: center;

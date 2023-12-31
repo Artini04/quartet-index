@@ -11,11 +11,7 @@ export const useSearchStore = defineStore('search', () => {
   // =========== //
 
   const search_query: Ref<string> = ref('')
-  const keys_query: Ref<string[]> = ref([
-    'data.ja_kana_kanji',
-    'data.ja_hiragana',
-    'data.en_meaning'
-  ])
+  const keys_query: Ref<string[]> = ref(['data.ja_kana_kanji', 'data.ja_hiragana', 'data.en_meaning'])
   const limit: Ref<number> = ref(25)
   const threshold: Ref<number> = ref(0.2)
 
@@ -24,11 +20,11 @@ export const useSearchStore = defineStore('search', () => {
       shouldSort: true,
       keys: keys_query.value,
       threshold: threshold.value,
-      includeScore: true
+      includeScore: true,
     })
 
     const results = fuse_init.search(search_query.value, {
-      limit: limit.value
+      limit: limit.value,
     })
 
     return { fuse_init, results }
@@ -51,7 +47,7 @@ export const useTableSearchStore = defineStore('table-search', () => {
       shouldSort: true,
       keys: keys_query.value,
       threshold: threshold.value,
-      location: 0
+      location: 0,
     })
 
     const results = fuse_init.search(search_query.value)

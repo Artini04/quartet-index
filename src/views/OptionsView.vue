@@ -7,33 +7,29 @@ import InputButtonWrapper from '@/components/input/InputButtonWrapper.vue'
 import InputCheckboxWrapper from '@/components/input/InputCheckboxWrapper.vue'
 
 const options = useOptionsStore()
-const { clearLocalStorage, testConsole } = options
+const { clearLocalStorage } = options
 </script>
 
 <template>
   <main class="options | clamped">
-    <h2>Options</h2>
+    <h2 class="options__title">Options</h2>
 
     <div class="options__box | border-rounded-square">
+      <!-- Theme Options -->
       <OptionsCategory>
         <h3>Theme</h3>
-
         <template v-slot:options>
-          <InputButtonWrapper
-            variant="filled"
-            :properties="{ text: 'Light', icon: 'tabler:sun-filled' }"
+          <InputButtonWrapper variant="filled" :properties="{ text: 'Light', icon: 'tabler:sun-filled' }"
             @click="options.app_theme = 'light'" />
-          <InputButtonWrapper
-            variant="filled"
-            :properties="{ text: 'Dark', icon: 'tabler:moon-filled' }"
+          <InputButtonWrapper variant="filled" :properties="{ text: 'Dark', icon: 'tabler:moon-filled' }"
             @click="options.app_theme = 'dark'" />
         </template>
       </OptionsCategory>
 
+      <!-- Card Options -->
       <OptionsCategory>
         <h3>Card Preferences</h3>
-        <InputCheckboxWrapper
-          id="show_dictionary_links"
+        <InputCheckboxWrapper id="show_dictionary_links"
           :properties="{ text: 'Show dictionary links', icon: 'tabler:link' }">
           <input type="checkbox" id="show_dictionary_links" v-model="options.card_show_links" />
         </InputCheckboxWrapper>
@@ -41,80 +37,43 @@ const { clearLocalStorage, testConsole } = options
     </div>
 
     <div class="options__box | border-rounded-square" v-auto-animate>
+
+      <!-- Local Storage Options -->
       <OptionsCategory>
+
         <template v-slot:options>
           <h3>Local Storage</h3>
           <p>In-case something's not working. Clear local storage!</p>
-          <InputButtonWrapper
-            variant="filled"
-            color="red"
+          <InputButtonWrapper variant="filled" color="red"
             :properties="{ text: 'Clear <code>localStorage</code>', icon: 'tabler:trash' }"
             @click="clearLocalStorage()" />
         </template>
-      </OptionsCategory>
-
-      <OptionsCategory>
-        <h3>Development</h3>
-
-        <template v-slot:options>
-          <InputCheckboxWrapper
-            id="debug_mode"
-            :properties="{ text: 'Show logged mesages in console', icon: 'tabler:terminal-2' }">
-            <input type="checkbox" id="debug_mode" v-model="options.debug_mode" />
-          </InputCheckboxWrapper>
-
-          <InputCheckboxWrapper
-            id="show-console"
-            :properties="{ text: 'Show HTML console', icon: 'tabler:terminal' }">
-            <input type="checkbox" id="show-console" v-model="options.show_console" />
-          </InputCheckboxWrapper>
-
-          <InputButtonWrapper
-            variant="filled"
-            :properties="{ text: 'Test HTML console', icon: 'tabler:terminal' }"
-            @click="testConsole()" />
-        </template>
-      </OptionsCategory>
-
-      <OptionsCategory v-if="options.show_console">
-        <h3>Console</h3>
-        <div class="options__console | border-rounded-square">
-          <code v-html="options.html_console"></code>
-        </div>
       </OptionsCategory>
     </div>
   </main>
 </template>
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
 
+// Options Color Properties
 $background-color: var(--component-box-background-color);
+
+// Options Properties
 $options-spacing: 1rem;
 $options-sub-spacing: 2rem;
 
 .options {
-  @include spacing($options-spacing, y, block);
+  @include _mixins.spacing($options-spacing, y, block);
 
-  h2 {
+  &__title {
     text-align: center;
   }
 
   &__box {
-    @include spacing($options-sub-spacing, y, block);
+    @include _mixins.spacing($options-sub-spacing, y, block);
 
     padding: 1rem;
     background: $background-color;
-  }
-
-  &__console {
-    padding: 0.5rem;
-
-    background: black;
-    font-family: 'Courier New', Courier, monospace;
-
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
   }
 }
 </style>

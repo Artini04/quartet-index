@@ -69,7 +69,7 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
 
 $card-component-border-color: var(--component-border-color);
 
@@ -81,7 +81,6 @@ $hiragana-color: var(--hiragana);
 $padding: 0.4rem 1rem;
 
 .card-word {
-  // @include flex(column, nowrap, 1rem);
   border: 1px solid $card-component-border-color;
   overflow: hidden;
 
@@ -89,7 +88,7 @@ $padding: 0.4rem 1rem;
   // INFO //
   // ==== //
   &__info {
-    @include flex(row, nowrap, 0.5rem);
+    @include _mixins.flex(row, nowrap, 0.5rem);
     padding: $padding;
 
     &__id {
@@ -125,7 +124,7 @@ $padding: 0.4rem 1rem;
     padding: $padding;
 
     &__ja {
-      @include spacing(0.5rem, x, inline-block);
+      @include _mixins.spacing(0.5rem, x, inline-block);
 
       .ja {
         &-kk {
@@ -153,10 +152,10 @@ $padding: 0.4rem 1rem;
   // LINKS //
   // ===== //
   &__link {
-    @include flex(row, nowrap, 0.5rem);
+    @include _mixins.flex(row, nowrap, 0.5rem);
     padding: $padding;
 
-    & > * {
+    &>* {
       flex: 1 1 50%;
     }
 

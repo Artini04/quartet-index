@@ -8,7 +8,7 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins';
+@use '@/assets/mixins' as _mixins;
 
 $category-spacing: 0.5rem;
 $options-spacing: 0.7rem;
@@ -20,7 +20,7 @@ $options-spacing: 0.7rem;
   }
 
   &__options {
-    @include spacing($options-spacing, y, block);
+    @include _mixins.spacing($options-spacing, y, block);
   }
 }
 </style>

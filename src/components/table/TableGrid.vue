@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useTableSearchStore } from '@/stores'
+
+// Component Import/s
 import TableRow from './TableRow.vue'
+
+// TODO: CLEANUP CODE AND CSS
 
 const table_store = useTableSearchStore()
 const { table_results } = storeToRefs(table_store)
@@ -21,11 +25,7 @@ const { table_results } = storeToRefs(table_store)
         </tr>
       </thead>
       <tbody>
-        <TableRow
-          v-for="{ item, refIndex } in table_results"
-          :key="refIndex"
-          :id="item.id"
-          :data="item.data"
+        <TableRow v-for="{ item, refIndex } in table_results" :key="refIndex" :id="item.id" :data="item.data"
           :info="item.info" />
       </tbody>
     </table>
@@ -57,6 +57,7 @@ $table-component-border-color: var(--component-border-color);
     }
 
     tr {
+
       th,
       td {
         padding: 0.4rem;
@@ -68,7 +69,7 @@ $table-component-border-color: var(--component-border-color);
     }
   }
 
-  @media only screen and (width <= 425px) {
+  @media only screen and (width <=425px) {
     border: 1px solid $table-component-border-color;
   }
 }

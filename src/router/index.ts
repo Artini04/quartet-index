@@ -12,40 +12,40 @@ const router = createRouter({
       name: 'lookup',
       component: SearchView,
       meta: {
-        title: 'Look Up - トカ'
-      }
+        title: 'Look Up - トカ',
+      },
     },
     {
       path: '/table',
       name: 'table',
       component: TableView,
       meta: {
-        title: 'Table - トカ'
-      }
+        title: 'Table - トカ',
+      },
     },
     {
       path: '/options',
       name: 'options',
       component: OptionsView,
       meta: {
-        title: 'Options - トカ'
-      }
+        title: 'Options - トカ',
+      },
     },
     {
       path: '/about',
       name: 'about',
       component: AboutView,
       meta: {
-        title: 'About - トカ'
-      }
+        title: 'About - トカ',
+      },
     },
     {
       path: '/:pathMatch(.*)',
       name: '404 - トカ',
-      component: () => import('@/views/PageNotFound.vue')
+      component: () => import('@/views/PageNotFound.vue'),
       // redirect: '/'
-    }
-  ]
+    },
+  ],
 })
 
 router.beforeEach((to, from, next) => {

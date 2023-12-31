@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// ============= //
+//    UNUSED     //
+// ============= //
 import { Icon } from '@iconify/vue'
 
 function scrollTop() {
@@ -13,11 +16,11 @@ function scrollTop() {
 </template>
 
 <style lang="scss">
-@import '@/assets/mixins.scss';
+@use '@/assets/mixins.scss' as _mixins;
 
 .scroll {
   &__root {
-    @include transition('translate, visibility');
+    @include _mixins.transition('translate, visibility');
 
     float: right;
     position: sticky;
