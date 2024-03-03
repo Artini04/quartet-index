@@ -9,7 +9,11 @@ const { fuse } = storeToRefs(search_store)
 
 <template>
   <div class="card-list" v-auto-animate>
-    <CardWord v-for="{ item, refIndex } in fuse.results" :key="refIndex" :id="item.id" :data="item.data"
+    <CardWord
+      v-for="{ item, refIndex } in fuse.results"
+      :key="refIndex"
+      :id="item.id"
+      :data="item.data"
       :info="item.info" />
   </div>
 </template>

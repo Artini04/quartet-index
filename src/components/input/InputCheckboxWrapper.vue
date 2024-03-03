@@ -27,7 +27,10 @@ defineProps<Props>()
 
 // Checkbox Color Properties
 $checkbox-background-color: var(--component-input-background-color, #eee);
-$checkbox-background-color-checked: var(--component-input-background-color-checked, #2b5868);
+$checkbox-background-color-checked: var(
+  --component-input-background-color-checked,
+  #2b5868
+);
 
 // Checkbox Properties
 $input-spacing: 0.5rem;
@@ -45,7 +48,7 @@ $input-spacing: 0.5rem;
     pointer-events: none;
   }
 
-  input~&__custom {
+  input ~ &__custom {
     @include _mixins.transition(125ms);
     background: $checkbox-background-color;
 
@@ -57,7 +60,7 @@ $input-spacing: 0.5rem;
     }
   }
 
-  input:checked~&__custom {
+  input:checked ~ &__custom {
     background: $checkbox-background-color-checked;
 
     // Visible if input is checked
@@ -101,7 +104,7 @@ $input-spacing: 0.5rem;
   &__text {
     margin-left: 2rem;
 
-    &>*+* {
+    & > * + * {
       margin-left: 0.5rem;
     }
   }

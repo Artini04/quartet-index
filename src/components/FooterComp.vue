@@ -13,17 +13,21 @@ import InputButtonWrapper from './input/InputButtonWrapper.vue'
       <div class="footer__link">
         <h2>リンク</h2>
 
-        <InputButtonWrapper variant="filled" :properties="{
-          text: 'Project Page',
-          icon: 'tabler:brand-github-filled',
-          src: 'https://github.com/Artini04/quartet-index'
-        }" />
+        <InputButtonWrapper
+          variant="filled"
+          :properties="{
+            text: 'Project Page',
+            icon: 'tabler:brand-github-filled',
+            src: 'https://github.com/Artini04/quartet-index',
+          }" />
 
-        <InputButtonWrapper variant="filled" :properties="{
-          text: 'Issues / Suggestions',
-          icon: 'tabler:circle-dot',
-          src: 'https://github.com/Artini04/quartet-index/issues'
-        }" />
+        <InputButtonWrapper
+          variant="filled"
+          :properties="{
+            text: 'Issues / Suggestions',
+            icon: 'tabler:circle-dot',
+            src: 'https://github.com/Artini04/quartet-index/issues',
+          }" />
       </div>
     </div>
   </footer>

@@ -4,7 +4,10 @@ import { useLocalStorage } from '@vueuse/core'
 
 export const useOptionsStore = defineStore('options', () => {
   const app_theme: Ref<string> = useLocalStorage('app.theme', 'dark')
-  const card_show_links: Ref<boolean> = useLocalStorage('app.card.show-links', true)
+  const card_show_links: Ref<boolean> = useLocalStorage(
+    'app.card.show-links',
+    true,
+  )
   const debug_mode: Ref<boolean> = useLocalStorage('debug-mode', false)
 
   const html_console: Ref<string> = shallowRef('')
