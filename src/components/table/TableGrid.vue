@@ -25,7 +25,11 @@ const { table_results } = storeToRefs(table_store)
         </tr>
       </thead>
       <tbody>
-        <TableRow v-for="{ item, refIndex } in table_results" :key="refIndex" :id="item.id" :data="item.data"
+        <TableRow
+          v-for="{ item, refIndex } in table_results"
+          :key="refIndex"
+          :id="item.id"
+          :data="item.data"
           :info="item.info" />
       </tbody>
     </table>
@@ -57,7 +61,6 @@ $table-component-border-color: var(--component-border-color);
     }
 
     tr {
-
       th,
       td {
         padding: 0.4rem;

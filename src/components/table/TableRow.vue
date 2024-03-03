@@ -19,7 +19,9 @@ defineProps<Word>()
 
     <td class="row__meaning">
       <span class="row__meaning-en">{{ data.en_meaning.join('; ') }}</span>
-      <span class="row__verb-type" v-if="data.en_verb_type">{{ data.en_verb_type }}</span>
+      <span class="row__verb-type" v-if="data.en_verb_type">
+        {{ data.en_verb_type }}
+      </span>
     </td>
 
     <td class="row__location">{{ info.letter_location }}</td>

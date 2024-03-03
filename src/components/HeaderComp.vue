@@ -11,13 +11,24 @@ import InputTabWrapper from './input/InputTabWrapper.vue'
 
     <nav class="nav">
       <div class="nav__left">
-        <InputTabWrapper to="/" :properties="{ text: 'Lookup', icon: 'tabler:square-rotated-filled' }" />
-        <InputTabWrapper to="/table" :properties="{ text: 'Lesson', icon: 'tabler:table-filled' }" />
+        <InputTabWrapper
+          to="/"
+          :properties="{
+            text: 'Lookup',
+            icon: 'tabler:square-rotated-filled',
+          }" />
+        <InputTabWrapper
+          to="/table"
+          :properties="{ text: 'Lesson', icon: 'tabler:table-filled' }" />
       </div>
 
       <div class="nav__right">
-        <InputTabWrapper to="/options" :properties="{ text: 'Options', icon: 'tabler:adjustments' }" />
-        <InputTabWrapper to="/about" :properties="{ text: 'About', icon: 'tabler:paperclip' }" />
+        <InputTabWrapper
+          to="/options"
+          :properties="{ text: 'Options', icon: 'tabler:adjustments' }" />
+        <InputTabWrapper
+          to="/about"
+          :properties="{ text: 'About', icon: 'tabler:paperclip' }" />
       </div>
     </nav>
   </header>

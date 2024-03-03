@@ -10,7 +10,10 @@ const { search_query } = storeToRefs(table_store)
 <template>
   <div class="table-search | clamped">
     <InputWrapper>
-      <select id="table-lesson-select" v-model.lazy="search_query" placeholder="OK">
+      <select
+        id="table-lesson-select"
+        v-model.lazy="search_query"
+        placeholder="OK">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

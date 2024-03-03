@@ -5,10 +5,15 @@ import { useOptionsStore } from '@/stores/options'
 const localProps = defineProps<Word>()
 const options = useOptionsStore()
 
-const jpnFirst: string = localProps.data.ja_kana_kanji ?? localProps.data.ja_hiragana
-const jpnSecond: string = localProps.data.ja_kana_kanji ? localProps.data.ja_hiragana : ''
+const jpnFirst: string =
+  localProps.data.ja_kana_kanji ?? localProps.data.ja_hiragana
+const jpnSecond: string = localProps.data.ja_kana_kanji
+  ? localProps.data.ja_hiragana
+  : ''
 const meaning: string[] = localProps.data.en_meaning
-const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n) => n.length > 0)
+const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter(
+  (n) => n.length > 0,
+)
 </script>
 
 <template>
@@ -27,7 +32,9 @@ const links: string[] = [jpnFirst.slice(0, 4), jpnSecond.slice(0, 4)].filter((n)
       <div class="card-word__text__ja" lang="ja">
         <span class="ja-kk">{{ jpnFirst }}</span>
         <div class="ja-phs">
-          <span class="ja-particle" v-if="data.ja_particle">{{ data.ja_particle }}</span>
+          <span class="ja-particle" v-if="data.ja_particle">
+            {{ data.ja_particle }}
+          </span>
           <span class="ja-h">{{ jpnSecond }}</span>
           <span class="ja-suru" v-if="data.ja_suru">{{ data.ja_suru }}</span>
         </div>
@@ -155,7 +162,7 @@ $padding: 0.4rem 1rem;
     @include _mixins.flex(row, nowrap, 0.5rem);
     padding: $padding;
 
-    &>* {
+    & > * {
       flex: 1 1 50%;
     }
 

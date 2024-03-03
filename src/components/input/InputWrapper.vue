@@ -9,7 +9,10 @@
 
 $input-background-color: var(--component-wrapper-background-color, white);
 $input-font-color: var(--component-wrapper-font-color, black);
-$input-font-color-placeholder: var(--component-wrapper-font-color-placeholder, gray);
+$input-font-color-placeholder: var(
+  --component-wrapper-font-color-placeholder,
+  gray
+);
 
 $inline: 0.8rem;
 $block: 0.5rem;
