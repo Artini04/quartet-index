@@ -1,0 +1,15 @@
+@mixin spaced($direction: block, $gap: 1rem, $inline: false) {
+  @if $inline == true {
+    display: flex-inline;
+  } @else {
+    display: flex;
+  }
+
+  @if $direction == 'block' {
+    flex-direction: column;
+  } @else if $direction == 'inline' {
+    flex-direction: row;
+  }
+
+  gap: #{$gap};
+}

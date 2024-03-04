@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import SearchView from '@/views/SearchView.vue'
 import TableView from '@/views/TableView.vue'
 import OptionsView from '@/views/OptionsView.vue'
-import AboutView from '@/views/AboutView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,7 +33,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: AboutView,
+      component: () => import("@/views/AboutView.vue"),
       meta: {
         title: 'About - トカ',
       },

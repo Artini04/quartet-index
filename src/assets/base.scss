@@ -31,12 +31,10 @@ code {
   font-style: italic;
 }
 
-main,
-header,
-footer {
-  @include spacing(1rem, y);
-  padding: 1rem;
-}
+// main {
+//   @include spacing(1rem, y);
+//   padding: 1rem;
+// }
 
 code {
   padding: 0.2rem 0.4rem;

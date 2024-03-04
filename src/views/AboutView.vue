@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Component Import/s
 import LegendComp from '@/components/LegendComp.vue'
 </script>
 
