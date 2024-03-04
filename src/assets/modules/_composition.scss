@@ -1,4 +1,4 @@
-@mixin spaced($direction: block, $gap: 1rem, $inline: false) {
+@mixin spaced($direction: block, $gap: 0, $inline: false, $auto: false) {
   @if $inline == true {
     display: flex-inline;
   } @else {
@@ -12,4 +12,10 @@
   }
 
   gap: #{$gap};
+
+  @if $auto == true {
+    & > * {
+      flex: 1 1 100px;
+    }
+  }
 }

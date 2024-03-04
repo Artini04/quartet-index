@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 import 'iconify-icon'
+import { RouterLink } from 'vue-router'
 
 interface Props {
   id: string
@@ -24,24 +24,24 @@ defineProps<Props>()
 <style scoped lang="scss">
 @use '@/assets/modules/mixins' as mx;
 
-.link-button {
-  @include mx.transition('background, color', 200ms);
+$bg-color: var(--component-wrapper-background-color, white);
+$font-color: var(--component-wrapper-font-color, black);
 
+.link-button {
+  @include mx.transition($properties: 'background, color', $duration: 200ms);
   text-decoration: none;
   padding: 0.2rem 0.6rem 0.3rem;
   border-radius: 7px;
-
-  & > iconify-icon {
-    margin-bottom: -0.12em;
-  }
+  white-space: nowrap;
+  user-select: none;
 
   & > * + * {
-    margin-left: 0.6rem;
+    margin-left: 0.4rem;
   }
 }
 
 .router-link-active {
-  background: white;
-  color: black;
+  background: $bg-color;
+  color: $font-color;
 }
 </style>

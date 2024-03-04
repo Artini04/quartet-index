@@ -1,3 +1,5 @@
+@use './modules/mixins' as mx;
+
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;600;900&family=Noto+Sans+JP&family=Outfit:wght@400;600;900&display=swap');
 @import './mixins.scss';
 
@@ -29,6 +31,22 @@ svg {
 code {
   font-family: monospace;
   font-style: italic;
+}
+
+main,
+header,
+footer {
+  // How much space the side margin have
+  $margin-side: 1rem;
+
+  width: min(100dvw - ($margin-side * 2), 500px);
+  margin-inline: auto;
+}
+
+main {
+  & > * + * {
+    margin-top: 1rem;
+  }
 }
 
 // main {

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import 'iconify-icon'
 import { Icon } from '@iconify/vue'
 import { useSearchStore } from '@/stores'
 import { storeToRefs } from 'pinia'
@@ -11,9 +12,9 @@ const { search_query, fuse } = storeToRefs(search_store)
 </script>
 
 <template>
-  <div class="search-search | clamped">
+  <div class="search-entry">
     <InputWrapper role="searchbox">
-      <Icon icon="tabler:list-search" />
+      <iconify-icon icon="tabler:list-search"></iconify-icon>
 
       <input
         type="search"
@@ -22,14 +23,14 @@ const { search_query, fuse } = storeToRefs(search_store)
         autocomplete="off"
         v-model.lazy="search_query" />
 
-      <Icon icon="tabler:arrow-back" />
+      <iconify-icon icon="tabler:arrow-back"></iconify-icon>
       <span>{{ fuse.results.length }}</span>
     </InputWrapper>
   </div>
 </template>
 
-<style>
-.search-search {
+<style lang="scss">
+.search-entry {
   display: block;
   width: 100%;
 }

@@ -5,6 +5,7 @@
 </template>
 
 <style lang="scss">
+@use '@/assets/modules/mixins' as mx;
 @use '@/assets/mixins' as _mixins;
 
 $input-background-color: var(--component-wrapper-background-color, white);

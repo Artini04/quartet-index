@@ -83,4 +83,7 @@ iconify-icon {
   display: inline-block;
   width: 1em;
   height: 1em;
+
+  // Normalize icon vertical position
+  margin-bottom: -0.12em;
 }

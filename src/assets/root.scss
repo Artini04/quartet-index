@@ -1,5 +1,6 @@
 :root {
   scroll-behavior: smooth;
+  color-scheme: light dark;
 
   --component-max-width: 600px;
   --component-transition-duration: 200ms;
@@ -7,6 +8,7 @@
 }
 
 :root[data-theme='dark'] {
+  color-scheme: dark;
   // App
   --app-background-color: #24292e;
   --app-font-color: #e0e0e0;
@@ -52,6 +54,7 @@
 }
 
 :root[data-theme='light'] {
+  color-scheme: light;
   --app-background-color: #e3e3e3;
 
   // Font Color
