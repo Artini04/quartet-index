@@ -1,0 +1,19 @@
+$c-blk: #333;
+$c-blk-2: #2f353b;
+$c-blk-3: #414850;
+$c-wht: #fff;
+$c-gray: #929da8;
+
+[data-theme='dark'] {
+  // Link Color
+  --link-bg-color: transparent;
+  --link-ft-color: #{$c-wht};
+  --link-bg-color-active: #{$c-wht};
+  --link-ft-color-active: #{$c-blk};
+
+  // Search Color
+  --search-bg-color: #{$c-blk-2};
+  --search-bd-color: #{$c-blk-3};
+  --search-ft-color: #{$c-wht};
+  --search-ft-color-ph: #{$c-gray};
+}

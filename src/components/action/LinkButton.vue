@@ -33,23 +33,16 @@ defineProps<Props>()
   padding: 0.2rem 0.6rem 0.3rem;
   border-radius: 7px;
   user-select: none;
+  background: var(--link-bg-color);
+  color: var(--link-ft-color);
 
   & > * + * {
     margin-left: 0.4rem;
   }
 }
 
-:root[data-theme='light'] {
-  .router-link-active {
-    background: colors.$c-blk;
-    color: colors.$c-wht;
-  }
-}
-
-:root[data-theme='dark'] {
-  .router-link-active {
-    background: colors.$c-wht;
-    color: colors.$c-blk;
-  }
+.router-link-active {
+  background: var(--link-bg-color-active) !important;
+  color: var(--link-ft-color-active) !important;
 }
 </style>
