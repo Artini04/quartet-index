@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { useSearchStore } from '@/stores'
+import { useLookup } from '../lookup'
 import CardWord from './CardWord.vue'
 
-const search_store = useSearchStore()
-const { fuse } = storeToRefs(search_store)
+const { fuse } = useLookup()
 </script>
 
 <template>
-  <div class="card-list" v-auto-animate>
+  <div class="card-list">
     <CardWord
       v-for="{ item, refIndex } in fuse.results"
       :key="refIndex"
@@ -19,14 +17,9 @@ const { fuse } = storeToRefs(search_store)
 </template>
 
 <style lang="scss">
-@use '@/assets/mixins.scss' as _mixins;
+@use '@/assets/modules/composition' as cm;
 
 .card-list {
-  @include _mixins.transition();
-  @include _mixins.flex(column, nowrap, 1rem);
-
-  max-width: 600px;
-  margin-inline: auto;
-  transition-property: margin;
+  @include cm.spaced($gap: 1rem);
 }
 </style>

@@ -3,3 +3,9 @@
   transition-duration: #{$duration};
   transition-timing-function: ease;
 }
+
+@mixin onPress($hardness: 0.97) {
+  &:is(:active) {
+    scale: #{$hardness};
+  }
+}

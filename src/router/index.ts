@@ -3,7 +3,7 @@ import SearchView from '@/views/SearchView.vue'
 import TableView from '@/views/TableView.vue'
 import OptionsView from '@/views/OptionsView.vue'
 import AboutView from '@/views/AboutView.vue'
-import HomeView from '@/views/HomeView.vue'
+// import HomeView from '@/views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +11,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: SearchView,
       meta: {
         title: 'Home - トカ',
       },
@@ -21,15 +21,15 @@ const router = createRouter({
       name: 'lookup-normal',
       component: SearchView,
       meta: {
-        title: 'Look Up - トカ',
+        title: 'Lookup - トカ',
       },
     },
     {
-      path: '/lookup/table',
-      name: 'lookup-table',
+      path: '/lookup/lesson',
+      name: 'lookup-lesson',
       component: TableView,
       meta: {
-        title: 'Table - トカ',
+        title: 'Lesson Lookup - トカ',
       },
     },
     {

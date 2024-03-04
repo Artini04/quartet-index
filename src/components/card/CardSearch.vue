@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import 'iconify-icon'
-import { Icon } from '@iconify/vue'
 import { useSearchStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 

@@ -21,18 +21,17 @@ defineProps<Props>()
   </RouterLink>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use '@/assets/modules/mixins' as mx;
-
-$bg-color: var(--component-wrapper-background-color, white);
-$font-color: var(--component-wrapper-font-color, black);
+@use '@/assets/modules/colors';
 
 .link-button {
-  @include mx.transition($properties: 'background, color', $duration: 200ms);
+  @include mx.onPress(0.95);
+  @include mx.transition('scale', 200ms);
+
   text-decoration: none;
   padding: 0.2rem 0.6rem 0.3rem;
   border-radius: 7px;
-  white-space: nowrap;
   user-select: none;
 
   & > * + * {
@@ -40,8 +39,17 @@ $font-color: var(--component-wrapper-font-color, black);
   }
 }
 
-.router-link-active {
-  background: $bg-color;
-  color: $font-color;
+:root[data-theme='light'] {
+  .router-link-active {
+    background: colors.$c-blk;
+    color: colors.$c-wht;
+  }
+}
+
+:root[data-theme='dark'] {
+  .router-link-active {
+    background: colors.$c-wht;
+    color: colors.$c-blk;
+  }
 }
 </style>

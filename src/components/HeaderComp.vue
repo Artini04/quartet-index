@@ -14,18 +14,18 @@ import LinkButton from './action/LinkButton.vue'
         <LinkButton
           id="home"
           :props="{
-            text: 'Home',
+            text: 'Home (↗Lookup)',
             icon: 'tabler:circle-arrow-up-right-filled',
           }"
           link="/" />
         <LinkButton
           id="normal"
-          :props="{ text: 'Lookup', icon: 'tabler:archery-arrow' }"
+          :props="{ text: 'Lookup', icon: 'tabler:list-search' }"
           link="/lookup/normal" />
         <LinkButton
           id="table"
-          :props="{ text: 'Table Lookup', icon: 'tabler:table-filled' }"
-          link="/lookup/table" />
+          :props="{ text: 'Lesson Lookup', icon: 'tabler:table-filled' }"
+          link="/lookup/lesson" />
         <LinkButton
           id="options"
           :props="{ text: 'Options', icon: 'tabler:settings' }"
@@ -44,6 +44,7 @@ import LinkButton from './action/LinkButton.vue'
 
 header {
   @include cm.spaced($gap: 1rem);
+
   margin-top: 1rem;
 }
 
@@ -53,7 +54,11 @@ header {
 }
 
 .link-list {
-  @include cm.spaced($direction: 'inline', $auto: true);
-  flex-wrap: wrap;
+  // @include cm.spaced($direction: 'inline', $auto: true);
+  // flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.2rem 0.4rem;
 }
 </style>

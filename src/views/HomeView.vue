@@ -2,7 +2,6 @@
 
 <template>
   <main>
-    <h1>Home</h1>
-    <p>Work in Progress. Made by Artini04 :D</p>
+    <h1>「トカ」 Quartet Voacbulary Index</h1>
   </main>
 </template>
