@@ -1,4 +1,7 @@
 @use './modules/mixins' as mx;
+@use './modules/composition' as cm;
+@use './modules/colors' as cl;
+@use './modules/defaults' as df;
 
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;600;900&family=Noto+Sans+JP&family=Outfit:wght@400;600;900&display=swap');
 @import './mixins.scss';

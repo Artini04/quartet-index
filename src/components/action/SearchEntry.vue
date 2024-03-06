@@ -6,8 +6,8 @@ const { search_query, fuse } = useLookup()
 </script>
 
 <template>
-  <div class="search-entry">
-    <iconify-icon icon="tabler:list-search"></iconify-icon>
+  <div class="search-entry | flow-rv-fx flow-auto">
+    <iconify-icon icon="tabler:list-search" class="flow-shrink"></iconify-icon>
     <input
       v-model.lazy="search_query"
       type="search"
@@ -15,28 +15,21 @@ const { search_query, fuse } = useLookup()
       id="search-entry"
       placeholder="Search for..."
       autocomplete="off" />
-    <iconify-icon icon="tabler:arrow-back"></iconify-icon>
-    <span>{{ fuse.results.length }}</span>
+    <iconify-icon icon="tabler:arrow-back" class="flow-shrink"></iconify-icon>
+    <span class="flow-shrink">{{ fuse.results.length }}</span>
   </div>
 </template>
 
 <style lang="scss">
-@use '@/assets/modules/composition' as cm;
-@use '@/assets/modules/colors';
-
 .search-entry {
-  @include cm.spaced($direction: 'inline', $gap: 0.4rem, $auto: true);
   align-items: center;
-  padding: 0.5rem 0.8rem;
-  border-radius: 7px;
+  padding: var(--gbl-pad-0);
 
   background: var(--search-bg-color);
   color: var(--search-ft-color);
-  border: 1px solid var(--search-bd-color);
 
-  & > * {
-    flex: 1 1 10px;
-  }
+  border: 1px solid var(--search-bd-color);
+  border-radius: var(--gbl-bor-rad);
 
   & > input {
     background: transparent;

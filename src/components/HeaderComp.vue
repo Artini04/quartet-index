@@ -4,7 +4,7 @@ import LinkButton from './action/LinkButton.vue'
 </script>
 
 <template>
-  <header>
+  <header class="flow-wf">
     <div class="header-title">
       <h1>「トカ」Quartet Vocabulary Index</h1>
     </div>
@@ -13,38 +13,57 @@ import LinkButton from './action/LinkButton.vue'
       <div class="link-list">
         <LinkButton
           id="home"
+          variant="full-active"
+          :isRouterLink="true"
           :props="{
             text: 'Home (↗Lookup)',
             icon: 'tabler:circle-arrow-up-right-filled',
-          }"
-          link="/" />
+            link: '/',
+          }" />
         <LinkButton
           id="normal"
-          :props="{ text: 'Lookup', icon: 'tabler:list-search' }"
-          link="/lookup/normal" />
+          variant="full-active"
+          :isRouterLink="true"
+          :props="{
+            text: 'Lookup',
+            icon: 'tabler:list-search',
+            link: '/lookup/normal',
+          }" />
         <LinkButton
           id="table"
-          :props="{ text: 'Lesson Lookup', icon: 'tabler:table-filled' }"
+          variant="full-active"
+          :isRouterLink="true"
+          :props="{
+            text: 'Lesson Lookup',
+            icon: 'tabler:table-filled',
+            link: '/lookup/lesson',
+          }"
           link="/lookup/lesson" />
         <LinkButton
           id="options"
-          :props="{ text: 'Options', icon: 'tabler:settings' }"
-          link="/options" />
+          variant="full-active"
+          :isRouterLink="true"
+          :props="{
+            text: 'Options',
+            icon: 'tabler:settings',
+            link: '/options',
+          }" />
         <LinkButton
           id="about"
-          :props="{ text: 'About', icon: 'tabler:paperclip' }"
-          link="/about" />
+          variant="full-active"
+          :isRouterLink="true"
+          :props="{
+            text: 'About',
+            icon: 'tabler:paperclip',
+            link: '/about',
+          }" />
       </div>
     </div>
   </header>
 </template>
 
 <style lang="scss">
-@use '@/assets/modules/composition' as cm;
-
 header {
-  @include cm.spaced($gap: 1rem);
-
   margin-top: 1rem;
 }
 
@@ -54,9 +73,6 @@ header {
 }
 
 .link-list {
-  // @include cm.spaced($direction: 'inline', $auto: true);
-  // flex-wrap: wrap;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 0.2rem 0.4rem;

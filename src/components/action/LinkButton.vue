@@ -2,46 +2,70 @@
 import 'iconify-icon'
 import { RouterLink } from 'vue-router'
 
-interface Props {
+defineProps<{
   id: string
+  variant: 'outline' | 'full' | 'full-active'
+  isRouterLink: boolean
   props: {
     text: string
     icon?: string
+    link: string
   }
-  link: string
-}
-
-defineProps<Props>()
+}>()
 </script>
 
 <template>
-  <RouterLink :to="link" class="link-button">
+  <RouterLink
+    :to="props.link"
+    class="link-button | flow-rv"
+    :variant
+    v-if="isRouterLink">
     <iconify-icon :icon="props.icon" v-if="props.icon"></iconify-icon>
     <span>{{ props.text }}</span>
   </RouterLink>
+
+  <a
+    :href="props.link"
+    target="_blank"
+    class="link-button | flow-rv"
+    :variant
+    v-else>
+    <iconify-icon :icon="props.icon" v-if="props.icon"></iconify-icon>
+    <span>{{ props.text }}</span>
+  </a>
 </template>
 
 <style lang="scss">
 @use '@/assets/modules/mixins' as mx;
-@use '@/assets/modules/colors';
 
 .link-button {
   @include mx.onPress(0.95);
   @include mx.transition('scale', 200ms);
 
+  --flow-space: 0.4rem;
+
   text-decoration: none;
-  padding: 0.2rem 0.6rem 0.3rem;
+  padding: var(--gbl-pad-1);
   border-radius: 7px;
   user-select: none;
-  background: var(--link-bg-color);
-  color: var(--link-ft-color);
 
-  & > * + * {
-    margin-left: 0.4rem;
+  &[variant='full'] {
+    background: var(--button-full-bg-color);
+    color: var(--button-full-ft-color);
+  }
+
+  &[variant='full-active'] {
+    background: transparent;
+    color: inherit;
+  }
+
+  &[variant='outline'] {
+    background: var(--button-outline-bg-color);
+    color: var(--button-outline-ft-color);
   }
 }
 
-.router-link-active {
+.router-link-active[variant='full-active'] {
   background: var(--link-bg-color-active) !important;
   color: var(--link-ft-color-active) !important;
 }

@@ -5,7 +5,10 @@ $c-wht: #fff;
 $c-gray: #929da8;
 
 [data-theme='dark'] {
-  // Link Color
+  // Button Color
+  --button-full-bg-color: #{$c-wht};
+  --button-full-ft-color: #{$c-blk};
+
   --link-bg-color: transparent;
   --link-ft-color: #{$c-wht};
   --link-bg-color-active: #{$c-wht};
@@ -16,4 +19,15 @@ $c-gray: #929da8;
   --search-bd-color: #{$c-blk-3};
   --search-ft-color: #{$c-wht};
   --search-ft-color-ph: #{$c-gray};
+
+  // Word Color
+  --word-bg-color: #{$c-blk-2};
+  --word-bd-color: #{$c-blk-3};
+
+  // Footer Color
+  --footer-bg-color: #{$c-blk-2};
+
+  // Book
+  --book-vol-1: #ff677c;
+  --book-vol-2: #50b0ff;
 }

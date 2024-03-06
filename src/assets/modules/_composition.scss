@@ -19,3 +19,45 @@
     }
   }
 }
+
+.flow-flex {
+  display: flex;
+  gap: var(--flow-space, 0.5rem);
+}
+
+// FLOW AND RHYTHM
+.flow {
+  // Waterfall direction [top -> bottom]
+  &-wf {
+    & > * + * {
+      margin-top: var(--flow-space, 1rem);
+    }
+
+    &-fx {
+      @extend .flow-flex;
+      flex-direction: column;
+    }
+  }
+
+  // River direction [left -> right]
+  &-rv {
+    & > * + * {
+      margin-left: var(--flow-space, 1rem);
+    }
+
+    &-fx {
+      @extend .flow-flex;
+      flex-direction: row;
+    }
+  }
+
+  // Used on parent element
+  // Set the children's flex to auto
+  &-auto > * {
+    flex: 1 1;
+  }
+
+  &-shrink {
+    flex: 0 999;
+  }
+}
