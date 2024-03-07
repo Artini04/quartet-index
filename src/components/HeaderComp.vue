@@ -15,48 +15,37 @@ import LinkButton from './action/LinkButton.vue'
           id="home"
           variant="full-active"
           :isRouterLink="true"
-          :props="{
-            text: 'Home (↗Lookup)',
-            icon: 'tabler:circle-arrow-up-right-filled',
-            link: '/',
-          }" />
+          value="Home (↗Lookup)"
+          icon="tabler:circle-arrow-up-right-filled"
+          src="/" />
         <LinkButton
           id="normal"
           variant="full-active"
           :isRouterLink="true"
-          :props="{
-            text: 'Lookup',
-            icon: 'tabler:list-search',
-            link: '/lookup/normal',
-          }" />
+          value="Lookup"
+          icon="tabler:list-search"
+          src="/lookup/normal" />
         <LinkButton
           id="table"
           variant="full-active"
           :isRouterLink="true"
-          :props="{
-            text: 'Lesson Lookup',
-            icon: 'tabler:table-filled',
-            link: '/lookup/lesson',
-          }"
-          link="/lookup/lesson" />
+          value="Lesson Lookup"
+          icon="tabler:table-filled"
+          src="/lookup/lesson" />
         <LinkButton
           id="options"
           variant="full-active"
           :isRouterLink="true"
-          :props="{
-            text: 'Options',
-            icon: 'tabler:settings',
-            link: '/options',
-          }" />
+          value="Options"
+          icon="tabler:settings"
+          src="/options" />
         <LinkButton
           id="about"
           variant="full-active"
           :isRouterLink="true"
-          :props="{
-            text: 'About',
-            icon: 'tabler:paperclip',
-            link: '/about',
-          }" />
+          value="About"
+          icon="tabler:paperclip"
+          src="/about" />
       </div>
     </div>
   </header>

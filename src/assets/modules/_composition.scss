@@ -20,6 +20,9 @@
   }
 }
 
+@mixin flow() {
+}
+
 .flow-flex {
   display: flex;
   gap: var(--flow-space, 0.5rem);

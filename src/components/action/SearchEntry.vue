@@ -34,7 +34,7 @@ const { search_query, fuse } = useLookup()
   & > input {
     background: transparent;
     min-width: 0;
-    flex: 99 1 100%;
+    flex: 999 1 100%;
 
     &::placeholder {
       color: var(--search-ft-color-ph);

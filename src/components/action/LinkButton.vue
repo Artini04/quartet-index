@@ -1,38 +1,35 @@
 <script setup lang="ts">
 import 'iconify-icon'
 import { RouterLink } from 'vue-router'
+import RouterSlot from './other/RouterSlot.vue'
+import LinkSlot from './other/LinkSlot.vue'
 
-defineProps<{
+interface Props {
   id: string
-  variant: 'outline' | 'full' | 'full-active'
-  isRouterLink: boolean
-  props: {
-    text: string
-    icon?: string
-    link: string
-  }
-}>()
+  variant?: 'outline' | 'full' | 'outline-active' | 'full-active'
+  isRouterLink?: boolean
+  value: string
+  icon?: string
+  src: string
+}
+
+withDefaults(defineProps<Props>(), {
+  variant: 'full',
+  isRouterLink: false,
+})
 </script>
 
 <template>
-  <RouterLink
-    :to="props.link"
-    class="link-button | flow-rv"
+  <component
+    :is="isRouterLink ? RouterSlot : LinkSlot"
     :variant
-    v-if="isRouterLink">
-    <iconify-icon :icon="props.icon" v-if="props.icon"></iconify-icon>
-    <span>{{ props.text }}</span>
-  </RouterLink>
-
-  <a
-    :href="props.link"
-    target="_blank"
     class="link-button | flow-rv"
-    :variant
-    v-else>
-    <iconify-icon :icon="props.icon" v-if="props.icon"></iconify-icon>
-    <span>{{ props.text }}</span>
-  </a>
+    :to="isRouterLink ? src : null"
+    :href="isRouterLink ? null : src"
+    :target="isRouterLink ? null : '_blank'">
+    <iconify-icon :icon v-if="icon"></iconify-icon>
+    <span>{{ value }}</span>
+  </component>
 </template>
 
 <style lang="scss">
@@ -44,10 +41,10 @@ defineProps<{
 
   --flow-space: 0.4rem;
 
-  text-decoration: none;
   padding: var(--gbl-pad-1);
   border-radius: 7px;
   user-select: none;
+  cursor: pointer;
 
   &[variant='full'] {
     background: var(--button-full-bg-color);

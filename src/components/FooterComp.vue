@@ -3,7 +3,7 @@ import LinkButton from './action/LinkButton.vue'
 </script>
 
 <template>
-  <footer class="footer | clamped">
+  <footer>
     <div class="footer-wrapper | flow-wf-fx">
       <div class="footer-p | flow-wf-fx">
         <h2>「トカ」</h2>
@@ -16,20 +16,16 @@ import LinkButton from './action/LinkButton.vue'
           id="to-github"
           variant="full"
           :isRouterLink="false"
-          :props="{
-            text: 'Project Page',
-            icon: 'tabler:brand-github-filled',
-            link: 'https://github.com/Artini04/quartet-index',
-          }" />
+          value="Project Page"
+          icon="tabler:brand-github-filled"
+          src="https://github.com/Artini04/quartet-index" />
         <LinkButton
           id="to-github-issues"
           variant="full"
           :isRouterLink="false"
-          :props="{
-            text: 'Issues / Suggestions',
-            icon: 'tabler:circle-dot',
-            link: 'https://github.com/Artini04/quartet-index/issues',
-          }" />
+          value="Issues / Suggestions"
+          icon="tabler:circle-dot"
+          src="https://github.com/Artini04/quartet-index/issues" />
       </div>
     </div>
   </footer>
@@ -37,27 +33,19 @@ import LinkButton from './action/LinkButton.vue'
 
 <style lang="scss">
 .footer {
-  // Container properties
-  container-type: inline-size;
-  container-name: footerRoot;
-
   // Styles
   &-wrapper {
+    --flow-space: 1rem;
+
     border-radius: var(--gbl-bor-rad);
     background: var(--footer-bg-color);
-    padding: var(--gbl-pad-2);
+    padding: 1rem 0.6rem;
   }
 
   &-p,
   &-links {
+    --flow-space: 0.4rem;
     flex: 1 1 50%;
-  }
-}
-
-@container footerRoot (width > 425px) {
-  .footer-wrapper {
-    flex-direction: row !important;
-    gap: 1rem;
   }
 }
 </style>
