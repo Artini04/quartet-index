@@ -1,0 +1,48 @@
+$black-00: #333;
+$black-01: #2f353b;
+$black-02: #414850;
+$black-03: #24292e;
+$white-00: #eee;
+$gray-00: #929da8;
+$red-00: #e23149;
+$blue-00: #50b0ff;
+$orange-00: #ff6638;
+$yellow-00: #ffdb3b;
+
+:root {
+    --g-bor-rad-00: 7px;
+}
+
+[data-theme='dark'] {
+    // Body
+    --body-bg-color: #{$black-03};
+    --body-ft-color: #{$white-00};
+
+    // Button
+    --button-full-bg-color: #{$white-00};
+    --button-full-ft-color: #{$black-00};
+    --button-outline-bg-color: transparent;
+    --button-outline-bd-color: #{$white-00};
+    --button-outline-ft-color: #{$white-00};
+
+    // Search
+    --search-bg-color: #{$black-01};
+    --search-bd-color: #{$black-02};
+    --search-ft-color: #{$white-00};
+    --search-ft-color-ph: #{$gray-00};
+
+    // Theme
+    --theme-bg-color: #{$black-01};
+
+    // Word Color
+    --word-bg-color: #{$black-01};
+    --word-bd-color: #{$black-02};
+
+    // Book
+    --book-vol-1: #{$red-00};
+    --book-vol-2: #{$blue-00};
+
+    // Japanese
+    --kana-kanji: #{$orange-00};
+    --hiragana: #{$yellow-00};
+}

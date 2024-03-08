@@ -1,0 +1,17 @@
+.flow {
+    display: flex;
+    gap: 0.5rem;
+
+    &-wf,
+    &-rv {
+        @extend .flow;
+    }
+
+    &-wf {
+        flex-direction: column;
+    }
+
+    &-rv {
+        flex-direction: row;
+    }
+}

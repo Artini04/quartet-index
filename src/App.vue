@@ -1,22 +1,16 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { watchEffect } from 'vue'
-import { useOptionsStore } from '@/stores/options'
-
-// Component imports
-import FooterComp from './components/FooterComp.vue'
 import HeaderComp from './components/HeaderComp.vue'
-
-// Redefine store
-const options = useOptionsStore()
+import FooterComp from './components/FooterComp.vue'
 
 watchEffect(() => {
-  document.documentElement.setAttribute('data-theme', options.app_theme)
+    document.documentElement.setAttribute('data-theme', 'dark')
 })
 </script>
 
 <template>
-  <HeaderComp />
-  <RouterView />
-  <FooterComp />
+    <HeaderComp />
+    <RouterView />
+    <FooterComp />
 </template>

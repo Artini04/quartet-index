@@ -1,0 +1,27 @@
+@use './modules/root';
+@use './modules/skeleton';
+@use './modules/utility';
+
+body {
+    background: var(--body-bg-color);
+    color: var(--body-ft-color);
+}
+
+#app > * {
+    width: min(100dvw - 3rem, 500px);
+    margin-inline: auto;
+
+    & + * {
+        margin-top: 0.5rem;
+    }
+}
+
+#app {
+    & > :first-child {
+        margin-top: 1rem;
+    }
+
+    & > :last-child {
+        margin-bottom: 1rem;
+    }
+}
