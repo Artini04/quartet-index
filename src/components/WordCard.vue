@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Word } from '@/stores/type'
-import { useOptionsStore } from '@/stores/lookup'
+import { useOptions } from '@/stores/lookup'
 import WordDict from './WordDict.vue'
 
 const props = defineProps<{ item: Word }>()
 const hasKanaKanji = props.item.data.ja_kana_kanji ? true : false
-const options = useOptionsStore()
+const { cardShowLinks, cardJpTextSize, cardEnTextSize } = useOptions()
 </script>
 
 <template>
@@ -38,7 +38,7 @@ const options = useOptionsStore()
             </div>
         </div>
 
-        <div class="word-dict | flow-rv" v-if="options.cardShowLinks">
+        <div class="word-dict | flow-rv" v-if="cardShowLinks">
             <WordDict
                 :src="`https://jisho.org/search/${item.data.ja_kana_kanji ?? item.data.ja_hiragana}`"
                 value="jisho" />
@@ -66,6 +66,7 @@ const options = useOptionsStore()
     &-text {
         &-ja {
             color: var(--hiragana);
+            font-size: v-bind(cardJpTextSize);
 
             & > :first-child {
                 color: var(--kana-kanji);
@@ -73,6 +74,7 @@ const options = useOptionsStore()
         }
 
         &-en {
+            font-size: v-bind(cardEnTextSize);
             &::before {
                 content: '英';
                 margin-right: 0.5rem;

@@ -10,7 +10,7 @@ withDefaults(defineProps<{ icon?: string }>(), {
             <iconify-icon :icon width="1.1em" heigth="1.1em"></iconify-icon>
             <slot name="heading"></slot>
         </h3>
-        <div class="sector-item-p | flow-wf">
+        <div class="sector-item-list | flow-wf">
             <slot></slot>
         </div>
     </div>
@@ -18,7 +18,7 @@ withDefaults(defineProps<{ icon?: string }>(), {
 
 <style lang="scss">
 .sector-item {
-    &-p {
+    &-list {
         margin-left: 1.8em;
     }
 }
