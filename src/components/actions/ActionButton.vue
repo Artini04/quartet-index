@@ -5,8 +5,7 @@ import LinkSlot from './other/LinkSlot.vue'
 
 interface Props {
     id: string
-    variant?: 'outline' | 'full'
-    hasActive?: boolean
+    variant?: 'outline' | 'full' | 'active'
     isRouterLink?: boolean
     value?: string
     icon?: string
@@ -15,7 +14,6 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
     variant: 'full',
-    hasActive: false,
     isRouterLink: false
 })
 </script>
@@ -24,10 +22,9 @@ withDefaults(defineProps<Props>(), {
     <component
         class="button | flow-rv | align-center"
         :is="isRouterLink ? RouterSlot : LinkSlot"
-        :has-active="hasActive"
         :variant
         :src>
-        <iconify-icon :icon v-if="icon"></iconify-icon>
+        <iconify-icon :icon v-if="icon" width="1em" height="1em"></iconify-icon>
         <span>{{ value }}</span>
     </component>
 </template>
@@ -36,6 +33,12 @@ withDefaults(defineProps<Props>(), {
 .button {
     padding: 0.4rem 0.6rem;
     border-radius: var(--g-bor-rad-00);
+    transition: scale ease 200ms;
+    user-select: none;
+
+    &:is(:active) {
+        scale: 0.95;
+    }
 
     &[variant='full'] {
         background: var(--button-full-bg-color);
@@ -47,5 +50,15 @@ withDefaults(defineProps<Props>(), {
         color: var(--button-outline-ft-color);
         border: 1px solid var(--button-outline-bd-color);
     }
+
+    &[variant='active'] {
+        background: var(--button-active-bg-color);
+        color: var(--button-active-ft-color);
+    }
+}
+
+.router-link-active {
+    background: var(--button-active-a-bg-color) !important;
+    color: var(--button-active-a-ft-color) !important;
 }
 </style>

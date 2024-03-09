@@ -40,6 +40,9 @@ const { cardShowLinks, cardJpTextSize, cardEnTextSize } = useOptions()
 
         <div class="word-dict | flow-rv" v-if="cardShowLinks">
             <WordDict
+                :src="`https://jpdb.io/search?q=${item.data.ja_kana_kanji ?? item.data.ja_hiragana}#a`"
+                value="jpdb" />
+            <WordDict
                 :src="`https://jisho.org/search/${item.data.ja_kana_kanji ?? item.data.ja_hiragana}`"
                 value="jisho" />
             <WordDict

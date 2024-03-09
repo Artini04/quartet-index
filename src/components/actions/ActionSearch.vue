@@ -13,7 +13,11 @@ const { searchQuery, fusedQuery } = useLookup()
             id="search-entry"
             placeholder="Search for..."
             autocomplete="off" />
-        <iconify-icon icon="tabler:list-search" class="flex-sm"></iconify-icon>
+        <iconify-icon
+            icon="tabler:list-search"
+            class="flex-sm"
+            width="1em"
+            height="1em"></iconify-icon>
         <span class="flex-sm">{{ fusedQuery.results.length }}</span>
     </div>
 </template>
@@ -21,7 +25,6 @@ const { searchQuery, fusedQuery } = useLookup()
 <style lang="scss">
 .search-entry {
     padding: 0.4rem 0.6rem;
-
     background: var(--search-bg-color);
     color: var(--search-ft-color);
     border: 1px solid var(--search-bd-color);

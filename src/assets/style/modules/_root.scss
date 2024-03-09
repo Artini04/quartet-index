@@ -21,6 +21,10 @@ $yellow-00: #ffdb3b;
     // Button
     --button-full-bg-color: #{$white-00};
     --button-full-ft-color: #{$black-00};
+    --button-active-bg-color: #{$black-01};
+    --button-active-ft-color: #{$white-00};
+    --button-active-a-bg-color: #{$white-00};
+    --button-active-a-ft-color: #{$black-00};
     --button-outline-bg-color: transparent;
     --button-outline-bd-color: #{$white-00};
     --button-outline-ft-color: #{$white-00};
@@ -36,6 +40,7 @@ $yellow-00: #ffdb3b;
 
     // Options
     --option-sector-bg-color: #{$black-01};
+    --option-sector-bd-color: #{$black-02};
 
     // Theme
     --theme-bg-color: #{$black-01};
@@ -51,4 +56,7 @@ $yellow-00: #ffdb3b;
     // Japanese
     --kana-kanji: #{$orange-00};
     --hiragana: #{$yellow-00};
+
+    // Footer
+    --footer-bg-color: #{$black-01};
 }

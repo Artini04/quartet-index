@@ -11,8 +11,8 @@ const useSearchStore = defineStore('search', () => {
 
     const searchQuery: Ref<string | null> = ref(null)
     const keysQuery: Ref<string[]> = ref(defaultKeys)
-    const limitQuery: Ref<number> = ref(10)
-    const thresholdQuery: Ref<number> = ref(0.2)
+    const limitQuery: Ref<number> = useLocalStorage('app.limit', 10)
+    const thresholdQuery: Ref<number> = useLocalStorage('app.threshold', 0.2)
     const hasSearched: Ref<boolean> = computed(() => {
         return searchQuery.value !== null ? true : false
     })
@@ -35,8 +35,8 @@ const useSearchStore = defineStore('search', () => {
     return {
         searchQuery,
         keysQuery,
-        limit: limitQuery,
-        threshold: thresholdQuery,
+        limitQuery,
+        thresholdQuery,
         hasSearched,
         fusedQuery
     }
@@ -44,9 +44,10 @@ const useSearchStore = defineStore('search', () => {
 
 function useLookup() {
     const searchStore = useSearchStore()
-    const { searchQuery, fusedQuery, hasSearched } = storeToRefs(searchStore)
+    const { searchQuery, limitQuery, thresholdQuery, fusedQuery, hasSearched } =
+        storeToRefs(searchStore)
 
-    return { searchQuery, fusedQuery, hasSearched }
+    return { searchQuery, limitQuery, thresholdQuery, fusedQuery, hasSearched }
 }
 
 const useOptionsStore = defineStore('options', () => {

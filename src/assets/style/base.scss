@@ -7,21 +7,24 @@ body {
     color: var(--body-ft-color);
 }
 
-#app > * {
-    width: min(100dvw - 3rem, 500px);
+#app {
+    $margin-space: 1rem;
+    $element-space: 1rem;
+
+    width: min(100dvw - calc($margin-space * 2), 500px);
     margin-inline: auto;
 
-    & + * {
-        margin-top: 1rem;
+    & > * {
+        & + * {
+            margin-top: $element-space;
+        }
     }
-}
 
-#app {
     & > :first-child {
-        margin-top: 1rem;
+        margin-top: $margin-space;
     }
 
     & > :last-child {
-        margin-bottom: 1rem;
+        margin-bottom: $margin-space;
     }
 }

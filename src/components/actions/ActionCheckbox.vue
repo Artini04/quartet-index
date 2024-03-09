@@ -29,6 +29,7 @@ const model = defineModel()
 .desc {
     gap: 0;
     user-select: none;
+    cursor: pointer;
 
     &-short {
         font-size: 1em;
