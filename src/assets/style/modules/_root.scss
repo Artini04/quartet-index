@@ -5,6 +5,7 @@ $black-03: #24292e;
 $white-00: #eee;
 $gray-00: #929da8;
 $red-00: #e23149;
+$red-01: lightcoral;
 $blue-00: #50b0ff;
 $orange-00: #ff6638;
 $yellow-00: #ffdb3b;
@@ -28,6 +29,8 @@ $yellow-00: #ffdb3b;
     --button-outline-bg-color: transparent;
     --button-outline-bd-color: #{$white-00};
     --button-outline-ft-color: #{$white-00};
+    --clear-storage-bg-color: #{$red-01};
+    --clear-storage-ft-color: #{$black-00};
 
     // Checbox
     --checkbox-ft-s-color: #{$gray-00};

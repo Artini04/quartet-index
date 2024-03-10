@@ -3,37 +3,57 @@ import ActionButton from './actions/ActionButton.vue'
 </script>
 
 <template>
-    <header>
-        <nav>
+    <header class="header | space-wf">
+        <div class="header-title | text-center">
+            <h1>「トカ」Pocket Quartet</h1>
+            <h2>日本語カルテット単語索引</h2>
+        </div>
+        <nav class="header-nav">
             <ActionButton
-                :isRouterLink="true"
-                variant="active"
                 id="to-home"
-                src="/"
-                value="Lookup"
-                icon="tabler:search" />
-            <ActionButton
-                :isRouterLink="true"
+                type="router"
                 variant="active"
+                value="Lookup"
+                src="/"
+                icon="tabler:list-search" />
+            <ActionButton
                 id="to-options"
-                src="/options"
+                type="router"
+                variant="active"
                 value="Options"
+                src="/options"
                 icon="tabler:settings" />
             <ActionButton
-                :isRouterLink="true"
-                variant="active"
                 id="to-about"
-                src="/about"
+                type="router"
+                variant="active"
                 value="About"
+                src="/about"
                 icon="tabler:paperclip" />
         </nav>
     </header>
 </template>
 
 <style lang="scss">
-nav {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.5rem;
+.header {
+    &-title {
+        h1 {
+            font-size: 1.7em;
+        }
+
+        h2 {
+            font-size: 1.6em;
+        }
+    }
+
+    &-nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.5rem;
+
+        .button {
+            padding: 0.8rem 1rem;
+        }
+    }
 }
 </style>

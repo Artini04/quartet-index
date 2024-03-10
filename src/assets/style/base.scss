@@ -2,9 +2,27 @@
 @use './modules/skeleton';
 @use './modules/utility';
 
+@import url(https://fonts.bunny.net/css?family=ibm-plex-sans-jp:400|m-plus-2:400,600,900|noto-sans-jp:400,600);
+
 body {
+    font-family: 'Noto Sans JP', sans-serif;
     background: var(--body-bg-color);
     color: var(--body-ft-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'M PLUS 2', sans-serif;
+    line-height: 1.4em;
+}
+
+.subfont {
+    font-family: 'IBM Plex Sans JP', sans-serif;
+    line-height: 1.3em;
 }
 
 #app {

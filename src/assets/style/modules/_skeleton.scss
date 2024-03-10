@@ -15,3 +15,11 @@
         flex-direction: row;
     }
 }
+
+.space {
+    &-wf {
+        & > * + * {
+            margin-top: var(--space-gap, 0.5rem);
+        }
+    }
+}

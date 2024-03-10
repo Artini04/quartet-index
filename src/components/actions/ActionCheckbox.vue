@@ -14,7 +14,7 @@ const model = defineModel()
             <span class="desc-short">
                 <slot name="short-desc"></slot>
             </span>
-            <span class="desc-long">
+            <span class="desc-long | subfont">
                 <slot name="long-desc"></slot>
             </span>
         </label>

@@ -34,7 +34,7 @@ const router = createRouter({
             name: 'pageNotFound',
             component: () => import('@/views/404View.vue'),
             meta: {
-                title: 'Page Not Found'
+                title: 'Page Does Not Exist'
             }
         }
     ]

@@ -6,10 +6,10 @@ withDefaults(defineProps<{ icon?: string }>(), {
 
 <template>
     <div class="sector-item | flow-wf">
-        <h3 class="flow-rv | align-center">
+        <h2 class="sector-item-header | flow-rv | align-center">
             <iconify-icon :icon width="1.1em" heigth="1.1em"></iconify-icon>
             <slot name="heading"></slot>
-        </h3>
+        </h2>
         <div class="sector-item-list | flow-wf">
             <slot></slot>
         </div>
@@ -18,8 +18,15 @@ withDefaults(defineProps<{ icon?: string }>(), {
 
 <style lang="scss">
 .sector-item {
+    gap: 0.8rem;
+    padding: 1em;
+
     &-list {
-        margin-left: 1.8em;
+        margin-left: 2em;
+    }
+
+    &-header {
+        font-weight: 900;
     }
 }
 </style>

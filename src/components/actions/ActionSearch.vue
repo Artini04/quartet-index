@@ -24,13 +24,18 @@ const { searchQuery, fusedQuery } = useLookup()
 
 <style lang="scss">
 .search-entry {
-    padding: 0.4rem 0.6rem;
+    $padding-block: 1rem;
+    $padding-inline: 1rem;
+
+    padding: 0 $padding-inline;
     background: var(--search-bg-color);
     color: var(--search-ft-color);
     border: 1px solid var(--search-bd-color);
     border-radius: var(--g-bor-rad-00);
 
     & > input {
+        padding: $padding-block 0;
+        font-size: 1.2em;
         background: transparent;
         border: 0;
         outline: 0;

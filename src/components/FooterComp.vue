@@ -6,15 +6,17 @@ import SectorItem from './SectorItem.vue'
 
 <template>
     <footer>
-        <SectorItem icon="tabler:circle-arrow-up-right">
+        <SectorItem icon="tabler:link">
             <template #heading>リンク</template>
             <ActionButton
                 id="to-github"
+                type="link"
                 value="Project Page"
                 icon="tabler:brand-github-filled"
                 src="https://github.com/Artini04/quartet-index" />
             <ActionButton
                 id="to-github"
+                type="link"
                 value="Issues / Suggestions"
                 icon="tabler:circle-dot"
                 src="https://github.com/Artini04/quartet-index/issues" />
@@ -22,10 +24,13 @@ import SectorItem from './SectorItem.vue'
     </footer>
 </template>
 
-<style>
+<style lang="scss">
 footer {
-    padding: 0.8rem 0.6rem;
     background: var(--footer-bg-color);
     border-radius: var(--g-bor-rad-00);
+
+    .button {
+        padding: 0.4em 0.6em !important;
+    }
 }
 </style>

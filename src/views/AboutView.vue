@@ -3,7 +3,7 @@ import SectorItem from '@/components/SectorItem.vue'
 </script>
 
 <template>
-    <div class="about | flow-wf">
+    <div class="about | space-wf">
         <SectorItem icon="tabler:notebook">
             <template #heading>日本語カルテット単語索引</template>
             <p>
@@ -29,3 +29,9 @@ import SectorItem from '@/components/SectorItem.vue'
         </SectorItem>
     </div>
 </template>
+
+<style>
+.about {
+    --space-gap: -1em;
+}
+</style>

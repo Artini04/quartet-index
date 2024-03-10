@@ -2,9 +2,17 @@
 import 'iconify-icon'
 import RouterSlot from './other/RouterSlot.vue'
 import LinkSlot from './other/LinkSlot.vue'
+import ButtonSlot from './other/ButtonSlot.vue'
+
+const types = {
+    router: RouterSlot,
+    link: LinkSlot,
+    button: ButtonSlot
+}
 
 interface Props {
     id: string
+    type?: 'router' | 'link' | 'button'
     variant?: 'outline' | 'full' | 'active'
     isRouterLink?: boolean
     value?: string
@@ -13,17 +21,14 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
+    type: 'button',
     variant: 'full',
     isRouterLink: false
 })
 </script>
 
 <template>
-    <component
-        class="button | flow-rv | align-center"
-        :is="isRouterLink ? RouterSlot : LinkSlot"
-        :variant
-        :src>
+    <component class="button | flow-rv | align-center" :is="types[type]" :variant :src>
         <iconify-icon :icon v-if="icon" width="1em" height="1em"></iconify-icon>
         <span>{{ value }}</span>
     </component>
