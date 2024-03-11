@@ -3,6 +3,7 @@ import { useOptions, useLookup } from '@/stores/lookup'
 import SectorItem from '@/components/SectorItem.vue'
 import ActionCheckbox from '@/components/actions/ActionCheckbox.vue'
 import ActionButton from '@/components/actions/ActionButton.vue'
+
 const { cardShowLinks, cardBiggerJpText, cardBiggerEnText } = useOptions()
 const { limitQuery } = useLookup()
 
@@ -45,7 +46,7 @@ function clearLocalStorage() {
             </SectorItem>
         </div>
 
-        <SectorItem icon="tabler:database">
+        <SectorItem icon="tabler:box">
             <template #heading>Local Storage</template>
 
             <ActionButton
@@ -53,7 +54,6 @@ function clearLocalStorage() {
                 id="clear-storage"
                 value="Clear localStorage"
                 icon="tabler:trash"
-                src="#"
                 target="parent"
                 @click="clearLocalStorage" />
         </SectorItem>
@@ -78,6 +78,5 @@ function clearLocalStorage() {
 .clear-storage {
     background: var(--clear-storage-bg-color) !important;
     color: var(--clear-storage-ft-color) !important;
-    font-size: 1em;
 }
 </style>

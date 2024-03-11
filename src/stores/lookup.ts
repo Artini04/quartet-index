@@ -29,7 +29,7 @@ const useSearchStore = defineStore('search', () => {
             limit: unref(limitQuery)
         })
 
-        return { fusedInit, results }
+        return results
     })
 
     return {
@@ -51,7 +51,6 @@ function useLookup() {
 }
 
 const useOptionsStore = defineStore('options', () => {
-    const siteTheme: Ref<string> = ref('')
     const cardShowLinks: Ref<boolean> = useLocalStorage('app.card-show-links', true)
     const cardBiggerJpText: Ref<boolean> = useLocalStorage('app.card-bigger-jp-text', false)
     const cardBiggerEnText: Ref<boolean> = useLocalStorage('app.card-bigger-en-text', false)
@@ -65,7 +64,6 @@ const useOptionsStore = defineStore('options', () => {
     })
 
     return {
-        siteTheme,
         cardShowLinks,
         cardBiggerJpText,
         cardJpTextSize,

@@ -23,7 +23,8 @@ interface Props {
 withDefaults(defineProps<Props>(), {
     type: 'button',
     variant: 'full',
-    isRouterLink: false
+    isRouterLink: false,
+    src: '#'
 })
 </script>
 
@@ -40,8 +41,9 @@ withDefaults(defineProps<Props>(), {
     border-radius: var(--g-bor-rad-00);
     transition: scale ease 200ms;
     user-select: none;
+    cursor: pointer;
 
-    &:is(:active) {
+    &:active {
         scale: 0.95;
     }
 

@@ -7,6 +7,7 @@ const { searchQuery, fusedQuery } = useLookup()
 
 <template>
     <div class="search-entry | flow-rv | auto align-center">
+        <iconify-icon icon="tabler:search" class="flex-sm" width="1em" height="1em"></iconify-icon>
         <input
             v-model.lazy="searchQuery"
             type="search"
@@ -18,7 +19,7 @@ const { searchQuery, fusedQuery } = useLookup()
             class="flex-sm"
             width="1em"
             height="1em"></iconify-icon>
-        <span class="flex-sm">{{ fusedQuery.results.length }}</span>
+        <span class="flex-sm">{{ fusedQuery.length }}</span>
     </div>
 </template>
 
@@ -30,12 +31,11 @@ const { searchQuery, fusedQuery } = useLookup()
     padding: 0 $padding-inline;
     background: var(--search-bg-color);
     color: var(--search-ft-color);
-    border: 1px solid var(--search-bd-color);
+    border: 2px solid var(--search-bd-color);
     border-radius: var(--g-bor-rad-00);
 
     & > input {
         padding: $padding-block 0;
-        font-size: 1.2em;
         background: transparent;
         border: 0;
         outline: 0;

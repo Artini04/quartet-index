@@ -1,11 +1,12 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ icon?: string }>(), {
-    icon: 'tabler:info-square-filled'
+withDefaults(defineProps<{ icon?: string; indent?: boolean }>(), {
+    icon: 'tabler:info-square-filled',
+    indent: true
 })
 </script>
 
 <template>
-    <div class="sector-item | flow-wf">
+    <div class="sector-item | flow-wf" :indent>
         <h2 class="sector-item-header | flow-rv | align-center">
             <iconify-icon :icon width="1.1em" heigth="1.1em"></iconify-icon>
             <slot name="heading"></slot>
@@ -17,12 +18,16 @@ withDefaults(defineProps<{ icon?: string }>(), {
 </template>
 
 <style lang="scss">
+$si: sector-item;
+
 .sector-item {
     gap: 0.8rem;
     padding: 1em;
 
-    &-list {
-        margin-left: 2em;
+    &[indent='true'] {
+        .sector-item-list {
+            margin-left: 2em;
+        }
     }
 
     &-header {

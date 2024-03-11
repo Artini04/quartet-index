@@ -11,8 +11,8 @@ const { fusedQuery, hasSearched } = useLookup()
     <main class="main-search | flow-wf">
         <ActionSearch />
         <div class="search-result-list | flow-wf" :has-searched="hasSearched" v-auto-animate>
-            <WordCard v-for="{ item, refIndex } in fusedQuery.results" :key="refIndex" :item />
-            <WordNoResults v-if="fusedQuery.results.length <= 0 && hasSearched === true" />
+            <WordCard v-for="{ item, refIndex } in fusedQuery" :key="refIndex" :item />
+            <WordNoResults v-if="fusedQuery.length <= 0 && hasSearched === true" />
         </div>
     </main>
 </template>

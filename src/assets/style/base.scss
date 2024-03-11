@@ -2,7 +2,23 @@
 @use './modules/skeleton';
 @use './modules/utility';
 
-@import url(https://fonts.bunny.net/css?family=ibm-plex-sans-jp:400|m-plus-2:400,600,900|noto-sans-jp:400,600);
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-display: swap;
+    src: url('../fonts/NotoSansJP-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'M PLUS 2';
+    font-display: swap;
+    src: url('../fonts/MPLUS2-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans JP';
+    font-display: swap;
+    src: url('../fonts/IBMPlexSansJP-Regular.ttf');
+}
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
