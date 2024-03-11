@@ -1,81 +1,59 @@
 <script setup lang="ts">
-import InputTabWrapper from './input/InputTabWrapper.vue'
+import ActionButton from './actions/ActionButton.vue'
 </script>
 
 <template>
-  <header class="header | clamped text-center">
-    <div class="header__title">
-      <h1>「トカ」Pocket Quartet</h1>
-      <h2>日本語カルテット単語索引</h2>
-    </div>
-
-    <nav class="nav">
-      <div class="nav__left">
-        <InputTabWrapper
-          to="/"
-          :properties="{
-            text: 'Lookup',
-            icon: 'tabler:square-rotated-filled',
-          }" />
-        <InputTabWrapper
-          to="/table"
-          :properties="{ text: 'Lesson', icon: 'tabler:table-filled' }" />
-      </div>
-
-      <div class="nav__right">
-        <InputTabWrapper
-          to="/options"
-          :properties="{ text: 'Options', icon: 'tabler:adjustments' }" />
-        <InputTabWrapper
-          to="/about"
-          :properties="{ text: 'About', icon: 'tabler:paperclip' }" />
-      </div>
-    </nav>
-  </header>
+    <header class="header | space-wf">
+        <div class="header-title | text-center">
+            <h1>「トカ」Pocket Quartet</h1>
+            <h2>日本語カルテット単語索引</h2>
+        </div>
+        <nav class="header-nav">
+            <ActionButton
+                id="to-home"
+                type="router"
+                variant="active"
+                value="Lookup"
+                src="/"
+                icon="tabler:list-search" />
+            <ActionButton
+                id="to-options"
+                type="router"
+                variant="active"
+                value="Options"
+                src="/options"
+                icon="tabler:settings" />
+            <ActionButton
+                id="to-about"
+                type="router"
+                variant="active"
+                value="About"
+                src="/about"
+                icon="tabler:paperclip" />
+        </nav>
+    </header>
 </template>
 
 <style lang="scss">
-@use '@/assets/mixins' as _mixins;
-
-// Header Color Properties
-$header-border-color: var(--component-header-border-color, #3a3f4d);
-
-// Header Properties
-$padding-block: 2rem 1rem;
-$padding-inline: 1rem;
-
 .header {
-  padding-block: $padding-block;
-  padding-inline: $padding-inline;
-  border-bottom: 1px solid $header-border-color;
+    &-title {
+        h1 {
+            font-size: 1.7em;
+        }
 
-  &__title {
-    h1 {
-      font-size: 1.4rem;
-      line-height: 1.3rem;
+        h2 {
+            font-size: 1.6em;
+        }
     }
 
-    h2 {
-      font-size: 1.3rem;
+    &-nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.5rem;
+
+        .button {
+            padding: 0.8rem 1rem;
+        }
     }
-  }
-}
-
-.nav {
-  width: 100%;
-
-  &__left,
-  &__right {
-    @include _mixins.inline_flex(row, wrap, 0.1rem 0.3rem);
-    width: 50%;
-  }
-
-  &__left {
-    @include _mixins.item_alignment(center, flex-start);
-  }
-
-  &__right {
-    @include _mixins.item_alignment(center, flex-end);
-  }
 }
 </style>

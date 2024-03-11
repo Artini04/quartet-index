@@ -1,0 +1,25 @@
+.flow {
+    display: flex;
+    gap: 0.5rem;
+
+    &-wf,
+    &-rv {
+        @extend .flow;
+    }
+
+    &-wf {
+        flex-direction: column;
+    }
+
+    &-rv {
+        flex-direction: row;
+    }
+}
+
+.space {
+    &-wf {
+        & > * + * {
+            margin-top: var(--space-gap, 0.5rem);
+        }
+    }
+}

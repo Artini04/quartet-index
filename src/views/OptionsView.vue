@@ -1,90 +1,82 @@
 <script setup lang="ts">
-import { useOptionsStore } from '@/stores/options'
+import { useOptions, useLookup } from '@/stores/lookup'
+import SectorItem from '@/components/SectorItem.vue'
+import ActionCheckbox from '@/components/actions/ActionCheckbox.vue'
+import ActionButton from '@/components/actions/ActionButton.vue'
 
-// Component Imports
-import OptionsCategory from '@/components/layout/OptionsCategory.vue'
-import InputButtonWrapper from '@/components/input/InputButtonWrapper.vue'
-import InputCheckboxWrapper from '@/components/input/InputCheckboxWrapper.vue'
+const { cardShowLinks, cardBiggerJpText, cardBiggerEnText } = useOptions()
+const { limitQuery } = useLookup()
 
-const options = useOptionsStore()
-const { clearLocalStorage } = options
+function clearLocalStorage() {
+    localStorage.clear()
+}
 </script>
 
 <template>
-  <main class="options | clamped">
-    <h2 class="options__title">Options</h2>
+    <main class="main-options | space-wf">
+        <div class="main-options-cat | space-wf">
+            <SectorItem icon="tabler:cards">
+                <template #heading>Card Preferences</template>
 
-    <div class="options__box | border-rounded-square">
-      <!-- Theme Options -->
-      <OptionsCategory>
-        <h3>Theme</h3>
-        <template v-slot:options>
-          <InputButtonWrapper
-            variant="filled"
-            :properties="{ text: 'Light', icon: 'tabler:sun-filled' }"
-            @click="options.app_theme = 'light'" />
-          <InputButtonWrapper
-            variant="filled"
-            :properties="{ text: 'Dark', icon: 'tabler:moon-filled' }"
-            @click="options.app_theme = 'dark'" />
-        </template>
-      </OptionsCategory>
+                <ActionCheckbox id="show-links" v-model="cardShowLinks">
+                    <template #short-desc>Show links</template>
+                    <template #long-desc
+                        >Show dictionary links under the definition section.</template
+                    >
+                </ActionCheckbox>
 
-      <!-- Card Options -->
-      <OptionsCategory>
-        <h3>Card Preferences</h3>
-        <InputCheckboxWrapper
-          id="show_dictionary_links"
-          :properties="{ text: 'Show dictionary links', icon: 'tabler:link' }">
-          <input
-            type="checkbox"
-            id="show_dictionary_links"
-            v-model="options.card_show_links" />
-        </InputCheckboxWrapper>
-      </OptionsCategory>
-    </div>
+                <ActionCheckbox id="bigger-text-jp" v-model="cardBiggerJpText">
+                    <template #short-desc>Enlarge Japanese Texts</template>
+                </ActionCheckbox>
 
-    <div class="options__box | border-rounded-square" v-auto-animate>
-      <!-- Local Storage Options -->
-      <OptionsCategory>
-        <template v-slot:options>
-          <h3>Local Storage</h3>
-          <p>In-case something's not working. Clear local storage!</p>
-          <InputButtonWrapper
-            variant="filled"
-            color="red"
-            :properties="{
-              text: 'Clear <code>localStorage</code>',
-              icon: 'tabler:trash',
-            }"
-            @click="clearLocalStorage()" />
-        </template>
-      </OptionsCategory>
-    </div>
-  </main>
+                <ActionCheckbox id="bigger-text-en" v-model="cardBiggerEnText">
+                    <template #short-desc>Enlarge English Definitions</template>
+                </ActionCheckbox>
+            </SectorItem>
+
+            <SectorItem icon="tabler:list-search">
+                <template #heading>Lookup Preferences</template>
+                <div class="flow-rv">
+                    <label for="set-limit">Set lookup limit</label>
+                    <select name="limit" id="set-limit" v-model="limitQuery">
+                        <option :value="10">Default (10)</option>
+                        <option :value="25">Many (25)</option>
+                    </select>
+                </div>
+            </SectorItem>
+        </div>
+
+        <SectorItem icon="tabler:box">
+            <template #heading>Local Storage</template>
+
+            <ActionButton
+                class="clear-storage"
+                id="clear-storage"
+                value="Clear localStorage"
+                icon="tabler:trash"
+                target="parent"
+                @click="clearLocalStorage" />
+        </SectorItem>
+    </main>
 </template>
+
 <style lang="scss">
-@use '@/assets/mixins' as _mixins;
+.main-options {
+    --space-gap: 1em;
 
-// Options Color Properties
-$background-color: var(--component-box-background-color);
+    & > * {
+        background: var(--option-sector-bg-color);
+        border: 1px solid var(--option-sector-bd-color);
+        border-radius: var(--g-bor-rad-00);
+    }
 
-// Options Properties
-$options-spacing: 1rem;
-$options-sub-spacing: 2rem;
+    &-cat {
+        --space-gap: -1em;
+    }
+}
 
-.options {
-  @include _mixins.spacing($options-spacing, y, block);
-
-  &__title {
-    text-align: center;
-  }
-
-  &__box {
-    @include _mixins.spacing($options-sub-spacing, y, block);
-
-    padding: 1rem;
-    background: $background-color;
-  }
+.clear-storage {
+    background: var(--clear-storage-bg-color) !important;
+    color: var(--clear-storage-ft-color) !important;
 }
 </style>

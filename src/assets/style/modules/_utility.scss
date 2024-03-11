@@ -1,0 +1,25 @@
+.align {
+    &-center {
+        align-items: center;
+    }
+}
+
+.text {
+    &-center {
+        text-align: center;
+    }
+}
+
+.auto {
+    & > * + * {
+        flex: 1 1;
+    }
+}
+
+.flex-sm {
+    flex: 0 999;
+}
+
+.with-decor {
+    text-decoration: underline !important;
+}
