@@ -4,29 +4,35 @@ import { useColorMode } from '@vueuse/core'
 import ActionButton from './actions/ActionButton.vue'
 import SectorItem from './SectorItem.vue'
 
-const mode = useColorMode({
+const { store } = useColorMode({
     modes: {
         contrast: 'dark contrast'
     }
 })
+
+// FIX FOR NOW
+store.value = 'dark'
 </script>
 
 <template>
     <footer class="space-wf">
-        <div class="theme-list | flow-rv">
-            <ActionButton
-                id="set-theme-dark"
-                type="button"
-                value="Dark"
-                icon="tabler:moon"
-                @click="mode = 'dark'" />
-            <ActionButton
-                id="set-theme-contrast"
-                type="button"
-                value="Contrast"
-                icon="tabler:contrast-filled"
-                @click="mode = 'contrast'" />
-        </div>
+        <SectorItem icon="tabler:paint" :indent="false">
+            <template #heading>Theme [WIP]</template>
+            <div class="theme-list">
+                <ActionButton
+                    id="set-theme-dark"
+                    type="button"
+                    value="Dark"
+                    icon="tabler:moon"
+                    @click="store = 'dark'" />
+                <ActionButton
+                    id="set-theme-contrast"
+                    type="button"
+                    value="Contrast"
+                    icon="tabler:contrast-filled"
+                    @click="store = 'contrast'" />
+            </div>
+        </SectorItem>
 
         <SectorItem icon="tabler:link" :indent="false">
             <template #heading>リンク</template>
@@ -58,6 +64,8 @@ footer {
 }
 
 .theme-list {
-    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
 }
 </style>

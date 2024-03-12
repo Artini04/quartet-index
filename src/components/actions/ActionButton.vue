@@ -29,7 +29,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <component class="button | flow-rv | align-center" :is="types[type]" :variant :src>
+    <component class="button | flow-rv | align-center" :is="types[type]" :type :variant :src>
         <iconify-icon :icon v-if="icon" width="1em" height="1em"></iconify-icon>
         <span>{{ value }}</span>
     </component>
@@ -58,7 +58,7 @@ withDefaults(defineProps<Props>(), {
         border: 1px solid var(--button-outline-bd-color);
     }
 
-    &[variant='active'] {
+    &[type='router'] {
         background: var(--button-active-bg-color);
         color: var(--button-active-ft-color);
     }
