@@ -68,6 +68,7 @@ function clearLocalStorage() {
         background: var(--option-sector-bg-color);
         border: 1px solid var(--option-sector-bd-color);
         border-radius: var(--g-bor-rad-00);
+        box-shadow: 0 0 10px -5px var(--section-shw-color);
     }
 
     &-cat {

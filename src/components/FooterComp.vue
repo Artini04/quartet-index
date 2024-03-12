@@ -9,9 +9,6 @@ const { store } = useColorMode({
         contrast: 'dark contrast'
     }
 })
-
-// FIX FOR NOW
-store.value = 'dark'
 </script>
 
 <template>
@@ -19,6 +16,12 @@ store.value = 'dark'
         <SectorItem icon="tabler:paint" :indent="false">
             <template #heading>Theme [WIP]</template>
             <div class="theme-list">
+                <ActionButton
+                    id="set-theme-light"
+                    type="button"
+                    value="Light"
+                    icon="tabler:sun"
+                    @click="store = 'light'" />
                 <ActionButton
                     id="set-theme-dark"
                     type="button"
@@ -57,6 +60,7 @@ footer {
     --space-gap: -1em;
     background: var(--footer-bg-color);
     border-radius: var(--g-bor-rad-00);
+    border: 1px solid var(--footer-bd-color);
 
     .button {
         padding: 0.4em 0.6em !important;
