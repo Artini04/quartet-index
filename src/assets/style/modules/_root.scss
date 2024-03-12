@@ -4,13 +4,15 @@ $black-blue-00: #24292e;
 
 $white-00: #eee;
 
-$gray-light-00: #929da8;
+$gray-light-00: #a7b5c2;
 $gray-00: #7b838b;
+$gray-01: #e3e6ee;
 $gray-dark-00: #414850;
 
 $red-light-00: lightcoral;
 
 $blue-00: steelblue;
+$blue-light-00: #cfdde4;
 
 $orange-00: #ff6638;
 
@@ -48,7 +50,7 @@ html.dark {
 
     // Search
     --search-bg-color: #{$black-01};
-    --search-bd-color: steelblue;
+    --search-bd-color: #{$blue-00};
     --search-ft-color: #{$white-00};
     --search-ft-color-ph: #{$gray-light-00};
 
@@ -73,6 +75,34 @@ html.dark {
 
     // Footer
     --footer-bg-color: #{$black-01};
+}
+
+// TODO: Create light theme
+html.light {
+    color-scheme: light;
+
+    // Body
+    --body-bg-color: #{$white-00};
+    --body-ft-color: #{$black-00};
+
+    // Button
+    --button-full-bg-color: #{$blue-00};
+    --button-full-ft-color: #{$white-00};
+    --clear-storage-bg-color: #{$red-light-00};
+    --clear-storage-ft-color: #{$black-00};
+
+    // Options
+    --option-sector-bg-color: #{$gray-01};
+    --option-sector-bd-color: #{$gray-light-00};
+
+    // Search
+    --search-bg-color: transparent;
+    --search-bd-color: #{$blue-00};
+    --search-ft-color: #{$black-00};
+    --search-ft-color-ph: #{$gray-dark-00};
+
+    // Footer
+    --footer-bg-color: #{$gray-01};
 }
 
 html.contrast {
