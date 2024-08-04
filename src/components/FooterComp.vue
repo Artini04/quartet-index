@@ -14,7 +14,7 @@ const { store } = useColorMode({
 <template>
     <footer class="space-wf">
         <SectorItem icon="tabler:paint" :indent="false">
-            <template #heading>Theme [WIP]</template>
+            <template #heading>Theme</template>
             <div class="theme-list">
                 <ActionButton
                     id="set-theme-light"
