@@ -4,12 +4,12 @@ import type { Component } from 'vue'
 
 interface ActionButtonProps {
     is: Component
+    variant?: 'full' | 'outline'
 
     id: string
     label: string
     icon?: string
     src?: string
-    variant?: 'full' | 'outline'
 }
 
 const { variant = 'full' } = defineProps<ActionButtonProps>()

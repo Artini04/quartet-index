@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import 'iconify-icon'
-import { defineAsyncComponent } from 'vue'
 import { useColorMode } from '@vueuse/core'
 import ActionButton from './actions/ActionButton.vue'
 import SectorItem from './SectorItem.vue'

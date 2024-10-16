@@ -11,3 +11,11 @@ import FooterComp from './components/FooterComp.vue'
     </main>
     <FooterComp />
 </template>
+
+<style lang="scss">
+main {
+    & > * + * {
+        margin-top: 1em;
+    }
+}
+</style>
