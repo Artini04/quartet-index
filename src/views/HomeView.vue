@@ -8,13 +8,18 @@ const { fusedQuery, hasSearched } = useLookup()
 </script>
 
 <template>
-    <main class="main-search | flow-wf">
+    <div class="controller">
+        <ActionSearch />
+    </div>
+    <div class="results-grid">
+        <WordCard v-for="{ item, refIndex } in fusedQuery" :key="refIndex" :item />
+        <WordNoResults v-if="fusedQuery.length <= 0 && hasSearched === true" />
+    </div>
+    <!-- <main class="main-search | flow-wf">
         <ActionSearch />
         <div class="search-result-list | flow-wf" :has-searched="hasSearched" v-auto-animate>
-            <WordCard v-for="{ item, refIndex } in fusedQuery" :key="refIndex" :item />
-            <WordNoResults v-if="fusedQuery.length <= 0 && hasSearched === true" />
         </div>
-    </main>
+    </main> -->
 </template>
 
 <style lang="scss">
@@ -22,5 +27,11 @@ const { fusedQuery, hasSearched } = useLookup()
     &[has-searched='false'] {
         display: none;
     }
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.6em;
 }
 </style>

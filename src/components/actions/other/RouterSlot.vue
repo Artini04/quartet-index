@@ -8,3 +8,10 @@ defineProps<{ src: string }>()
         <slot></slot>
     </RouterLink>
 </template>
+
+<style lang="scss">
+.router-link-active {
+    background: var(--button-active-a-bg-color) !important;
+    color: var(--button-active-a-ft-color) !important;
+}
+</style>

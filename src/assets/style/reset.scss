@@ -36,8 +36,19 @@ a:any-link {
 }
 
 input,
+select,
+textarea,
+option,
 button {
     border: 0;
     font-size: inherit;
     font-family: inherit;
+}
+
+iconify-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+
+    margin-bottom: -0.13em;
 }

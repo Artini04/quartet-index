@@ -1,71 +1,71 @@
 <script setup lang="ts">
 import 'iconify-icon'
-import RouterSlot from './other/RouterSlot.vue'
-import LinkSlot from './other/LinkSlot.vue'
-import ButtonSlot from './other/ButtonSlot.vue'
+import type { Component } from 'vue'
 
-const types = {
-    router: RouterSlot,
-    link: LinkSlot,
-    button: ButtonSlot
-}
+interface ActionButtonProps {
+    is: Component
 
-interface Props {
     id: string
-    type?: 'router' | 'link' | 'button'
-    variant?: 'outline' | 'full' | 'active'
-    isRouterLink?: boolean
-    value?: string
+    label: string
     icon?: string
-    src: string
+    src?: string
+    variant?: 'full' | 'outline'
 }
 
-withDefaults(defineProps<Props>(), {
-    type: 'button',
-    variant: 'full',
-    isRouterLink: false,
-    src: '#'
-})
+const { variant = 'full' } = defineProps<ActionButtonProps>()
 </script>
 
 <template>
-    <component class="button | flow-rv | align-center" :is="types[type]" :type :variant :src>
-        <iconify-icon :icon v-if="icon" width="1em" height="1em"></iconify-icon>
-        <span>{{ value }}</span>
+    <component class="action-button" :is :src :variant>
+        <iconify-icon :icon v-if="icon" />
+        <span>{{ label }}</span>
     </component>
 </template>
 
-<style lang="scss" scoped>
-.button {
-    padding: 0.4rem 0.6rem;
-    border-radius: var(--g-bor-rad-00);
-    transition: scale ease 200ms;
-    user-select: none;
-    cursor: pointer;
+<style lang="scss">
+// PROPERTIES
+$cmp-spacing: 0.6em 0.4em;
+$cmp-border-radius: 7px;
+$cmp-animation-duration: 200ms;
 
-    &:active {
+// PROPERTIES COLOR
+$cmp-full-color: var(--button-full-bg-color);
+$cmp-full-f-color: var(--button-full-ft-color);
+
+$cmp-outline-color: #fff;
+$cmp-outline-f-color: #fff;
+
+.action-button {
+    padding: $cmp-spacing;
+    border-radius: $cmp-border-radius;
+    vertical-align: middle;
+
+    cursor: pointer;
+    user-select: none;
+    line-height: 1.2em;
+
+    // Animation
+    transition: scale ease $cmp-animation-duration;
+    &:is(:active) {
         scale: 0.95;
     }
 
+    // Flow
+    & > * + * {
+        margin-left: 0.4em;
+    }
+
+    // Variants
     &[variant='full'] {
-        background: var(--button-full-bg-color);
-        color: var(--button-full-ft-color);
+        background: $cmp-full-color;
+        color: $cmp-full-f-color;
+        border: 1px solid $cmp-full-color;
     }
 
     &[variant='outline'] {
-        background: var(--button-outline-bg-color);
-        color: var(--button-outline-ft-color);
-        border: 1px solid var(--button-outline-bd-color);
+        background: transparent;
+        color: $cmp-outline-f-color;
+        border: 1px solid $cmp-outline-color;
     }
-
-    &[type='router'] {
-        background: var(--button-active-bg-color);
-        color: var(--button-active-ft-color);
-    }
-}
-
-.router-link-active {
-    background: var(--button-active-a-bg-color) !important;
-    color: var(--button-active-a-ft-color) !important;
 }
 </style>

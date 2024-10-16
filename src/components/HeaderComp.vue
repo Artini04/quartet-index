@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
 import ActionButton from './actions/ActionButton.vue'
+import RouterSlot from './actions/other/RouterSlot.vue'
 </script>
 
 <template>
@@ -10,26 +12,23 @@ import ActionButton from './actions/ActionButton.vue'
         </div>
         <nav class="header-nav">
             <ActionButton
+                :is="RouterSlot"
                 id="to-home"
-                type="router"
-                variant="active"
-                value="Lookup"
-                src="/"
-                icon="tabler:list-search" />
+                label="Lookup"
+                icon="tabler:list-search"
+                src="/" />
             <ActionButton
+                :is="RouterSlot"
                 id="to-options"
-                type="router"
-                variant="active"
-                value="Options"
-                src="/options"
-                icon="tabler:settings" />
+                label="Options"
+                icon="tabler:settings"
+                src="/options" />
             <ActionButton
+                :is="RouterSlot"
                 id="to-about"
-                type="router"
-                variant="active"
-                value="About"
-                src="/about"
-                icon="tabler:paperclip" />
+                label="About"
+                icon="tabler:paperclip"
+                src="/about" />
         </nav>
     </header>
 </template>

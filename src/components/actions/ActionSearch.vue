@@ -34,6 +34,9 @@ const { searchQuery, fusedQuery } = useLookup()
     border: 2px solid var(--search-bd-color);
     border-radius: var(--g-bor-rad-00);
 
+    max-width: 600px;
+    margin-inline: auto;
+
     & > input {
         padding: $padding-block 0;
         background: transparent;

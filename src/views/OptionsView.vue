@@ -4,6 +4,8 @@ import SectorItem from '@/components/SectorItem.vue'
 import ActionCheckbox from '@/components/actions/ActionCheckbox.vue'
 import ActionButton from '@/components/actions/ActionButton.vue'
 
+import ButtonSlot from '@/components/actions/other/ButtonSlot.vue'
+
 const { cardShowLinks, cardBiggerJpText, cardBiggerEnText } = useOptions()
 const { limitQuery } = useLookup()
 
@@ -51,8 +53,9 @@ function clearLocalStorage() {
 
             <ActionButton
                 class="clear-storage"
+                :is="ButtonSlot"
                 id="clear-storage"
-                value="Clear localStorage"
+                label="Clear localStorage"
                 icon="tabler:trash"
                 target="parent"
                 @click="clearLocalStorage" />
@@ -79,5 +82,6 @@ function clearLocalStorage() {
 .clear-storage {
     background: var(--clear-storage-bg-color) !important;
     color: var(--clear-storage-ft-color) !important;
+    border: 1px solid var(--clear-storage-bg-color) !important;
 }
 </style>

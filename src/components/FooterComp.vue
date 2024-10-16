@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import 'iconify-icon'
+import { defineAsyncComponent } from 'vue'
 import { useColorMode } from '@vueuse/core'
 import ActionButton from './actions/ActionButton.vue'
 import SectorItem from './SectorItem.vue'
+
+import LinkSlot from './actions/other/LinkSlot.vue'
+import ButtonSlot from './actions/other/ButtonSlot.vue'
 
 const { store } = useColorMode({
     modes: {
@@ -17,21 +21,21 @@ const { store } = useColorMode({
             <template #heading>Theme</template>
             <div class="theme-list">
                 <ActionButton
+                    :is="ButtonSlot"
                     id="set-theme-light"
-                    type="button"
-                    value="Light"
-                    icon="tabler:sun"
+                    label="Light"
+                    icon="tabler:sun-filled"
                     @click="store = 'light'" />
                 <ActionButton
+                    :is="ButtonSlot"
                     id="set-theme-dark"
-                    type="button"
-                    value="Dark"
-                    icon="tabler:moon"
+                    label="Dark"
+                    icon="tabler:moon-filled"
                     @click="store = 'dark'" />
                 <ActionButton
+                    :is="ButtonSlot"
                     id="set-theme-contrast"
-                    type="button"
-                    value="Contrast"
+                    label="Contrast Dark"
                     icon="tabler:contrast-filled"
                     @click="store = 'contrast'" />
             </div>
@@ -40,15 +44,15 @@ const { store } = useColorMode({
         <SectorItem icon="tabler:link" :indent="false">
             <template #heading>リンク</template>
             <ActionButton
+                :is="LinkSlot"
                 id="to-github"
-                type="link"
-                value="Project Page"
+                label="Project Page"
                 icon="tabler:brand-github-filled"
                 src="https://github.com/Artini04/quartet-index" />
             <ActionButton
+                :is="LinkSlot"
                 id="to-github"
-                type="link"
-                value="Issues / Suggestions"
+                label="Issues / Suggestions"
                 icon="tabler:circle-dot"
                 src="https://github.com/Artini04/quartet-index/issues" />
         </SectorItem>

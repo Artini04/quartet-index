@@ -19,6 +19,16 @@
     font-display: swap;
     src: url('../fonts/IBMPlexSansJP-Regular.ttf');
 }
+#app {
+    & > * + * {
+        margin-top: 1em;
+    }
+}
+
+main {
+    width: calc(100dvw - 3em);
+    margin-inline: auto;
+}
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
@@ -41,24 +51,24 @@ h6 {
     line-height: 1.3em;
 }
 
-#app {
-    $margin-space: 1rem;
-    $element-space: 1rem;
+// #app {
+//     $margin-space: 1rem;
+//     $element-space: 1rem;
 
-    width: min(100dvw - calc($margin-space * 2), 500px);
-    margin-inline: auto;
+//     width: min(100dvw - calc($margin-space * 2), 500px);
+//     margin-inline: auto;
 
-    & > * {
-        & + * {
-            margin-top: $element-space;
-        }
-    }
+//     & > * {
+//         & + * {
+//             margin-top: $element-space;
+//         }
+//     }
 
-    & > :first-child {
-        margin-top: $margin-space;
-    }
+//     & > :first-child {
+//         margin-top: $margin-space;
+//     }
 
-    & > :last-child {
-        margin-bottom: $margin-space;
-    }
-}
+//     & > :last-child {
+//         margin-bottom: $margin-space;
+//     }
+// }
