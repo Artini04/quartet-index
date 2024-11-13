@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import "iconify-icon"
-import { useLookup } from "@/composables/useDictionary.ts"
+import { useLookup } from "@/composables/useDictionary"
 
 const { search, result } = useLookup()
 </script>
