@@ -25,113 +25,136 @@ $green-00: green;
 $green-light-00: lightgreen;
 
 :root {
-    --g-bor-rad-00: 7px;
+  --g-bor-rad-00: 7px;
 }
 
 html.dark {
-    color-scheme: dark;
+  color-scheme: dark;
 
-    // Body
-    --body-bg-color: #{$black-blue-00};
-    --body-ft-color: #{$white-00};
+  // Body
+  --body-bg-color: #{$black-blue-00};
+  --body-ft-color: #{$white-00};
 
-    // Button
-    --button-full-bg-color: #{$white-00};
-    --button-full-ft-color: #{$black-00};
-    --button-active-bg-color: #{$black-01};
-    --button-active-ft-color: #{$white-00};
-    --button-active-a-bg-color: #{$white-00};
-    --button-active-a-ft-color: #{$black-00};
-    --button-outline-bg-color: transparent;
-    --button-outline-bd-color: #{$white-00};
-    --button-outline-ft-color: #{$white-00};
-    --clear-storage-bg-color: #{$red-light-00};
-    --clear-storage-ft-color: #{$black-00};
+  // Button
+  --button-full-bg-color: #{$white-00};
+  --button-full-ft-color: #{$black-00};
+  --button-active-bg-color: #{$black-01};
+  --button-active-ft-color: #{$white-00};
+  --button-active-a-bg-color: #{$white-00};
+  --button-active-a-ft-color: #{$black-00};
+  --button-outline-bg-color: transparent;
+  --button-outline-bd-color: #{$white-00};
+  --button-outline-ft-color: #{$white-00};
+  --clear-storage-bg-color: #{$red-light-00};
+  --clear-storage-ft-color: #{$black-00};
 
-    // Checbox
-    --checkbox-ft-s-color: #{$gray-light-00};
+  // Checbox
+  --checkbox-ft-s-color: #{$gray-light-00};
 
-    // Search
-    --search-bg-color: #{$black-01};
-    --search-bd-color: #{$blue-00};
-    --search-ft-color: #{$white-00};
-    --search-ft-color-ph: #{$gray-light-00};
+  // Search
+  --search-bg-color: #{$black-01};
+  --search-bd-color: #{$blue-00};
+  --search-ft-color: #{$white-00};
+  --search-ft-color-ph: #{$gray-light-00};
 
-    // Options
-    --option-sector-bg-color: #{$black-01};
-    --option-sector-bd-color: #{$gray-dark-00};
+  // Options
+  --option-sector-bg-color: #{$black-01};
+  --option-sector-bd-color: #{$gray-dark-00};
 
-    // Theme
-    --theme-bg-color: #{$black-01};
+  // Theme
+  --theme-bg-color: #{$black-01};
 
-    // Word Color
-    --word-bg-color: #{$black-01};
-    --word-bd-color: #{$gray-dark-00};
+  // Word Color
+  --word-bg-color: #{$black-01};
+  --word-bd-color: #{$gray-dark-00};
 
-    // Book
-    --book-vol-1: #{$red-light-00};
-    --book-vol-2: #{$blue-00};
+  // Book
+  --book-vol-1: #{$red-light-00};
+  --book-vol-2: #{$blue-00};
 
-    // Japanese
-    --kana-kanji: #{$orange-00};
-    --hiragana: #{$yellow-00};
+  // Japanese
+  --kana-kanji: #{$orange-00};
+  --hiragana: #{$yellow-00};
 
-    // Footer
-    --footer-bg-color: #{$black-01};
-    --footer-bd-color: #{$gray-dark-00};
+  // Footer
+  --footer-bg-color: #{$black-01};
+  --footer-bd-color: #{$gray-dark-00};
 }
 
 // TODO: Create light theme
 html.light {
-    color-scheme: light;
+  color-scheme: light;
 
-    // Body
-    --body-bg-color: #e6e6e6;
-    --body-ft-color: #{$black-00};
+  // Body
+  --body-bg-color: #e6e6e6;
+  --body-ft-color: #{$black-00};
 
-    // Button
-    --button-full-bg-color: #{$blue-01};
-    --button-full-ft-color: #{$white-00};
-    --button-active-bg-color: #{$blue-01};
-    --button-active-ft-color: #{$white-00};
-    --button-active-a-bg-color: #{$blue-00};
-    --button-active-a-ft-color: #{$white-00};
-    --clear-storage-bg-color: rgb(255, 62, 62);
-    --clear-storage-ft-color: white;
+  // Button
+  --button-full-bg-color: #{$blue-01};
+  --button-full-ft-color: #{$white-00};
+  --button-active-bg-color: #{$blue-01};
+  --button-active-ft-color: #{$white-00};
+  --button-active-a-bg-color: #{$blue-00};
+  --button-active-a-ft-color: #{$white-00};
+  --clear-storage-bg-color: rgb(255, 62, 62);
+  --clear-storage-ft-color: white;
 
-    // Checbox
-    --checkbox-ft-s-color: #{$gray-00};
+  // Checbox
+  --checkbox-ft-s-color: #{$gray-00};
 
-    // Options
-    --option-sector-bg-color: #{$white-01};
-    --option-sector-bd-color: #{$white-03};
+  // Options
+  --option-sector-bg-color: #{$white-01};
+  --option-sector-bd-color: #{$white-03};
 
-    // Search
-    --search-bg-color: #{$white-01};
-    --search-bd-color: #{$gray-00};
-    --search-ft-color: #{$black-00};
-    --search-ft-color-ph: #{$gray-dark-00};
+  // Search
+  --search-bg-color: #{$white-01};
+  --search-bd-color: #{$gray-00};
+  --search-ft-color: #{$black-00};
+  --search-ft-color-ph: #{$gray-dark-00};
 
-    // Section
-    --section-shw-color: rgba(0, 0, 0, 0.3);
+  // Section
+  --section-shw-color: rgba(0, 0, 0, 0.3);
 
-    // Word Color
-    --word-bg-color: #{$white-01};
-    --word-bd-color: #{$gray-00};
+  // Word Color
+  --word-bg-color: #{$white-01};
+  --word-bd-color: #{$gray-00};
 
-    // Book
-    --book-vol-1: #ff0000;
-    --book-vol-2: #0044ff;
+  // Book
+  --book-vol-1: #ff0000;
+  --book-vol-2: #0044ff;
 
-    // Japanese
-    --kana-kanji: #ff5100;
-    --hiragana: #0003ad;
+  // Japanese
+  --kana-kanji: #ff5100;
+  --hiragana: #0003ad;
 
-    // Footer
-    --footer-bg-color: #{$white-01};
-    --footer-bd-color: #{$white-03};
+  // Footer
+  --footer-bg-color: #{$white-01};
+  --footer-bd-color: #{$white-03};
 }
 
 html.contrast {
-    filter: contrast(1.5);
+  filter: contrast(1.5);
 }
+
+// NEW AND IMPROVED
+// BORDER
+$border-radius: 5px !default;
+$border-thick: 1px !default;
+
+// COLOR
+$black-10: #2f353b;
+$black-gray: #555e68;
+$black-midnight: #000;
+
+$orange-light: #ff5100;
+$orange-dark: #ff6638;
+
+$yellow-light: #b53939;
+$yellow-dark: #ffdb3b;
+
+$red-muted: #ff8e8e;
+
+$blue-muted: #6fbeff;
+$blue-muted-black: #414850;
+
+$white: #fff;

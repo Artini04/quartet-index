@@ -9594,7 +9594,7 @@
       "ja_hiragana": "さしかかる",
       "ja_particle": "［～に］",
       "ja_suru": null,
-      "en_meaning": ["to near", "to approach"],
+      "en_meaning": ["to come near", "to approach"],
       "en_verb_type": null
     },
     "info": {
@@ -17788,7 +17788,9 @@
       "ja_hiragana": "ながれてくる",
       "ja_particle": "［すしが］",
       "ja_suru": null,
-      "en_meaning": ["to come down (revolving conveyor belt carries plates of sushi to)"],
+      "en_meaning": [
+        "to come down (revolving conveyor belt carries plates of sushi to)"
+      ],
       "en_verb_type": null
     },
     "info": {
@@ -19607,7 +19609,9 @@
       "ja_hiragana": "バラン",
       "ja_particle": null,
       "ja_suru": null,
-      "en_meaning": ["food separator sheet (used for partitioning or decoration)"],
+      "en_meaning": [
+        "food separator sheet (used for partitioning or decoration)"
+      ],
       "en_verb_type": null
     },
     "info": {

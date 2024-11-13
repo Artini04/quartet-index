@@ -1,71 +1,76 @@
 <script setup lang="ts">
-import 'iconify-icon'
-import type { Component } from 'vue'
+import "iconify-icon"
+import type { Component } from "vue"
 
 interface ActionButtonProps {
-    is: Component
-    variant?: 'full' | 'outline'
+  is: Component
+  variant?: "full" | "outline"
 
-    id: string
-    label: string
-    icon?: string
-    src?: string
+  id: string
+  label: string
+  icon?: string
+  src?: string
 }
 
-const { variant = 'full' } = defineProps<ActionButtonProps>()
+const { variant = "full" } = defineProps<ActionButtonProps>()
 </script>
 
 <template>
-    <component class="action-button" :is :src :variant>
-        <iconify-icon :icon v-if="icon" />
-        <span>{{ label }}</span>
-    </component>
+  <component class="action-button" :is :src :variant>
+    <iconify-icon :icon v-if="icon" />
+    <span>{{ label }}</span>
+  </component>
 </template>
 
 <style lang="scss">
-// PROPERTIES
-$cmp-spacing: 0.6em 0.4em;
-$cmp-border-radius: 7px;
-$cmp-animation-duration: 200ms;
+@use "@/assets/style/modules/root" as rt;
+@use "@/assets/style/modules/utility" as ut;
 
-// PROPERTIES COLOR
-$cmp-full-color: var(--button-full-bg-color);
-$cmp-full-f-color: var(--button-full-ft-color);
+// == PROPERTIES ==
+$com-spacing: 0.6em 0.4em;
+$com-border-radius: 7px;
+$com-animation-duration: 200ms;
 
-$cmp-outline-color: #fff;
-$cmp-outline-f-color: #fff;
+// == COLOR ==
+$full-color: light-dark(rt.$blue-muted-black, rt.$white);
+$full-color-focus: light-dark(rt.$white, rt.$black-midnight);
+
+$outline-color: #fff;
+$outline-color-focus: #fff;
 
 .action-button {
-    padding: $cmp-spacing;
-    border-radius: $cmp-border-radius;
-    vertical-align: middle;
+  @include ut.with-border();
 
-    cursor: pointer;
-    user-select: none;
-    line-height: 1.2em;
+  padding: $com-spacing;
+  border-radius: $com-border-radius;
+  vertical-align: middle;
 
-    // Animation
-    transition: scale ease $cmp-animation-duration;
-    &:is(:active) {
-        scale: 0.95;
-    }
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.2em;
 
-    // Flow
-    & > * + * {
-        margin-left: 0.4em;
-    }
+  // Animation
+  transition: scale ease $com-animation-duration;
+  &:is(:active) {
+    scale: 0.95;
+  }
 
-    // Variants
-    &[variant='full'] {
-        background: $cmp-full-color;
-        color: $cmp-full-f-color;
-        border: 1px solid $cmp-full-color;
-    }
+  // Flow
+  & > * + * {
+    margin-left: 0.4em;
+  }
 
-    &[variant='outline'] {
-        background: transparent;
-        color: $cmp-outline-f-color;
-        border: 1px solid $cmp-outline-color;
-    }
+  // Variants
+  &[variant="full"] {
+    background: $full-color;
+    color: $full-color-focus;
+    border-color: $full-color;
+  }
+
+  &[variant="outline"] {
+    background: transparent;
+    color: $outline-color-focus;
+    border-color: $outline-color;
+  }
 }
 </style>

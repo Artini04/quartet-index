@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import 'iconify-icon'
+import "iconify-icon"
 
 defineProps<{ src: string; value: string }>()
 </script>
 
 <template>
-    <a :href="src" class="flow-rv | align-center subfont" target="_blank" rel="noopener noreferrer">
-        <span>{{ value }}</span>
-        <iconify-icon icon="tabler:external-link" />
-    </a>
+  <a :href="src" target="_blank" rel="noopener noreferrer">
+    <span>{{ value }}</span>
+    <iconify-icon icon="tabler:external-link" />
+  </a>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 a {
-    gap: 0;
-}
-
-a > * + * {
-    margin-left: 0.1rem;
+  text-decoration: none;
+  vertical-align: middle;
+  & > * + * {
+    margin-left: 0.2em;
+  }
 }
 </style>

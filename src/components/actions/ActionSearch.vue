@@ -1,53 +1,67 @@
 <script setup lang="ts">
-import 'iconify-icon'
-import { useLookup } from '@/stores/lookup'
+import "iconify-icon"
+import { useLookup } from "@/composables/useDictionary.ts"
 
-const { searchQuery, fusedQuery } = useLookup()
+const { search, result } = useLookup()
 </script>
 
 <template>
-    <div class="search-entry | flow-rv | auto align-center">
-        <iconify-icon icon="tabler:search" class="flex-sm" width="1em" height="1em"></iconify-icon>
-        <input
-            v-model.lazy="searchQuery"
-            type="search"
-            id="search-entry"
-            placeholder="Search for..."
-            autocomplete="off" />
-        <iconify-icon
-            icon="tabler:list-search"
-            class="flex-sm"
-            width="1em"
-            height="1em"></iconify-icon>
-        <span class="flex-sm">{{ fusedQuery.length }}</span>
-    </div>
+  <div class="action_searchbox" role="searchbox">
+    <iconify-icon icon="tabler:search" />
+    <input
+      v-model.lazy="search"
+      type="search"
+      id="search-input"
+      placeholder="Search for..."
+      autocomplete="off" />
+    <iconify-icon icon="tabler:list-search" />
+    <span>{{ result.length }}</span>
+  </div>
 </template>
 
 <style lang="scss">
-.search-entry {
-    $padding-block: 1rem;
-    $padding-inline: 1rem;
+@use "@/assets/style/modules/root" as rt;
 
-    padding: 0 $padding-inline;
-    background: var(--search-bg-color);
-    color: var(--search-ft-color);
-    border: 2px solid var(--search-bd-color);
-    border-radius: var(--g-bor-rad-00);
+// == PROPERTIES ==
+$com-padding: 0.4em 1em;
+$com-gap: 0.4em;
+$inp-padding: 0.2em;
 
-    max-width: 600px;
-    margin-inline: auto;
+// == COLOR ==
+$placeholder-color: light-dark(rgba(black, 0.2), rgba(white, 0.2));
+$background-color: light-dark(black, rt.$black-10);
+$border-color: light-dark(rgba(black, 0.2), rt.$black-gray);
+$border-color-focus: light-dark(steelblue, steelblue);
 
-    & > input {
-        padding: $padding-block 0;
-        background: transparent;
-        border: 0;
-        outline: 0;
-        min-width: 0;
-        flex: 999 1 100%;
+// == ANIMATION ==
+$animation-duration: 200ms;
 
-        &::placeholder {
-            color: var(--search-ft-color-ph);
-        }
+.action_searchbox {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: $com-gap;
+  align-items: center;
+  padding: $com-padding;
+  background: $background-color;
+
+  & input {
+    padding: $inp-padding;
+    flex: 999 1 100%;
+
+    &::placeholder {
+      color: $placeholder-color;
+      font-weight: 200;
+      font-style: italic;
     }
+  }
+
+  // Border
+  border: rt.$border-thick solid $border-color;
+  border-radius: rt.$border-radius;
+  transition: border ease $animation-duration;
+
+  &:is(:focus-within) {
+    border: rt.$border-thick solid $border-color-focus;
+  }
 }
 </style>
