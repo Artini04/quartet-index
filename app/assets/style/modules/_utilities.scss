@@ -1,0 +1,12 @@
+@use "./root" as rt;
+@use "sass:string";
+
+@mixin with-border() {
+  border: rt.$border-thick solid transparent;
+  border-radius: rt.$border-radius;
+}
+
+@mixin animation($properties) {
+  transition-property: string.unquote($properties);
+  transition: ease rt.$animation-speed;
+}

@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+html {
+  -ms-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  min-height: 100dvh;
+  line-height: 1.5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+}
+
+a {
+  &:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
+}
+
+input,
+button {
+  &:not([class]) {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    min-width: 20px;
+  }
+}
+
+.iconify {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+
+  &[mb] {
+    margin-bottom: -0.12em;
+  }
+}
