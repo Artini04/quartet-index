@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Word } from "~/composables/type"
-import { useOptions } from "~/composables/useOptions"
 import { convertToFull } from "~/utils/convert"
 
 const p = defineProps<{ item: Word }>()
@@ -24,8 +23,8 @@ const { appOptions } = useOptions()
         {{ item.info.kanji }}
       </span>
     </div>
-    <div class="word_text">
-      <div class="word_text__ja" jp>
+    <div class="word-text">
+      <div class="word-text__ja" jp>
         <span>
           {{ hasKanaKanji ? item.data.ja_kana_kanji : item.data.ja_hiragana }}
         </span>
@@ -35,29 +34,31 @@ const { appOptions } = useOptions()
           {{ item.data.ja_suru }}
         </span>
       </div>
-      <div class="word_text__en">
-        <span>{{ item.data.en_meaning.join("; ") }}</span>
-        <span class="word_text__en_verb_type" v-if="item.data.en_verb_type">
-          {{ item.data.en_verb_type }}
+      <div class="word-text__en">
+        <span v-for="(word, refIndex) in item.data.en_meaning" :key="refIndex">
+          <span>{{ word }}</span>
+          <span class="word-text__en_verb_type" v-if="item.data.en_verb_type">
+            {{ item.data.en_verb_type }}
+          </span>
         </span>
       </div>
     </div>
-    <div class="word_dict" v-if="appOptions.wordShowDict">
-      <WordDict
+    <div class="word_dict" v-if="appOptions.wordShowDicts">
+      <ActionLinkExternal
         :src="`https://jpdb.io/search?q=${
           item.data.ja_kana_kanji ?? item.data.ja_hiragana
         }#a`"
-        value="jpdb" />
-      <WordDict
+        text="jpdb" />
+      <ActionLinkExternal
         :src="`https://jisho.org/search/${
           item.data.ja_kana_kanji ?? item.data.ja_hiragana
         }`"
-        value="jisho" />
-      <WordDict
+        text="jisho" />
+      <ActionLinkExternal
         :src="`https://ejje.weblio.jp/content/${
           item.data.ja_kana_kanji ?? item.data.ja_hiragana
         }`"
-        value="Weblio辞書" />
+        text="Weblio辞書" />
     </div>
   </div>
 </template>
@@ -70,6 +71,9 @@ const { appOptions } = useOptions()
 $divs-pad: 0.4em 0.6em;
 $info-gap: 0.6em;
 $dict-gap: 1em;
+
+$word-text-spacing: 0.4em;
+$word-dict-spacing: 0.6em;
 
 // COLOR
 $background-color-odd: light-dark(red, rt.$black-01);
@@ -110,30 +114,38 @@ $kana-kanji-color: light-dark(red, rt.$orange-00);
     }
   }
 
-  // JAPANESE
-  &_text__ja {
-    color: $hiragana-color;
-    & > :first-child {
-      color: $kana-kanji-color;
-    }
-  }
+  &-text {
+    @include ut.space(margin-top, $word-text-spacing);
 
-  // ENGLISH
-  &_text__en {
-    &::before {
-      content: "英";
-      margin-right: 0.5em;
+    // JAPANESE
+    &__ja {
+      color: $hiragana-color;
+      & > :first-child {
+        color: $kana-kanji-color;
+      }
     }
-    &_verb_type {
-      font-style: italic;
+
+    // ENGLISH
+    &__en {
+      & > span {
+        @include ut.space(margin-top, 0.4em);
+        display: block;
+
+        &::before {
+          content: "英";
+          margin-right: 0.5em;
+        }
+      }
+
+      &_verb_type {
+        font-style: italic;
+      }
     }
   }
 
   // DICTIONARY
   &_dict {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 1em;
+    @include ut.flex(row, wrap, $word-dict-spacing);
   }
 }
 </style>

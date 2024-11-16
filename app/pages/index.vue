@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { useLookup } from "~/composables/useDictionary"
-
 const { result } = useLookup()
 </script>
 
 <template>
   <main>
     <ActionSearch />
+
+    <Preferences />
+
     <div class="result_grid">
       <Word v-for="{ item, refIndex } in result" :key="refIndex" :item />
     </div>

@@ -1,10 +1,6 @@
-<script setup lang="ts">
-import Navigation from "~/components/action/Navigation.vue"
-</script>
-
 <template>
   <header>
-    <Navigation />
+    <HeaderNav />
   </header>
 
   <slot></slot>

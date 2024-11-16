@@ -1,10 +1,14 @@
 <script setup lang="ts">
 interface LinkExternalProps {
   src: string
-  value?: string
+  text?: string
 }
 
-const { value = "[external link]" } = defineProps<LinkExternalProps>()
+const { text = "[external link]" } = defineProps<LinkExternalProps>()
+const { appOptions } = useOptions()
+const textDecor = computed(() =>
+  appOptions.value.wordLinkDecor ? "underline" : "none"
+)
 </script>
 
 <template>
@@ -13,7 +17,7 @@ const { value = "[external link]" } = defineProps<LinkExternalProps>()
     :to="src"
     target="_blank"
     rel="external nofollow noopener">
-    <span>{{ value }}</span>
+    <span>{{ text }}</span>
     <Icon name="tabler:external-link" />
   </NuxtLink>
 </template>
@@ -26,5 +30,6 @@ $link-gap: 0.1em;
 
 .action-link-external {
   @include ut.with-icon($reversed: true, $space: $link-gap, $bottom: -0.16em);
+  text-decoration: v-bind(textDecor);
 }
 </style>

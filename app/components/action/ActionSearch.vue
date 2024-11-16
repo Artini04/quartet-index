@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useLookup } from "~/composables/useDictionary"
-
 const { search, result } = useLookup()
 </script>
 
@@ -24,34 +22,28 @@ const { search, result } = useLookup()
 @use "~/assets/style/modules/utilities" as ut;
 
 // PROPERTIES
-$com-gap: 0.6em;
-$com-pad: 0.2em 0.8em;
-$inp-pad: 0.4em;
-
-// COLOR
-$background-color: light-dark(black, rt.$black-01);
-$border-color: light-dark(black, rt.$black-03);
-$border-color-focus: light-dark(black, rt.$green-01);
+$search-item-spacing: 0.6em;
+$search-item-padding: 0.2em 0.8em;
+$search-input-padding: 0.4em;
 
 .action_search {
+  @include ut.flex(row, nowrap, $search-item-spacing);
   @include ut.with-border();
-  @include ut.animation("border");
-
-  display: flex;
-  flex-flow: row nowrap;
-  gap: $com-gap;
+  @include ut.animation("border outline");
   align-items: center;
 
-  padding: $com-pad;
-  background: $background-color;
-  border-color: $border-color;
+  padding: $search-item-padding;
+  background: rt.$comp-background-color;
+  border-color: rt.$comp-border-color;
+  outline: 0;
 
   &:focus-within {
-    border-color: $border-color-focus;
+    outline: 2px solid rt.$comp-border-color-focus;
+    border-color: rt.$comp-border-color-focus;
   }
 
   & input {
-    padding: $inp-pad;
+    padding: $search-input-padding;
     flex: 999 1;
 
     &::placeholder {

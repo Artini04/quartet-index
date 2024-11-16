@@ -1,14 +1,18 @@
-export const useOptionsStore = defineStore("options", () => {
-  const appOptions = useLocalStorage("app", {
-    wordShowDict: true
+const useOptionsStore = defineStore("preferences", () => {
+  const app = useLocalStorage("app.preferences", {
+    wordShowDicts: true,
+    wordLinkDecor: false
   })
 
   return {
-    appOptions
+    app
   }
 })
 
 export function useOptions() {
-  const { appOptions } = storeToRefs(useOptionsStore())
-  return { appOptions }
+  const { app: appOptions } = storeToRefs(useOptionsStore())
+
+  return {
+    appOptions
+  }
 }

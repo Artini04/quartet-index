@@ -6,6 +6,10 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
+  ssr: false,
+  app: {
+    pageTransition: { name: "page", mode: "out-in" }
+  },
 
   // CSS Globals
   css: ["~/assets/style/reset.scss", "~/assets/style/base.scss"],

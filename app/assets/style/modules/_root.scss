@@ -20,4 +20,8 @@ $animation-speed: 200ms;
 $space: 0.5em;
 $space-small: 0.8em;
 
-$font-small: 0.9em;
+$font-small: 0.8em;
+
+$comp-background-color: light-dark(black, $black-01);
+$comp-border-color: light-dark(black, $black-03);
+$comp-border-color-focus: light-dark(black, $green-01);

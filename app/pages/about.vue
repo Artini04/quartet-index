@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import { useOptions } from "~/composables/useOptions"
-import { useLookup } from "~/composables/useDictionary"
-
-const { appOptions } = useOptions()
-const { appDictionary } = useLookup()
-</script>
-
 <template>
   <main>
     <SectorItem icon="tabler:notebook">
@@ -26,12 +18,12 @@ const { appDictionary } = useLookup()
         FOUR LANGUAGE SKILLS. You can download the spreadsheet in their
         <ActionLinkExternal
           src="https://quartet.japantimes.co.jp/en/resource/"
-          value="resources" />
+          text="resources" />
         website under Index section.
       </p>
     </SectorItem>
 
-    <SectorItem icon="tabler:settings" :indent="false">
+    <!-- <SectorItem icon="tabler:settings" :indent="false">
       <template #heading>アプリの設定</template>
 
       <ActionCheckbox
@@ -43,10 +35,11 @@ const { appDictionary } = useLookup()
       <ActionSelect
         v-model="appDictionary.limit"
         id="select-limit"
-        text="Limit">
+        text="Limit"
+        subtext="Set the lookup limit">
         <option :value="10">Default</option>
         <option :value="25">Many</option>
       </ActionSelect>
-    </SectorItem>
+    </SectorItem> -->
   </main>
 </template>

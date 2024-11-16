@@ -7,6 +7,12 @@
   gap: #{$gap};
 }
 
+@mixin space($property, $gap) {
+  & > * + * {
+    #{$property}: #{$gap};
+  }
+}
+
 @mixin with-border() {
   border: rt.$border-thick solid transparent;
   border-radius: rt.$border-radius;
