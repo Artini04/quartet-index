@@ -6,8 +6,6 @@ const { result } = useLookup()
   <main>
     <ActionSearch />
 
-    <Preferences />
-
     <div class="result_grid">
       <Word v-for="{ item, refIndex } in result" :key="refIndex" :item />
     </div>

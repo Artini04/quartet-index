@@ -24,8 +24,8 @@ $action-label-spacing: 0;
   }
 
   & > label {
-    @include ut.space(margin-top, $action-label-spacing);
     flex: 1 1;
+    @include ut.space(margin-top, $action-label-spacing);
 
     span {
       display: block;

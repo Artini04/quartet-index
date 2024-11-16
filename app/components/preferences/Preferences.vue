@@ -1,7 +1,4 @@
-<script setup lang="ts">
-const { appOptions } = useOptions()
-const { appDictionary } = useLookup()
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <fieldset class="preferences">
@@ -9,27 +6,6 @@ const { appDictionary } = useLookup()
       <Icon name="tabler:settings" />
       <span>アプリの設定</span>
     </legend>
-
-    <ActionCheckbox
-      v-model="appOptions.wordShowDicts"
-      id="check-show-links"
-      text="Dictionary Links"
-      subtext="Show dictionary links at the bottom of the word card." />
-
-    <ActionCheckbox
-      v-model="appOptions.wordLinkDecor"
-      id="check-show-decor"
-      text="External Link Underline"
-      subtext="Show the underline decoration from external links." />
-
-    <ActionSelect
-      v-model="appDictionary.limit"
-      id="select-limit"
-      text="Limit"
-      subtext="Select the limit of the query.">
-      <option :value="10">Default</option>
-      <option :value="25">Many</option>
-    </ActionSelect>
   </fieldset>
 </template>
 

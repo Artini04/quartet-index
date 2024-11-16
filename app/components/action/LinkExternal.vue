@@ -5,10 +5,7 @@ interface LinkExternalProps {
 }
 
 const { text = "[external link]" } = defineProps<LinkExternalProps>()
-const { appOptions } = useOptions()
-const textDecor = computed(() =>
-  appOptions.value.wordLinkDecor ? "underline" : "none"
-)
+const { otherLinkTextDecor } = useOptions()
 </script>
 
 <template>
@@ -30,6 +27,6 @@ $link-gap: 0.1em;
 
 .action-link-external {
   @include ut.with-icon($reversed: true, $space: $link-gap, $bottom: -0.16em);
-  text-decoration: v-bind(textDecor);
+  text-decoration: v-bind(otherLinkTextDecor);
 }
 </style>

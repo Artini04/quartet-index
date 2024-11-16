@@ -4,7 +4,7 @@ import { convertToFull } from "~/utils/convert"
 
 const p = defineProps<{ item: Word }>()
 const hasKanaKanji = !!p.item.data.ja_kana_kanji
-const { appOptions } = useOptions()
+const { appOptions, wordJpTextSize, wordEnTextSize } = useOptions()
 </script>
 
 <template>
@@ -120,6 +120,8 @@ $kana-kanji-color: light-dark(red, rt.$orange-00);
     // JAPANESE
     &__ja {
       color: $hiragana-color;
+      font-size: v-bind(wordJpTextSize);
+
       & > :first-child {
         color: $kana-kanji-color;
       }
@@ -127,6 +129,8 @@ $kana-kanji-color: light-dark(red, rt.$orange-00);
 
     // ENGLISH
     &__en {
+      font-size: v-bind(wordEnTextSize);
+
       & > span {
         @include ut.space(margin-top, 0.4em);
         display: block;
