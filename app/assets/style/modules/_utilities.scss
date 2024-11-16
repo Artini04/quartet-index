@@ -1,9 +1,28 @@
 @use "./root" as rt;
 @use "sass:string";
 
+@mixin flex($dir, $wrap, $gap) {
+  display: flex;
+  flex-flow: #{$dir} #{$wrap};
+  gap: #{$gap};
+}
+
 @mixin with-border() {
   border: rt.$border-thick solid transparent;
   border-radius: rt.$border-radius;
+}
+
+@mixin with-icon($space: 0.4em, $reversed: false, $bottom: -0.13em) {
+  .iconify {
+    display: inline-block;
+    margin-bottom: #{$bottom};
+
+    @if ($reversed) {
+      margin-left: #{$space};
+    } @else {
+      margin-right: #{$space};
+    }
+  }
 }
 
 @mixin animation($properties) {

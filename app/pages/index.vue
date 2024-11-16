@@ -2,10 +2,6 @@
 import { useLookup } from "~/composables/useDictionary"
 
 const { result } = useLookup()
-
-useHead({
-  title: "日本語カルテット単語索引"
-})
 </script>
 
 <template>

@@ -24,8 +24,8 @@ const { search, result } = useLookup()
 @use "~/assets/style/modules/utilities" as ut;
 
 // PROPERTIES
-$com-gap: 0.4em;
-$com-pad: 0.4em 0.6em;
+$com-gap: 0.6em;
+$com-pad: 0.2em 0.8em;
 $inp-pad: 0.4em;
 
 // COLOR

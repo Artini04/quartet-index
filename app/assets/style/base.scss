@@ -12,9 +12,21 @@ body {
   line-height: 1.6;
 }
 
-body {
+main,
+header,
+footer {
   $body-pad: 1em;
 
-  width: min(800px, calc(100dvw - calc($body-pad * 2)));
+  margin-block: $body-pad;
+  width: min(600px, calc(100dvw - calc($body-pad * 2)));
   margin-inline: auto;
+}
+
+span.span--blue {
+  color: rt.$blue-00;
+}
+
+.subtext {
+  font-size: rt.$font-small;
+  color: light-dark(black, rgba(white, 0.6));
 }

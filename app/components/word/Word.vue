@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import type { Word } from "~/composables/type"
+import { useOptions } from "~/composables/useOptions"
 import { convertToFull } from "~/utils/convert"
 
 const p = defineProps<{ item: Word }>()
 const hasKanaKanji = !!p.item.data.ja_kana_kanji
+const { appOptions } = useOptions()
 </script>
 
 <template>
@@ -40,7 +42,7 @@ const hasKanaKanji = !!p.item.data.ja_kana_kanji
         </span>
       </div>
     </div>
-    <div class="word_dict">
+    <div class="word_dict" v-if="appOptions.wordShowDict">
       <WordDict
         :src="`https://jpdb.io/search?q=${
           item.data.ja_kana_kanji ?? item.data.ja_hiragana
