@@ -1,9 +1,12 @@
 <template>
-  <nav>
-    <NuxtLink to="/" class="nav-link">Home</NuxtLink>
-    <NuxtLink to="/info" class="nav-link">Info / Preferences</NuxtLink>
-    <NuxtLink to="/test" class="nav-link">Testing Page</NuxtLink>
-  </nav>
+  <header>
+    <nav>
+      <NuxtLink to="/" class="nav-link">Home</NuxtLink>
+      <NuxtLink to="/options" class="nav-link">Options</NuxtLink>
+      <NuxtLink to="/info" class="nav-link">Info / Preferences</NuxtLink>
+      <NuxtLink to="/test" class="nav-link">Testing Page</NuxtLink>
+    </nav>
+  </header>
 </template>
 
 <style lang="scss">

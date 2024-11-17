@@ -12,13 +12,13 @@
   "dependencies": {
     "fuse.js": "^7.0.0",
     "nuxt": "^3.14.159",
-    "sass": "^1.80.7",
+    "sass": "^1.81.0",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@iconify-json/tabler": "^1.2.7",
-    "@nuxt/icon": "^1.7.2",
+    "@iconify-json/tabler": "^1.2.8",
+    "@nuxt/icon": "^1.7.5",
     "@pinia/nuxt": "^0.7.0",
     "@vueuse/nuxt": "^11.2.0"
   }

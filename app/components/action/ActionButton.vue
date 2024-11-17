@@ -25,7 +25,8 @@ defineProps<Partial<ButtonProps>>()
       isWarning: opt?.isWarning,
       isAccent: opt?.isAccent
     }"
-    type="button">
+    type="button"
+  >
     <template v-if="opt?.isReversed">
       <span v-if="text">{{ text }}</span>
       <Icon :name="icon" v-if="icon" />
@@ -58,7 +59,6 @@ $accent-focus: light-dark(red, root.$green-dark-00-h);
   padding: $padding;
   cursor: pointer;
   text-wrap: balance;
-  width: 100%;
 
   & {
     @include util.animation("background, border");

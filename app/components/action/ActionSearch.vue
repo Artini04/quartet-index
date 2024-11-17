@@ -3,7 +3,7 @@ const { search, result } = useLookup()
 </script>
 
 <template>
-  <div class="action-search" role="searchbox">
+  <div class="action-search" role="searchbox" aria-label="search">
     <Icon name="tabler:search" />
     <input
       v-model.lazy="search"
@@ -11,7 +11,8 @@ const { search, result } = useLookup()
       name="search"
       id="search"
       placeholder="探す。。。ひらがな、カタカナ、漢字"
-      autocomplete="off" />
+      autocomplete="off"
+    />
     <Icon name="tabler:list-search" />
     <span>{{ result.length }}</span>
   </div>

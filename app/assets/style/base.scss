@@ -1,9 +1,11 @@
 @import url(https://fonts.bunny.net/css?family=ibm-plex-sans-jp:200,400,600|m-plus-2:400,600,900);
 
-body {
-  background: light-dark(#fff, root.$black-00);
-  color: light-dark(#000, root.$cream-00);
-  font-family: "IBM Plex Sans JP";
+@layer general-styling {
+  body {
+    background: light-dark(#fff, root.$black-00);
+    color: light-dark(#000, root.$cream-00);
+    font-family: "IBM Plex Sans JP";
+  }
 }
 
 [jp] {
@@ -19,10 +21,6 @@ footer {
   margin-block: $body-margin;
   width: min(600px, calc(100dvw - calc($body-margin * 2)));
   margin-inline: auto;
-}
-
-main {
-  margin-block-end: 10em;
 }
 
 code {
