@@ -1,43 +1,37 @@
 <template>
   <nav>
-    <NuxtLink to="/" class="navigation">Home</NuxtLink>
-    <NuxtLink to="/info" class="navigation">Info / Preferences</NuxtLink>
+    <NuxtLink to="/" class="nav-link">Home</NuxtLink>
+    <NuxtLink to="/info" class="nav-link">Info / Preferences</NuxtLink>
+    <NuxtLink to="/test" class="nav-link">Testing Page</NuxtLink>
   </nav>
 </template>
 
 <style lang="scss">
-@use "@/assets/style/modules/root" as rt;
-@use "@/assets/style/modules/utilities" as ut;
-
 // PROPERTIES
-$nav-pad: 0.4em 0.6em;
+$nav-spacing: 0.4em;
+$nav-link-padding: 0.4em 0.6em;
 
 // COLOR
-$nav-background-color: light-dark(black, rt.$black-01);
-$nav-background-color-focus: light-dark(black, rt.$black-02);
+$primary: light-dark(red, root.$black-dark-00);
+$primary-focus: light-dark(red, root.$black-dark-00-m);
+$border: light-dark(red, root.$black-dark-00-m);
+$border-focus: light-dark(red, root.$black-dark-00-h);
 
 nav {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 0.5em;
+  @include util.flex(row, nowrap, $nav-spacing);
 }
 
-.navigation {
-  @include ut.with-border();
-  @include ut.animation("background");
-
-  padding: $nav-pad;
-  display: inline-block;
+.nav-link {
+  padding: $nav-link-padding;
   text-decoration: none;
-  background: $nav-background-color;
-  color: inherit;
 
-  &:is(:hover, :focus) {
-    background: $nav-background-color-focus;
-  }
+  @include util.animation("background, border");
+  @include util.with-hover(background, $primary, $primary-focus);
+  @include util.with-border($border);
+  @include util.with-hover(border-color, $border, $border-focus);
 
   &.router-link-active {
-    background: $nav-background-color-focus;
+    background: $primary-focus;
   }
 }
 </style>

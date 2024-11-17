@@ -3,7 +3,7 @@ const { search, result } = useLookup()
 </script>
 
 <template>
-  <div class="action_search" role="searchbox">
+  <div class="action-search" role="searchbox">
     <Icon name="tabler:search" />
     <input
       v-model.lazy="search"
@@ -18,36 +18,42 @@ const { search, result } = useLookup()
 </template>
 
 <style lang="scss">
-@use "~/assets/style/modules/root" as rt;
-@use "~/assets/style/modules/utilities" as ut;
-
 // PROPERTIES
-$search-item-spacing: 0.6em;
-$search-item-padding: 0.2em 0.8em;
-$search-input-padding: 0.4em;
+$spacing: 0.6em;
+$padding: 0.4em 0.6em;
+$input-padding: 0.4em 0;
 
-.action_search {
-  @include ut.flex(row, nowrap, $search-item-spacing);
-  @include ut.with-border();
-  @include ut.animation("border outline");
-  align-items: center;
+// COLORS
+$primary: light-dark(red, root.$black-dark-00);
+$primary-focus: light-dark(red, root.$black-dark-00-h);
+$border: light-dark(red, root.$black-dark-00-m);
+$border-focus: light-dark(red, root.$green-light-00);
+$outline: light-dark(red, root.$green-light-00);
+$outline-focus: light-dark(red, root.$green-light-00);
 
-  padding: $search-item-padding;
-  background: rt.$comp-background-color;
-  border-color: rt.$comp-border-color;
+.action-search {
+  padding: $padding;
+
   outline: 0;
-
   &:focus-within {
-    outline: 2px solid rt.$comp-border-color-focus;
-    border-color: rt.$comp-border-color-focus;
+    outline: 2px solid;
+  }
+
+  & {
+    @include util.flex(row, nowrap, $spacing);
+    @include util.flex-align(center);
+    @include util.animation("border, outline");
+    @include util.with-border();
+    @include util.with-focus(border-color, $border, $border-focus);
+    @include util.with-focus(outline-color, $outline, $outline-focus);
   }
 
   & input {
-    padding: $search-input-padding;
     flex: 999 1;
+    padding: $input-padding;
 
     &::placeholder {
-      font-weight: 400;
+      font-weight: 200;
     }
   }
 }

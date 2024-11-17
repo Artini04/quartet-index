@@ -1,10 +1,27 @@
-@use "./root" as rt;
+@use "./root" as root;
 @use "sass:string";
 
 @mixin flex($dir, $wrap, $gap) {
-  display: flex;
-  flex-flow: #{$dir} #{$wrap};
-  gap: #{$gap};
+  & {
+    display: flex;
+    flex-flow: #{$dir} #{$wrap};
+    gap: #{$gap};
+  }
+}
+
+@mixin inline-flex($dir, $wrap, $gap) {
+  & {
+    display: inline-flex;
+    flex-flow: #{$dir} #{$wrap};
+    gap: #{$gap};
+  }
+}
+
+@mixin flex-align($align: auto, $justify: auto) {
+  & {
+    align-items: #{$align};
+    justify-content: #{$justify};
+  }
 }
 
 @mixin space($property, $gap) {
@@ -13,25 +30,48 @@
   }
 }
 
-@mixin with-border() {
-  border: rt.$border-thick solid transparent;
-  border-radius: rt.$border-radius;
+@mixin with-border($color: transparent) {
+  & {
+    border: root.$border-thick solid #{$color};
+    border-radius: root.$border-radius;
+  }
 }
 
-@mixin with-icon($space: 0.4em, $reversed: false, $bottom: -0.13em) {
-  .iconify {
+@mixin with-icon($space: 0.4em, $bottom: -0.13em) {
+  & .iconify {
     display: inline-block;
     margin-bottom: #{$bottom};
+  }
 
-    @if ($reversed) {
-      margin-left: #{$space};
-    } @else {
-      margin-right: #{$space};
+  & > * + * {
+    margin-left: #{$space};
+  }
+}
+
+@mixin with-focus($property, $normal, $focus) {
+  & {
+    #{$property}: #{$normal};
+
+    &:focus-within {
+      #{$property}: #{$focus};
+    }
+  }
+}
+
+@mixin with-hover($property, $normal, $focus) {
+  & {
+    #{$property}: #{$normal};
+
+    &:hover {
+      #{$property}: #{$focus};
     }
   }
 }
 
 @mixin animation($properties) {
-  transition-property: string.unquote($properties);
-  transition: ease rt.$animation-speed;
+  & {
+    transition-timing-function: ease;
+    transition-duration: root.$animation-speed;
+    transition-property: string.unquote($properties);
+  }
 }

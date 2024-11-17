@@ -1,9 +1,8 @@
-@use "./modules/root" as rt;
 @import url(https://fonts.bunny.net/css?family=ibm-plex-sans-jp:200,400,600|m-plus-2:400,600,900);
 
 body {
-  background: light-dark(#fff, rt.$black-00);
-  color: light-dark(#000, rt.$cream-00);
+  background: light-dark(#fff, root.$black-00);
+  color: light-dark(#000, root.$cream-00);
   font-family: "IBM Plex Sans JP";
 }
 
@@ -15,18 +14,27 @@ body {
 main,
 header,
 footer {
-  $body-pad: 1em;
+  $body-margin: 1em;
 
-  margin-block: $body-pad;
-  width: min(600px, calc(100dvw - calc($body-pad * 2)));
+  margin-block: $body-margin;
+  width: min(600px, calc(100dvw - calc($body-margin * 2)));
   margin-inline: auto;
 }
 
+main {
+  margin-block-end: 10em;
+}
+
+code {
+  padding: 0.2em 0.6em;
+  @include util.with-border(root.$black-dark-00-m);
+}
+
 span.span--blue {
-  color: rt.$blue-00;
+  color: root.$blue-00;
 }
 
 .subtext {
-  font-size: rt.$font-small;
+  font-size: root.$font-small;
   color: light-dark(black, rgba(white, 0.6));
 }

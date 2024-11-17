@@ -8,6 +8,7 @@ $green-00: #5c5f4f;
 $green-01: #b7c287;
 $cream-00: #ecded3;
 $red-00: #ff8e8e;
+$red-01: #da4e4e;
 $blue-00: #6fbeff;
 $yellow-00: #ffdb3b;
 $orange-00: #ff6638;
@@ -23,6 +24,30 @@ $space-small: 0.8em;
 $font-small: 0.8em;
 
 $comp-background-color: light-dark(black, $black-01);
+$comp-background-color-focus: light-dark(black, $black-02);
 $comp-border-color: light-dark(black, $black-03);
 $comp-border-color-muted: light-dark(black, $black-02);
 $comp-border-color-focus: light-dark(black, $green-01);
+
+// PRIMARY COLOR VARIABLES
+$black-dark-00: #303030;
+$black-dark-00-mm: #303030;
+$black-dark-00-m: #474747;
+$black-dark-00-h: #686868;
+
+$red-dark-00: #3d2727;
+$red-dark-00-h: #884040;
+$red-dark-font-00: #ff8e8e;
+
+$orange-dark-font-00: #ff6638;
+
+$yellow-dark-00: #353623;
+$yellow-dark-00-h: #646d30;
+$yellow-dark-font-00: #ffdb3b;
+
+$green-dark-00: #23302a;
+$green-dark-00-h: #407249;
+$green-light-00: #b7c287;
+$green-light-00-h: #e4ff6e;
+
+$blue-dark-font-00: #6fbeff;

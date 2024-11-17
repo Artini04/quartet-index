@@ -10,16 +10,27 @@ const checkboxModel = defineModel({ type: Boolean })
 </script>
 
 <template>
-  <ActionBase>
-    <template #label>
-      <label :for="id">
-        <span>{{ text }}</span>
-        <span class="subtext" v-if="subtext">{{ subtext }}</span>
-      </label>
-    </template>
-
-    <template #element>
-      <input :id :name="id" type="checkbox" v-model="checkboxModel" />
-    </template>
-  </ActionBase>
+  <div class="action-checkbox">
+    <input :id :name="id" type="checkbox" v-model="checkboxModel" />
+    <label :for="id">
+      <span>{{ text }}</span>
+      <span class="subtext" v-if="subtext">{{ subtext }}</span>
+    </label>
+  </div>
 </template>
+
+<style lang="scss">
+// PROPERTIES
+$spacing: 0.6em;
+
+.action-checkbox {
+  & {
+    @include util.flex(row, nowrap, $spacing);
+    @include util.flex-align(center);
+  }
+
+  label span {
+    display: block;
+  }
+}
+</style>

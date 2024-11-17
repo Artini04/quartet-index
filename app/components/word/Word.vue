@@ -10,7 +10,7 @@ const { appOptions, wordJpTextSize, wordEnTextSize } = useOptions()
 <template>
   <div class="word">
     <div class="word_info">
-      <span class="word_info__lesson" :vol="item.info.lesson < 7 ? 1 : 2">
+      <span class="word_info__lesson" :book="item.info.lesson < 7 ? 1 : 2">
         第{{ convertToFull(item.info.lesson) }}課
       </span>
       <span class="word_info__reading">
@@ -64,81 +64,78 @@ const { appOptions, wordJpTextSize, wordEnTextSize } = useOptions()
 </template>
 
 <style lang="scss">
-@use "~/assets/style/modules/root" as rt;
-@use "~/assets/style/modules/utilities" as ut;
-
 // PROPERTIES
-$divs-pad: 0.4em 0.6em;
-$info-gap: 0.6em;
-$dict-gap: 1em;
+$divs-padding: 0.4em 0.6em;
+$info-spacing: 0.6em;
+$dict-spacing: 1em;
+$english-spacing: 0.4em;
 
 $word-text-spacing: 0.4em;
 $word-dict-spacing: 0.6em;
 
 // COLOR
-$background-color-odd: light-dark(red, rt.$black-01);
-$border-color: light-dark(red, rt.$black-03);
-$lesson-1-color: light-dark(red, rt.$red-00);
-$lesson-2-color: light-dark(red, rt.$blue-00);
-$hiragana-color: light-dark(red, rt.$yellow-00);
-$kana-kanji-color: light-dark(red, rt.$orange-00);
+$background: light-dark(red, root.$black-00);
+$background-odd: light-dark(red, root.$black-dark-00);
+$border: light-dark(red, root.$black-dark-00-m);
+$book-1: light-dark(red, root.$red-dark-font-00);
+$book-2: light-dark(red, root.$blue-dark-font-00);
+$hiragana: light-dark(red, root.$yellow-dark-font-00);
+$kana-kanji: light-dark(red, root.$orange-dark-font-00);
 
 .word {
-  @include ut.with-border();
-  border-color: $border-color;
   overflow: hidden;
+  background: $background;
+
+  @include util.with-border($border);
 
   & > div {
-    padding: $divs-pad;
+    padding: $divs-padding;
+
     &:nth-child(odd) {
-      background: $background-color-odd;
+      background: $background-odd;
     }
   }
 
   &_info {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: $info-gap;
+    @include util.flex(row, nowrap, $info-spacing);
+
     & > span {
       text-wrap: nowrap;
     }
 
     &__lesson {
       flex: 999 1;
-      &[vol="1"] {
-        color: $lesson-1-color;
+
+      &[book="1"] {
+        color: $book-1;
       }
-      &[vol="2"] {
-        color: $lesson-2-color;
+      &[book="2"] {
+        color: $book-2;
       }
     }
   }
 
   &-text {
-    @include ut.space(margin-top, $word-text-spacing);
+    @include util.space(margin-top, $word-text-spacing);
 
     // JAPANESE
     &__ja {
-      color: $hiragana-color;
       font-size: v-bind(wordJpTextSize);
+      color: $hiragana;
 
       & > :first-child {
-        color: $kana-kanji-color;
+        color: $kana-kanji;
       }
     }
 
     // ENGLISH
     &__en {
       font-size: v-bind(wordEnTextSize);
+      @include util.flex(column, nowrap, $english-spacing);
 
-      & > span {
-        @include ut.space(margin-top, 0.4em);
-        display: block;
-
-        &::before {
-          content: "英";
-          margin-right: 0.5em;
-        }
+      & > span::before {
+        content: "英";
+        margin-right: 0.5em;
       }
 
       &_verb_type {
@@ -149,7 +146,7 @@ $kana-kanji-color: light-dark(red, rt.$orange-00);
 
   // DICTIONARY
   &_dict {
-    @include ut.flex(row, wrap, $word-dict-spacing);
+    @include util.flex(row, wrap, $word-dict-spacing);
   }
 }
 </style>

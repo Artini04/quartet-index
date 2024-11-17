@@ -1,55 +1,64 @@
 <script setup lang="ts">
-interface SelectProps {
-  id: string
-  text: string
-  subtext?: string
-}
-
-defineProps<SelectProps>()
+defineProps<{ id: string; text: string; subtext?: string }>()
 const selectModel = defineModel()
 </script>
 
 <template>
-  <ActionBase>
-    <template #label>
-      <label :for="id">
-        <span>{{ text }}</span>
-        <span class="subtext" v-if="subtext">{{ subtext }}</span>
-      </label>
-    </template>
+  <div class="action-select">
+    <label :for="id">
+      <span>{{ text }}</span>
+      <span class="subtext" v-if="subtext">{{ subtext }}</span>
+    </label>
 
-    <template #element>
+    <div class="action-select__select">
+      <Icon name="tabler:menu-2" />
       <select :id :name="id" v-model="selectModel">
         <slot />
       </select>
-    </template>
-  </ActionBase>
+    </div>
+  </div>
 </template>
 
-<style scoped lang="scss">
-@use "~/assets/style/modules/root" as rt;
-@use "~/assets/style/modules/utilities" as ut;
-
+<style lang="scss">
 // PROPERTIES
-$select-padding: 0.6em;
+$spacing: 0.6em;
+$padding: 0.4em 0.6em;
 
-// COLOR
-$select-background-color: light-dark(white, rt.$black-01);
-$select-border-color: light-dark(black, rt.$black-03);
-$select-border-color-focus: light-dark(green, rt.$green-01);
+// COLORS
+$primary: light-dark(red, root.$black-dark-00);
+$border: light-dark(red, root.$black-dark-00-m);
+$border-focus: light-dark(red, root.$black-dark-00-h);
 
-select {
-  @include ut.with-border();
-  border-color: $select-border-color;
-  @include ut.animation("border");
+.action-select {
+  & {
+    @include util.flex(row, wrap, $spacing);
+  }
 
-  padding: $select-padding;
-  appearance: none;
-  background: $select-background-color;
+  &__select {
+    padding: $padding;
+    width: 100%;
 
-  &:focus-within {
-    outline: 2px solid $select-border-color-focus;
-    border-color: $select-border-color-focus;
+    &,
+    select {
+      background: $primary;
+    }
+
+    & {
+      @include util.flex(row, nowrap, $spacing);
+      @include util.flex-align(center);
+      @include util.animation("border");
+      @include util.with-border();
+      @include util.with-hover(border-color, $border, $border-focus);
+    }
+
+    select {
+      flex: 999 1;
+      appearance: none;
+    }
+  }
+
+  label span {
+    display: block;
   }
 }
 </style>

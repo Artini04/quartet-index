@@ -1,11 +1,8 @@
 <script setup lang="ts">
-interface LinkExternalProps {
+const { text = "[external link]" } = defineProps<{
   src: string
   text?: string
-}
-
-const { text = "[external link]" } = defineProps<LinkExternalProps>()
-const { otherLinkTextDecor } = useOptions()
+}>()
 </script>
 
 <template>
@@ -20,13 +17,7 @@ const { otherLinkTextDecor } = useOptions()
 </template>
 
 <style lang="scss">
-@use "@/assets/style/modules/utilities" as ut;
-
-// PROPERTIES
-$link-gap: 0.1em;
-
 .action-link-external {
-  @include ut.with-icon($reversed: true, $space: $link-gap, $bottom: -0.16em);
-  text-decoration: v-bind(otherLinkTextDecor);
+  @include util.with-icon(0.1em);
 }
 </style>

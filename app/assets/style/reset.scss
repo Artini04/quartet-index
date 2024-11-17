@@ -34,33 +34,24 @@ a:any-link {
 }
 
 input,
-button {
-  &:not([class]) {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    min-width: 20px;
-  }
-}
-
+button,
 select,
-option {
-  &:not([class]) {
-    border: 0;
-    outline: 0;
-    font-family: inherit;
-    text-align: center;
-  }
+option,
+textarea {
+  border: 0;
+  outline: 0;
+  min-width: 20px;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
 }
 
-.iconify {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
+// .iconify {
+//   display: inline-block;
+//   width: 1em;
+//   height: 1em;
 
-  &[mb] {
-    margin-bottom: -0.12em;
-  }
-}
+//   &[mb] {
+//     margin-bottom: -0.12em;
+//   }
+// }

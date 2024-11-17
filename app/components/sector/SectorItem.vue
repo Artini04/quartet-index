@@ -1,18 +1,23 @@
 <script setup lang="ts">
-interface SectorProps {
+interface SectorItemProps {
   icon?: string
-  background?: boolean
+  opt?: Partial<OtherProperties>
 }
 
-const { icon = "tabler:info-square-rounded", background = false } =
-  defineProps<SectorProps>()
+interface OtherProperties {
+  hasBackground: boolean
+}
+
+const { icon = "tabler:info-square-rounded" } = defineProps<SectorItemProps>()
 </script>
 
 <template>
-  <div class="sector-item" :background>
+  <div class="sector-item" :class="{ hasBackground: opt?.hasBackground }">
     <h2 class="sector-item__header" jp>
       <Icon :name="icon" />
-      <slot name="heading" />
+      <span>
+        <slot name="heading" />
+      </span>
     </h2>
     <div class="sector-item__list">
       <slot />
@@ -21,34 +26,34 @@ const { icon = "tabler:info-square-rounded", background = false } =
 </template>
 
 <style lang="scss">
-@use "@/assets/style/modules/root" as rt;
-@use "@/assets/style/modules/utilities" as ut;
-
 // PROPERTIES
-$sector-icon-spacing: 0.4em;
-$sector-item-spacing: 0.4em;
-$sector-spacing-bg: 0.6em 0.8em;
+$spacing: 1em;
+$list-spacing: 0.4em;
+$background-padding: 0.6em;
+
+// COLORS
+$background: light-dark(red, root.$black-dark-00);
+$background-border: light-dark(red, root.$black-dark-00-m);
 
 .sector-item {
-  &__list {
-    @include ut.space(margin-top, $sector-item-spacing);
-    margin-left: 2.2em;
-
-    &:first {
-      margin-top: 0;
-    }
-  }
+  @include util.space(margin-top, $spacing);
 
   &__header {
-    @include ut.with-icon($sector-icon-spacing);
-    font-weight: 900;
+    @include util.with-icon();
   }
 
-  &[background="true"] {
-    @include ut.with-border();
-    border-color: rt.$comp-border-color-muted;
-    background: rt.$comp-background-color;
-    padding: $sector-spacing-bg;
+  &__list {
+    margin-left: 2em;
+    @include util.flex(column, nowrap, $list-spacing);
+  }
+
+  &.hasBackground {
+    background: $background;
+    padding: $background-padding;
+
+    & {
+      @include util.with-border($background-border);
+    }
   }
 }
 </style>

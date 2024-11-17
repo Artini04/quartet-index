@@ -19,7 +19,10 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: "modern"
+          api: "modern",
+          additionalData: `@use '~/assets/style/modules/root' as root; 
+            @use '~/assets/style/modules/utilities' as util; 
+            @use '~/assets/style/modules/theme' as theme;`
         }
       }
     }
