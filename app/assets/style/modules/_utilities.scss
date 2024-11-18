@@ -30,23 +30,12 @@
   }
 }
 
-@mixin with-border($color: transparent) {
-  & {
-    border: root.$border-thick solid #{$color};
-    border-radius: root.$border-radius;
-  }
-}
-
-@mixin with-icon($space: 0.4em, $bottom: -0.13em) {
-  & .iconify {
-    display: inline-block;
-    margin-bottom: #{$bottom};
-  }
-
-  & > * + * {
-    margin-left: #{$space};
-  }
-}
+// @mixin with-border($color: transparent) {
+//   & {
+//     border: root.$border-thick solid #{$color};
+//     border-radius: root.$border-radius;
+//   }
+// }
 
 @mixin with-focus($property, $normal, $focus) {
   & {
@@ -68,10 +57,42 @@
   }
 }
 
-@mixin animation($properties) {
+@mixin animation($properties, $duration: root.$animation-speed) {
   & {
     transition-timing-function: ease;
-    transition-duration: root.$animation-speed;
+    transition-duration: #{$duration};
     transition-property: string.unquote($properties);
+  }
+}
+
+@mixin with-icon($spacing: 0.4em, $margin-end: -0.12em) {
+  .iconify {
+    display: inline-block;
+    margin-block-end: #{$margin-end};
+  }
+
+  & > * + * {
+    margin-left: #{$spacing};
+  }
+}
+
+@mixin with-border($color: transparent, $padding: 0.6em 1em) {
+  & {
+    border: 1px solid #{$color};
+    border-radius: root.$border-radius;
+  }
+
+  & {
+    padding: #{$padding};
+  }
+}
+
+@mixin on-hover($property, $normal, $focus) {
+  & {
+    #{$property}: #{$normal};
+
+    &:hover {
+      #{$property}: #{$focus};
+    }
   }
 }

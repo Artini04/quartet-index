@@ -7,18 +7,16 @@ interface SectorDetailsProps {
 
 const { icon = "tabler:info-square" } =
   defineProps<Partial<SectorDetailsProps>>()
-
-const isExpanded = ref(false)
 </script>
 
 <template>
-  <details class="sector-details" @click.self="isExpanded = !isExpanded">
+  <details class="sector-details">
     <summary>
       <Icon :name="icon" />
       <span>{{ text }}</span>
     </summary>
 
-    <div class="sector-details__auto-height" :class="{ expanded: isExpanded }">
+    <div>
       <slot />
     </div>
   </details>
@@ -37,37 +35,71 @@ const isExpanded = ref(false)
 
   border: 1px solid var(--border-color);
   border-radius: 7px;
-  overflow: hidden;
 
-  &__auto-height {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 200ms;
-
-    &.expanded {
-      grid-template-rows: 1fr;
-    }
-  }
-
-  &[open] {
-    summary {
-      border-bottom: 1px solid var(--border-color);
-    }
+  & summary,
+  & > div {
+    padding: var(--padding);
   }
 
   & summary {
-    padding: var(--padding);
     list-style: none;
 
     @include util.with-icon();
   }
 
-  & > * {
-    padding: var(--padding);
-  }
-
-  & > div {
-    @include util.space(margin-top, 0.4em);
+  &[open] {
+    & summary {
+      border-bottom: 1px solid var(--border-color);
+    }
   }
 }
+// .sector-details {
+//   --padding: 1em;
+
+//   border: 1px solid var(--border-color);
+//   border-radius: 7px;
+//   overflow: hidden;
+
+//   &__auto-height {
+//     display: grid;
+//     grid-template-rows: 0fr;
+//     overflow: hidden;
+//     transition: grid-template-rows 200ms;
+
+//     & > div {
+//       min-height: 0;
+//       visibility: hidden;
+//       transition: visibility 200ms;
+//     }
+
+//     &.expanded {
+//       grid-template-rows: 1fr;
+
+//       & > div {
+//         visibility: visible;
+//       }
+//     }
+//   }
+
+//   &[open] {
+//     summary {
+//       border-bottom: 1px solid var(--border-color);
+//     }
+//   }
+
+//   & summary {
+//     padding: var(--padding);
+//     list-style: none;
+
+//     @include util.with-icon();
+//   }
+
+//   & > * {
+//     padding: var(--padding);
+//   }
+
+//   & > div {
+//     @include util.space(margin-top, 0.4em);
+//   }
+// }
 </style>

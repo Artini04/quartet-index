@@ -13,16 +13,6 @@ $blue-00: #6fbeff;
 $yellow-00: #ffdb3b;
 $orange-00: #ff6638;
 
-$border-thick: 1px;
-$border-radius: 7px;
-
-$animation-speed: 200ms;
-
-$space: 0.5em;
-$space-small: 0.8em;
-
-$font-small: 0.8em;
-
 $comp-background-color: light-dark(black, $black-01);
 $comp-background-color-focus: light-dark(black, $black-02);
 $comp-border-color: light-dark(black, $black-03);
@@ -51,3 +41,14 @@ $green-light-00: #b7c287;
 $green-light-00-h: #e4ff6e;
 
 $blue-dark-font-00: #6fbeff;
+
+// PROPERTIES
+$border-thick: 1px;
+$border-radius: 7px;
+
+$animation-speed: 200ms;
+
+$space: 0.5em;
+$space-small: 0.8em;
+
+$font-small: 0.8em;
