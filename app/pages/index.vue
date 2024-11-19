@@ -1,27 +1,19 @@
 <script setup lang="ts">
-const { result } = useLookup()
+useHeadSafe({
+  title: "Home"
+})
 </script>
 
 <template>
   <main>
     <ActionSearch />
-
-    <div class="result_grid">
-      <Word v-for="{ item, refIndex } in result" :key="refIndex" :item />
-    </div>
+    <OptionPreferences />
+    <ActionResults />
   </main>
 </template>
 
 <style lang="scss">
 main {
-  & > * + * {
-    margin-top: 1em;
-  }
-}
-
-.result_grid {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1em;
+  @include util.space(margin-top, 1em);
 }
 </style>

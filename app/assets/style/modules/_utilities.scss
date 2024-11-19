@@ -30,13 +30,6 @@
   }
 }
 
-// @mixin with-border($color: transparent) {
-//   & {
-//     border: root.$border-thick solid #{$color};
-//     border-radius: root.$border-radius;
-//   }
-// }
-
 @mixin with-focus($property, $normal, $focus) {
   & {
     #{$property}: #{$normal};
@@ -64,6 +57,11 @@
     transition-property: string.unquote($properties);
   }
 }
+
+// =======================================================
+// =======================================================
+// =======================================================
+// =======================================================
 
 @mixin with-icon($spacing: 0.4em, $margin-end: -0.12em) {
   .iconify {

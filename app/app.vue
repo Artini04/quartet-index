@@ -8,7 +8,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout name="sidebar">
     <NuxtPage />
   </NuxtLayout>
 </template>
