@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const title = "Home"
+const title = "IDX"
 const description = "Japanese Quartet Vocabulary Index"
 
 useSeoMeta({
   titleTemplate: (titleChunk) => {
     return titleChunk
-      ? `${titleChunk} // カルテット単語索引`
+      ? `${titleChunk} // 日本語カルテット単語索引`
       : "カルテット単語索引"
   },
   title,
@@ -14,7 +14,6 @@ useSeoMeta({
   ogDescription: description,
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: "[twitter:image]",
   twitterCard: "summary"
 })
 
@@ -37,3 +36,18 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
+
+<style lang="scss">
+body:has(.page-enter-active, .page-leave-active) {
+  overflow-x: hidden;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 200ms;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+</style>

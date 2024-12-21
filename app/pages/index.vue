@@ -7,6 +7,16 @@ useHead({
 </script>
 
 <template>
-  <ActionSearch v-model="search" :result-count="result.length" />
-  <WordResult />
+  <div class="lookup-view">
+    <ActionSearch v-model="search" :result-count="result.length" />
+    <WordResult />
+  </div>
 </template>
+
+<style lang="scss">
+.lookup-view {
+  & > * + * {
+    margin-top: 1em;
+  }
+}
+</style>

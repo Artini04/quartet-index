@@ -5,7 +5,7 @@ useHead({
 </script>
 
 <template>
-  <div class="about-grid">
+  <div class="about-view">
     <SectionItem icon="tabler:notebook">
       <template #heading>日本語カルテット単語索引</template>
       <p class="first-indent">
@@ -34,7 +34,7 @@ useHead({
 <style lang="scss">
 $about-margin: 1em;
 
-.about-grid {
+.about-view {
   & > * + * {
     margin-top: 1em;
   }

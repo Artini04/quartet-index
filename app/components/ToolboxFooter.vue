@@ -1,11 +1,19 @@
 <script lang="ts" setup>
+// const date = await getLatestUpdateDate()
 const date = await getLatestUpdateDate()
 
 async function getLatestUpdateDate() {
-  const res = await $fetch(
-    "https://api.github.com/repos/Artini04/quartet-index/commits?page=1&per_page=1"
+  const { data, error } = await useAsyncData("item", () =>
+    $fetch(
+      "https://api.github.com/repos/Artini04/quartet-index/commits?page=1&per_page=1"
+    )
   )
-  const updateDate = new Date(res[0]["commit"]["author"]["date"])
+
+  if (unref(error)) {
+    return "RATE LIMITED"
+  }
+
+  const updateDate = new Date(unref(data as any)[0]["commit"]["author"]["date"])
   const year = updateDate.getFullYear()
   const month = updateDate.getMonth() + 1
   const day = updateDate.getDate()

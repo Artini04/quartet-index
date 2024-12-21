@@ -28,7 +28,7 @@ $base-padding: 0.6em;
   display: inline-block;
   padding: $base-padding;
   cursor: text;
-  border: 1px solid hsl(0, 0%, 30%);
+  border: 1px solid hsl(230, 8%, 25%);
   border-radius: 7px;
   transition: ease-in-out 200ms;
   transition-property: outline;

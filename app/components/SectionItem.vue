@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 interface Props {
   icon?: string
+  background?: boolean
 }
 
-const { icon = "tabler:info-square" } = defineProps<Props>()
+const { icon = "tabler:info-square", background = false } = defineProps<Props>()
 </script>
 
 <template>
-  <section class="section-item">
+  <section class="section-item" :class="{ 'use-background': background }">
     <h2 class="header">
       <Icon :name="icon" />
       <span><slot name="heading" /></span>
@@ -28,6 +29,16 @@ const { icon = "tabler:info-square" } = defineProps<Props>()
 
   & .content {
     margin-left: 2em;
+    & > * + * {
+      margin-top: 0.6em;
+    }
   }
+}
+
+.section-item.use-background {
+  padding: 1em;
+  background: hsl(225, 5%, 15%);
+  border: 1px solid hsl(230, 8%, 25%);
+  border-radius: 7px;
 }
 </style>

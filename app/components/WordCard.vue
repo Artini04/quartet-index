@@ -4,6 +4,14 @@ import { convertToFull } from "~/utils/convert"
 
 const { data } = defineProps<Word>()
 const hasKanaKanji = !!data.ja_kana_kanji
+const { appOptions } = useApplication()
+const { enlargeEnglishText, enlargeJapaneseText } = appOptions.value
+const jpTextSize = enlargeJapaneseText.active
+  ? `${enlargeJapaneseText.largeSize}em`
+  : "1em"
+const enTextSize = enlargeEnglishText.active
+  ? `${enlargeEnglishText.largeSize}em`
+  : "1em"
 </script>
 
 <template>
@@ -37,7 +45,7 @@ const hasKanaKanji = !!data.ja_kana_kanji
     </div>
 
     <!-- LINKS -->
-    <div class="link-wrapper">
+    <div class="link-wrapper" v-if="appOptions.showDictionary">
       <ActionLinkExternal
         text="Weblio英和辞典"
         :src="`https://ejje.weblio.jp/content/${
@@ -67,13 +75,13 @@ $link-spacing: 0 1em;
 .word-card {
   position: relative;
   isolation: isolate;
-  border: 1px solid hsl(0, 0%, 30%);
+  border: 1px solid hsl(230, 8%, 25%);
   border-radius: 7px;
   overflow: hidden;
   @include util.use-flex(column, nowrap, $wrapper-spacing);
 
   & > :nth-child(odd) {
-    background: hsl(0, 0%, 14%);
+    background: hsl(225, 5%, 15%);
   }
 
   & .info-wrapper,
@@ -102,8 +110,13 @@ $link-spacing: 0 1em;
 
   // CONTENT
   & .content-wrapper {
-    & .japanese-wrapper {
+    & .japanese-wrapper,
+    & .meaning-wrapper {
       @include util.use-flex(row, wrap, $content-spacing);
+    }
+
+    & .japanese-wrapper {
+      font-size: v-bind(jpTextSize);
 
       & .kana-kanji {
         color: hsl(14, 100%, 61%);
@@ -115,7 +128,7 @@ $link-spacing: 0 1em;
     }
 
     & .meaning-wrapper {
-      @include util.use-flex(row, wrap, $content-spacing);
+      font-size: v-bind(enTextSize);
 
       &::before {
         content: "英";

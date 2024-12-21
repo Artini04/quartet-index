@@ -79,12 +79,13 @@ video {
   max-width: 100%;
 }
 
-input,
+input:not([type="checkbox"], [type="range"]),
 button,
 textarea,
 select {
   font-family: inherit;
   font-size: inherit;
+  width: fit-content;
 
   // Remove default appearance if element has class
   // or if a child of an element with a class
