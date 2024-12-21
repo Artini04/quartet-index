@@ -1,25 +1,39 @@
 <script setup lang="ts">
+const title = "Home"
+const description = "Japanese Quartet Vocabulary Index"
+
 useSeoMeta({
-  title: "日本語カルテット単語索引",
-  ogTitle: "日本語カルテット単語索引",
-  description: "Japanese Quartet Vocabulary Index made with Vue3",
-  ogDescription: "Japanese Quartet Vocabulary Index made with Vue3"
+  titleTemplate: (titleChunk) => {
+    return titleChunk
+      ? `${titleChunk} // カルテット単語索引`
+      : "カルテット単語索引"
+  },
+  title,
+  ogTitle: title,
+  description,
+  ogDescription: description,
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: "[twitter:image]",
+  twitterCard: "summary"
+})
+
+useHead({
+  htmlAttrs: {
+    lang: "en"
+  },
+  link: [
+    {
+      rel: "icon",
+      type: "image/ico",
+      href: "/favicon.ico"
+    }
+  ]
 })
 </script>
 
 <template>
-  <NuxtLayout name="sidebar">
+  <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-<style lang="scss">
-.page-enter-active,
-.page-leave-active {
-  transition: all 100ms;
-}
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-}
-</style>

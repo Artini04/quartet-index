@@ -1,0 +1,26 @@
+@use "sass:string";
+
+@mixin use-flex($direction: row, $wrap: wrap, $gap: 0) {
+  & {
+    display: flex;
+    flex-flow: $direction $wrap;
+    gap: $gap;
+  }
+}
+
+@mixin use-align($inline: flex-start, $block: flex-start) {
+  & {
+    align-items: $inline;
+    justify-content: $block;
+  }
+}
+
+@mixin with-icon($space: 0.4em, $bottom: -0.15em) {
+  & .iconify {
+    margin-bottom: $bottom;
+  }
+
+  & > * + * {
+    margin-left: $space;
+  }
+}

@@ -1,0 +1,102 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  color-scheme: dark;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  min-height: 100dvh;
+  line-height: 1.5;
+}
+
+body,
+header,
+footer,
+main {
+  container-type: inline-size;
+}
+
+a:any-link {
+  color: inherit;
+
+  &[class] {
+    text-decoration: none;
+  }
+
+  &:not([class]),
+  &.external {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+}
+
+ul,
+ol {
+  &[role="list"] {
+    list-style: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p,
+figcaption {
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+img,
+picture,
+video {
+  font-style: italic;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+
+  // Remove default appearance if element has class
+  // or if a child of an element with a class
+  &[class],
+  [class] & {
+    background: transparent;
+    appearance: none;
+    outline: none;
+    border: none;
+  }
+}
+
+.iconify {
+  min-width: 1em;
+}

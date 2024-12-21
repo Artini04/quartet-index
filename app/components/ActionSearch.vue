@@ -1,61 +1,47 @@
 <script setup lang="ts">
-const { search, result } = useLookup()
+interface Props {
+  resultCount: number
+}
+
+defineProps<Props>()
+const inputModel = defineModel({ type: String })
 </script>
 
 <template>
-  <div class="action-search" role="searchbox" aria-label="search">
+  <label class="action-search" for="action-search">
     <Icon name="tabler:search" />
     <input
-      v-model.lazy="search"
+      v-model.lazy="inputModel"
       type="search"
-      name="search"
-      id="search"
-      placeholder="探す。。。ひらがな、カタカナ、漢字"
-      autocomplete="off"
-    />
-    <Icon name="tabler:list-search" />
-    <span>{{ result.length }}</span>
-  </div>
+      id="action-search"
+      placeholder="ひらがな, カタカナ, 漢字, 英語を探す..."
+      autocomplete="off" />
+    <Icon name="tabler:filter" />
+    <span>{{ resultCount }}</span>
+  </label>
 </template>
 
 <style lang="scss">
-// PROPERTIES
-$spacing: 0.6em;
-$padding: 0.4em 0.6em;
-$input-padding: 0.4em 0;
-
-// COLORS
-$primary: light-dark(red, root.$black-dark-00);
-$primary-focus: light-dark(red, root.$black-dark-00-h);
-$border: light-dark(red, root.$black-dark-00-m);
-$border-focus: light-dark(red, root.$green-light-00);
-$outline: light-dark(red, root.$green-light-00);
-$outline-focus: light-dark(red, root.$green-light-00);
+$base-padding: 0.6em;
 
 .action-search {
-  padding: $padding;
+  display: inline-block;
+  padding: $base-padding;
+  cursor: text;
+  border: 1px solid hsl(0, 0%, 30%);
+  border-radius: 7px;
+  transition: ease-in-out 200ms;
+  transition-property: outline;
+  @include util.use-flex(row, nowrap, 0.6em);
+  @include util.use-align(center, center);
 
-  outline: 0;
-  &:focus-within {
-    outline: 2px solid;
-  }
-
-  & {
-    @include util.flex(row, nowrap, $spacing);
-    @include util.flex-align(center);
-    @include util.animation("border, outline");
-    @include util.with-border();
-    @include util.with-focus(border-color, $border, $border-focus);
-    @include util.with-focus(outline-color, $outline, $outline-focus);
+  &:is(:active, :focus-visible, :focus-within) {
+    outline: 2px solid white;
   }
 
   & input {
-    flex: 999 1;
-    padding: $input-padding;
-
-    &::placeholder {
-      font-weight: 200;
-    }
+    min-width: 0;
+    flex: 99 1;
   }
 }
 </style>

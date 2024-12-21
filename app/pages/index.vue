@@ -1,19 +1,12 @@
 <script setup lang="ts">
-useHeadSafe({
-  title: "Home"
+const { search, result } = useLookup()
+
+useHead({
+  title: "Lookup"
 })
 </script>
 
 <template>
-  <main>
-    <ActionSearch />
-    <OptionPreferences />
-    <ActionResults />
-  </main>
+  <ActionSearch v-model="search" :result-count="result.length" />
+  <WordResult />
 </template>
-
-<style lang="scss">
-main {
-  @include util.space(margin-top, 1em);
-}
-</style>

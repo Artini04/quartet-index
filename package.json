@@ -11,15 +11,18 @@
   },
   "dependencies": {
     "fuse.js": "^7.0.0",
-    "nuxt": "^3.14.159",
-    "sass": "^1.81.0",
+    "nuxt": "^3.14.1592",
+    "sass": "^1.83.0",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@iconify-json/tabler": "^1.2.8",
-    "@nuxt/icon": "^1.7.5",
-    "@pinia/nuxt": "^0.7.0",
-    "@vueuse/nuxt": "^11.2.0"
+    "@formkit/auto-animate": "^0.8.2",
+    "@iconify-json/tabler": "^1.2.13",
+    "@nuxt/fonts": "^0.10.3",
+    "@nuxt/icon": "^1.10.3",
+    "@nuxtjs/fontaine": "^0.4.4",
+    "@pinia/nuxt": "^0.9.0",
+    "@vueuse/nuxt": "^12.0.0"
   }
 }

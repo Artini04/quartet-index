@@ -1,139 +1,137 @@
-<script setup lang="ts">
-import { type Word } from "~/utils/types/"
+<script lang="ts" setup>
+import type { Word } from "~/utils/types"
 import { convertToFull } from "~/utils/convert"
 
-interface WordCardProps {
-  item: Word
-  score?: number
-}
-
-const { item } = defineProps<WordCardProps>()
-const hasKanaKanji = !!item.data.ja_kana_kanji
-const { appOptions, wordJpTextSize, wordEnTextSize } = useOptions()
+const { data } = defineProps<Word>()
+const hasKanaKanji = !!data.ja_kana_kanji
 </script>
 
 <template>
-  <div class="word">
-    <div class="word__info">
-      <span class="lesson" :book="item.info.lesson < 7 ? 1 : 2">
-        第{{ convertToFull(item.info.lesson) }}課
+  <div class="word-card">
+    <!-- INFO -->
+    <div class="info-wrapper">
+      <span class="lesson" :book="info.lesson < 7 ? 1 : 2">
+        第{{ convertToFull(info.lesson) }}課
       </span>
-      <span>読み{{ convertToFull(item.info.reading) }}</span>
-      <span>{{ item.info.letter_location }}</span>
-      <span>{{ item.info.kanji }}</span>
+      <span class="reading">読み{{ convertToFull(info.reading) }}</span>
+      <span class="location">{{ info.letter_location }}</span>
+      <span class="kanji">{{ info.kanji }}</span>
     </div>
 
-    <div class="word__text">
-      <div class="word__text--ja" jp>
-        <span>
-          {{ hasKanaKanji ? item.data.ja_kana_kanji : item.data.ja_hiragana }}
-        </span>
-        <span>
-          {{ item.data.ja_particle }}
-          <span v-if="hasKanaKanji">{{ item.data.ja_hiragana }}</span>
-          {{ item.data.ja_suru }}
-        </span>
+    <!-- CONTENT -->
+    <div class="content-wrapper">
+      <div class="japanese-wrapper" jp>
+        <p class="kana-kanji">
+          {{ hasKanaKanji ? data.ja_kana_kanji : data.ja_hiragana }}
+        </p>
+        <p class="hiragana">
+          {{ data.ja_particle }}
+          <span v-if="hasKanaKanji">{{ data.ja_hiragana }}</span>
+          {{ data.ja_suru }}
+        </p>
       </div>
-      <div class="word__text--en">
-        <span>{{ item.data.en_meaning.join("; ") }}</span>
-        <span class="italic">{{ item.data.en_verb_type }}</span>
+      <div class="meaning-wrapper">
+        <p>{{ data.en_meaning.join("; ") }}</p>
+        <p>{{ data.en_verb_type }}</p>
       </div>
     </div>
 
-    <div class="word__dict subtext" v-if="appOptions.wordShowDicts">
+    <!-- LINKS -->
+    <div class="link-wrapper">
       <ActionLinkExternal
-        :src="`https://ejje.weblio.jp/content/${
-          item.data.ja_kana_kanji ?? item.data.ja_hiragana
-        }`"
         text="Weblio英和辞典"
-      />
+        :src="`https://ejje.weblio.jp/content/${
+          data.ja_kana_kanji ?? data.ja_hiragana
+        }`" />
       <ActionLinkExternal
-        :src="`https://jpdb.io/search?q=${
-          item.data.ja_kana_kanji ?? item.data.ja_hiragana
-        }#a`"
         text="jpdb.io"
-      />
+        :src="`https://jpdb.io/search?q=${
+          data.ja_kana_kanji ?? data.ja_hiragana
+        }#a`" />
       <ActionLinkExternal
-        :src="`https://jisho.org/search/${
-          item.data.ja_kana_kanji ?? item.data.ja_hiragana
-        }`"
         text="jisho.org"
-      />
+        :src="`https://jisho.org/search/${
+          data.ja_kana_kanji ?? data.ja_hiragana
+        }`" />
     </div>
   </div>
 </template>
 
 <style lang="scss">
-$spacing__info: 1em;
-$spacing__dict: 0.4em 1em;
-$padding__word: 0.4em;
+$wrapper-padding: 0.6em;
+$wrapper-spacing: 0;
+$info-spacing: 0 0.6em;
+$content-spacing: 0 0.6em;
+$link-spacing: 0 1em;
 
-$color__background: light-dark(red, root.$black-00);
-$color__background-odd: light-dark(red, root.$black-dark-00);
-$color__border: light-dark(red, root.$black-dark-00-m);
-$color__book-1: light-dark(red, root.$red-dark-font-00);
-$color__book-2: light-dark(red, root.$blue-dark-font-00);
-$hiragana: light-dark(red, root.$yellow-dark-font-00);
-$kana-kanji: light-dark(red, root.$orange-dark-font-00);
-
-.word {
+.word-card {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid hsl(0, 0%, 30%);
+  border-radius: 7px;
   overflow: hidden;
-  background-color: $color__background;
-  @include util.with-border($color__border, none);
+  @include util.use-flex(column, nowrap, $wrapper-spacing);
 
-  & > div {
-    padding: $padding__word;
+  & > :nth-child(odd) {
+    background: hsl(0, 0%, 14%);
   }
 
-  & > div:nth-child(odd) {
-    background-color: $color__background-odd;
+  & .info-wrapper,
+  & .content-wrapper,
+  & .link-wrapper {
+    flex: 1 1;
+    padding: $wrapper-padding;
   }
 
-  &__info {
-    @include util.flex(row, nowrap, $spacing__info);
-    @include util.flex-align(center);
-
-    & span {
-      text-wrap: nowrap;
-    }
+  // INFO
+  & .info-wrapper {
+    @include util.use-flex(row, nowrap, $info-spacing);
 
     & .lesson {
-      flex: 999 1;
+      flex: 99 1;
+
       &[book="1"] {
-        color: $color__book-1;
+        color: hsl(0, 100%, 70%);
       }
+
       &[book="2"] {
-        color: $color__book-2;
+        color: hsl(200, 100%, 70%);
       }
     }
   }
 
-  &__text {
-    &--ja {
-      font-size: v-bind(wordJpTextSize);
+  // CONTENT
+  & .content-wrapper {
+    & .japanese-wrapper {
+      @include util.use-flex(row, wrap, $content-spacing);
 
-      & :first-child {
-        color: $kana-kanji;
+      & .kana-kanji {
+        color: hsl(14, 100%, 61%);
       }
 
-      & :last-child {
-        color: $hiragana;
+      & .hiragana {
+        color: hsl(49, 100%, 62%);
       }
     }
 
-    &--en {
-      font-size: v-bind(wordEnTextSize);
+    & .meaning-wrapper {
+      @include util.use-flex(row, wrap, $content-spacing);
 
-      & :first-child::before {
+      &::before {
         content: "英";
-        margin-right: 0.5em;
       }
     }
   }
 
-  &__dict {
-    @include util.flex(row, wrap, $spacing__dict);
-    @include util.flex-align(center);
+  // LINKS
+  & .link-wrapper {
+    font-size: 0.85em;
+    color: hsl(0, 0%, 75%);
+    @include util.use-flex(row, wrap, $link-spacing);
+
+    & a {
+      text-decoration: none;
+    }
   }
 }
 </style>

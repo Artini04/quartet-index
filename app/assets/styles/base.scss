@@ -1,0 +1,32 @@
+body {
+  font-family: "IBM Plex Sans JP";
+  background: hsl(0, 0%, 10%);
+  color: hsl(0, 0%, 97%);
+  padding: 1em 0;
+}
+
+main,
+header,
+footer {
+  $margin: 1em;
+  $spacing: 1em;
+
+  width: min(800px, calc(100dvw - calc($margin * 2)));
+  margin: 0 auto;
+
+  & > * + * {
+    margin-top: $spacing;
+  }
+}
+
+.first-indent {
+  text-indent: 1.5em;
+}
+
+[jp] {
+  font-family: "M PLUS 2";
+}
+
+// * {
+//   background: hsla(0, 100%, 50%, 0.1);
+// }
