@@ -5,6 +5,14 @@ body {
   padding: 1em 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+[jp] {
+  font-family: "M PLUS 2";
+}
+
 main,
 header,
 footer {
@@ -22,11 +30,3 @@ footer {
 .first-indent {
   text-indent: 1.5em;
 }
-
-[jp] {
-  font-family: "M PLUS 2";
-}
-
-// * {
-//   background: hsla(0, 100%, 50%, 0.1);
-// }

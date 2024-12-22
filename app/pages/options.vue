@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 const { appOptions } = useApplication()
 
+function clearLocalStorage() {
+  localStorage.clear()
+}
+
 useHead({
   title: "Options"
 })
@@ -40,6 +44,7 @@ useHead({
     <SectionItem icon="tabler:cube" :background="true">
       <template #heading>Other</template>
       <ActionButton
+        @click="clearLocalStorage()"
         id="clear-local-storage"
         text="Clear localStorage"
         icon="tabler:trash" />
