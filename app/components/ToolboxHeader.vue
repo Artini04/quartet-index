@@ -15,5 +15,12 @@
 .toolbox-header {
   margin-bottom: 1em;
   text-align: center;
+
+  & .navigation-wrapper {
+    @include util.use-flex(row, wrap, 0.6em);
+    & > * {
+      flex: 1 1;
+    }
+  }
 }
 </style>

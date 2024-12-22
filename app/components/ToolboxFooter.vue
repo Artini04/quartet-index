@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-// const date = await getLatestUpdateDate()
 const date = await getLatestUpdateDate()
+// const date = "RATE LIMITED"
 
 async function getLatestUpdateDate() {
   const { data, error } = await useAsyncData("item", () =>

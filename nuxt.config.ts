@@ -2,16 +2,17 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  sourcemap: true,
   ssr: false,
   future: {
     compatibilityVersion: 4
   },
 
+  // Application Configs
   app: {
     pageTransition: { name: "page", mode: "out-in" }
   },
 
+  // Vite Configs
   vite: {
     css: {
       preprocessorOptions: {
@@ -23,8 +24,16 @@ export default defineNuxtConfig({
     }
   },
 
+  // Style Sheet Configs
   css: ["@/assets/styles/reset.scss", "@/assets/styles/base.scss"],
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+      cssnano: {}
+    }
+  },
 
+  // Modules
   modules: [
     "@pinia/nuxt",
     "@vueuse/nuxt",

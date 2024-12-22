@@ -9,7 +9,7 @@ useHead({
     <SectionItem icon="tabler:notebook">
       <template #heading>日本語カルテット単語索引</template>
       <p class="first-indent">
-        A small Quartet Vocabulary Index written using Vue and Nuxt. Lesson
+        A small Japanese Quartet Vocabulary Index written using Nuxt. Lesson
         numbers are <span class="span--blue">colored</span> based on their
         respective book color. I also added links from English-Japanese
         dictionaries to access them easier. You can turn them off in the

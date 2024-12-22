@@ -19,6 +19,15 @@ export const useApplicationStore = defineStore("Options", () => {
     }
   )
 
+  const featureFlags = useLocalStorage(
+    "app.features",
+    {},
+    {
+      deep: true,
+      initOnMounted: true
+    }
+  )
+
   return {
     appOptions
   }
