@@ -38,7 +38,12 @@ useHead({
 </template>
 
 <style lang="scss">
-body:has(.page-enter-active, .page-leave-active) {
-  overflow-x: hidden;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 200ms;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
 }
 </style>

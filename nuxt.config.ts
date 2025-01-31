@@ -12,6 +12,13 @@ export default defineNuxtConfig({
     "@layouts": "@/layouts/"
   },
 
+  app: {
+    pageTransition: {
+      name: "page",
+      mode: "out-in"
+    }
+  },
+
   // Vite Configs
   vite: {
     css: {
@@ -30,7 +37,8 @@ export default defineNuxtConfig({
   fonts: {
     defaults: {
       weights: [400, 600],
-      styles: ["normal"]
+      styles: ["normal"],
+      subsets: ["latin", "japanese"]
     },
     priority: ["bunny", "google"]
   },

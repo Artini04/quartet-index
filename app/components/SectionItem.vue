@@ -4,7 +4,7 @@ interface Props {
   background?: boolean
 }
 
-const { icon = "tabler:info-square", background = false } = defineProps<Props>()
+const { icon = "tabler:notebook", background = false } = defineProps<Props>()
 </script>
 
 <template>

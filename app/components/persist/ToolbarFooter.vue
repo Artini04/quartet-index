@@ -34,7 +34,7 @@ function clearLocalStorage() {
         </div>
         <ActionButton
           id="reset-storage"
-          text="Global Reset localStorage"
+          text="Global reset localStorage"
           @click="clearLocalStorage()" />
       </div>
     </div>

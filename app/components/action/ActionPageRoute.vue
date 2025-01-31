@@ -25,8 +25,8 @@ const { icon = "tabler:file-symlink" } = defineProps<{
   --base-padding: 0.6em 0.6em 0.5em;
   --base-border-radius: var(--shared-border-radius);
 
-  --base-background: hsl(0, 0%, 15%);
-  --base-background-active: hsl(0, 0%, 25%);
+  --base-background: hsl(0, 0%, 12%);
+  --base-background-active: hsl(0, 0%, 18%);
 
   padding: var(--base-padding);
   background: var(--base-background);

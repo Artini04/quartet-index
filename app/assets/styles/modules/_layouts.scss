@@ -1,7 +1,7 @@
 @use "./utilities" as util;
 
 %grid {
-  --grid-content: 2fr;
+  --grid-content: 1.5fr;
   --grid-breakpoint: 1fr;
   --grid-margin: 1em;
   --grid-gap: var(--shared-spacing-400, 1em) 0;
