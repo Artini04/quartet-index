@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { Word } from "~/utils/types"
-import { convertToFull } from "~/utils/convert"
+import type { Word } from "@/utils/types"
+import { convertToFull } from "@/utils/convert"
 
 const { data } = defineProps<Word>()
 const hasKanaKanji = !!data.ja_kana_kanji
-const { appOptions } = useApplication()
+const { appOptions } = storeToRefs(useApplicationStore())
 const { enlargeEnglishText, enlargeJapaneseText } = appOptions.value
 const jpTextSize = enlargeJapaneseText.active
   ? `${enlargeJapaneseText.largeSize}em`
@@ -66,6 +66,7 @@ const enTextSize = enlargeEnglishText.active
 </template>
 
 <style lang="scss">
+@use "~/assets/styles/modules/utilities" as util;
 $wrapper-padding: 0.6em;
 $wrapper-spacing: 0;
 $info-spacing: 0 0.6em;
@@ -75,13 +76,14 @@ $link-spacing: 0 1em;
 .word-card {
   position: relative;
   isolation: isolate;
-  border: 1px solid hsl(230, 8%, 25%);
-  border-radius: 7px;
+  background: hsl(0, 0%, 5%);
+  border: 1px solid hsl(0, 0%, 15%);
+  border-radius: var(--shared-border-radius);
   overflow: hidden;
   @include util.use-flex(column, nowrap, $wrapper-spacing);
 
   & > :nth-child(odd) {
-    background: hsl(225, 5%, 15%);
+    background: hsl(0, 0%, 10%);
   }
 
   & .info-wrapper,

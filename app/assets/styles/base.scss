@@ -1,8 +1,14 @@
-body {
-  font-family: "IBM Plex Sans JP";
-  background: hsl(0, 0%, 10%);
-  color: hsl(0, 0%, 97%);
-  padding: 1em 0;
+@layer base {
+  :root {
+    --shared-spacing-400: 1em;
+    --shared-border-radius: 7px;
+  }
+
+  html {
+    font-family: "IBM Plex Sans JP";
+    background: hsl(0, 0%, 6%);
+    color: hsl(0, 0%, 95%);
+  }
 }
 
 h1,
@@ -13,17 +19,9 @@ h4,
   font-family: "M PLUS 2";
 }
 
-main,
-header,
-footer {
-  $margin: 1em;
-  $spacing: 1em;
-
-  width: min(800px, calc(100dvw - calc($margin * 2)));
-  margin: 0 auto;
-
+main {
   & > * + * {
-    margin-top: $spacing;
+    margin-top: var(--shared-spacing-400);
   }
 }
 

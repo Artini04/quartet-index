@@ -18,13 +18,15 @@ const { hideExternal = false, variant = "ghost" } = defineProps<Props>()
     :variant
     target="_blank"
     external>
-    <Icon :name="icon" v-if="icon" />
+    <Icon v-if="icon" :name="icon" />
     <span>{{ text }}</span>
     <Icon class="external-icon" name="tabler:arrow-up-right" />
   </NuxtLink>
 </template>
 
 <style lang="scss">
+@use "~/assets/styles/modules/utilities" as util;
+
 .action-link-external {
   text-wrap: nowrap;
   cursor: pointer;

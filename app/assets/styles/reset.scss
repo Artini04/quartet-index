@@ -1,35 +1,33 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer reset, base, component;
 
-* {
-  padding: 0;
-  margin: 0;
-}
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-:target {
-  scroll-margin-block: 5ex;
-}
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-@layer {
+  :target {
+    scroll-margin-block: 5ex;
+  }
+
   html {
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     color-scheme: dark;
-  }
 
-  body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
-    min-height: 100dvh;
     line-height: 1.5;
   }
 }
 
-@layer {
-  body,
+@layer reset {
   header,
   footer,
   main,
@@ -40,7 +38,8 @@
   a:any-link {
     color: inherit;
 
-    &[class] {
+    &[class],
+    [class] & {
       text-decoration: none;
     }
 
@@ -104,5 +103,6 @@
 
   .iconify {
     min-width: 1em;
+    min-height: 1em;
   }
 }

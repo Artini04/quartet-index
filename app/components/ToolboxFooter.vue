@@ -1,6 +1,9 @@
 <script lang="ts" setup>
-const date = await getLatestUpdateDate()
-// const date = "RATE LIMITED"
+// const date = await getLatestUpdateDate()
+const date = useLocalStorage("app.latest-update", {
+  value: "RATE LIMITED",
+  date: new Date()
+})
 
 async function getLatestUpdateDate() {
   const { data, error } = await useAsyncData("item", () =>
@@ -22,6 +25,10 @@ async function getLatestUpdateDate() {
 
   return `年${year}月${month}日${day} - ${hours}:${minutes}`
 }
+
+function clearLocalStorage() {
+  localStorage.clear()
+}
 </script>
 
 <template>
@@ -40,54 +47,69 @@ async function getLatestUpdateDate() {
     </div>
 
     <div class="mark-wrapper">
-      <span>{{ new Date().getFullYear() }}</span>
-      <span>//</span>
-      <span>
-        built by
-        <ActionLinkExternal
-          text="@artini04"
-          src="https://github.com/Artini04" />
-      </span>
+      <div class="copy">
+        <span>{{ new Date().getFullYear() }}</span>
+        <span>//</span>
+        <span>
+          built by
+          <ActionLinkExternal
+            text="@artini04"
+            src="https://github.com/Artini04" />
+        </span>
+      </div>
+      <ActionButton
+        id="reset-storage"
+        text="Reset localStorage"
+        @click="clearLocalStorage()" />
     </div>
 
     <div class="latest-wrapper">
-      <span>最終更新日：{{ date }}</span>
+      <span>最終更新日：{{ date.value }}</span>
     </div>
   </footer>
 </template>
 
 <style lang="scss">
-.toolbox-footer {
-  margin-top: 1em;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  color: hsl(0, 0%, 60%);
-  font-size: 0.85em;
+// @use "~/assets/styles/modules/utilities" as util;
+// .toolbox-footer {
+//   margin-top: 1em;
+//   display: grid;
+//   grid-template-columns: 1fr 3fr 1fr;
+//   color: hsl(0, 0%, 60%);
+//   font-size: 0.85em;
 
-  & .link-wrapper,
-  & .mark-wrapper,
-  & .latest-wrapper {
-    @include util.use-flex(row, nowrap, 0 1em);
-    @include util.use-align(center, center);
-  }
+//   & .link-wrapper,
+//   & .mark-wrapper,
+//   & .latest-wrapper {
+//     @include util.use-flex(row, nowrap, 0 1em);
+//     @include util.use-align(center, center);
+//   }
 
-  & .link-wrapper {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
+//   & .link-wrapper {
+//     flex-wrap: wrap;
+//     justify-content: flex-start;
+//   }
 
-  & .latest-wrapper {
-    justify-content: flex-end;
-  }
+//   & .mark-wrapper {
+//     flex-direction: column;
 
-  @container (width <= 700px) {
-    @include util.use-flex(column, nowrap, 0);
+//     & .copy {
+//       @include util.use-flex(row, nowrap, 0 1em);
+//     }
+//   }
 
-    & .link-wrapper,
-    & .mark-wrapper,
-    & .latest-wrapper {
-      @include util.use-align(center, center);
-    }
-  }
-}
+//   & .latest-wrapper {
+//     justify-content: flex-end;
+//   }
+
+//   @container (width <= 700px) {
+//     @include util.use-flex(column, nowrap, 0);
+
+//     & .link-wrapper,
+//     & .mark-wrapper,
+//     & .latest-wrapper {
+//       @include util.use-align(center, center);
+//     }
+//   }
+// }
 </style>

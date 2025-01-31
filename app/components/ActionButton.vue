@@ -9,13 +9,15 @@ defineProps<Props>()
 </script>
 
 <template>
-  <button class="action-button" :id>
-    <Icon :name="icon" v-if="icon" />
+  <button :id class="action-button">
+    <Icon v-if="icon" :name="icon" />
     <span v-if="text">{{ text }}</span>
   </button>
 </template>
 
 <style lang="scss">
+@use "~/assets/styles/modules/utilities" as util;
+
 .action-button {
   cursor: pointer;
   @include util.with-icon();

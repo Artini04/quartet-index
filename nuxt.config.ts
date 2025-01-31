@@ -2,14 +2,14 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  ssr: false,
   future: {
     compatibilityVersion: 4
   },
 
-  // Application Configs
-  app: {
-    pageTransition: { name: "page", mode: "out-in" }
+  // Aliases
+  alias: {
+    "@components": "@/components/",
+    "@layouts": "@/layouts/"
   },
 
   // Vite Configs
@@ -17,29 +17,24 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: "modern",
-          additionalData: `@use "@/assets/styles/modules/utilities" as util;`
+          api: "modern"
         }
       }
     }
   },
 
-  // Style Sheet Configs
+  // Style Configs
   css: ["@/assets/styles/reset.scss", "@/assets/styles/base.scss"],
-  postcss: {
-    plugins: {
-      autoprefixer: {},
-      cssnano: {}
-    }
-  },
 
   // Modules
   modules: [
     "@pinia/nuxt",
+    "pinia-plugin-persistedstate/nuxt",
     "@vueuse/nuxt",
-    "@nuxtjs/fontaine",
-    "@nuxt/fonts",
+    "@nuxt/eslint",
     "@nuxt/icon",
-    "@formkit/auto-animate"
+    "@nuxt/fonts",
+    "@nuxtjs/fontaine",
+    "@formkit/auto-animate/nuxt"
   ]
 })

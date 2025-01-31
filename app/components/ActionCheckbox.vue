@@ -11,15 +11,16 @@ const checkModel = defineModel({ type: Boolean })
 
 <template>
   <label class="action-checkbox" :for="id">
-    <input :id type="checkbox" :name="id" v-model="checkModel" />
+    <input :id v-model="checkModel" type="checkbox" :name="id" />
     <div class="text">
       <span>{{ text }}</span>
-      <span class="subtext" v-if="subtext">{{ subtext }}</span>
+      <span v-if="subtext" class="subtext">{{ subtext }}</span>
     </div>
   </label>
 </template>
 
 <style lang="scss">
+@use "~/assets/styles/modules/utilities" as util;
 .action-checkbox {
   cursor: pointer;
   @include util.use-flex(row, nowrap, 1em);

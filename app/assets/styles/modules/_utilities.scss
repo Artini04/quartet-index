@@ -24,3 +24,34 @@
     margin-left: $space;
   }
 }
+
+// NEW
+@mixin use-hover($hold: false) {
+  @media (hover: hover) {
+    &:is(:hover) {
+      @content;
+    }
+  }
+
+  @if $hold {
+    @media (hover: none) {
+      @content;
+    }
+  }
+}
+
+@mixin use-break($break: 1000px) {
+  @container (width <= #{$break}) {
+    @content;
+  }
+}
+
+@mixin use-transition($property, $duration: 200ms, $easing-function: ease) {
+  & {
+    transition-property: string.unquote($property);
+    transition-duration: $duration;
+    transition-timing-function: $easing-function;
+
+    @content;
+  }
+}

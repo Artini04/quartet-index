@@ -41,13 +41,4 @@ useHead({
 body:has(.page-enter-active, .page-leave-active) {
   overflow-x: hidden;
 }
-
-.page-enter-active,
-.page-leave-active {
-  transition: all 200ms;
-}
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-}
 </style>

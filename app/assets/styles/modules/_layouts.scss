@@ -1,0 +1,50 @@
+@use "./utilities" as util;
+
+%grid {
+  --grid-content: 2fr;
+  --grid-breakpoint: 1fr;
+  --grid-margin: 1em;
+  --grid-gap: var(--shared-spacing-400, 1em) 0;
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start]
+    var(--grid-margin)
+    [breakpoint-start]
+    var(--grid-breakpoint)
+    [content-start]
+    var(--grid-content)
+    [content-end]
+    var(--grid-breakpoint)
+    [breakpoint-end]
+    var(--grid-margin)
+    [full-width-end];
+  gap: var(--grid-gap);
+}
+
+%grid-box {
+  --grid-item: 250px;
+  --grid-gap: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-item), 1fr));
+  gap: var(--grid-gap);
+}
+
+%grid-content {
+  grid-column: content;
+
+  @include util.use-break() {
+    grid-column: breakpoint;
+  }
+}
+
+%flex {
+  --flex-dir: row;
+  --flex-wrap: wrap;
+  --flex-gap: 0;
+
+  display: flex;
+  flex-flow: var(--flex-dir) var(--flex-wrap);
+  gap: var(--flex-gap);
+}
