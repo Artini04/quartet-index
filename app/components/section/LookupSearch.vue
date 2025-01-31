@@ -41,7 +41,9 @@ const { search, result } = storeToRefs(useLookupStore())
   --base-padding: 0.6em 0.6em 0.5em;
   --base-border-radius: var(--shared-border-radius);
 
-  border: 1px solid hsl(0, 0%, 15%);
+  --base-border: hsl(0, 0%, 23%);
+
+  border: 1px solid var(--base-border);
   border-radius: var(--base-border-radius);
   padding: var(--base-padding);
 

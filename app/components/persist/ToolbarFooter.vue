@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 function clearLocalStorage() {
   localStorage.clear()
+  alert("Browser local storage has been cleared for this site.")
 }
 </script>
 
@@ -41,8 +42,7 @@ function clearLocalStorage() {
 </template>
 
 <style lang="scss">
-@use "~/assets/styles/modules/layouts";
-@use "~/assets/styles/modules/utilities" as util;
+@use "./toolbar" as toolbar;
 
 .toolbar-footer {
   @extend %grid;
@@ -75,12 +75,12 @@ function clearLocalStorage() {
       @extend %flex;
     }
 
-    @include util.use-break(600px) {
+    @include toolbar.use-break(600px) {
       align-items: unset;
     }
   }
 
-  @include util.use-break(600px) {
+  @include toolbar.use-break(600px) {
     --flex-dir: column;
     --flex-gap: 1em;
   }

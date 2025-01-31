@@ -67,23 +67,27 @@ const enTextSize = enlargeEnglishText.active
 
 <style lang="scss">
 @use "~/assets/styles/modules/utilities" as util;
-$wrapper-padding: 0.6em;
+$wrapper-padding: 0.6rem;
 $wrapper-spacing: 0;
 $info-spacing: 0 0.6em;
 $content-spacing: 0 0.6em;
 $link-spacing: 0 1em;
 
 .word-card {
+  --base-background-odd: hsl(0, 0%, 15%);
+  --base-background: hsl(0, 0%, 10%);
+  --base-border: hsl(0, 0%, 23%);
+
   position: relative;
   isolation: isolate;
-  background: hsl(0, 0%, 5%);
-  border: 1px solid hsl(0, 0%, 15%);
+  background: var(--base-background);
+  border: 1px solid var(--base-border);
   border-radius: var(--shared-border-radius);
   overflow: hidden;
   @include util.use-flex(column, nowrap, $wrapper-spacing);
 
   & > :nth-child(odd) {
-    background: hsl(0, 0%, 10%);
+    background: var(--base-background-odd);
   }
 
   & .info-wrapper,

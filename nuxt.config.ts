@@ -26,6 +26,15 @@ export default defineNuxtConfig({
   // Style Configs
   css: ["@/assets/styles/reset.scss", "@/assets/styles/base.scss"],
 
+  // Fonts Configs
+  fonts: {
+    defaults: {
+      weights: [400, 600],
+      styles: ["normal"]
+    },
+    priority: ["bunny", "google"]
+  },
+
   // Modules
   modules: [
     "@pinia/nuxt",

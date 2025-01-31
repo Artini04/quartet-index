@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 function clearLocalStorage() {
   localStorage.clear()
+  alert("Browser local storage has been cleared for this site.")
 }
 </script>
 

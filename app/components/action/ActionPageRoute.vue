@@ -25,15 +25,22 @@ const { icon = "tabler:file-symlink" } = defineProps<{
   --base-padding: 0.6em 0.6em 0.5em;
   --base-border-radius: var(--shared-border-radius);
 
+  --base-background: hsl(0, 0%, 15%);
+  --base-background-active: hsl(0, 0%, 25%);
+
   padding: var(--base-padding);
-  background: hsl(0, 0%, 10%);
+  background: var(--base-background);
   border-radius: var(--base-border-radius);
 
-  @include util.use-transition("background");
+  @include util.use-transition("background, scale");
   @include util.with-icon();
 
+  &:is(:active) {
+    scale: 0.9;
+  }
+
   &.router-link-active {
-    background: hsl(0, 0%, 15%);
+    background: var(--base-background-active);
   }
 }
 </style>

@@ -34,9 +34,13 @@ const { icon = "tabler:info-square", background = false } = defineProps<Props>()
     --shaded-padding: 0.6em;
     --shaded-border-radius: var(--shared-border-radius);
 
+    --shaded-background: hsl(0, 0%, 15%);
+    --shaded-border: hsl(0, 0%, 23%);
+
     padding: var(--shaded-padding);
-    background: hsl(0, 0%, 10%);
+    background: var(--shaded-background);
     border-radius: var(--shaded-border-radius);
+    border: 1px solid var(--shaded-border);
   }
 }
 
