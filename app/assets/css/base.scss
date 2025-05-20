@@ -1,0 +1,59 @@
+@use "./utils" as bsutils;
+@use "./layers" as bslayers;
+
+@forward "./utils";
+
+@layer base {
+    html {
+        background: var(--global-background-color);
+        color: var(--global-font-color);
+        font-family: "IBM Plex Sans JP";
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    [jp] {
+        font-family: "M PLUS 2";
+    }
+}
+
+@layer utils {
+    main[data-page],
+    .grid {
+        @extend %grid;
+    }
+
+    .grid-content {
+        @extend %grid-content;
+    }
+
+    .grid-item-content {
+        grid-column: content;
+
+        @include bsutils.use-break() {
+            grid-column: margin;
+        }
+    }
+
+    .grid-item-full {
+        grid-column: full;
+    }
+
+    .grid-item-break {
+        grid-column: breakpoint;
+
+        &-left {
+            grid-column: breakpoint-start / content-end;
+        }
+
+        &-right {
+            grid-column: content-start / breakpoint-end;
+        }
+    }
+
+    .indent {
+        text-indent: 1.5em;
+    }
+}

@@ -21,7 +21,7 @@
     </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @use "~/assets/styles/modules/layouts";
     @use "~/assets/styles/modules/utilities" as util;
 
@@ -50,11 +50,13 @@
     }
 
     .section-item__content {
-        --flex-dir: column;
-        --flex-gap: 0.4em;
+        ::slotted {
+            --flex-dir: column;
+            --flex-gap: 0.4em;
 
-        @extend %flex;
+            @extend %flex;
 
-        margin-left: 2em;
+            margin-left: 2em;
+        }
     }
 </style>

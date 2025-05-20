@@ -21,6 +21,5 @@
         "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
         "biome.json": "biome.json, .prettierrc, prettier.json",
         "nuxt.config.ts": "tsconfig.json, tsconfig.*.json, eslint.*.mjs"
-    },
-    "editor.formatOnSave": true
+    }
 }

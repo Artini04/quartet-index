@@ -1,0 +1,15 @@
+@mixin with-icon($spacing: 0 0.4em, $alignment: 0, $size: 1em) {
+    & {
+        display: flex inline;
+        place-items: center flex-start;
+        gap: #{$spacing};
+    }
+}
+
+@mixin use-break($break: 600px) {
+    & {
+        @container (width <= #{$break}) {
+            @content;
+        }
+    }
+}

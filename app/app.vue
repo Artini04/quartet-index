@@ -4,9 +4,9 @@
 
     useSeoMeta({
         titleTemplate: (titleChunk) => {
-            return titleChunk ?
-                    `${titleChunk} // 日本語カルテット単語索引`
-                :   "カルテット単語索引"
+            return titleChunk
+                ? `${titleChunk} ー 中級日本語カルテット単語索引`
+                : "カルテット単語索引"
         },
         title,
         ogTitle: title,
@@ -24,6 +24,11 @@
         link: [
             {
                 rel: "icon",
+                type: "image/ico",
+                href: "/favicon.ico",
+            },
+            {
+                rel: "shortcut icon",
                 type: "image/ico",
                 href: "/favicon.ico",
             },

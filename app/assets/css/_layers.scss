@@ -1,0 +1,54 @@
+%grid {
+    --grid-margin-size: 1em;
+    --grid-margin-break-size: 1fr;
+    --grid-break-size: 50px;
+    --grid-content-size: 1.5fr;
+    --grid-gap-size: 1em 0;
+
+    display: grid;
+    gap: var(--grid-gap-size);
+    grid-template-columns:
+        [full-width-start]
+        var(--grid-margin-size)
+        [margin-start]
+        var(--grid-margin-break-size)
+        [breakpoint-start]
+        var(--grid-break-size)
+        [content-start]
+        var(--grid-content-size)
+        [content-end]
+        var(--grid-break-size)
+        [breakpoint-end]
+        var(--grid-margin-break-size)
+        [margin-end]
+        var(--grid-margin-size)
+        [full-width-end];
+}
+
+%grid-content {
+    --grid-item-min-size: 300px;
+    --grid-gap-size: 1em;
+
+    display: grid;
+    gap: var(--grid-gap-size);
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(var(--grid-item-min-size), 100%), 1fr)
+    );
+}
+
+.flow {
+    @property --flow-space-size {
+        syntax: "<length>";
+        inherits: false;
+        initial-value: 1em;
+    }
+
+    &-block {
+        @extend .flow;
+
+        & > * + * {
+            margin-block-start: var(--flow-space-size, 1em);
+        }
+    }
+}

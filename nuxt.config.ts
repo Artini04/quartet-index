@@ -7,13 +7,18 @@ export default defineNuxtConfig({
 
     // Aliases
     alias: {
-        "@styles": "@/assets/styles",
-        "@components": "@/components/",
-        "@layouts": "@/layouts/",
+        "@styles": "./assets/css",
+        "@components": "./components/",
+        "@layouts": "./layouts/",
     },
 
     // Style Configs
-    css: ["@/assets/styles/reset.scss", "@/assets/styles/base.scss"],
+    css: ["@styles/reset.scss", "@styles/global.scss", "@styles/base.scss"],
+    // css: [
+    //     "@/assets/styles/reset.scss",
+    //     "@styles/global.scss",
+    //     "@/assets/styles/base.scss",
+    // ],
 
     // Fonts Configs
     fonts: {
