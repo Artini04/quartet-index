@@ -1,12 +1,12 @@
 <script setup lang="ts">
-useHead({
-  title: "Lookup"
-})
+    useHead({
+        title: "Lookup",
+    })
 </script>
 
 <template>
-  <main class="page-lookup">
-    <SectionLookupSearch />
-    <SectionLookupResults />
-  </main>
+    <main class="page-lookup">
+        <SectionLookupSearch />
+        <SectionLookupResults />
+    </main>
 </template>
