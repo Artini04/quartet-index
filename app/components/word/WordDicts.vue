@@ -6,17 +6,17 @@
 
 <template>
     <div class="word-dicts">
-        <ActionLinkExternal
-            text="Weblio英和辞典"
-            :src="`https://ejje.weblio.jp/content/${search}`"
+        <ControlExternalLink
+            label="Weblio英和辞典"
+            :href="`https://ejje.weblio.jp/content/${search}`"
         />
-        <ActionLinkExternal
-            text="jpdb.io"
-            :src="`https://jpdb.io/search?q=${search}#a`"
+        <ControlExternalLink
+            label="jpdb.io"
+            :href="`https://jpdb.io/search?q=${search}#a`"
         />
-        <ActionLinkExternal
-            text="jisho.org"
-            :src="`https://jisho.org/search/${search}`"
+        <ControlExternalLink
+            label="jisho.org"
+            :href="`https://jisho.org/search/${search}`"
         />
     </div>
 </template>

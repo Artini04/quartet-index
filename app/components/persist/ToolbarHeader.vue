@@ -15,11 +15,6 @@
                     icon="tabler:settings"
                     text="Preferences"
                 />
-                <ActionPageRoute
-                    :to="{ path: '/about' }"
-                    icon="tabler:paperclip"
-                    text="About"
-                />
             </nav>
         </div>
     </header>

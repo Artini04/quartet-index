@@ -34,24 +34,31 @@
 </template>
 
 <style lang="scss">
-    @use "~/assets/styles/modules/utilities" as util;
-
     .word-card {
-        --base-border: hsl(0, 0%, 23%);
-        --base-border-radius: var(--shared-border-radius);
-        --base-background-odd: hsl(0, 0%, 12%);
-        --base-background: hsl(0, 0%, 10%);
+        --word-odd-background-color: hsl(0 0% 13%);
 
-        border-radius: var(--base-border-radius);
-        border: 1px solid var(--base-border);
+        display: flex;
+        flex-flow: column nowrap;
         overflow: hidden;
 
+        border: var(--global-border);
+        border-radius: var(--global-border-radius);
+
         & > * {
-            padding: 0.6rem;
+            padding: 0.6em;
         }
 
-        & > :nth-child(odd) {
-            background: var(--base-background-odd);
+        & > *:nth-child(odd) {
+            background: var(--word-odd-background-color);
         }
     }
+
+    // @use "~/assets/styles/modules/utilities" as util;
+
+    // .word-card {
+    //     --base-border: hsl(0, 0%, 23%);
+    //     --base-border-radius: var(--shared-border-radius);
+    //     --base-background-odd: hsl(0, 0%, 12%);
+    //     --base-background: hsl(0, 0%, 10%);
+    // }
 </style>

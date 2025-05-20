@@ -15,9 +15,9 @@
     }>()
 
     const jpTextSize = computed(() =>
-        enlargeJapaneseText.active ?
-            `${enlargeJapaneseText.largeSize}em`
-        :   "1em",
+        enlargeJapaneseText.active
+            ? `${enlargeJapaneseText.largeSize}em`
+            : "1em",
     )
     const enTextSize = computed(() =>
         enlargeEnglishText.active ? `${enlargeEnglishText.largeSize}em` : "1em",
@@ -45,6 +45,8 @@
     @use "~/assets/styles/modules/layouts";
 
     .word-content {
+        flex: 99 1 auto;
+
         --flex-dir: column;
         --flex-gap: 0.2em;
 

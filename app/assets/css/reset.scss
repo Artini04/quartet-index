@@ -77,4 +77,24 @@
         vertical-align: middle;
         max-width: 100%;
     }
+
+    .iconify {
+        vertical-align: middle;
+        min-width: 1em;
+        min-height: 1em;
+    }
+
+    input {
+        min-width: 0;
+    }
+
+    input[type="search"] {
+        &[class],
+        [class] & {
+            appearance: none;
+            background: none;
+            outline: none;
+            border: none;
+        }
+    }
 }

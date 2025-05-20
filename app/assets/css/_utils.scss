@@ -1,8 +1,21 @@
-@mixin with-icon($spacing: 0 0.4em, $alignment: 0, $size: 1em) {
-    & {
-        display: flex inline;
-        place-items: center flex-start;
-        gap: #{$spacing};
+@use "sass:string";
+
+@mixin with-icon($spacing: 0.4em, $alignment: 0.2em, $size: 1em) {
+    & > .iconify {
+        font-size: #{$size};
+        margin-block-end: #{$alignment};
+
+        @supports not (margin-block: 0) {
+            margin-bottom: #{$alignment};
+        }
+    }
+
+    & > * + * {
+        margin-inline-start: $spacing;
+
+        @supports not (margin-inline: 0) {
+            margin-left: #{$spacing};
+        }
     }
 }
 
@@ -11,5 +24,14 @@
         @container (width <= #{$break}) {
             @content;
         }
+    }
+}
+
+@mixin use-transition($property, $duration: 200ms, $easing: ease) {
+    & {
+        transition-property: string.unquote($string: $property);
+        transition-duration: #{$duration};
+        transition-timing-function: #{$easing};
+        @content;
     }
 }

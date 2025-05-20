@@ -29,31 +29,47 @@
         @extend %grid-content;
     }
 
-    .grid-item-content {
-        grid-column: content;
-
-        @include bsutils.use-break() {
-            grid-column: margin;
+    .grid-item {
+        &-full {
+            grid-column: full;
         }
-    }
 
-    .grid-item-full {
-        grid-column: full;
-    }
+        &-content {
+            grid-column: content;
 
-    .grid-item-break {
-        grid-column: breakpoint;
+            @include bsutils.use-break() {
+                grid-column: margin;
+            }
+        }
 
-        &-left {
+        &-break {
+            grid-column: breakpoint;
+        }
+
+        &-break-left {
             grid-column: breakpoint-start / content-end;
         }
 
-        &-right {
+        &-break-right {
             grid-column: content-start / breakpoint-end;
+        }
+
+        &-break,
+        &-break-left,
+        &-break-right {
+            @include bsutils.use-break() {
+                grid-column: margin;
+            }
         }
     }
 
     .indent {
         text-indent: 1.5em;
+    }
+
+    .span {
+        &--info {
+            color: lightgreen;
+        }
     }
 }

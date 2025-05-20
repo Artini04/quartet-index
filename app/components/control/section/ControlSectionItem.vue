@@ -24,15 +24,15 @@
 
 <style lang="scss">
     @use "~/assets/css/utils";
+    @use "~/assets/css/layers";
 
     .section-item {
         padding: 1em;
         border: var(--global-border);
         border-radius: var(--global-border-radius);
+        @include layers.flow($space-size: 0.4em);
 
         &-content {
-            margin-inline-start: 2.6em;
-
             &:empty {
                 display: none;
             }
@@ -41,10 +41,7 @@
 
     .section-item {
         &__header-title {
-            display: flex;
-            place-items: center;
             text-wrap: pretty;
-
             @include utils.with-icon();
         }
     }

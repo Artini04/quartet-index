@@ -16,13 +16,9 @@
 </template>
 
 <style lang="scss">
-    .external-link {
-        & .iconify {
-            margin-block-end: -0.2em;
+    @use "~/assets/css/utils";
 
-            @supports not (margin-block: 0) {
-                margin-bottom: -0.2em;
-            }
-        }
+    .external-link {
+        @include utils.with-icon($spacing: 0, $alignment: 0.1em);
     }
 </style>

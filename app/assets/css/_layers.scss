@@ -37,6 +37,14 @@
     );
 }
 
+@mixin flow($direction: block, $space-size: 1em) {
+    & > * + * {
+        @supports (margin-block: 0) or (margin-inline: 0) {
+            margin-#{$direction}-start: #{$space-size};
+        }
+    }
+}
+
 .flow {
     @property --flow-space-size {
         syntax: "<length>";

@@ -10,9 +10,9 @@
 <template>
     <div class="word-info">
         <span class="info-lesson" :book="lesson < 7 ? 1 : 2">
-            第{{ convertToFull(lesson) }}課
+            第{{ Japanese.toFull(lesson) }}課
         </span>
-        <span class="info-reading">読み{{ convertToFull(reading) }}</span>
+        <span class="info-reading">読み{{ Japanese.toFull(reading) }}</span>
         <span class="info-location">{{ location }}</span>
         <span class="info-kanji">{{ kanji }}</span>
     </div>
