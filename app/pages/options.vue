@@ -1,12 +1,12 @@
 <script setup lang="ts">
-useHead({
-  title: "Options"
-})
+    useHead({
+        title: "Options",
+    })
 </script>
 
 <template>
-  <main class="page-options">
-    <SectionOptionsCard />
-    <SectionOptionsOther />
-  </main>
+    <main class="page-options">
+        <SectionOptionsCard />
+        <SectionOptionsOther />
+    </main>
 </template>

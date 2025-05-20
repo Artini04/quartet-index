@@ -1,18 +1,18 @@
 @layer base {
-  :root {
-    --shared-spacing-400: 1em;
-    --shared-border-radius: 7px;
-  }
+    :root {
+        --shared-spacing-400: 1em;
+        --shared-border-radius: 7px;
+    }
 
-  html {
-    font-family: "IBM Plex Sans JP";
-    background: hsl(0, 0%, 10%);
-    color: hsl(0, 0%, 95%);
-  }
+    html {
+        font-family: "IBM Plex Sans JP";
+        background: hsl(0, 0%, 10%);
+        color: hsl(0, 0%, 95%);
+    }
 
-  body {
-    overflow-y: scroll;
-  }
+    body {
+        overflow-y: scroll;
+    }
 }
 
 h1,
@@ -20,15 +20,21 @@ h2,
 h3,
 h4,
 [jp] {
-  font-family: "M PLUS 2";
+    font-family: "M PLUS 2";
 }
 
 main {
-  & > * + * {
-    margin-top: var(--shared-spacing-400);
-  }
+    & > * + * {
+        margin-top: var(--shared-spacing-400);
+    }
 }
 
 .first-indent {
-  text-indent: 1.5em;
+    text-indent: 1.5em;
+}
+
+.external-link {
+    &--spaced {
+        --text-icon-gap-size: 0.4em !important;
+    }
 }
