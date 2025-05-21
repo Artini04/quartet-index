@@ -84,8 +84,12 @@
         min-height: 1em;
     }
 
-    input {
+    input,
+    button,
+    select {
         min-width: 0;
+        font-size: inherit;
+        font-family: inherit;
     }
 
     input[type="search"] {

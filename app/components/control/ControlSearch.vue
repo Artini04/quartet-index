@@ -1,5 +1,6 @@
 <script setup lang="ts">
     const { search, result } = storeToRefs(useLookupStore())
+    const { appOptions } = storeToRefs(useApplicationStore())
 </script>
 
 <template>
@@ -20,6 +21,14 @@
             <Icon name="tabler:filter-search" />
             <span>{{ result.length }}</span>
         </label>
+
+        <div class="search-control">
+            <ControlActionCheckbox
+                id="flag-show-dict"
+                v-model="appOptions.showDictionary"
+                text="Dictionaries"
+            />
+        </div>
     </div>
 </template>
 
@@ -27,25 +36,29 @@
     @use "~/assets/css/utils";
 
     .search {
-        border: var(--global-border);
-        border-radius: var(--global-border-radius);
-        outline: 1px solid transparent;
-        @include utils.use-transition("border, outline");
-
-        &:has(:focus-within) {
-            outline: 2px solid hsl(0 0% 95%);
+        & > * + * {
+            margin-block-start: 1em;
         }
-    }
 
-    .search-label {
-        display: flex;
-        gap: 0 0.4em;
-        flex-flow: row nowrap;
-        place-items: center;
-        padding: 1em;
+        &-label {
+            display: flex;
+            gap: 0 0.4em;
+            flex-flow: row nowrap;
+            place-items: center;
+            padding: 1em 1em 0.8em;
 
-        & > * {
-            flex: 1 1 auto;
+            border: var(--global-border);
+            border-radius: var(--global-border-radius);
+            outline: 1px solid transparent;
+            @include utils.use-transition("border, outline");
+
+            &:has(:focus-within) {
+                outline: 2px solid hsl(0 0% 95%);
+            }
+
+            & > * {
+                flex: 1 1 auto;
+            }
         }
     }
 

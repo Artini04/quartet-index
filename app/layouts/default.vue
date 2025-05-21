@@ -1,7 +1,7 @@
 <template>
     <div>
-        <PersistToolbarHeader />
+        <ToolbarHeader />
         <slot />
-        <PersistToolbarFooter />
+        <ToolbarFooter />
     </div>
 </template>

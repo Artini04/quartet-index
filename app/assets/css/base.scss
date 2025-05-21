@@ -17,6 +17,15 @@
     [jp] {
         font-family: "M PLUS 2";
     }
+
+    .header,
+    .footer {
+        padding: 1em 0;
+    }
+
+    .footer {
+        font-size: var(--global-font-size-small);
+    }
 }
 
 @layer utils {

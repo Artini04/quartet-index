@@ -15,7 +15,7 @@
             <div v-else class="results-empty">
                 <p>
                     <span>{{ Japanese.toFull("( ╹ -╹)?") }}</span>
-                    Results is empty
+                    Result is empty!
                 </p>
             </div>
         </div>
@@ -37,7 +37,7 @@
         @include layers.flow();
 
         &-grid {
-            grid-auto-rows: 1fr;
+            --grid-item-min-size: 250px;
         }
 
         &-empty {

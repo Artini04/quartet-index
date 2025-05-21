@@ -53,9 +53,8 @@
     }
 
     &-block {
-        @extend .flow;
-
         & > * + * {
+            @extend .flow;
             margin-block-start: var(--flow-space-size, 1em);
         }
     }
