@@ -11,6 +11,10 @@
     .header {
         &-links {
             text-align: center;
+
+            & > * + * {
+                margin-block-start: 1em;
+            }
         }
     }
 </style>

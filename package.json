@@ -12,19 +12,19 @@
   },
   "dependencies": {
     "@nuxt/eslint": "1.0.0",
-    "eslint": "^9.27.0",
+    "eslint": "^9.29.0",
     "fuse.js": "^7.1.0",
-    "nuxt": "^3.17.3",
+    "nuxt": "^3.17.5",
     "pinia-plugin-persistedstate": "4.2.0",
-    "sass": "^1.89.0",
+    "sass": "^1.89.2",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
     "@formkit/auto-animate": "^0.8.2",
-    "@iconify-json/tabler": "^1.2.18",
+    "@iconify-json/tabler": "^1.2.19",
     "@nuxt/fonts": "^0.10.3",
-    "@nuxt/icon": "^1.13.0",
+    "@nuxt/icon": "^1.14.0",
     "@nuxtjs/fontaine": "^0.4.4",
     "@pinia/nuxt": "^0.9.0",
     "@vueuse/nuxt": "^12.8.2"

@@ -60,6 +60,16 @@
                 flex: 1 1 auto;
             }
         }
+
+        &-control {
+            display: flex;
+            flex-flow: row wrap;
+            gap: 1em;
+
+            & > * {
+                flex: 1 1 auto;
+            }
+        }
     }
 
     .search {
