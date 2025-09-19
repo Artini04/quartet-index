@@ -5,7 +5,7 @@
 		background-color: var(--global-background-color--body);
 		color: hsl(0, 0%, 90%);
 
-		font-family: "Noto Sans JP";
+		font-family: "Noto Sans JP", sans-serif;
 
 		overflow: auto scroll;
 	}
@@ -21,7 +21,7 @@
 	h4,
 	.jp {
 		// font-family: "IBM Plex Sans JP";
-		font-family: "M PLUS 2";
+		font-family: "M PLUS 2", sans-serif;
 		font-weight: bolder;
 		// font-weight: 900 !important;
 	}
