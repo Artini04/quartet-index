@@ -1,77 +1,78 @@
-<script lang="ts" setup>
-    const { appOptions } = storeToRefs(useApplicationStore())
-    const { enlargeEnglishText, enlargeJapaneseText } = appOptions.value
+<script setup lang="ts">
+	interface Props {
+		jpText: string
+		jpSubtext?: string | null
+		jpSuru?: string | null
+		jpParticle?: string | null
 
-    defineProps<{
-        // Japanese
-        jpText: string
-        jpSubtext?: string | null
-        jpParticle?: string | null
-        jpSuru?: string | null
+		mnMeaning: string[]
+		mnVerbType?: string | null
+	}
 
-        // Meaning
-        mnMeaning: string | null
-        mnVerbType?: string | null
-    }>()
-
-    const jpTextSize = computed(() =>
-        enlargeJapaneseText.active ?
-            `${enlargeJapaneseText.largeSize}em`
-        :   "1em",
-    )
-    const enTextSize = computed(() =>
-        enlargeEnglishText.active ? `${enlargeEnglishText.largeSize}em` : "1em",
-    )
+	defineProps<Props>()
 </script>
-
 <template>
-    <div class="word-content">
-        <div class="word-content__jp" jp>
-            <span class="jp-text">{{ jpText }}</span>
-            <span class="jp-subtext">
-                <span v-if="jpParticle">{{ jpParticle }}</span>
-                <span v-if="jpSubtext">{{ jpSubtext }}</span>
-                <span v-if="jpSuru">{{ jpSuru }}</span>
-            </span>
-        </div>
-        <div class="word-content__mn">
-            <span class="mn-meaning">{{ mnMeaning }}</span>
-            <span class="mn-verb-type">{{ mnVerbType }}</span>
-        </div>
-    </div>
+	<div class="word-card-content">
+		<div class="word-card-content-jp">
+			<p class="word-card-content__text">{{ jpText }}</p>
+			<p class="word-card-content__subtext">
+				<span v-if="jpParticle">{{ jpParticle }}</span>
+				<span v-if="jpSubtext">{{ jpSubtext }}</span>
+				<span v-if="jpSuru">{{ jpSuru }}</span>
+			</p>
+		</div>
+		<div class="word-card-content-mn">
+			<p
+				class="word-card-content__meaning"
+				v-for="(mn, mnIdx) in mnMeaning"
+				:key="mnIdx"
+			>
+				<span class="word-card-content__meaning-mn">
+					{{ mn.trim() }}
+				</span>
+				<span class="word-card-content__verb-type">
+					{{ mnVerbType }}
+				</span>
+			</p>
+		</div>
+	</div>
 </template>
 
 <style lang="scss">
-    @use "~/assets/styles/modules/layouts";
+	.word-card-content {
+		&-jp {
+			display: flex;
+			gap: 0 1ch;
+			flex-flow: row wrap;
+		}
 
-    .word-content {
-        --flex-dir: column;
-        --flex-gap: 0.2em;
+		&-mn {
+			display: flex;
+			gap: 0 1ch;
+			flex-flow: row wrap;
 
-        @extend %flex;
-    }
+			font-size: 0.9em;
+		}
 
-    .word-content__jp {
-        font-size: v-bind(jpTextSize);
+		&__text {
+			color: hsl(14, 100%, 60%);
+		}
 
-        & .jp-text {
-            color: hsl(14, 100%, 60%);
-        }
+		&__subtext {
+			color: hsl(50, 100%, 60%);
+		}
 
-        & .jp-subtext {
-            color: hsl(50, 100%, 60%);
-        }
+		&__meaning > * + * {
+			margin-inline-start: 0.2em;
+		}
 
-        & > * + * {
-            margin-left: 0.6em;
-        }
-    }
+		&__meaning-mn::before {
+			content: "ー";
+			margin-inline-end: 0.4em;
+		}
 
-    .word-content__mn {
-        font-size: v-bind(enTextSize);
-
-        &::before {
-            content: "【英】";
-        }
-    }
+		&__verb-type {
+			font-style: italic;
+		}
+	}
 </style>

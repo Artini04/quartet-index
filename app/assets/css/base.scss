@@ -1,0 +1,47 @@
+@use "~/assets/css/layouts";
+
+@layer base {
+	html {
+		background-color: var(--global-background-color--body);
+		color: hsl(0, 0%, 90%);
+
+		font-family: "Noto Sans JP";
+
+		overflow: auto scroll;
+	}
+
+	main#index,
+	main#info {
+		@extend %grid;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	.jp {
+		// font-family: "IBM Plex Sans JP";
+		font-family: "M PLUS 2";
+		font-weight: bolder;
+		// font-weight: 900 !important;
+	}
+
+	.text-indent {
+		text-indent: 1.5em;
+	}
+
+	.span--blue {
+		color: rgb(96, 180, 207);
+	}
+}
+@layer transition {
+	.page-enter-active,
+	.page-leave-active {
+		transition: all ease 100ms;
+	}
+
+	.page-enter-from,
+	.page-leave-to {
+		opacity: 0;
+	}
+}

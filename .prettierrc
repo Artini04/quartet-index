@@ -1,15 +1,9 @@
 {
-  "arrowParens": "always",
-  "bracketSameLine": false,
-  "bracketSpacing": true,
-  "experimentalOperatorPosition": "end",
-  "experimentalTernaries": true,
-  "objectWrap": "preserve",
-  "printWidth": 80,
-  "proseWrap": "preserve",
-  "quoteProps": "as-needed",
-  "semi": false,
-  "tabWidth": 4,
-  "trailingComma": "all",
-  "vueIndentScriptAndStyle": true
+    "arrowParens": "always",
+    "experimentalOperatorPosition": "start",
+    "experimentalTernaries": true,
+    "useTabs": true,
+    "tabWidth": 4,
+    "semi": false,
+    "vueIndentScriptAndStyle": true
 }

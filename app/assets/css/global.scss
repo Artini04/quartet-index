@@ -1,0 +1,17 @@
+@layer global {
+	:root {
+		// Component
+		--global-background-color--body: hsl(0, 0%, 10%);
+		--global-background-color: hsl(0, 0%, 15%);
+
+		// Border
+		--global-border-color: hsl(from var(--global-background-color) h s 25%);
+		--global-border: 1px solid var(--global-border-color);
+		--global-border-radius: 7px;
+		--global-border-radius-sm: 5px;
+
+		// Animation
+		--global-animation-duration: 200ms;
+		--global-animation-easing: ease;
+	}
+}

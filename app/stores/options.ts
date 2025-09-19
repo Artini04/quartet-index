@@ -1,40 +1,15 @@
 import { defineStore } from "pinia"
 
-export const useApplicationStore = defineStore(
-    "Options",
-    () => {
-        const appOptions = useLocalStorage(
-            "app.options",
-            {
-                showDictionary: true,
-                enlargeJapaneseText: {
-                    active: false,
-                    largeSize: 1.2,
-                },
-                enlargeEnglishText: {
-                    active: false,
-                    largeSize: 1.2,
-                },
-            },
-            {
-                deep: true,
-            },
-        )
+export const useOptionsStore = defineStore(
+	"AppStore",
+	() => {
+		const appOptions = useLocalStorage("quartet-index:app-options", {
+			cardDictionary: true,
+		})
 
-        const featureFlags = useLocalStorage(
-            "app.features",
-            {},
-            {
-                deep: true,
-                initOnMounted: true,
-            },
-        )
-
-        return {
-            appOptions,
-        }
-    },
-    {
-        persist: true,
-    },
+		return {
+			appOptions,
+		}
+	},
+	{ persist: true }
 )
