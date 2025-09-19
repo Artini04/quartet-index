@@ -1,32 +1,35 @@
 {
   "name": "nuxt-app",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "host": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint ./app/**/*",
+    "lint:fix": "eslint ./app/**/* --fix",
+    "prettier": "bun x prettier ./app/**/* --check",
+    "prettier:fix": "bun x prettier ./app/**/* --write"
   },
   "dependencies": {
-    "@nuxt/eslint": "1.0.0",
+    "@formkit/auto-animate": "^0.9.0",
+    "@nuxt/eslint": "1.9.0",
+    "@nuxt/fonts": "0.11.4",
+    "@nuxt/icon": "2.0.0",
+    "@pinia/nuxt": "0.11.2",
+    "@vueuse/nuxt": "13.9.0",
     "eslint": "^9.0.0",
-    "fuse.js": "^7.0.0",
-    "nuxt": "^3.17.3",
-    "pinia-plugin-persistedstate": "4.2.0",
-    "sass": "^1.83.0",
-    "vue": "latest",
-    "vue-router": "latest"
+    "fuse.js": "^7.1.0",
+    "nuxt": "^4.1.1",
+    "pinia": "^3.0.3",
+    "pinia-plugin-persistedstate": "4.5.0",
+    "sass": "^1.92.1",
+    "vue": "^3.5.20",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@formkit/auto-animate": "^0.8.2",
-    "@iconify-json/tabler": "^1.2.13",
-    "@nuxt/fonts": "^0.10.3",
-    "@nuxt/icon": "^1.10.3",
-    "@nuxtjs/fontaine": "^0.4.4",
-    "@pinia/nuxt": "^0.9.0",
-    "@vueuse/nuxt": "^12.0.0"
+    "@iconify-json/tabler": "^1.2.22"
   }
 }

@@ -1,40 +1,48 @@
 import Fuse from "fuse.js"
+import Dictionary from "~/data/dictionary.json"
 import { defineStore } from "pinia"
-import Dictionary from "@/data/dictionary.json"
 
-export const useLookupStore = defineStore("Lookup", () => {
-    const defaultKeys = [
-        "data.ja_kana_kanji",
-        "data.ja_hiragana",
-        "data.en_meaning",
-    ]
+export const useLookupStore = defineStore(
+	"LookupStore",
+	() => {
+		const gridAnnouncement = ref(true)
+		const defaultKeys = [
+			"data.ja_kana_kanji",
+			"data.ja_hiragana",
+			"data.en_meaning",
+		]
 
-    const search = ref<string>("")
-    const lookupOptions = useLocalStorage("lookup.options", {
-        keys: defaultKeys,
-        limit: 10,
-        threshold: 0.2,
-        includeScore: true,
-    })
-    const dictionary = dictionaryInit()
-    const result = computed(() => {
-        return dictionary.search(search.value, {
-            limit: lookupOptions.value.limit,
-        })
-    })
+		const searchOptions = useLocalStorage("quartet-index:search-options", {
+			keys: defaultKeys,
+			search: "",
+			threshold: 0.2,
+			limit: 10,
+			includeScore: true,
+		})
 
-    function dictionaryInit() {
-        return new Fuse(Dictionary, {
-            shouldSort: true,
-            keys: lookupOptions.value.keys,
-            threshold: lookupOptions.value.threshold,
-            includeScore: lookupOptions.value.includeScore,
-        })
-    }
+		const dictionary = computed(() => {
+			console.log("Dictionary has changed!")
+			return new Fuse(Dictionary, {
+				shouldSort: true,
+				keys: searchOptions.value.keys,
+				threshold: searchOptions.value.threshold,
+				includeScore: searchOptions.value.includeScore,
+			})
+		})
 
-    return {
-        search,
-        lookupOptions,
-        result,
-    }
-})
+		const result = computed(() => {
+			console.log("Results have changed!")
+			return dictionary.value.search(searchOptions.value.search, {
+				limit: searchOptions.value.limit,
+			})
+		})
+
+		return {
+			gridAnnouncement,
+			searchOptions,
+			dictionary,
+			result,
+		}
+	},
+	{ persist: true }
+)

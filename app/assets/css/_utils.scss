@@ -1,0 +1,24 @@
+@use "sass:string";
+
+@mixin use-transition(
+	$properties,
+	$duration: var(--global-animation-duration),
+	$easing: var(--global-animation-easing)
+) {
+	& {
+		transition-property: string.unquote($string: $properties);
+		transition-duration: #{$duration};
+		transition-timing-function: #{$easing};
+		@content;
+	}
+}
+
+@mixin with-icon($spacing: 1ch, $icon-margin: 0.1em) {
+	& > .iconify {
+		margin-block-end: #{$icon-margin};
+	}
+
+	& > * + * {
+		margin-inline-start: #{$spacing};
+	}
+}
