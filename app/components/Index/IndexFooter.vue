@@ -19,7 +19,7 @@
 
 		padding: 1em;
 		font-size: 0.8em;
-		color: hsl(from currentColor h s 50%);
+		color: var(--global-font-color--muted);
 
 		&-content {
 			@extend %grid-item-content;

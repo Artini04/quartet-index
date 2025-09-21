@@ -3,6 +3,8 @@
 		// Component
 		--global-background-color--body: hsl(0, 0%, 10%);
 		--global-background-color: hsl(0, 0%, 15%);
+		--global-font-color: hsl(0, 0%, 95%);
+		--global-font-color--muted: hsl(from var(--global-font-color) h s 50%);
 
 		// Border
 		--global-border-color: hsl(from var(--global-background-color) h s 25%);

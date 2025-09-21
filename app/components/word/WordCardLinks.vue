@@ -21,7 +21,7 @@
 <style lang="scss">
 	.word-card-links {
 		font-size: 0.8em;
-		color: hsl(from currentColor h s 50%);
+		color: var(--global-font-color--muted);
 
 		display: flex;
 		gap: 0 2ch;

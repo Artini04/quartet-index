@@ -3,10 +3,9 @@
 @layer base {
 	html {
 		background-color: var(--global-background-color--body);
-		color: hsl(0, 0%, 90%);
+		color: var(--global-font-color);
 
 		font-family: "Noto Sans JP", sans-serif;
-
 		overflow: auto scroll;
 	}
 
