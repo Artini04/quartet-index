@@ -22,7 +22,7 @@
     "@vueuse/nuxt": "13.9.0",
     "eslint": "^9.0.0",
     "fuse.js": "^7.1.0",
-    "nuxt": "^4.1.1",
+    "nuxt": "^4.2.1",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "4.5.0",
     "sass": "^1.92.1",
