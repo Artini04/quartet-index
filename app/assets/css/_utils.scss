@@ -13,6 +13,14 @@
 	}
 }
 
+@mixin on-hover() {
+	@media (hover: hover) {
+		&:is(:hover) {
+			@content;
+		}
+	}
+}
+
 @mixin with-icon($spacing: 1ch, $icon-margin: 0.1em) {
 	& > .iconify {
 		margin-block-end: #{$icon-margin};

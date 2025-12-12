@@ -1,11 +1,21 @@
+<script setup lang="ts">
+	import ActionLinkExternalMini from "../Action/ActionLinkExternal/ActionLinkExternalMini.vue"
+</script>
+
 <template>
 	<footer class="index-footer">
 		<div class="index-footer-content">
-			<ActionLinkExternalMini
+			<ActionLinkExternal
+				:component="ActionLinkExternalMini"
+				link="https://github.com/Artini04/quartet-index"
+				label="GitHub"
+				icon="tabler:brand-github"
+			/>
+			<!--<ActionLinkExternalMini
 				href="https://github.com/Artini04/quartet-index"
 				icon="tabler:brand-github"
 				text="GitHub"
-			/>
+			/>-->
 			<span>{{ new Date().getFullYear() }}年</span>
 		</div>
 	</footer>

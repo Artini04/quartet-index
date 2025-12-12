@@ -36,7 +36,7 @@
 @layer transition {
 	.page-enter-active,
 	.page-leave-active {
-		transition: all ease 100ms;
+		transition: all ease 200ms;
 	}
 
 	.page-enter-from,

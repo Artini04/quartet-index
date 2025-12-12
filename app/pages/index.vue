@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import ActionLinkExternalBase from "~/components/Action/ActionLinkExternal/ActionLinkExternalBase.vue"
+
 	const { result } = storeToRefs(useLookupStore())
 	const { appOptions } = storeToRefs(useOptionsStore())
 
@@ -72,14 +74,11 @@
 					Words used are from the book QUARTET: INTERMEDIATE JAPANESE
 					ACROSS THE FOUR LANGUAGE SKILLS. You can download the
 					spreadsheet in their
-					<NuxtLink
-						href="https://quartet.japantimes.co.jp/en/resource/"
-						target="_blank"
-						external
-					>
-						<span>resources</span>
-						<Icon name="tabler:external-link" />
-					</NuxtLink>
+					<ActionLinkExternal
+						:component="ActionLinkExternalBase"
+						link="https://quartet.japantimes.co.jp/en/resource/"
+						label="resources"
+					/>
 					website under Index section.
 				</p>
 			</SectionItem>

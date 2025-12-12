@@ -4,6 +4,15 @@
 			<h1>日本語カルテット単語索引</h1>
 			<h2>Japanese Quartet Vocabulary Index</h2>
 		</div>
+
+		<div class="index-header-links">
+			<IndexPageLink link="/" label="Lookup" icon="tabler:list-search" />
+			<IndexPageLink
+				link="/table"
+				label="Table"
+				icon="tabler:table-dashed"
+			/>
+		</div>
 	</header>
 </template>
 
@@ -15,17 +24,31 @@
 		--header-background-color: hsl(0, 0%, 15%);
 
 		@extend %grid;
+	}
 
+	.index-header-content {
+		@extend %grid-item-content;
+
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 1ch;
+		place-items: center;
+
+		padding-block-start: 1em;
+	}
+
+	.index-header-links {
+		@extend %grid-item-content;
+
+		display: flex;
+		flex-flow: row wrap;
+		gap: 0.4em;
+
+		padding-block-end: 1em;
+	}
+
+	.index-header {
 		&-content {
-			@extend %grid-item-content;
-
-			display: flex;
-			flex-flow: column nowrap;
-			gap: 1ch;
-			place-items: center;
-
-			padding: 1em;
-
 			& h1 {
 				text-align: center;
 				letter-spacing: 1ch;
