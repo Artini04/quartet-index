@@ -5,7 +5,7 @@
 	useSeoMeta({
 		titleTemplate: (titleChunk) =>
 			titleChunk
-				? `${titleChunk} ー 中級日本語カルテット単語索引`
+				? `${titleChunk} / 中級日本語カルテット単語索引`
 				: "中級日本語カルテット単語索引",
 
 		title,

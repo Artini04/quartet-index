@@ -1,11 +1,11 @@
 <script setup lang="ts">
 	useHead({
-		title: "Index",
+		title: "About",
 	})
 </script>
 
 <template>
-	<main id="index">
-		<SectionLookup />
+	<main id="about">
+		<LazySectionAbout hydrate-on-idle />
 	</main>
 </template>

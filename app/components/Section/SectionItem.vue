@@ -23,7 +23,7 @@
 <style lang="scss">
 	.section-item {
 		& > * + * {
-			margin-block-start: 0.4em;
+			margin-block-start: 0.8em;
 		}
 
 		&-header {

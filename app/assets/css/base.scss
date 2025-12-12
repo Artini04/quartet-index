@@ -9,11 +9,6 @@
 		overflow: auto scroll;
 	}
 
-	main#index,
-	main#info {
-		@extend %grid;
-	}
-
 	h1,
 	h2,
 	h3,
@@ -36,7 +31,7 @@
 @layer transition {
 	.page-enter-active,
 	.page-leave-active {
-		transition: all ease 200ms;
+		transition: all ease 150ms;
 	}
 
 	.page-enter-from,

@@ -28,6 +28,9 @@
 		border: var(--global-border);
 		border-radius: var(--global-border-radius);
 
+		user-select: none;
+		font-size: 0.9em;
+
 		@include utils.use-transition("rotate");
 		@include utils.on-hover() {
 			rotate: 5deg;

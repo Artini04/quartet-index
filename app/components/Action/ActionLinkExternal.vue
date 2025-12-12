@@ -7,7 +7,7 @@
 		label: string
 	}
 
-	const {} = defineProps<Props>()
+	defineProps<Props>()
 </script>
 
 <template>

@@ -11,11 +11,6 @@
 				label="GitHub"
 				icon="tabler:brand-github"
 			/>
-			<!--<ActionLinkExternalMini
-				href="https://github.com/Artini04/quartet-index"
-				icon="tabler:brand-github"
-				text="GitHub"
-			/>-->
 			<span>{{ new Date().getFullYear() }}年</span>
 		</div>
 	</footer>
