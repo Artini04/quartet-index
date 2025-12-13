@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	import type { Word } from "~~/shared/types"
 	const { data } = defineProps<Word>()
+	const { appOptions } = storeToRefs(useOptionsStore())
 
 	const jaText = data.ja_kana_kanji ?? data.ja_hiragana
 	const jaSubtext = data.ja_kana_kanji === jaText ? data.ja_hiragana : null
@@ -22,7 +23,7 @@
 			:en-meaning="data.en_meaning"
 			:en-verb-type="data.en_verb_type"
 		/>
-		<CardWordDict />
+		<LazyCardWordDict v-if="appOptions.cardDictionary" :keyword="jaText" />
 	</div>
 </template>
 
@@ -48,7 +49,8 @@
 	}
 
 	.card-word-dict {
-		padding-block-start: $card-normalized-padding-size;
+		padding-block: calc($card-normalized-padding-size + 0.1rem)
+			$card-normalized-padding-size;
 	}
 
 	.card-word-info,
