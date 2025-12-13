@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	interface Props {
 		groupKey: string | number
+		groupTotal: number
 	}
 
 	defineProps<Props>()
@@ -11,7 +12,13 @@
 <template>
 	<div class="table-group" :data-key="groupKey">
 		<div class="table-group-heading" @click="isOpen = !isOpen">
-			<h4>{{ groupKey }}</h4>
+			<h4 class="table-group-heading__key">{{ groupKey }}</h4>
+			<FormLabel
+				v-if="groupTotal"
+				class="text-dim"
+				:label="groupTotal.toString()"
+				icon="tabler:database-export"
+			/>
 		</div>
 
 		<div
@@ -35,6 +42,7 @@
 
 		display: flex;
 		flex-flow: row nowrap;
+		gap: 1em;
 		place-items: center;
 		place-content: space-between;
 
@@ -53,6 +61,10 @@
 			&::after {
 				content: "-";
 			}
+		}
+
+		&__key {
+			flex: 1 1 100%;
 		}
 	}
 

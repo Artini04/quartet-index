@@ -1,5 +1,9 @@
 @layer global {
 	:root {
+		// Fonts
+		--global-font-color: hsl(0, 0%, 95%);
+		--global-font-color--dim: hsl(0, 0%, 60%);
+
 		// Component
 		--global-background-color--body: hsl(0, 0%, 10%);
 		--global-background-color: hsl(0, 0%, 15%);

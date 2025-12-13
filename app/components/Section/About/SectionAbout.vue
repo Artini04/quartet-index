@@ -10,11 +10,10 @@
 			title="日本語カルテット単語索引"
 		>
 			<p class="text-indent">
-				A small Japanese Quartet Vocabulary Index written in Nuxt.
-				Lesson numbers are
-				<span class="span--blue">colored</span> based on their
-				respective book color. I also added links from English-Japanese
-				dictionaries to access them easier.
+				A vocabulary Index web app for Japanese Quartet written in Nuxt.
+				Lesson numbers are <span class="span--blue">colored</span>
+				based on their respective book color. I also added links from
+				English-Japanese dictionaries to access them easier.
 			</p>
 		</SectionItem>
 
