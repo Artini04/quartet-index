@@ -72,7 +72,9 @@
 		display: none;
 
 		&--open {
-			display: block;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 1px;
 		}
 	}
 </style>

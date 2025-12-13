@@ -15,6 +15,15 @@
 <template>
 	<div class="table-item">
 		<div class="table-item-info">
+			<p
+				:class="
+					info.lesson < 7 ?
+						'table-item-info--book-1'
+					:	'table-item-info--book-2'
+				"
+			>
+				LSN{{ info.lesson }}
+			</p>
 			<p>{{ info.kanji }}</p>
 			<p class="table-item-info__letter">{{ info.letter_location }}</p>
 			<p>読{{ convertToFull(info.reading) }}</p>
@@ -43,11 +52,8 @@
 <style lang="scss">
 	.table-item {
 		display: grid;
-		grid-template-columns: 50px 9fr;
-
-		& + .table-item {
-			border-block-start: 1px solid hsl(0, 0%, 100%, 0.1);
-		}
+		grid-template-columns: 50px 10fr;
+		box-shadow: 0 0 1px 1px var(--global-border-color);
 	}
 
 	.table-item-info,
@@ -66,6 +72,14 @@
 		&__letter {
 			color: hsl(0, 0%, 60%);
 		}
+
+		&--book-1 {
+			color: hsl(0, 100%, 70%);
+		}
+
+		&--book-2 {
+			color: hsl(200, 100%, 70%);
+		}
 	}
 
 	.table-item-word {
@@ -77,6 +91,10 @@
 			display: flex;
 			flex-flow: row wrap;
 			gap: 0 1ch;
+		}
+
+		&-ja {
+			font-size: 1.2em;
 		}
 
 		&__jp-1 {

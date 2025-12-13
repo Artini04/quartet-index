@@ -4,98 +4,65 @@
 
 <template>
 	<Section class="section-table">
-		<div class="section-table-config">
-			<FormRow>
-				<label for="tag-lesson">Lesson</label>
-				<input
-					type="radio"
+		<div class="section-table-heading">
+			<h4>Filter</h4>
+
+			<div class="section-table-configs">
+				<FormRowRadio
 					id="tag-lesson"
+					label="Lesson"
 					value="lesson"
 					v-model="tableTags"
 				/>
-			</FormRow>
-
-			<FormRow>
-				<label for="tag-letter">Letter</label>
-				<input
-					type="radio"
+				<FormRowRadio
 					id="tag-letter"
+					label="Letter"
 					value="letter"
 					v-model="tableTags"
 				/>
-			</FormRow>
-
-			<FormRow>
-				<label for="tag-meaning-total">Meaning Total</label>
-				<input
-					type="radio"
+				<FormRowRadio
 					id="tag-meaning-total"
+					label="Total Meaning"
 					value="meaning-total"
 					v-model="tableTags"
 				/>
-			</FormRow>
-
-			<FormRow>
-				<label for="tag-char-total">Japanese Characters Total</label>
-				<input
-					type="radio"
+				<FormRowRadio
 					id="tag-char-total"
+					label="Total Japanese Characters"
 					value="char-total"
 					v-model="tableTags"
 				/>
-			</FormRow>
-
-			<FormRow>
-				<label for="tag-char-hi-total">
-					Japanese Characters Total (Hiragana)
-				</label>
-				<input
-					type="radio"
+				<FormRowRadio
 					id="tag-char-hi-total"
+					label="Total Japanese Characters (Hiragana)"
 					value="char-hi-total"
 					v-model="tableTags"
 				/>
-			</FormRow>
-
-			<FormRow>
-				<label for="tag-particle">Has Particle</label>
-				<input
-					type="radio"
+				<FormRowRadio
 					id="tag-particle"
+					label="Has Particle"
 					value="particle"
 					v-model="tableTags"
 				/>
-			</FormRow>
-
-			<FormRow>
-				<label for="tag-suru">Has する</label>
-				<input
-					type="radio"
+				<FormRowRadio
 					id="tag-suru"
+					label="Has する"
 					value="suru"
 					v-model="tableTags"
 				/>
-			</FormRow>
-
-			<FormRow>
-				<label for="tag-type">Has Type</label>
-				<input
-					type="radio"
+				<FormRowRadio
 					id="tag-type"
+					label="Has Type"
 					value="type"
 					v-model="tableTags"
 				/>
-			</FormRow>
-
-			<FormRow>
-				<label for="tag-kk">Has Kana-Kanji</label>
-				<input
-					type="radio"
-					id="tag-kk"
+				<FormRowRadio
+					id="tag-kana-kanji"
+					label="Has Kana Kanji"
 					value="kana-kanji"
 					v-model="tableTags"
 				/>
-			</FormRow>
+			</div>
 		</div>
 
 		<div class="section-table-content">
@@ -118,15 +85,21 @@
 <style lang="scss">
 	@use "~/assets/css/layouts";
 
-	.section-table-config,
+	.section-table-heading,
 	.section-table-content {
 		@extend %grid-item-content;
 	}
 
-	.section-table-config {
+	.section-table-configs {
 		display: flex;
 		flex-flow: row wrap;
-		gap: 1em;
+		gap: 0.4em;
+
+		margin-block-start: 1em;
+
+		@container (width <= 600px) {
+			flex-flow: column nowrap;
+		}
 	}
 
 	.section-table-content {
