@@ -33,6 +33,9 @@
 	$card-normalized-padding-size: 0.3rem;
 
 	.card-word {
+		display: flex;
+		flex-flow: column nowrap;
+
 		border: var(--global-border);
 		border-radius: var(--global-border-radius);
 		overflow: clip;
@@ -57,5 +60,9 @@
 	.card-word-dict {
 		font-size: 0.8em;
 		background-color: $card-background-color--odd;
+	}
+
+	.card-word-data {
+		flex: 1 1 auto;
 	}
 </style>

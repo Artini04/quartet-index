@@ -35,7 +35,6 @@
 	.card-word-data {
 		display: flex;
 		flex-flow: column nowrap;
-		place-content: space-between;
 
 		&__text {
 			color: $data-text-color;
