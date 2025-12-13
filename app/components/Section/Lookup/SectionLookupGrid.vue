@@ -14,4 +14,15 @@
 	</div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+	$grid-item-min-size: min(250px, 100%);
+
+	.lookup-grid {
+		gap: 0.6em;
+		display: grid;
+		grid-template-columns: repeat(
+			auto-fit,
+			minmax($grid-item-min-size, 1fr)
+		);
+	}
+</style>

@@ -20,8 +20,46 @@
 		</div>
 
 		<div class="card-word-data-en">
-			<p class="card-word-data__en-meaning">{{ enMeaning }}</p>
-			<p class="card-word-data__en-type">{{ enVerbType }}</p>
+			<p class="card-word-data__meaning">
+				{{ enMeaning.join(", ") }}
+			</p>
+			<p class="card-word-data__type">{{ enVerbType }}</p>
 		</div>
 	</div>
 </template>
+
+<style lang="scss">
+	$data-text-color: hsl(14, 100%, 60%);
+	$data-subtext-color: hsl(50, 100%, 60%);
+
+	.card-word-data {
+		display: flex;
+		flex-flow: column nowrap;
+		place-content: space-between;
+
+		&__text {
+			color: $data-text-color;
+		}
+
+		&__subtext {
+			color: $data-subtext-color;
+		}
+
+		&__type {
+			font-style: italic;
+		}
+	}
+
+	.card-word-data-ja,
+	.card-word-data-en {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 0 1ch;
+	}
+
+	.card-word-data-en {
+		&::before {
+			content: "【英】";
+		}
+	}
+</style>

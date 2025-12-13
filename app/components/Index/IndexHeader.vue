@@ -6,16 +6,12 @@
 		</div>
 
 		<div class="index-header-links">
-			<IndexPageLink link="/" label="Lookup" icon="tabler:list-search" />
-			<IndexPageLink
-				link="/table"
-				label="Table"
-				icon="tabler:table-dashed"
-			/>
+			<IndexPageLink link="/" label="Lookup" icon="lucide:text-search" />
+			<IndexPageLink link="/table" label="Table" icon="lucide:table-2" />
 			<IndexPageLink
 				link="/about"
 				label="About"
-				icon="tabler:info-square-rounded"
+				icon="lucide:paperclip"
 			/>
 		</div>
 	</header>

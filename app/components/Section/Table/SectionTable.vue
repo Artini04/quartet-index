@@ -10,57 +10,63 @@
 			<div class="section-table-configs">
 				<FormRowRadio
 					id="tag-lesson"
+					v-model="tableTags"
 					label="Lesson"
 					value="lesson"
-					v-model="tableTags"
 				/>
 				<FormRowRadio
 					id="tag-letter"
+					v-model="tableTags"
 					label="Letter"
 					value="letter"
-					v-model="tableTags"
 				/>
 				<FormRowRadio
 					id="tag-meaning-total"
+					v-model="tableTags"
 					label="Total Meaning"
 					value="meaning-total"
-					v-model="tableTags"
 				/>
 				<FormRowRadio
 					id="tag-char-total"
+					v-model="tableTags"
 					label="Total Japanese Characters"
 					value="char-total"
-					v-model="tableTags"
 				/>
 				<FormRowRadio
 					id="tag-char-hi-total"
+					v-model="tableTags"
 					label="Total Japanese Characters (Hiragana)"
 					value="char-hi-total"
+				/>
+				<FormRowRadio
+					id="tag-diamond"
 					v-model="tableTags"
+					label="Has Diamond"
+					value="diamond"
 				/>
 				<FormRowRadio
 					id="tag-particle"
+					v-model="tableTags"
 					label="Has Particle"
 					value="particle"
-					v-model="tableTags"
 				/>
 				<FormRowRadio
 					id="tag-suru"
+					v-model="tableTags"
 					label="Has する"
 					value="suru"
-					v-model="tableTags"
 				/>
 				<FormRowRadio
 					id="tag-type"
+					v-model="tableTags"
 					label="Has Type"
 					value="type"
-					v-model="tableTags"
 				/>
 				<FormRowRadio
 					id="tag-kana-kanji"
+					v-model="tableTags"
 					label="Has Kana Kanji"
 					value="kana-kanji"
-					v-model="tableTags"
 				/>
 			</div>
 		</div>

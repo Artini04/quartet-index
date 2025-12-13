@@ -25,16 +25,31 @@
 </template>
 
 <style lang="scss">
-	$info-small-size: 50px;
+	$info-large-size: 1fr;
+	$info-small-size: 30px;
+	$info-book-1: hsl(0, 100%, 70%);
+	$info-book-2: hsl(200, 100%, 70%);
 
 	.card-word-info {
 		display: grid;
-		grid-template-columns: 1fr $info-small-size $info-small-size $info-small-size;
+		grid-template-columns:
+			$info-large-size
+			$info-small-size
+			$info-small-size
+			$info-small-size;
 
 		&__reading,
 		&__location,
 		&__diamond {
 			justify-self: flex-end;
+		}
+
+		&__lesson--book-1 {
+			color: $info-book-1;
+		}
+
+		&__lesson--book-2 {
+			color: $info-book-2;
 		}
 	}
 </style>

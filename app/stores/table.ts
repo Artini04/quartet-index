@@ -17,7 +17,7 @@ export const useTableStore = defineStore("TableStore", () => {
 	const tableTags = ref<DictKey>("lesson")
 
 	const tableTagsResults = computed(() => {
-		return Object.groupBy<any, Word>(dict, (word) => {
+		return Object.groupBy<string | number, Word>(dict, (word) => {
 			switch (tableTags.value) {
 				case "lesson":
 					return word.info.lesson
@@ -27,10 +27,11 @@ export const useTableStore = defineStore("TableStore", () => {
 					return word.info.kanji
 				case "meaning-total":
 					return word.data.en_meaning.length
-				case "char-total":
+				case "char-total": {
 					const wordSan =
 						word.data.ja_kana_kanji ?? word.data.ja_hiragana
 					return wordSan.length
+				}
 				case "char-hi-total":
 					return word.data.ja_hiragana.length
 				case "particle":

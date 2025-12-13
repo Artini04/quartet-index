@@ -5,7 +5,7 @@
 		icon?: string
 	}
 
-	const { icon = "tabler:file-description-filled" } = defineProps<Props>()
+	const { icon = "lucide:notebook-text" } = defineProps<Props>()
 </script>
 
 <template>

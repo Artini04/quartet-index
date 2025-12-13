@@ -22,5 +22,38 @@
 			:en-meaning="data.en_meaning"
 			:en-verb-type="data.en_verb_type"
 		/>
+		<CardWordDict />
 	</div>
 </template>
+
+<style lang="scss">
+	$card-background-color--odd: var(--global-background-color);
+	$card-padding-size: 0.6rem;
+	$card-normalized-padding-size: 0.3rem;
+
+	.card-word {
+		border: var(--global-border);
+		border-radius: var(--global-border-radius);
+		overflow: clip;
+	}
+
+	.card-word-info,
+	.card-word-data,
+	.card-word-dict {
+		padding: $card-padding-size;
+	}
+
+	.card-word-info {
+		padding-block-end: $card-normalized-padding-size;
+	}
+
+	.card-word-dict {
+		padding-block-start: $card-normalized-padding-size;
+	}
+
+	.card-word-info,
+	.card-word-dict {
+		font-size: 0.8em;
+		background-color: $card-background-color--odd;
+	}
+</style>
