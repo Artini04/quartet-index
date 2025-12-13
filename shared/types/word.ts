@@ -5,12 +5,12 @@ export interface Word {
 }
 
 export interface Data {
-	ja_kana_kanji?: String | null
+	ja_kana_kanji: string | null
 	ja_hiragana: string
-	ja_particle?: string | null
-	ja_suru?: string | null
+	ja_particle: string | null
+	ja_suru: string | null
 	en_meaning: string[]
-	en_verb_type?: string | null
+	en_verb_type: string | null
 }
 
 export interface Info {

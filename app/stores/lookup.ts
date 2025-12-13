@@ -3,7 +3,7 @@ import Dictionary from "~/data/dictionary.json"
 import { defineStore } from "pinia"
 
 export const useLookupStore = defineStore("LookupStore", () => {
-	const gridAnnouncement = ref(true)
+	const gridAnnouncement = ref(false)
 	const defaultKeys = [
 		"data.ja_kana_kanji",
 		"data.ja_hiragana",
@@ -29,10 +29,23 @@ export const useLookupStore = defineStore("LookupStore", () => {
 	})
 
 	const result = computed(() => {
-		console.log("Results have changed!")
 		return dictionary.value.search(searchOptions.value.search, {
 			limit: searchOptions.value.limit,
 		})
+	})
+
+	const dictResults = computed(() => {
+		const queryResult = dictionary.value.search(
+			searchOptions.value.search,
+			{
+				limit: searchOptions.value.limit,
+			},
+		)
+
+		return {
+			total: queryResult.length,
+			result: queryResult,
+		}
 	})
 
 	return {
@@ -40,5 +53,6 @@ export const useLookupStore = defineStore("LookupStore", () => {
 		searchOptions,
 		dictionary,
 		result,
+		dictResults,
 	}
 })
