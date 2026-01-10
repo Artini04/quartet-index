@@ -36,11 +36,13 @@
 		display: flex;
 		flex-flow: column nowrap;
 		gap: 0.5ch;
+		place-content: center;
+		place-items: center;
+		text-align: center;
 
 		padding-block-start: 1em;
 
 		@container (width > 600px) {
-			text-align: center;
 		}
 
 		@container (width <= 600px) {

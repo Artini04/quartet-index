@@ -48,10 +48,6 @@ export const useTableStore = defineStore("TableStore", () => {
 		})
 	})
 
-	watchEffect(() => {
-		console.log(tableTagsResults.value)
-	})
-
 	return {
 		tableTags,
 		tableTagsResults,
