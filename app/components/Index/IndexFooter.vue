@@ -9,7 +9,7 @@
 				:component="ActionLinkExternalMini"
 				link="https://github.com/Artini04/quartet-index"
 				label="GitHub"
-				icon="tabler:brand-github"
+				icon="lucide:github"
 			/>
 			<span>{{ new Date().getFullYear() }}年</span>
 		</div>
@@ -32,6 +32,10 @@
 			display: flex;
 			flex-flow: row nowrap;
 			place-content: space-between;
+
+			& .iconify {
+				margin-block-end: 0.2em;
+			}
 		}
 	}
 </style>

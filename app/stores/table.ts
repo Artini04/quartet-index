@@ -1,6 +1,6 @@
 import { defineStore } from "pinia"
 
-type DictKey =
+export type DictKey =
 	| "lesson"
 	| "letter"
 	| "meaning-total"

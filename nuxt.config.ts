@@ -17,6 +17,12 @@ export default defineNuxtConfig({
 		},
 	},
 
+	vite: {
+		optimizeDeps: {
+			include: ["@vue/devtools-core", "@vue/devtools-kit"],
+		},
+	},
+
 	modules: [
 		"@nuxt/eslint",
 		"@nuxt/fonts",
@@ -25,5 +31,6 @@ export default defineNuxtConfig({
 		"pinia-plugin-persistedstate",
 		"@vueuse/nuxt",
 		"@formkit/auto-animate/nuxt",
+		"@nuxt/image",
 	],
 })

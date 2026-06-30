@@ -17,7 +17,7 @@
 				v-if="groupTotal"
 				class="text-dim"
 				:label="groupTotal.toString()"
-				icon="tabler:database-export"
+				icon="lucide:database"
 			/>
 		</div>
 

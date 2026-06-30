@@ -1,7 +1,6 @@
 <script setup lang="ts">
-	const { gridAnnouncement, searchOptions, result } = storeToRefs(
-		useLookupStore()
-	)
+	const { gridAnnouncement, searchOptions, result } =
+		storeToRefs(useLookupStore())
 
 	function handleInputChange() {
 		gridAnnouncement.value = false
@@ -11,16 +10,16 @@
 
 <template>
 	<label for="lookup" class="action-search">
-		<Icon name="tabler:search" />
+		<Icon name="lucide:search" />
 		<input
 			id="lookup"
+			v-model.lazy="searchOptions.search"
 			class="action-search__input"
 			type="text"
 			placeholder="ひらがな, カタカナ, 漢字, 英語を探す..."
 			autocomplete="off"
 			autocorrect="off"
 			spellcheck="false"
-			v-model.lazy="searchOptions.search"
 			@change="handleInputChange()"
 		/>
 		<input
@@ -29,7 +28,7 @@
 			value="Clear"
 			@click.prevent="searchOptions.search = ''"
 		/>
-		<Icon name="tabler:filter" />
+		<Icon name="lucide:filter" />
 		<p class="action-search__result-length">{{ result.length }}</p>
 	</label>
 </template>

@@ -6,7 +6,7 @@
 	<Section class="section-about">
 		<SectionItem
 			class="section-about-info"
-			icon="tabler:notebook"
+			icon="lucide:notebook"
 			title="日本語カルテット単語索引"
 		>
 			<p class="text-indent">
@@ -19,7 +19,7 @@
 
 		<SectionItem
 			class="section-about-list"
-			icon="tabler:bookmarks"
+			icon="lucide:bookmark"
 			title="単語リストについて"
 		>
 			<p class="text-indent">
@@ -37,7 +37,7 @@
 
 		<SectionItem
 			class="section-about-vocab"
-			icon="tabler:writing-sign"
+			icon="lucide:pencil-line"
 			title="単語リストのシンボル"
 		>
 			<WordVocabIntro
@@ -62,9 +62,7 @@
 <style lang="scss">
 	@use "~/assets/css/layouts";
 
-	.section-about-info,
-	.section-about-list,
-	.section-about-vocab {
+	.section-about > [class*="section-about-"] {
 		@extend %grid-item-content;
 	}
 

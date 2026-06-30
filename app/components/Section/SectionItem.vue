@@ -4,7 +4,7 @@
 		title: string
 	}
 
-	const { icon = "tabler:notebook" } = defineProps<Props>()
+	const { icon = "lucide:notebook" } = defineProps<Props>()
 </script>
 
 <template>

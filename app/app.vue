@@ -1,12 +1,13 @@
 <script setup lang="ts">
 	const title = "Index"
 	const description = "Japanese Quartet Vocabulary Index made in Nuxt"
+	const icon = "/cavatar.png"
 
 	useSeoMeta({
 		titleTemplate: (titleChunk) =>
-			titleChunk
-				? `${titleChunk} / 中級日本語カルテット単語索引`
-				: "中級日本語カルテット単語索引",
+			titleChunk ?
+				`${titleChunk} / 中級日本語カルテット単語索引`
+			:	"中級日本語カルテット単語索引",
 
 		title,
 		description,
@@ -27,13 +28,13 @@
 		link: [
 			{
 				rel: "icon",
-				type: "image/ico",
-				href: "/favicon.ico",
+				type: "image/png",
+				href: icon,
 			},
 			{
 				rel: "shortcut icon",
-				type: "image/ico",
-				href: "/favicon.ico",
+				type: "image",
+				href: icon,
 			},
 		],
 	})

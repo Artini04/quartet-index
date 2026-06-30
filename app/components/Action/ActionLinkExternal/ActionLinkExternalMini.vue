@@ -5,7 +5,7 @@
 		icon?: string
 	}
 
-	const { icon = "tabler:external-link" } = defineProps<Props>()
+	const { icon = "lucide:external-link" } = defineProps<Props>()
 </script>
 
 <template>
