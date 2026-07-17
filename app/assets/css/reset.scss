@@ -81,4 +81,16 @@
 		font-size: inherit;
 		vertical-align: middle;
 	}
+
+	input[type="text"],
+	input[type="number"] {
+		font-family: inherit;
+
+		&[class] {
+			appearance: none;
+			outline: none;
+			border: none;
+			background: none;
+		}
+	}
 }

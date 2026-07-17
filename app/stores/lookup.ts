@@ -3,6 +3,8 @@ import Dictionary from "~/data/dictionary.json"
 import { defineStore } from "pinia"
 
 export const useLookupStore = defineStore("LookupStore", () => {
+	const { appOptions } = useOptionsStore()
+
 	const gridAnnouncement = ref(false)
 	const defaultKeys = [
 		"data.ja_kana_kanji",
@@ -14,7 +16,7 @@ export const useLookupStore = defineStore("LookupStore", () => {
 		keys: defaultKeys,
 		search: "",
 		threshold: 0.2,
-		limit: 10,
+		limit: 30,
 		includeScore: true,
 	})
 
@@ -38,7 +40,7 @@ export const useLookupStore = defineStore("LookupStore", () => {
 		const queryResult = dictionary.value.search(
 			searchOptions.value.search,
 			{
-				limit: searchOptions.value.limit,
+				limit: appOptions.queryLimit,
 			},
 		)
 

@@ -73,7 +73,7 @@
 
 	.lookup-search-entry,
 	.lookup-search-filter {
-		gap: 0.5ch;
+		gap: 1ch;
 		display: flex;
 		flex-flow: row nowrap;
 		place-items: center;
