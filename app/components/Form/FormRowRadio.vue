@@ -11,7 +11,12 @@
 
 <template>
 	<FormRow>
-		<input :id v-model="model" type="radio" :name="id" :value />
+		<input
+			:id
+			v-model="model"
+			type="radio"
+			:name="id"
+			:value />
 		<label :for="id">{{ label }}</label>
 	</FormRow>
 </template>

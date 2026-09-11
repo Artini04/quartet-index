@@ -9,7 +9,9 @@
 </script>
 
 <template>
-	<label for="lookup" class="action-search">
+	<label
+		for="lookup"
+		class="action-search">
 		<Icon name="lucide:search" />
 		<input
 			id="lookup"
@@ -20,14 +22,12 @@
 			autocomplete="off"
 			autocorrect="off"
 			spellcheck="false"
-			@change="handleInputChange()"
-		/>
+			@change="handleInputChange()" />
 		<input
 			class="action-search__clear"
 			type="button"
 			value="Clear"
-			@click.prevent="searchOptions.search = ''"
-		/>
+			@click.prevent="searchOptions.search = ''" />
 		<Icon name="lucide:filter" />
 		<p class="action-search__result-length">{{ result.length }}</p>
 	</label>

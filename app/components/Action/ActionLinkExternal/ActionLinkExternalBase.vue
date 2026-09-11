@@ -9,7 +9,9 @@
 </script>
 
 <template>
-	<NuxtLink class="action-link-external" :href="link">
+	<NuxtLink
+		class="action-link-external"
+		:href="link">
 		<span>{{ label }}</span>
 		<Icon :name="icon" />
 	</NuxtLink>

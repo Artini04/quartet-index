@@ -20,8 +20,7 @@
 				type="number"
 				min="10"
 				max="50"
-				step="5"
-			/>
+				step="5" />
 		</div>
 
 		<DevOnly>
@@ -33,8 +32,7 @@
 					id="card-meaning-spoiler"
 					v-model="appOptions.meaningSpoiler"
 					type="checkbox"
-					name="card-meaning-spoiler"
-				/>
+					name="card-meaning-spoiler" />
 			</div>
 		</DevOnly>
 	</div>

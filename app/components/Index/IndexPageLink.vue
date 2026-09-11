@@ -9,7 +9,9 @@
 </script>
 
 <template>
-	<NuxtLink class="index-page-link" :to="link">
+	<NuxtLink
+		class="index-page-link"
+		:to="link">
 		<Icon :name="icon" />
 		<span>{{ label }}</span>
 	</NuxtLink>

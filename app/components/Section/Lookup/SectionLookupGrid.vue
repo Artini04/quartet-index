@@ -9,8 +9,7 @@
 			:id="word.id"
 			:key="index"
 			:info="word.info"
-			:data="word.data"
-		/>
+			:data="word.data" />
 	</div>
 </template>
 

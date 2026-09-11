@@ -10,7 +10,9 @@
 <template>
 	<div class="section-item">
 		<h2 class="section-item-header | jp">
-			<Icon class="section-item__icon" :name="icon" />
+			<Icon
+				class="section-item__icon"
+				:name="icon" />
 			<span class="section-item__title">{{ title }}</span>
 		</h2>
 

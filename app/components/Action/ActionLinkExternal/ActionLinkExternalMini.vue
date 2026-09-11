@@ -13,8 +13,7 @@
 		class="action-link-external-mini"
 		:href="link"
 		target="_blank"
-		external
-	>
+		external>
 		<Icon :name="icon" />
 		<span>{{ label }}</span>
 	</NuxtLink>

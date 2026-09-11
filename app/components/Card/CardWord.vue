@@ -13,17 +13,17 @@
 			:lesson="info.lesson"
 			:reading="info.reading"
 			:location="info.letter_location"
-			:diamond="info.kanji"
-		/>
+			:diamond="info.kanji" />
 		<CardWordData
 			:ja-text="jaText"
 			:ja-subtext="jaSubtext"
 			:ja-particle="data.ja_particle"
 			:ja-suru="data.ja_suru"
 			:en-meaning="data.en_meaning"
-			:en-verb-type="data.en_verb_type"
-		/>
-		<LazyCardWordDict v-if="appOptions.cardDictionary" :keyword="jaText" />
+			:en-verb-type="data.en_verb_type" />
+		<LazyCardWordDict
+			v-if="appOptions.cardDictionary"
+			:keyword="jaText" />
 	</div>
 </template>
 

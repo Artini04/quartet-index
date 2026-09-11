@@ -10,21 +10,23 @@
 </script>
 
 <template>
-	<div class="table-group" :data-key="groupKey">
-		<div class="table-group-heading" @click="isOpen = !isOpen">
+	<div
+		class="table-group"
+		:data-key="groupKey">
+		<div
+			class="table-group-heading"
+			@click="isOpen = !isOpen">
 			<h4 class="table-group-heading__key">{{ groupKey }}</h4>
 			<FormLabel
 				v-if="groupTotal"
 				class="text-dim"
 				:label="groupTotal.toString()"
-				icon="lucide:database"
-			/>
+				icon="lucide:database" />
 		</div>
 
 		<div
 			class="table-group-content"
-			:class="{ 'table-group-content--open': isOpen }"
-		>
+			:class="{ 'table-group-content--open': isOpen }">
 			<slot />
 		</div>
 	</div>

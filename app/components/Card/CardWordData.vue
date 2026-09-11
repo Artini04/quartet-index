@@ -27,8 +27,7 @@
 				:class="{
 					'card-word-data__meaning--spoiler':
 						appOptions.meaningSpoiler,
-				}"
-			>
+				}">
 				{{ enMeaning.join(", ") }}
 			</p>
 			<p class="card-word-data__type">

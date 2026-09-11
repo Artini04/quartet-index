@@ -10,12 +10,10 @@
 	<div class="card-word-dict">
 		<CardWordDictLink
 			label="jpdb.io"
-			:link="`https://jpdb.io/search?q=${keyword}#a`"
-		/>
+			:link="`https://jpdb.io/search?q=${keyword}#a`" />
 		<CardWordDictLink
 			label="jisho.org"
-			:link="`https://jisho.org/search/${keyword}`"
-		/>
+			:link="`https://jisho.org/search/${keyword}`" />
 	</div>
 </template>
 

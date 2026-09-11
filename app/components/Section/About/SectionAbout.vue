@@ -7,8 +7,7 @@
 		<SectionItem
 			class="section-about-info"
 			icon="lucide:notebook"
-			title="日本語カルテット単語索引"
-		>
+			title="日本語カルテット単語索引">
 			<p class="text-indent">
 				A vocabulary Index web app for Japanese Quartet written in Nuxt.
 				Lesson numbers are <span class="span--blue">colored</span>
@@ -20,8 +19,7 @@
 		<SectionItem
 			class="section-about-list"
 			icon="lucide:bookmark"
-			title="単語リストについて"
-		>
+			title="単語リストについて">
 			<p class="text-indent">
 				Words used are from the book QUARTET: INTERMEDIATE JAPANESE
 				ACROSS THE FOUR LANGUAGE SKILLS. You can download the
@@ -29,8 +27,7 @@
 				<ActionLinkExternal
 					:component="ActionLinkExternalBase"
 					link="https://quartet.japantimes.co.jp/en/resource/"
-					label="resources"
-				/>
+					label="resources" />
 				website under Index section.
 			</p>
 		</SectionItem>
@@ -38,23 +35,19 @@
 		<SectionItem
 			class="section-about-vocab"
 			icon="lucide:pencil-line"
-			title="単語リストのシンボル"
-		>
+			title="単語リストのシンボル">
 			<WordVocabIntro
 				symbol="&#9670;"
 				text-jp="新出漢字がある単語（読み書き）"
-				text-en="Words with new kanji (reading and writing)"
-			/>
+				text-en="Words with new kanji (reading and writing)" />
 			<WordVocabIntro
 				symbol="&#9671;"
 				text-jp="新出漢字がある単語（読みだけ）"
-				text-en="Words with new kanji (reading only)"
-			/>
+				text-en="Words with new kanji (reading only)" />
 			<WordVocabIntro
 				symbol="&#65343;"
 				text-jp="新出漢字"
-				text-en="New kanji"
-			/>
+				text-en="New kanji" />
 		</SectionItem>
 	</Section>
 </template>

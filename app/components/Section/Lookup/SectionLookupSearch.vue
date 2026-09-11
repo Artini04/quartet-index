@@ -18,7 +18,9 @@
 </script>
 
 <template>
-	<label for="lookup" class="lookup-search">
+	<label
+		for="lookup"
+		class="lookup-search">
 		<div class="lookup-search-entry">
 			<Icon name="lucide:text-search" />
 			<input
@@ -27,14 +29,12 @@
 				v-model.lazy.trim="searchOptions.search"
 				type="text"
 				class="lookup-search-entry__input"
-				v-bind="inputProperties"
-			/>
+				v-bind="inputProperties" />
 			<input
 				class="lookup-search-entry__clear"
 				type="button"
 				value="Clear"
-				@click="clearFocus()"
-			/>
+				@click="clearFocus()" />
 		</div>
 
 		<div class="lookup-search-filter">

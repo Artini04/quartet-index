@@ -8,7 +8,10 @@
 </script>
 
 <template>
-	<NuxtLink class="card-word-dict__link" :href="link" target="_blank">
+	<NuxtLink
+		class="card-word-dict__link"
+		:href="link"
+		target="_blank">
 		<span>{{ label }}</span>
 		<Icon name="lucide:external-link" />
 	</NuxtLink>

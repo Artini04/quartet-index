@@ -11,5 +11,10 @@
 </script>
 
 <template>
-	<component :is="component" :link :label target="_blank" external />
+	<component
+		:is="component"
+		:link
+		:label
+		target="_blank"
+		external />
 </template>

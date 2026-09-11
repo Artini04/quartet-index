@@ -15,7 +15,9 @@
 
 <template>
 	<div class="card-word-info">
-		<p class="card-word-info__lesson" :class="lessonBook">
+		<p
+			class="card-word-info__lesson"
+			:class="lessonBook">
 			第{{ convertToFull(lesson) }}課
 		</p>
 		<p class="card-word-info__reading">読{{ convertToFull(reading) }}</p>
