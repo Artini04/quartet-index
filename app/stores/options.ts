@@ -1,12 +1,19 @@
 import { defineStore } from "pinia"
 
-export const useOptionsStore = defineStore("AppStore", () => {
-	const appOptions = useLocalStorage("quartet-index:app-options", {
-		cardDictionary: true,
-		queryLimit: 50,
-	})
+export const useOptionsStore = defineStore(
+	"AppStore",
+	() => {
+		const appOptions = useLocalStorage("quartet-index:app-options", {
+			cardDictionary: true,
+			meaningSpoiler: false,
+			queryLimit: 30,
+		})
 
-	return {
-		appOptions,
-	}
-})
+		return {
+			appOptions,
+		}
+	},
+	{
+		persist: true,
+	},
+)

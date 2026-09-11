@@ -3,7 +3,7 @@ export default defineNuxtConfig({
 	compatibilityDate: "2025-07-15",
 	devtools: { enabled: true },
 	app: { baseURL: "/", pageTransition: { name: "page", mode: "out-in" } },
-	alias: { "@styles": "./app/assets/css/" },
+	alias: { "@styles": "@/assets/css/" },
 
 	// CSS Configs
 	css: ["@styles/reset.scss", "@styles/global.scss", "@styles/base.scss"],
@@ -28,9 +28,9 @@ export default defineNuxtConfig({
 		"@nuxt/fonts",
 		"@nuxt/icon",
 		"@pinia/nuxt",
-		"pinia-plugin-persistedstate",
 		"@vueuse/nuxt",
 		"@formkit/auto-animate/nuxt",
 		"@nuxt/image",
+		"pinia-plugin-persistedstate",
 	],
 })

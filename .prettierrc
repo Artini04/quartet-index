@@ -5,5 +5,8 @@
 	"useTabs": true,
 	"tabWidth": 4,
 	"semi": false,
-	"vueIndentScriptAndStyle": true
+	"vueIndentScriptAndStyle": true,
+	"singleAttributePerLine": true,
+	"bracketSameLine": true,
+	"bracketSpacing": true
 }

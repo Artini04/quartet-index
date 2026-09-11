@@ -15,7 +15,7 @@
 			<label for="query-limit">Query Limit</label>
 			<input
 				id="query-limit"
-				v-model="internalQueryLimit"
+				v-model.trim.lazy="internalQueryLimit"
 				class="lookup-options-row--limit__input"
 				type="number"
 				min="10"
@@ -23,6 +23,20 @@
 				step="5"
 			/>
 		</div>
+
+		<DevOnly>
+			<div class="lookup-options-row">
+				<label for="card-meaning-spoiler"
+					>[DEV_ONLY] Meaning Hidden</label
+				>
+				<input
+					id="card-meaning-spoiler"
+					v-model="appOptions.meaningSpoiler"
+					type="checkbox"
+					name="card-meaning-spoiler"
+				/>
+			</div>
+		</DevOnly>
 	</div>
 </template>
 
@@ -33,6 +47,12 @@
 	$lookup-option-background-color: var(--global-background-color);
 	$lookup-option-border: var(--global-border);
 	$lookup-option-border-radius: var(--global-border-radius);
+
+	.lookup-options {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 1rem;
+	}
 
 	.lookup-options-row {
 		display: flex;

@@ -10,6 +10,8 @@
 	}
 
 	defineProps<Props>()
+
+	const { appOptions } = storeToRefs(useOptionsStore())
 </script>
 
 <template>
@@ -20,10 +22,18 @@
 		</div>
 
 		<div class="card-word-data-en">
-			<p class="card-word-data__meaning">
+			<p
+				class="card-word-data__meaning"
+				:class="{
+					'card-word-data__meaning--spoiler':
+						appOptions.meaningSpoiler,
+				}"
+			>
 				{{ enMeaning.join(", ") }}
 			</p>
-			<p class="card-word-data__type">{{ enVerbType }}</p>
+			<p class="card-word-data__type">
+				{{ enVerbType }}
+			</p>
 		</div>
 	</div>
 </template>

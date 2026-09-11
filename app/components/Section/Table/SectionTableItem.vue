@@ -20,8 +20,7 @@
 					info.lesson < 7 ?
 						'table-item-info--book-1'
 					:	'table-item-info--book-2'
-				"
-			>
+				">
 				LSN{{ info.lesson }}
 			</p>
 			<p>{{ info.kanji }}</p>
@@ -31,17 +30,29 @@
 
 		<div class="table-item-word">
 			<div class="table-item-word-ja">
-				<p class="table-item-word__jp-1">{{ jpFirst }}</p>
-				<p v-if="jpSecond" class="table-item-word__jp-2">
+				<p class="table-item-word__ja-1">{{ jpFirst }}</p>
+				<p
+					v-if="jpSecond"
+					class="table-item-word__ja-2">
 					{{ jpSecond }}
 				</p>
-				<p v-if="data.ja_particle">{{ data.ja_particle }}</p>
-				<p v-if="data.ja_suru">{{ data.ja_suru }}</p>
+				<p
+					v-if="data.ja_particle"
+					class="table-item-word__ja-particle">
+					{{ data.ja_particle }}
+				</p>
+				<p
+					v-if="data.ja_suru"
+					class="table-item-word__ja-suru">
+					{{ data.ja_suru }}
+				</p>
 			</div>
 
 			<div class="table-item-word-en">
-				<p>ー {{ data.en_meaning.join(", ") }}</p>
-				<p v-if="data.en_verb_type" class="table-item-word__en-type">
+				<p>{{ data.en_meaning.join(", ") }}</p>
+				<p
+					v-if="data.en_verb_type"
+					class="table-item-word__en-type">
 					{{ data.en_verb_type }}
 				</p>
 			</div>
@@ -97,16 +108,22 @@
 			font-size: 1.2em;
 		}
 
-		&__jp-1 {
+		&__ja-1 {
 			color: hsl(14, 100%, 60%);
 		}
 
-		&__jp-2 {
+		&__ja-2 {
 			color: hsl(50, 100%, 60%);
 		}
 
 		&__en-type {
 			font-style: italic;
+		}
+	}
+
+	.table-item-word-en {
+		&::before {
+			content: "【英】";
 		}
 	}
 </style>
